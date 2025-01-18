@@ -10,7 +10,14 @@ export default {
       fontFamily: {
         outfit: ["Outfit", "sans-serif"],
       },
-      colors: {},
+      colors: {
+        gold: "#FFD45C",
+        bronze: "#A97C50",
+      },
+      backgroundImage: {
+        "text-gradient":
+          "linear-gradient(90deg, #FFD45C 0%, #A97C50 52.5%, #FFD45C 100%)",
+      },
     },
   },
   plugins: [],
