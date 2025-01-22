@@ -52,11 +52,11 @@ const popularSearches = [
 
 export default function Footer() {
   return (
-    <div className="w-full h-[33.2rem] p-3 flex justify-around bg-black text-white  ">
+    <div className="w-full  p-7 flex justify-around bg-black text-white  ">
       <div className="flex flex-col justify-around">
         <div>
           <a href={"/"}>
-            <Image src={logo} alt="Logo" className="w-[7.5rem] h-[7.5rem]" />
+            <Image src={logo} alt="Logo" className="w-[7rem] h-[7rem]" />
           </a>
         </div>
         <div className="flex flex-col">
@@ -96,13 +96,13 @@ export default function Footer() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col space-y-8 relative top-12">
-        <span className="font-medium text-[1.3rem] leading-6 mb-1">
+      <div className="flex flex-col space-y-8 relative pt-8">
+        <span className="font-medium text-[1.1rem] leading-6 mb-1">
           Quick Links
         </span>
         <ul className="flex flex-col space-y-4">
           {quickLinks.map((link) => (
-            <li key={link.id} className="text-[1.3rem] leading-6 font-light">
+            <li key={link.id} className="text-[1rem] leading-6 font-light">
               <a
                 href={link.link}
                 className="no-underline text-white hover:text-gray-300 transition-colors"
@@ -113,13 +113,13 @@ export default function Footer() {
           ))}
         </ul>
       </div>
-      <div className="flex flex-col space-y-8 relative top-12">
-        <span className="font-medium text-[1.3rem] leading-6 mb-1 ">
+      <div className="flex flex-col space-y-8 relative pt-8">
+        <span className="font-medium text-[1.1rem] leading-6 mb-1 ">
           Popular Searches
         </span>
         <ul className="flex flex-col space-y-4">
           {popularSearches.map((search) => (
-            <li key={search.id} className="text-[1.3rem] leading-6 font-light">
+            <li key={search.id} className="text-[1rem] leading-6 font-light">
               <a
                 href={search.link}
                 className="no-underline text-white hover:text-gray-300 transition-colors"
@@ -132,27 +132,27 @@ export default function Footer() {
       </div>
       <div className="flex flex-col justify-around text-white">
         <div className="flex flex-col space-y-2">
-          <span className="font-medium text-[1.3rem] leading-6 mb-1">
+          <span className="font-medium text-[1.1rem] leading-6 mb-1">
             Email:
           </span>
           <a
             href="mailto:info@creativehomes.ae"
-            className=" no-underline hover:text-gray-300 transition-colors text-[1.3rem] leading-6"
+            className=" no-underline hover:text-gray-300 transition-colors text-[1rem] leading-6"
           >
             info@creativehomes.ae
           </a>
         </div>
         <div className="flex flex-col space-y-2">
-          <span className="font-medium text-[1.3rem] leading-6 mb-1">
+          <span className="font-medium text-[1.1rem] leading-6 mb-1">
             Phone:
           </span>
-          <span className="text-[1.3rem] leading-6 ">Dubai: +97142387671</span>
+          <span className="text-[1rem] leading-6 ">Dubai: +97142387671</span>
         </div>
         <div className="flex flex-col space-y-2">
-          <span className="font-medium text-[1.3rem] leading-6 mb-1">
+          <span className="font-medium text-[1.1rem] leading-6 mb-1">
             Address:
           </span>
-          <span className="text-[1.3rem] leading-6 ">
+          <span className="text-[1rem] leading-6 ">
             Office 3107, BLDG 3, Gold & <br /> Diamond Park, Sheikh Zayed Road{" "}
             <br /> 37468 Dubai, United Arab Emirates
           </span>

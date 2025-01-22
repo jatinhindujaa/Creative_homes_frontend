@@ -32,7 +32,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <div className="w-full h-24 flex items-center justify-around px-8 bg-black">
+    <div className="absolute w-full h-24 flex items-center justify-between px-10 bg-transparent z-10">
       <a href={"/"} className="flex items-center">
         <Image src={logo} alt="Logo" className="w-20 h-20" />
       </a>
@@ -41,7 +41,7 @@ export default function Header() {
           <div key={nav.id} className="relative group">
             <a
               href={nav.link}
-              className="no-underline flex items-center text-white font-semibold text-[1.2rem] hover:text-gray-300 transition-colors"
+              className="no-underline flex items-center text-white font-semibold text-[1rem] hover:text-gray-300 transition-colors"
             >
               {nav.name}
               {(nav.name === "Contact" || nav.name === "Features") && (
@@ -80,7 +80,7 @@ export default function Header() {
           </div>
         ))}
       </div>
-      <Button text="Submit Property" className="p-3" />
+      <Button text="Submit Property" className="p-3 text-[1rem] px-8" />
     </div>
   );
 }
