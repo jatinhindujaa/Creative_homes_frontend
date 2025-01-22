@@ -32,7 +32,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <div className="absolute w-full h-24 flex items-center justify-between px-10 bg-transparent z-10">
+    <div className="absolute w-full h-24 flex items-center justify-between px-10 bg-transparent z-40">
       <a href={"/"} className="flex items-center">
         <Image src={logo} alt="Logo" className="w-20 h-20" />
       </a>
