@@ -5,17 +5,32 @@ import Featured_3 from "../assets/featured/featured_3.png";
 import Featured_4 from "../assets/featured/featured_4.png";
 import Featured_5 from "../assets/featured/featured_5.png";
 import Button from "@/app/_components/ui/Button";
+import { FcGoogle } from "react-icons/fc";
 
 const Featured = () => {
   return (
-    <div>
-      <div className="flex justify-center space-x-4 text-[3.5rem] font-medium">
+    <div className="flex flex-col items-center relative ">
+      <div className="bg-[#202120] text-white p-6 rounded-lg border border-[#FCD15B] w-[60%] text-center absolute -top-[6rem]">
+        <p className="text-[1.5rem] space-x-4 tracking-wider">
+          <span className="text-[#FCD15B]">AWARDED</span> TOP AGENT:
+          <span className="text-[#A97C50]">EXCELLENCE</span> AT TOWN SQUARE
+          <span className="text-[#FCD15B]">DUBAI</span>
+        </p>
+        <div className="flex items-center justify-center mt-2 space-x-2">
+          <FcGoogle size={40} />
+          <p className="text-[1.5rem] font-semibold">
+            Reviews <span className="text-gray-300">11,000+</span>
+          </p>
+        </div>
+      </div>
+
+      <div className="flex justify-center space-x-4 text-[2.5rem] pt-40 font-medium">
         <span>FEATURED </span>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           PROPERTIES
         </span>
       </div>
-      <div className="flex w-[90%] mx-auto">
+      <div className="flex w-[90%] mx-auto pt-4">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           {/* <div
             style={{
@@ -26,7 +41,7 @@ const Featured = () => {
               width: "100%",
             }}
           >
-            <div className="flex flex-col justify-center items-center w-full h-full bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150">
+            <div className="flex flex-col justify-center items-center w-full h-full bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 ">
               <span>The Elan</span>
               <span>AED 15,900,000</span>
             </div>
@@ -41,11 +56,11 @@ const Featured = () => {
               priority
               className="rounded-[20px]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-[20px]">
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 The Elan
               </span>
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 15,900,000
               </span>
             </div>
@@ -60,11 +75,11 @@ const Featured = () => {
               priority
               className="rounded-[20px]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-[20px]">
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 Harmony
               </span>
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 20,600,000
               </span>
             </div>
@@ -81,16 +96,16 @@ const Featured = () => {
               priority
               className="rounded-[20px]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-[20px]">
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 The Sundials
               </span>
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 29,800,000
               </span>
             </div>
           </div>
-          <Button text="VIEW ALL" className="p-3 w-fit " />
+          <Button text="VIEW ALL" className="px-4 w-fit py-1 text-[0.9rem]" />
         </div>
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           <div className="relative h-[32.4rem] w-full  ">
@@ -103,11 +118,11 @@ const Featured = () => {
               priority
               className="rounded-[20px]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-[20px]">
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 Aseel
               </span>
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 24,400,000
               </span>
             </div>
@@ -123,11 +138,11 @@ const Featured = () => {
               priority
               className="rounded-[20px]"
             />
-            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-[20px]">
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 Mira
               </span>
-              <span className="text-white text-[1.9rem] leading-[2.4rem]">
+              <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 35,100,000
               </span>
             </div>

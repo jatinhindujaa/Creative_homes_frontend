@@ -8,10 +8,13 @@ import Info from "./parts/Info";
 import Agents from "./parts/Agents";
 import Property from "./parts/Property";
 import News from "./parts/News";
+import work_banner from "./assets/info/work_with_us.jpg";
+import Image from "next/image";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex gap-10 flex-col">
+      
       <Hero />
       <Featured />
       <Mortgage_calculator />

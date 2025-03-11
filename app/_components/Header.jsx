@@ -3,8 +3,8 @@ import Image from "next/image";
 import logo from "@/public/logo.png";
 
 const navLinks = [
-  { id: 1, name: "Home", link: "" },
-  { id: 2, name: "Our Listings", link: "" },
+  { id: 1, name: "Buy", link: "" },
+  { id: 2, name: "Rent", link: "" },
   { id: 3, name: "Meet the team", link: "" },
 
   {
@@ -17,6 +17,7 @@ const navLinks = [
     ],
   },
   { id: 5, name: "Mortgage Calculator", link: "" },
+  { id: 6, name: "Guides", link: "" },
   { id: 6, name: "News", link: "" },
   {
     id: 7,
@@ -80,7 +81,7 @@ export default function Header() {
           </div>
         ))}
       </div>
-      <Button text="Submit Property" className="p-3 text-[1rem] px-8" />
+      <Button text="Sell Your Property" className="px-4 text-[1rem] py-1 text-white" />
     </div>
   );
 }

@@ -8,8 +8,8 @@ import Button from "@/app/_components/ui/Button";
 
 const Projects = () => {
   return (
-    <div className="flex flex-col">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[3.5rem] leading-[4.3rem] font-semibold mt-4">
+    <div className="flex flex-col gap-10">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold mt-4">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           UPCOMING
         </span>
@@ -26,11 +26,11 @@ const Projects = () => {
             className="rounded-s-2xl"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <div className="bg-black rounded-s-2xl bg-opacity-30 absolute inset-0 transition-opacity duration-300 delay-150 hover:opacity-0"></div>
+            <div className="bg-black rounded-s-2xl bg-opacity-30 absolute inset-0 transition-opacity duration-300  hover:opacity-0"></div>
 
-            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col justify-center items-center">
-              <span className="font-medium">Serenity Mansions</span>
-              <Button text="VIEW PROJECT" className="p-2 font-medium" />
+            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 flex flex-col justify-center items-center">
+              <span className="font-light">Serenity Mansions</span>
+              <Button text="VIEW PROJECT" className="px-3 py-1 font-light"/>
             </div>
           </div>
         </div>
@@ -44,11 +44,11 @@ const Projects = () => {
             objectPosition="center"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <div className="bg-black bg-opacity-30 absolute inset-0 transition-opacity duration-300 delay-150 hover:opacity-0"></div>
+            <div className="bg-black bg-opacity-30 absolute inset-0 transition-opacity duration-300  hover:opacity-0"></div>
 
-            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col justify-center items-center">
-              <span className="font-medium">Knightsbridge</span>
-              <Button text="VIEW PROJECT" className="p-2 font-medium" />
+            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
+              <span className="font-light">Knightsbridge</span>
+              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
             </div>
           </div>
         </div>
@@ -61,11 +61,11 @@ const Projects = () => {
             objectPosition="center"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <div className="bg-black bg-opacity-30 absolute inset-0 transition-opacity duration-300 delay-150 hover:opacity-0"></div>
+            <div className="bg-black bg-opacity-30 absolute inset-0 transition-opacity duration-300  hover:opacity-0"></div>
 
-            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col justify-center items-center">
-              <span className="font-medium">Farm Grove</span>
-              <Button text="VIEW PROJECT" className="p-2 font-medium" />
+            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
+              <span className="font-light">Farm Grove</span>
+              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
             </div>
           </div>
         </div>
@@ -79,11 +79,11 @@ const Projects = () => {
             className="rounded-s-2xl"
           />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <div className="bg-black rounded-s-2xl bg-opacity-30 absolute inset-0 transition-opacity duration-300 delay-150 hover:opacity-0"></div>
+            <div className="bg-black rounded-s-2xl bg-opacity-30 absolute inset-0 transition-opacity duration-300  hover:opacity-0"></div>
 
-            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col justify-center items-center">
-              <span className="font-medium">Damac Islands</span>
-              <Button text="VIEW PROJECT" className="p-2 font-medium" />
+            <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
+              <span className="font-light">Damac Islands</span>
+              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
             </div>
           </div>
         </div>

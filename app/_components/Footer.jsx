@@ -5,37 +5,67 @@ import { FaInstagram } from "react-icons/fa6";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
+import { MdLocationOn } from "react-icons/md";
+import { CgMail } from "react-icons/cg";
+import { IoMdCall } from "react-icons/io";
 
 const socialMediaLinks = [
   {
     id: 1,
     icon: <FaInstagram color="black" size={"25px"} />,
     link: "https://www.instagram.com/",
+    name: "Instagram",
   },
   {
     id: 2,
     icon: <RiFacebookFill color="black" size={"25px"} />,
     link: "https://www.facebook.com/",
+    name: "facebook",
   },
   {
     id: 3,
     icon: <FaLinkedinIn color="black" size={"25px"} />,
     link: "https://www.linkedin.com/",
+    name: "LinkedIn",
   },
   {
     id: 4,
     icon: <FaYoutube color="black" size={"25px"} />,
     link: "https://www.youtube.com",
+    name: "Youtube",
   },
 ];
-
+const ContactLinks = [
+  {
+    id: 1,
+    icon: <MdLocationOn color="black" size={"25px"} />,
+    link: "https://www.instagram.com/",
+    name: "info@creativehomes.ae",
+  },
+  {
+    id: 2,
+    icon: <CgMail color="black" size={"25px"} />,
+    link: "https://www.facebook.com/",
+    name: "Office 3107, BLDG 3, Gold & Diamond Park, Sheikh Zayed Road 37468 Dubai, United Arab Emirates",
+  },
+  {
+    id: 3,
+    icon: <IoMdCall color="black" size={"25px"} />,
+    link: "https://www.linkedin.com/",
+    name: "+9714 238 7671",
+  },
+];
 const quickLinks = [
-  { id: 1, name: "Home", link: "/" },
-  { id: 2, name: "About Us", link: "" },
-  { id: 3, name: "Blog", link: "" },
-  { id: 4, name: "Events", link: "" },
-  { id: 5, name: "Our Team", link: "" },
-  { id: 6, name: "Contact Us", link: "" },
+  { id: 1, name: "Home", link: "" },
+  { id: 2, name: "Properties", link: "" },
+  { id: 3, name: "Rent Properties", link: "" },
+  { id: 4, name: "Buy Properties", link: "" },
+  { id: 5, name: "Off Plan Properties", link: "" },
+  { id: 6, name: "About Us", link: "" },
+  { id: 7, name: "News", link: "" },
+  { id: 8, name: "Contact Us", link: "" },
+  { id: 9, name: "Privacy Policy", link: "" },
+  { id: 10, name: "Terms & Conditions", link: "" },
 ];
 
 const popularSearches = [
@@ -52,18 +82,18 @@ const popularSearches = [
 
 export default function Footer() {
   return (
-    <div className="w-full  p-7 flex justify-around bg-black text-white  ">
-      <div className="flex flex-col justify-around">
+    <div className="w-full  p-10 flex justify-between bg-black text-white  ">
+      <div className="flex flex-col justify-around w-[35%] h-[60vh]">
         <div>
           <a href={"/"}>
             <Image src={logo} alt="Logo" className="w-[7rem] h-[7rem]" />
           </a>
         </div>
         <div className="flex flex-col">
-          <span className="font-semibold text-[1.3rem] leading-6 mb-1">
+          <span className="font-semibold text-[1rem] leading-6 mb-1">
             Stay in the loop
           </span>
-          <span className="text-[1.3rem] leading-6">
+          <span className="text-[1rem] leading-6">
             Sign up to our weekly newsletter for market updates
           </span>
         </div>
@@ -73,15 +103,18 @@ export default function Footer() {
             className="w-[22.7rem] rounded-[20px] p-3 text-black"
             placeholder="Email Address"
           />
-          <Button text="Send" className="w-20 p-2 rounded-[20px]" />
+          <Button
+            text="Send"
+            className="w-20 p-2 rounded-[18px] text-[0.9rem]"
+          />
         </div>
         <div className="flex flex-col">
-          <span className="text-[1.3rem] leading-6 mb-1">Follow Us On:</span>
-          <div className="flex space-x-2">
+          <span className="text-[0.9rem] leading-6 mb-1">Follow Us On:</span>
+          <div className="flex space-x-2 gap-2">
             {socialMediaLinks.map((social) => (
               <div
                 key={social.id}
-                className="w-[1.9rem] h-[1.9rem] bg-white flex justify-center items-center rounded-lg "
+                className="w-[1.8rem] h-[1.8rem] bg-white flex justify-center items-center rounded-lg "
               >
                 <a href={social.link} className="text-black">
                   {social.icon}
@@ -91,12 +124,12 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex flex-col">
-          <span className="text-[1.3rem] leading-6">
+          <span className="text-[1rem] leading-6">
             © All Right Reserved By Creative Homes Real Estate, 2024
           </span>
         </div>
       </div>
-      <div className="flex flex-col space-y-8 relative pt-8">
+      {/* <div className="flex flex-col space-y-8 relative pt-8">
         <span className="font-medium text-[1.1rem] leading-6 mb-1">
           Quick Links
         </span>
@@ -112,25 +145,74 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="flex flex-col space-y-8 relative pt-8">
-        <span className="font-medium text-[1.1rem] leading-6 mb-1 ">
-          Popular Searches
+      </div> */}
+      <div className="flex flex-col space-y-8 relative pt-8 w-[25%]">
+        <span className="font-medium text-[1rem] leading-6 mb-1">
+          Quick Links
         </span>
-        <ul className="flex flex-col space-y-4">
-          {popularSearches.map((search) => (
-            <li key={search.id} className="text-[1rem] leading-6 font-light">
+        <ul className="grid grid-cols-2 gap-y-3 gap-x-1">
+          {quickLinks.map((link) => (
+            <li key={link.id} className="text-[0.9rem] leading-6 font-light">
               <a
-                href={search.link}
+                href={link.link}
                 className="no-underline text-white hover:text-gray-300 transition-colors"
               >
-                {search.name}
+                {link.name}
               </a>
             </li>
           ))}
         </ul>
       </div>
-      <div className="flex flex-col justify-around text-white">
+
+      <div className="flex flex-col space-y-8 relative pt-8 w-[10%]">
+        <span className="font-medium text-[1rem] leading-6 mb-1 ">
+          Follow us on:
+        </span>
+        <ul className="flex flex-col space-y-4">
+          {socialMediaLinks.map((search) => (
+            <div className="flex flex-row gap-3">
+              <li
+                key={search.id}
+                className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center"
+              >
+                <a
+                  href={search.link}
+                  className="no-underline text-white hover:text-gray-300 transition-colors"
+                >
+                  {search.icon}
+                </a>
+              </li>
+              <li className="text-[0.9rem] leading-6 font-light">
+                {search.name}
+              </li>
+            </div>
+          ))}
+        </ul>
+      </div>
+      <div className="flex flex-col space-y-8 relative pt-8 w-[20%]">
+        <span className="font-medium text-[1rem] leading-6 mb-1 ">
+          Contact us:
+        </span>
+        <ul className="flex flex-col space-y-4">
+          {ContactLinks.map((con) => (
+            <div className="flex flex-row gap-3">
+              <li
+                key={con.id}
+                className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center"
+              >
+                <a
+                  href={con.link}
+                  className="no-underline text-white hover:text-gray-300 transition-colors"
+                >
+                  {con.icon}
+                </a>
+              </li>
+              <li className="text-[0.9rem] leading-6 font-light">{con.name}</li>
+            </div>
+          ))}
+        </ul>
+      </div>
+      {/* <div className="flex flex-col justify-around text-white">
         <div className="flex flex-col space-y-2">
           <span className="font-medium text-[1.1rem] leading-6 mb-1">
             Email:
@@ -157,7 +239,7 @@ export default function Footer() {
             <br /> 37468 Dubai, United Arab Emirates
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
