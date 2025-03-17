@@ -17,7 +17,7 @@ const Mortgage = () => {
         <InterestSection />
         <MarqueeSection/>
         <News/>
-        <PropertyCard/>
+        {/* <PropertyCard/> */}
       </div>
     </>
   );
