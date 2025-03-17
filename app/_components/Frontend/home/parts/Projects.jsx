@@ -30,7 +30,10 @@ const Projects = () => {
 
             <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 flex flex-col justify-center items-center">
               <span className="font-light">Serenity Mansions</span>
-              <Button text="VIEW PROJECT" className="px-3 py-1 font-light"/>
+              <Button
+                text="VIEW Project"
+                className="px-4 w-fit py-1 text-[0.9rem] z-10 uppercase"
+              />
             </div>
           </div>
         </div>
@@ -48,7 +51,10 @@ const Projects = () => {
 
             <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
               <span className="font-light">Knightsbridge</span>
-              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
+              <Button
+                text="VIEW Project"
+                className="px-4 w-fit py-1 text-[0.9rem] z-10 uppercase"
+              />
             </div>
           </div>
         </div>
@@ -65,7 +71,10 @@ const Projects = () => {
 
             <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
               <span className="font-light">Farm Grove</span>
-              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
+              <Button
+                text="VIEW Project"
+                className="px-4 w-fit py-1 text-[0.9rem] z-10 uppercase"
+              />
             </div>
           </div>
         </div>
@@ -83,7 +92,10 @@ const Projects = () => {
 
             <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2  flex flex-col justify-center items-center">
               <span className="font-light">Damac Islands</span>
-              <Button text="VIEW PROJECT" className="px-3 py-1 font-light" />
+              <Button
+                text="VIEW Project"
+                className="px-4 w-fit py-1 text-[0.9rem] z-10 uppercase"
+              />
             </div>
           </div>
         </div>
