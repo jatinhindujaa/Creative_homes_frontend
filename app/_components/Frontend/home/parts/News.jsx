@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const News = () => {
   return (
-    <div className="w-[90%] h-[900px] mx-auto flex space-x-4">
+    <div className="w-[90%] h-[900px] mx-auto flex space-x-4 text-[#fff]">
       <div className="flex flex-col w-[33.33%] space-y-4">
         <div className="h-[560px] w-full relative">
           <Image

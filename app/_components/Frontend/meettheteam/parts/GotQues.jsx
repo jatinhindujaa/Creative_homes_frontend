@@ -98,7 +98,7 @@ const InterestSection = () => {
 
   return (
     <div
-      className="w-[90%] bg-cover bg-center flex justify-center items-center rounded-2xl mb-16"
+      className="w-[79%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
       style={{
         backgroundImage: `url('/bg.png')`,
       }}

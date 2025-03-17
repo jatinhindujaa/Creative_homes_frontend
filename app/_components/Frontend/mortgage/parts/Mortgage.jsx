@@ -170,7 +170,7 @@ const MortgageCalculator = () => {
           Right Mortgage
         </span>
       </div>
-      <div className="w-[80%] bg-[#202120] flex flex-col items-center my-10">
+      <div className="w-[80%] bg-[#202120] flex flex-col items-center my-10 rounded-xl">
         <div className="text-white p-6 rounded-lg w-[100%] mt-7 shadow-lg flex flex-row">
           <div className="w-[50%]">
             <div className="w-[100%]">
@@ -234,7 +234,9 @@ const MortgageCalculator = () => {
             </ResponsiveContainer>
           </div> */}
           <div className="w-[50%] flex justify-center items-center">
-            <ResponsiveContainer width="100%" height={250}>
+            <ResponsiveContainer width="100%" height={300}>
+              {" "}
+              {/* Increased height for better visibility */}
               <PieChart>
                 {/* Define Gradients */}
                 <defs>
@@ -271,11 +273,11 @@ const MortgageCalculator = () => {
                   nameKey="name"
                   cx="50%"
                   cy="50%"
-                  innerRadius={70} // Creates donut effect
-                  outerRadius={100} // Adjust for size
-                  startAngle={90} // Start from top
-                  endAngle={-270} // Clockwise direction
-                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`} // Show percentages
+                  innerRadius={95} // Reduced to make the bars thicker
+                  outerRadius={140} // Increased for larger bars
+                  startAngle={90}
+                  endAngle={-270}
+                  label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
                   labelLine={false}
                 >
                   <Cell key="cell-1" fill="url(#bronzeGradient)" />
@@ -297,7 +299,7 @@ const MortgageCalculator = () => {
           </button>
         </div>
 
-        <div className="flex gap-6 mt-6 text-center py-5">
+        <div className="flex gap-6 mt-6 text-center py-5 justify-around w-full">
           <div>
             <h3 className="text-lg font-semibold text-[#fff]">
               Mortgage Amount

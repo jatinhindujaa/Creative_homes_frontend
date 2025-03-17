@@ -169,14 +169,16 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="py-16 px-4">
+    <div className="px-4">
       {/* FAQ Title */}
-      <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#d4af37] to-[#b58e31] mb-8">
-        FAQ’s
-      </h2>
+      <div className="text-center py-5">
+        <span className="text-center leading-10 text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+          FAQ’s
+        </span>
+      </div>
 
       {/* FAQ List */}
-      <div className="max-w-5xl mx-auto space-y-4">
+      <div className="max-w-[71rem] mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div key={index} className="relative">
             {/* Outer Shadow for Glow Effect */}
@@ -184,27 +186,27 @@ const FAQSection = () => {
 
             {/* FAQ Button */}
             <div className="bg-white bg-opacity-20 backdrop-blur-lg p-4 rounded-full px-[1.3rem">
-            <button
-              className="relative w-full flex justify-between items-center px-6 py-1 bg-white rounded-full text-black text-lg font-medium shadow-lg transition-all"
-              onClick={() => toggleFAQ(index)}
-            >
-              {faq.question}
-
-              {/* Expand/Collapse Icon */}
-              <span
-                className={`w-[1.8rem] h-[1.8rem] flex items-center justify-center rounded-full border border-black ${
-                  openIndex === index
-                    ? "bg-black text-white"
-                    : "bg-white text-black"
-                }`}
+              <button
+                className="relative w-full flex justify-between items-center px-6 py-1 bg-white rounded-full text-black text-lg font-medium shadow-lg transition-all"
+                onClick={() => toggleFAQ(index)}
               >
-                {openIndex === index ? (
-                  <FaChevronUp size={14} />
-                ) : (
-                  <FaChevronDown size={14} />
-                )}
-              </span>
-            </button>
+                {faq.question}
+
+                {/* Expand/Collapse Icon */}
+                <span
+                  className={`w-[1.8rem] h-[1.8rem] flex items-center justify-center rounded-full border border-black ${
+                    openIndex === index
+                      ? "bg-black text-white"
+                      : "bg-white text-black"
+                  }`}
+                >
+                  {openIndex === index ? (
+                    <FaChevronUp size={14} />
+                  ) : (
+                    <FaChevronDown size={14} />
+                  )}
+                </span>
+              </button>
             </div>
 
             {/* FAQ Answer (Collapsible) */}
