@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
-import FileInput from "../../ui/FileInput";
 
 const EditPropertyForm = ({
   id,
@@ -9,6 +8,7 @@ const EditPropertyForm = ({
   editData,
   setEditData,
   onConfirm,
+  onCloseModal,
 }) => {
   const [tags, setTags] = useState(editData.features || []);
 
@@ -145,21 +145,10 @@ const EditPropertyForm = ({
           />
         </div>
 
-        <div className="space-x-12">
-          <label className="text-sm font-medium text-gray-700">
-            Multiple Images
-          </label>
-          <FileInput
-            id="multipleImages"
-            accept="image/*"
-            type="file"
-            multiple
-          />
-        </div>
-
         <div className="flex justify-end space-x-3">
           <button
             type="button"
+            onClick={onCloseModal}
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition"
           >
             Cancel

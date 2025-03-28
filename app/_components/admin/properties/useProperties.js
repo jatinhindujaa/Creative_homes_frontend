@@ -6,6 +6,7 @@ import {
   updateProperty,
   updateMultiImagesFromProperty,
   fetchPropertyById,
+  removeMultiImageFromProperty,
 } from "../../services/api.property";
 
 import toast from "react-hot-toast";
@@ -93,18 +94,18 @@ export const useUpdateMultiImagesFromProperty = () => {
   });
 };
 
-// export const useDeleteMultiImageFromProperty = () => {
-//   const queryClient = useQueryClient();
+export const useDeleteMultiImageFromProperty = () => {
+  const queryClient = useQueryClient();
 
-//   return useMutation({
-//     mutationFn: removeMultiImageFromProperty,
-//     onSuccess: () => {
-//       queryClient.invalidateQueries(["Property"]);
-//       toast.success("Property multi image deleted successfully!");
-//     },
-//     onError: (error) => {
-//       console.error("Failed to delete Property multi image:", error);
-//       toast.error("Failed to delete Property multi image. Please try again.");
-//     },
-//   });
-// };
+  return useMutation({
+    mutationFn: removeMultiImageFromProperty,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["Property"]);
+      toast.success("Property multi image deleted successfully!");
+    },
+    onError: (error) => {
+      console.error("Failed to delete Property multi image:", error);
+      toast.error("Failed to delete Property multi image. Please try again.");
+    },
+  });
+};

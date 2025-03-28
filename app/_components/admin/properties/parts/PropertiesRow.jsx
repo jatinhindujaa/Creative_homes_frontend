@@ -4,6 +4,7 @@ import Tag from "@/app/_components/ui/Tag";
 import Modal from "@/app/_components/ui/Modal";
 import Menus from "@/app/_components/ui/Menus";
 import { HiTrash, HiPencil } from "react-icons/hi2";
+import { FaRegImages } from "react-icons/fa";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { useDeleteProperty, useUpdateProperty } from "../useProperties";
 import Spinner from "@/app/_components/ui/Spinner";
@@ -11,6 +12,7 @@ import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import EditPropertyForm from "@/app/_components/features/Properties/EditPropertyForm";
 import Image from "next/image";
 import toast from "react-hot-toast";
+import ImagesFormProperty from "@/app/_components/features/Properties/ImagesFormProperty";
 
 function PropertiesRow({
   property: {
@@ -26,6 +28,7 @@ function PropertiesRow({
     shortDescription,
     description,
     dealType,
+    multipleImages,
     status,
   },
 }) {
@@ -59,6 +62,7 @@ function PropertiesRow({
     shortDescription,
     description,
     dealType,
+    multipleImages,
   });
 
   const expandDescription = () => {
@@ -172,6 +176,9 @@ function PropertiesRow({
           <Modal.Open opens="edit">
             <Menus.Button icon={<HiPencil />} />
           </Modal.Open>
+          <Modal.Open opens="images-form">
+            <Menus.Button icon={<FaRegImages />} />
+          </Modal.Open>
           <Modal.Open opens="delete">
             <Menus.Button icon={<HiTrash />} />
           </Modal.Open>
@@ -195,6 +202,15 @@ function PropertiesRow({
             // disabled={false}
             // descContent={descContent}
             // setDescContent={setDescContent}
+          />
+        </Modal.Window>
+
+        <Modal.Window name="images-form">
+          <ImagesFormProperty
+            id={_id}
+            resourceName="Property"
+            editData={editData}
+            setEditData={setEditData}
           />
         </Modal.Window>
       </Modal>

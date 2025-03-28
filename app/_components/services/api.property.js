@@ -46,10 +46,10 @@ export const fetchPropertyById = async (id) => {
   return response.data.message;
 };
 
-export const updateMultiImagesFromProperty = async ({ id, images }) => {
+export const updateMultiImagesFromProperty = async ({ id, multipleImages }) => {
   const response = await axios.post(
     `${ApiUrl}/property//update-multiple-images?id=${id}`,
-    images,
+    multipleImages,
     {
       withCredentials: true,
     }
@@ -57,13 +57,13 @@ export const updateMultiImagesFromProperty = async ({ id, images }) => {
   return response.data;
 };
 
-// export const removeMultiImageFromCheckup = async ({ id, data }) => {
-//   const response = await axios.post(
-//     `${ApiUrl}/checkup/delete-image?id=${id}`,
-//     data,
-//     {
-//       withCredentials: true,
-//     }
-//   );
-//   return response.data;
-// };
+export const removeMultiImageFromProperty = async ({ id, formData }) => {
+  const response = await axios.post(
+    `${ApiUrl}/property/delete-multiple-image?id=${id}`,
+    formData,
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
+};
