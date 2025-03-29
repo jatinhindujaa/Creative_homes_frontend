@@ -78,35 +78,24 @@ function PropertiesRow({
     deleteProperty(_id);
   };
 
-  const handleConfirmEdit = (updatedData) => {
+  const handleConfirmEdit = () => {
     const formData = new FormData();
 
-    formData.append("name", updatedData.name);
-    updatedData.features.forEach((feature) => {
+    formData.append("name", editData.name);
+    editData.features.forEach((feature) => {
       formData.append("features[]", feature);
     });
-    formData.append("price", updatedData.price);
-    formData.append("type", updatedData.type);
-    formData.append("bed", updatedData.bed);
-    formData.append("shower", updatedData.shower);
-    formData.append("bua", updatedData.bua);
-    formData.append("plot", updatedData.plot);
-    formData.append("shortDescription", updatedData.shortDescription);
-    formData.append("description", updatedData.description);
-    formData.append("dealType", updatedData.dealType);
+    formData.append("price", editData.price);
+    formData.append("type", editData.type);
+    formData.append("bed", editData.bed);
+    formData.append("shower", editData.shower);
+    formData.append("bua", editData.bua);
+    formData.append("plot", editData.plot);
+    formData.append("shortDescription", editData.shortDescription);
+    formData.append("description", editData.description);
+    formData.append("dealType", editData.dealType);
 
-    updateProperty(
-      { id: _id, formData },
-      {
-        onSuccess: () => {
-          toast.success("Property updated successfully!");
-        },
-        onError: (error) => {
-          console.error("Failed to update Property:", error);
-          toast.error("Failed to update Property. Please try again.");
-        },
-      }
-    );
+    updateProperty({ id: _id, formData });
   };
 
   if (isUpdatingProperty) return <Spinner />;

@@ -48,31 +48,18 @@ const ImagesFormProperty = ({
       { id, multipleImages: formData },
       {
         onSuccess: () => {
-          toast.success("Images updated successfully!");
           onCloseModal?.();
           onConfirm?.();
         },
         onError: (error) => {
           console.error("Failed to update images:", error);
-          toast.error("Failed to update images. Please try again.");
         },
       }
     );
   };
 
   const handleDeleteImage = (index) => {
-    removeMultiImageFromProperty(
-      { id, formData: { index } },
-      {
-        onSuccess: () => {
-          toast.success("Image deleted successfully!");
-        },
-        onError: (error) => {
-          console.error("Failed to delete image:", error);
-          toast.error("Failed to delete image. Please try again.");
-        },
-      }
-    );
+    removeMultiImageFromProperty({ id, formData: { index } });
 
     const updatedImages = editData.multipleImages.filter((_, i) => i !== index);
     setEditData({ ...editData, multipleImages: updatedImages });

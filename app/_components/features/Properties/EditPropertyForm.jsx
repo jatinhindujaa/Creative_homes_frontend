@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
 
 const EditPropertyForm = ({
-  id,
   resourceName,
   editData,
   setEditData,
@@ -12,6 +11,10 @@ const EditPropertyForm = ({
 }) => {
   const [tags, setTags] = useState(editData.features || []);
 
+  useEffect(() => {
+    setEditData((prev) => ({ ...prev, features: tags }));
+  }, [tags, setEditData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditData((prev) => ({ ...prev, [name]: value }));
@@ -19,11 +22,7 @@ const EditPropertyForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedData = {
-      ...editData,
-      features: tags,
-    };
-    onConfirm(updatedData);
+    onConfirm(editData);
   };
 
   return (

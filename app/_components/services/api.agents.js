@@ -43,10 +43,10 @@ export const fetchAgentById = async (id) => {
   return response.data.message;
 };
 
-export const updateImage = async ({ id, data }) => {
+export const updateImage = async ({ id, formData }) => {
   const response = await axios.post(
     `${ApiUrl}/agent/update-image?id=${id}`,
-    data,
+    formData,
     {
       withCredentials: true,
     }

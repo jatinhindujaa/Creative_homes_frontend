@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "react-hot-toast";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <QueryClientProvider client={queryClient}>
         <body className={outfit.className} style={{ position: "relative" }}>
+          <Toaster position="top-center" reverseOrder={false} />
           {!isAdminRoute && <Header />}{" "}
           <ReactQueryDevtools initialIsOpen={false} /> {children}
           {!isAdminRoute && <Footer />}{" "}
