@@ -18,9 +18,9 @@ const navLinks = [
   },
   { id: 5, name: "Mortgage Calculator", link: "" },
   { id: 6, name: "Guides", link: "" },
-  { id: 6, name: "News", link: "" },
+  { id: 7, name: "News", link: "" },
   {
-    id: 7,
+    id: 8,
     name: "Contact",
     items: [
       { itemName: "Contact Us", link: "" },
@@ -81,7 +81,10 @@ export default function Header() {
           </div>
         ))}
       </div>
-      <Button text="Sell Your Property" className="px-4 text-[1rem] py-1 text-white" />
+      <Button
+        text="Sell Your Property"
+        className="px-4 text-[1rem] py-1 text-white"
+      />
     </div>
   );
 }

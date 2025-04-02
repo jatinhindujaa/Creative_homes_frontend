@@ -170,11 +170,8 @@ export default function Footer() {
         </span>
         <ul className="flex flex-col space-y-4">
           {socialMediaLinks.map((search) => (
-            <div className="flex flex-row gap-3">
-              <li
-                key={search.id}
-                className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center"
-              >
+            <div key={search.id} className="flex flex-row gap-3">
+              <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                 <a
                   href={search.link}
                   className="no-underline text-white hover:text-gray-300 transition-colors"
@@ -195,11 +192,8 @@ export default function Footer() {
         </span>
         <ul className="flex flex-col space-y-4">
           {ContactLinks.map((con) => (
-            <div className="flex flex-row gap-3">
-              <li
-                key={con.id}
-                className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center"
-              >
+            <div key={con.id} className="flex flex-row gap-3">
+              <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                 <a
                   href={con.link}
                   className="no-underline text-white hover:text-gray-300 transition-colors"

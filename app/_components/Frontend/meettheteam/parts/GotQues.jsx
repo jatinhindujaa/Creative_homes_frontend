@@ -77,7 +77,7 @@
 // };
 
 // export default InterestSection;
-"use client"
+"use client";
 
 import { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -98,7 +98,7 @@ const InterestSection = () => {
 
   return (
     <div
-      className="w-[79%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
+      className="w-[90%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
       style={{
         backgroundImage: `url('/bg.png')`,
       }}
@@ -117,7 +117,9 @@ const InterestSection = () => {
 
         {/* Right Box */}
         <div className=" p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-          <h3 className="text-[2.5rem] font-bold text-white">I am interested to</h3>
+          <h3 className="text-[2.5rem] font-bold text-white">
+            I am interested to
+          </h3>
 
           {/* Icon Options */}
           <div className="flex gap-4">
@@ -126,12 +128,14 @@ const InterestSection = () => {
                 key={option.id}
                 onClick={() => setSelected(option.id)}
                 className={`w-14 h-14 flex items-center justify-center rounded-lg transition-all ${
-                    option.id === 2?"bg-black text-white":"bg-white text-black"
+                  option.id === 2
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
                 }, ${
                   selected === option.id
                     ? "bg-black text-white"
                     : "bg-white text-black border-black"
-                }` }
+                }`}
               >
                 {option.icon}
               </button>
