@@ -82,7 +82,7 @@ const popularSearches = [
 
 export default function Footer() {
   return (
-    <div className="w-full  p-10 flex justify-between bg-black text-white  ">
+    <div className="max-lg:hidden w-full  p-10 flex justify-between bg-black text-white  ">
       <div className="flex flex-col justify-around w-[35%] h-[60vh]">
         <div>
           <a href={"/"}>
@@ -108,7 +108,7 @@ export default function Footer() {
             className="w-20 p-2 rounded-[18px] text-[0.9rem]"
           />
         </div>
-        <div className="flex flex-col">
+        {/* <div className="flex flex-col">
           <span className="text-[0.9rem] leading-6 mb-1">Follow Us On:</span>
           <div className="flex space-x-2 gap-2">
             {socialMediaLinks.map((social) => (
@@ -122,7 +122,7 @@ export default function Footer() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="flex flex-col">
           <span className="text-[1rem] leading-6">
             © All Right Reserved By Creative Homes Real Estate, 2024

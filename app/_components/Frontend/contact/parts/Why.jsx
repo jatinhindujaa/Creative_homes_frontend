@@ -15,7 +15,6 @@
 
 // export default Why
 
-
 // import React from "react";
 
 // const Why = () => {
@@ -102,7 +101,6 @@
 
 // export default Why;
 
-
 import React from "react";
 
 const Why = () => {
@@ -126,16 +124,16 @@ const Why = () => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <span className="text-[#fff] text-[2.5rem] text-center">
+      <div className=" flex justify-center">
+        <span className="text-[#fff] max-md:text-[1.2rem] text-[2.5rem] text-center">
           Why Invest{" "}
-          <span className="leading-10 text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+          <span className="leading-10 max-md:text-[1.2rem] text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             In Dubai
           </span>
         </span>
       </div>
 
-      <div className="relative py-12 flex justify-center overflow-hidden">
+      <div className="max-lg:hidden relative py-12 flex justify-center overflow-hidden">
         <div className="relative flex gap-3">
           {benefits.map((text, index) => (
             <div
@@ -165,6 +163,8 @@ const Why = () => {
           ))}
         </div>
       </div>
+
+      <div className="lg:hidden">{/**mobile section */}</div>
     </>
   );
 };

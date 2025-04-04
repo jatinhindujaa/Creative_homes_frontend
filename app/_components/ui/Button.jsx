@@ -9,7 +9,7 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={` font-outfit font-light text-[0.8rem] leading-[1.5rem] border-[1.5px] border-white hover:bg-white hover:text-black rounded-[41px] ${className}`}
+      className={` font-outfit font-light text-[0.8rem]  leading-[1.5rem] border-[1.5px] border-white hover:bg-transparent hover:text-black rounded-[41px] ${className}`}
       style={additionalStyles}
     >
       {text}
