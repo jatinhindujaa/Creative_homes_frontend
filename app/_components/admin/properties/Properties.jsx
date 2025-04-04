@@ -4,23 +4,18 @@ import PropertiesTableOperations from "./parts/PropertiesTableOperations";
 import Row from "../../ui/Row.jsx";
 import Heading from "../../ui/Heading.jsx";
 import PropertiesTable from "./parts/PropertiesTable";
-// import AppLayout from "../navbarAdmin/AppLayout";
+import AppLayout from "../navbarAdmin/AppLayout";
 
 export default function Properties() {
   return (
     <PropertiesProvider>
-      <Row type="horizontal">
-        <Heading as="h2">Properties</Heading>
-        <PropertiesTableOperations />
-      </Row>
-      <PropertiesTable />
-      {/* <AppLayout>
+      <AppLayout>
         <Row type="horizontal">
-          <Heading as="h2">Properties accreditations</Heading>
+          <Heading as="h2">Properties</Heading>
           <PropertiesTableOperations />
         </Row>
         <PropertiesTable />
-      </AppLayout> */}
+      </AppLayout>
     </PropertiesProvider>
   );
 }
