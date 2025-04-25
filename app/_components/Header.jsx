@@ -243,27 +243,27 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { id: 1, name: "Buy", link: "" },
   { id: 2, name: "Rent", link: "" },
-  { id: 3, name: "Meet the team", link: "" },
+  { id: 3, name: "Meet the team", link: "/meet-the-team" },
   {
     id: 4,
     name: "Features",
     items: [
-      { itemName: "By Property", link: "" },
-      { itemName: "By Agent", link: "" },
-      { itemName: "By Post", link: "" },
+      { itemName: "By Property", link: "/property" },
+      { itemName: "By Agent", link: "/property" },
+      { itemName: "By Post", link: "/property" },
     ],
   },
-  { id: 5, name: "Mortgage Calculator", link: "" },
-  { id: 6, name: "Guides", link: "" },
-  { id: 7, name: "News", link: "" },
+  { id: 5, name: "Mortgage Calculator", link: "/mortgage-calculator" },
+  // { id: 6, name: "Guides", link: "" },
+  { id: 7, name: "News", link: "/news" },
   {
     id: 8,
     name: "Contact",
     items: [
-      { itemName: "Contact Us", link: "" },
-      { itemName: "Career", link: "" },
-      { itemName: "Testimonials", link: "" },
-      { itemName: "Our Stories", link: "" },
+      { itemName: "Contact Us", link: "/contact-us" },
+      // { itemName: "Career", link: "" },
+      { itemName: "Testimonials", link: "/about" },
+      { itemName: "Our Stories", link: "/about" },
     ],
   },
 ];

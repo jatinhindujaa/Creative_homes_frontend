@@ -281,7 +281,7 @@ const Agents = () => {
         ))}
       </div>
 
-      <div className="w-[90%] mx-auto mt-10 relative lg:flex hidden">
+      <div className="w-[90%] mx-auto mt-10 relative lg:block hidden">
         <Slider {...settings} ref={sliderRef}>
           {agentsData[activeTab].data.map((agent) => (
             <div key={agent.subId} className="flex flex-col w-[250px] px-2">

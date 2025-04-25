@@ -128,7 +128,7 @@ const projectList = [
 const Projects = () => {
   return (
     <div className="flex flex-col gap-10">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] leading-[2rem] font-semibold mt-4 text-center">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold mt-4 text-center">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           UPCOMING
         </span>

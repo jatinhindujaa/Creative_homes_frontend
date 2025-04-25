@@ -8,11 +8,11 @@ import Button from "@/app/_components/ui/Button";
 const Property = () => {
   return (
     <div className="flex flex-col gap-5 lg:gap-0">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] leading-[3.3rem] mt-4">
-        <span className="leading-8">LIST YOUR </span>
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold mt-4 text-center">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-          PROPERTY
+          LIST YOUR
         </span>
+        <span>PROPERTY</span>
       </div>
       <div className="w-[90%] mx-auto  space-x-20 sm:flex hidden">
         <div className="h-[750px] w-[33.33%] flex items-end">
@@ -135,7 +135,7 @@ const Property = () => {
         </div>
       </div>
 
-      <div className="h-[30%] w-full flex flex-col justify-start items-center space-y-6  relative">
+      <div className="h-[30%] w-full lg:hidden flex flex-col justify-start items-center space-y-6  relative">
         <span className="text-[1.2rem] leading-[2.3rem]">
           Get the right valuation for your property
         </span>
