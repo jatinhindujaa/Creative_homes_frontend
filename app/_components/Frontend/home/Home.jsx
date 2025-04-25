@@ -10,15 +10,19 @@ import Property from "./parts/Property";
 import News from "./parts/News";
 import work_banner from "./assets/info/work_with_us.jpg";
 import Image from "next/image";
+import MobileFeatured from "./parts/MobileFeatured";
+import MobileProp from "./parts/MobileProp";
 
 const Home = () => {
   return (
-    <div className="flex gap-10 flex-col">
+    <div className="flex flex-col">
       
       <Hero />
       <Featured />
+      <MobileFeatured/>
       <Mortgage_calculator />
       <Neighbourhoods />
+      <MobileProp/>
       <Projects />
       <Info />
       <Agents />

@@ -5,7 +5,7 @@ import FAQSection from '../meettheteam/parts/Faq\'s';
 import InterestSection from '../meettheteam/parts/GotQues';
 import MarqueeSection from '../meettheteam/parts/marque';
 import News from '../home/parts/News';
-import PropertyCard from '../home/parts/PropertyCard';
+import PropertyCard from '../property/parts/PropertyCard';
 
 const Mortgage = () => {
   return (

@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Featured = () => {
   return (
-    <div className="flex flex-col items-center relative ">
+    <div className="hidden md:flex flex-col items-center relative">
       <div className="bg-[#202120] text-white p-6 rounded-lg border border-[#FCD15B] w-[60%] text-center absolute -top-[6rem]">
         <p className="text-[1.5rem] space-x-4 tracking-wider">
           <span className="text-[#FCD15B]">AWARDED</span> TOP AGENT:
@@ -32,20 +32,6 @@ const Featured = () => {
       </div>
       <div className="flex w-[90%] mx-auto pt-4">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
-          {/* <div
-            style={{
-              backgroundImage: `url(${Featured_1.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              height: "50%",
-              width: "100%",
-            }}
-          >
-            <div className="flex flex-col justify-center items-center w-full h-full bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 ">
-              <span>The Elan</span>
-              <span>AED 15,900,000</span>
-            </div>
-          </div> */}
           <div className="relative h-[30%] w-full ">
             <Image
               src={Featured_1.src}
@@ -154,3 +140,5 @@ const Featured = () => {
 };
 
 export default Featured;
+
+

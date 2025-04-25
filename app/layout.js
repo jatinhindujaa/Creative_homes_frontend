@@ -9,6 +9,8 @@ import { useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "react-hot-toast";
 import MobileFooter from "./_components/MobileFooter";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const outfit = Outfit({
   subsets: ["latin"],

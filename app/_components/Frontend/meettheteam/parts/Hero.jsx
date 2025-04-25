@@ -35,54 +35,6 @@ const Hero = () => {
           />
         </div>
       </div>
-
-      {/* <div className="bg-white bg-opacity-20 backdrop-blur-lg p-4 rounded-full px-8">
-          <div className="flex justify-center space-x-3 mb-3">
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Buy
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Rent
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Off Plan
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Commercial
-            </button>
-          </div>
-
-          <div className="flex items-center bg-white p-2 rounded-full space-x-2 shadow-md">
-            <input
-              type="text"
-              placeholder="Search By Area Or Project"
-              className="flex-1 px-4 py-2 rounded-full outline-none text-gray-700 placeholder-gray-500"
-            />
-
-            <select className="bg-transparent text-black font-semibold px-4 py-2 rounded-full outline-none">
-              <option>Rent</option>
-              <option>Buy</option>
-            </select>
-
-            <button className="bg-white px-4 py-2 rounded-full text-black font-semibold flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-700 mr-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-4.35-4.35m0 0A8.5 8.5 0 1011 19.5a8.5 8.5 0 005.65-2.85z"
-                />
-              </svg>
-              Search
-            </button>
-          </div>
-        </div> */}
     </div>
   );
 };

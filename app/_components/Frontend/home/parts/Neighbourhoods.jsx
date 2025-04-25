@@ -407,7 +407,7 @@ const Neighbourhoods = () => {
   const leftPositions = [20, 45, 68, 80];
 
   return (
-    <div className="flex flex-col">
+    <div className="md:flex hidden flex-col">
       {/* Heading */}
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold mt-6">
         <span>BEST NEIGHBOURHOODS IN</span>
@@ -440,7 +440,7 @@ const Neighbourhoods = () => {
         ))}
 
         <div
-          className="absolute text-[2.5rem] font-light text-white transition-all duration-500 ease-in-out z-10 w-[25%] flex flex-col items-center text-center space-y-2"
+          className="absolute  text-[2.5rem] font-light text-white transition-all duration-500 ease-in-out z-10 w-[25%] flex flex-col items-center text-center space-y-2"
           style={{
             top: "50%",
             left: `${

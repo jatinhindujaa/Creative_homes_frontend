@@ -225,7 +225,7 @@ const PropertyCard = ({ el }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 border border-white rounded-[20px] w-fit mt-12">
+    <div className="flex flex-col gap-4 p-4 border border-white rounded-[20px] w-[30%] mt-12">
       {/* Image*/}
       <div className="relative">
         <img
