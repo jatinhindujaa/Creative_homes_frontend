@@ -4,6 +4,7 @@ import Passionate from "./parts/Passionate";
 import Why from "./parts/Why";
 import GotQues from "./parts/GotQues";
 import GetTouch from "./parts/GetTouch";
+import Map from "./parts/Map";
 
 const Contact = () => {
   return (
@@ -14,6 +15,7 @@ const Contact = () => {
         <Why />
         <GotQues />
         <GetTouch />
+        <Map/>
       </div>
     </>
   );

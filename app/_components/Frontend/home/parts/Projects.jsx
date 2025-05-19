@@ -119,10 +119,14 @@ import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
 
 const projectList = [
-  { src: projects_1.src, title: "Serenity Mansions", radius: "10px 10px 0 0" },
-  { src: projects_2.src, title: "Knightsbridge", radius: "0px 0px 0 0" },
-  { src: projects_3.src, title: "Farm Grove", radius: "0px 0px 0 0" },
-  { src: projects_4.src, title: "Damac Islands", radius: "0px 0px 10px 10px" },
+  {
+    src: projects_1.src,
+    title: "Palm Jebel Ali Villas",
+    radius: "10px 10px 0 0",
+  },
+  { src: projects_2.src, title: "Trup Tower", radius: "0px 0px 0 0" },
+  { src: projects_3.src, title: "Atelis at D3", radius: "0px 0px 0 0" },
+  { src: projects_4.src, title: "Ellington Cove", radius: "0px 0px 10px 10px" },
 ];
 
 const Projects = () => {

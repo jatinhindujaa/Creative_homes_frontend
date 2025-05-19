@@ -1,91 +1,106 @@
+// import React from "react";
+// import Mortgage from "../assests/mortgage.png";
+// import Image from "next/image";
+// import Button from "@/app/_components/ui/Button";
+// import HoverButton from "@/app/_components/ui/HoverButton";
+
+// const Hero = () => {
+//   return (
+//     <div className="relative h-screen flex flex-col items-center justify-center bg-black">
+//       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
+//       <Image
+//         src={Mortgage.src}
+//         alt="The Elan"
+//         layout="fill"
+//         objectPosition="center"
+//         priority
+//       />
+//       <div className="relative z-10 flex w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
+//         <h1 className="text-[5.5rem] font-normal uppercase">
+//           Mortgage Calculator
+//         </h1>
+//         <h1 className="text-xl font-normal">
+//           Our mortgage calculator factors in key costs like homeowners
+//           association fees and private mortgage insurance (PMI), without the
+//           burden of property taxes. Get a complete view of your total monthly
+//           payment today.
+//         </h1>
+//         <div className="bg-white bg-opacity-20 backdrop-blur-lg py-5 rounded-full px-20 gap-[2rem] flex">
+//           <Button
+//             text="Contact Us"
+//             className="w-fit text-[1.2rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
+//           />
+//           <HoverButton
+//             text="About Us"
+//             className="w-fit text-[1.2rem] leading-[2.4rem] px-5 font-normal tracking-wider"
+//           />
+//         </div>
+//       </div>
+
+      
+//     </div>
+//   );
+// };
+
+// export default Hero;
+
+
+
 import React from "react";
-import Mortgage from "../assests/mortgage.png";
 import Image from "next/image";
+import Mortgage from "../assests/mortgage.png";
+
 import Button from "@/app/_components/ui/Button";
 import HoverButton from "@/app/_components/ui/HoverButton";
-
 const Hero = () => {
   return (
     <div className="relative h-screen flex flex-col items-center justify-center bg-black">
       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
-      <Image
-        src={Mortgage.src}
-        alt="The Elan"
-        layout="fill"
-        objectPosition="center"
-        priority
-      />
-      <div className="relative z-10 flex w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
-        <h1 className="text-[5.5rem] font-normal uppercase">
+      <div className="max-md:hidden">
+        <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
+        <Image
+          src={Mortgage.src}
+          alt="The Elan"
+          layout="fill"
+          objectPosition="center"
+          priority
+        />
+      </div>
+      <div className="md:hidden">
+        <Image
+          src={Mortgage.src}
+          alt="The Elan"
+          layout="fill"
+          objectPosition="center"
+          priority
+        />
+      </div>
+      <div className="relative z-10 flex w-[100%] sm:w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
+        {/* Title */}
+        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
           Mortgage Calculator
         </h1>
-        <h1 className="text-xl font-normal">
+        {/* Description */}
+        <h1 className="text-base sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
           Our mortgage calculator factors in key costs like homeowners
           association fees and private mortgage insurance (PMI), without the
           burden of property taxes. Get a complete view of your total monthly
           payment today.
         </h1>
-        <div className="bg-white bg-opacity-20 backdrop-blur-lg py-5 rounded-full px-20 gap-[2rem] flex">
+        <div className="bg-white bg-opacity-20 w-[100%] xl:w-[40%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[1.5rem] flex">
           <Button
             text="Contact Us"
-            className="w-fit text-[1.2rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
+            className="w-fit text-[1rem] text-black bg-white leading-[1.4rem] px-3 py-2 font-normal tracking-wider"
           />
           <HoverButton
             text="About Us"
-            className="w-fit text-[1.2rem] leading-[2.4rem] px-5 font-normal tracking-wider"
+            className="w-fit text-[1rem] leading-[1.4rem] px-3 font-normal tracking-wider"
           />
         </div>
       </div>
-
-      {/* <div className="bg-white bg-opacity-20 backdrop-blur-lg p-4 rounded-full px-8">
-          <div className="flex justify-center space-x-3 mb-3">
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Buy
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Rent
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Off Plan
-            </button>
-            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full">
-              Commercial
-            </button>
-          </div>
-
-          <div className="flex items-center bg-white p-2 rounded-full space-x-2 shadow-md">
-            <input
-              type="text"
-              placeholder="Search By Area Or Project"
-              className="flex-1 px-4 py-2 rounded-full outline-none text-gray-700 placeholder-gray-500"
-            />
-
-            <select className="bg-transparent text-black font-semibold px-4 py-2 rounded-full outline-none">
-              <option>Rent</option>
-              <option>Buy</option>
-            </select>
-
-            <button className="bg-white px-4 py-2 rounded-full text-black font-semibold flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-700 mr-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-4.35-4.35m0 0A8.5 8.5 0 1011 19.5a8.5 8.5 0 005.65-2.85z"
-                />
-              </svg>
-              Search
-            </button>
-          </div>
-        </div> */}
     </div>
   );
 };
 
 export default Hero;
+

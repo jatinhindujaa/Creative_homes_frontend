@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useCreateAgent } from "../../admin/agents/useAgents";
@@ -22,17 +24,17 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
     const formData = new FormData();
 
     formData.append("name", data.name);
-    formData.append("nationality", data.nationality);
+    // formData.append("nationality", data.nationality);
 
-    tags.forEach((tag) => {
-      formData.append("languages[]", tag);
-    });
+    // tags.forEach((tag) => {
+    //   formData.append("languages[]", tag);
+    // });
     formData.append("phoneNo", data.phoneNo);
     formData.append("whatsapp", data.whatsapp);
     formData.append("designation", data.designation);
-    formData.append("experience", data.experience);
-    formData.append("brokerLicense", data.brokerLicense);
-    formData.append("reraNumber", data.reraNumber);
+    // formData.append("experience", data.experience);
+    // formData.append("brokerLicense", data.brokerLicense);
+    // formData.append("reraNumber", data.reraNumber);
     formData.append("about", data.about);
     if (data.image[0]) {
       formData.append("image", data.image[0]);
@@ -68,7 +70,7 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           )}
         </div>
 
-        <div>
+        {/* <div>
           <label className=" text-sm font-medium text-gray-700">
             Nationality
           </label>
@@ -81,9 +83,9 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           {errors.nationality && (
             <p className="text-red-500 text-sm">{errors.nationality.message}</p>
           )}
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <label className=" text-sm font-medium text-gray-700">
             Languages
           </label>
@@ -91,7 +93,7 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           {errors.languages && (
             <p className="text-red-500 text-sm">{errors.languages.message}</p>
           )}
-        </div>
+        </div> */}
 
         <div>
           <label className=" text-sm font-medium text-gray-700">
@@ -138,7 +140,7 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           )}
         </div>
 
-        <div>
+        {/* <div>
           <label className=" text-sm font-medium text-gray-700">
             Experience
           </label>
@@ -187,9 +189,9 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           )}
         </div>
 
+       */}
         <div>
           <label className=" text-sm font-medium text-gray-700">About</label>
-          {/* <TipTapEditor content={content} setContent={setContent} /> */}
           <Input
             disabled={isCreating}
             type="text"

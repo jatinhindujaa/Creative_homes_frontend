@@ -18,9 +18,9 @@ const MarqueeSection = () => {
   return (
     <div className="bg-[#202120] flex gap-2 flex-col p-10 w-[90%] rounded-[30px] ">
       <div className="flex justify-center">
-        <span className="text-[#fff] text-[2.5rem] text-center">
+        <span className="text-[#fff] text-[1.5rem] lg:text-[2.5rem] text-center">
           Explore{" "}
-          <span className="leading-10 text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+          <span className="leading-10 text-[1.5rem] lg:text-[2.5rem]  text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Exclusive Properties {""}
           </span>
           in Dubai

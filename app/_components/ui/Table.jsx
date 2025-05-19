@@ -43,7 +43,7 @@ function Body({ data, render }) {
     return (
       <p className="text-lg font-medium text-center my-6">No data to show</p>
     );
-  return <section className="my-2">{data.map(render)}</section>;
+  return <section className="my-2">{data?.map(render)}</section>;
 }
 
 function Footer({ children }) {

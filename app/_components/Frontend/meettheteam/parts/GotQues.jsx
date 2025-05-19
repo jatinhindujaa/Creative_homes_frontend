@@ -77,16 +77,91 @@
 // };
 
 // export default InterestSection;
+
+// "use client";
+
+// import { useState } from "react";
+// import { FaExternalLinkAlt } from "react-icons/fa";
+// import backgroundImage from "../assets/bg.png";
+// // Example icons — replace with actual icons/images if needed
+// import { FaHome, FaHandshake, FaKey } from "react-icons/fa";
+// import homeIcon from "../assets/Buying.png"; // Example icon
+// import handshakeIcon from "../assets/Buying.png"; // Example icon
+// import keyIcon from "../assets/Selling.png"; // Example icon
+// const InterestSection = () => {
+//   const [selected, setSelected] = useState(null);
+
+//   const interestOptions = [
+//     { id: 1, label: "Buy Property", icon: <FaHome size={24} /> },
+//     { id: 2, label: "Sell Property", icon: <FaHandshake size={24} /> },
+//     { id: 3, label: "Rent Property", icon: <FaKey size={24} /> },
+//   ];
+
+//   return (
+//     <div
+//       className="w-[90%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
+//       style={{
+//         backgroundImage: `url('/bg.png')`,
+//       }}
+//     >
+//       {/* Dark Overlay */}
+//       <div className="w-full bg-black/50 rounded-2xl p-20 flex flex-col md:flex-row items-center justify-between gap-8">
+//         {/* Left Content */}
+//         <div className="text-white w-[40%]">
+//           <h2 className="text-[3.5rem] font-bold leading-tight">
+//             Got More Questions?
+//           </h2>
+//           <p className="mt-3 text-lg">
+//             Let’s talk about your needs and investment goals
+//           </p>
+//         </div>
+
+//         {/* Right Box */}
+//         <div className=" p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
+//           <h3 className="text-[2.5rem] font-bold text-white">
+//             I am interested to
+//           </h3>
+
+//           {/* Icon Options */}
+//           <div className="flex gap-4">
+//             {interestOptions.map((option) => (
+//               <button
+//                 key={option.id}
+//                 onClick={() => setSelected(option.id)}
+//                 className={`w-14 h-14 flex items-center justify-center rounded-lg transition-all ${
+//                   option.id === 2
+//                     ? "bg-black text-white"
+//                     : "bg-white text-black"
+//                 }, ${
+//                   selected === option.id
+//                     ? "bg-black text-white"
+//                     : "bg-white text-black border-black"
+//                 }`}
+//               >
+//                 {option.icon}
+//               </button>
+//             ))}
+//           </div>
+//           {/* Continue Button */}
+//           <button className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-full hover:bg-white hover:text-black border  transition">
+//             Continue <FaExternalLinkAlt />
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default InterestSection;
+
+
+
 "use client";
 
 import { useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import backgroundImage from "../assets/bg.png";
-// Example icons — replace with actual icons/images if needed
 import { FaHome, FaHandshake, FaKey } from "react-icons/fa";
-import homeIcon from "../assets/Buying.png"; // Example icon
-import handshakeIcon from "../assets/Buying.png"; // Example icon
-import keyIcon from "../assets/Selling.png"; // Example icon
+
 const InterestSection = () => {
   const [selected, setSelected] = useState(null);
 
@@ -98,31 +173,31 @@ const InterestSection = () => {
 
   return (
     <div
-      className="w-[90%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
+      className="w-[90%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16 "
       style={{
         backgroundImage: `url('/bg.png')`,
       }}
     >
       {/* Dark Overlay */}
-      <div className="w-full bg-black/50 rounded-2xl p-20 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="w-full bg-black/50 rounded-2xl p-6 sm:p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left Content */}
-        <div className="text-white w-[40%]">
-          <h2 className="text-[3.5rem] font-bold leading-tight">
+        <div className="text-white w-full md:w-[40%] text-center md:text-left">
+          <h2 className="text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] font-bold leading-tight">
             Got More Questions?
           </h2>
-          <p className="mt-3 text-lg">
+          <p className="mt-3 text-base sm:text-lg">
             Let’s talk about your needs and investment goals
           </p>
         </div>
 
         {/* Right Box */}
-        <div className=" p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4">
-          <h3 className="text-[2.5rem] font-bold text-white">
+        <div className="p-6 rounded-xl shadow-lg flex flex-col items-center space-y-4 w-full md:w-[50%]">
+          <h3 className="text-[1rem] sm:text-[2.5rem] font-bold text-white">
             I am interested to
           </h3>
 
           {/* Icon Options */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
             {interestOptions.map((option) => (
               <button
                 key={option.id}
@@ -141,6 +216,7 @@ const InterestSection = () => {
               </button>
             ))}
           </div>
+
           {/* Continue Button */}
           <button className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-full hover:bg-white hover:text-black border  transition">
             Continue <FaExternalLinkAlt />

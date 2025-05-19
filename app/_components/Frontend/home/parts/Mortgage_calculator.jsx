@@ -1,5 +1,9 @@
 import React from "react";
-import mortgage from "../assets/mortgage/mortgage.png";
+import mortgage1 from "../assets/mortgage/1.jpg";
+import mortgage2 from "../assets/mortgage/2.jpg";
+import mortgage3 from "../assets/mortgage/3.jpg";
+import mortgage4 from "../assets/mortgage/4.jpg";
+
 import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
 import HoverButton from "@/app/_components/ui/HoverButton";
@@ -12,15 +16,21 @@ const Mortgage_calculator = () => {
           <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[3.2rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold tracking-wider">
             MORTGAGE
           </h2>
-          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[1rem] tracking-wider text-white">
+          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[1.rem] tracking-wider text-white">
             CALCULATOR
           </h2>
         </div>
 
-        <p className="text-[1rem] sm:text-[1.4rem] leading-[1.8rem] sm:leading-[2.4rem] pt-4 sm:pt-8 text-white">
-          Your home-buying journey should be smooth and stress-free. Speak to
-          our in-house mortgage team today and get access the best rates in the
-          UAE.
+        <p className="text-[1rem] sm:text-[1.4rem] leading-[1.8rem] sm:leading-[2.4rem] pt-1 sm:pt-1 text-white">
+          Our user-friendly mortgage calculator helps you estimate your monthly
+          mortgage payments quickly and accurately. Whether you're a first-time
+          homebuyer or looking to refinance, this tool provides valuable
+          insights into your home financing options.
+        </p>
+        <p className="text-[1rem] sm:text-[1.4rem] leading-[1.8rem] sm:leading-[2.4rem] text-white">
+          Get a clear picture of the long-term financial commitment. See how
+          much goes towards principal, interest, fees, and insurance. Plan Your
+          Home Financing with Confidence
         </p>
         <div className="flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 sm:flex hidden">
           <HoverButton
@@ -33,9 +43,9 @@ const Mortgage_calculator = () => {
           />
         </div>
       </div>
-      <div className="w-full lg:w-[25%] h-[200px] md:h-[250px] lg:h-[477px] xl:h-[402px] relative">
+      <div className="w-full lg:w-[25%] h-[200px] md:h-[250px] lg:h-[477px] xl:h-[623px] relative">
         <Image
-          src={mortgage.src}
+          src={mortgage1.src}
           alt="mortgage"
           layout="fill"
           objectFit="cover"
@@ -43,10 +53,10 @@ const Mortgage_calculator = () => {
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[10px]"></div>
       </div>
-      <div className="w-full lg:w-[30%] flex-row lg:flex-col h-[300px] lg:h-[477px]  xl:h-[402px] gap-2 lg:gap:2 flex pt-2 lg:pt-0">
+      <div className="w-full lg:w-[30%] flex-row lg:flex-col h-[300px] lg:h-[477px]  xl:h-[623px] gap-2 lg:gap:2 flex pt-2 lg:pt-0">
         <div className="h-[100%] lg:h-[60%] w-[60%] lg:w-[100%] relative">
           <Image
-            src={mortgage.src}
+            src={mortgage2.src}
             alt="mortgage"
             layout="fill"
             objectFit="cover"
@@ -57,7 +67,7 @@ const Mortgage_calculator = () => {
         <div className="lg:w-[100%] w-[40%] lg:h-[50%] h-[100%] lg:flex-row flex-col flex gap-2">
           <div className="h-[100%] lg:w-[50%] w-[100%] relative">
             <Image
-              src={mortgage.src}
+              src={mortgage3.src}
               alt="mortgage"
               layout="fill"
               objectFit="cover"
@@ -67,7 +77,7 @@ const Mortgage_calculator = () => {
           </div>
           <div className="h-[100%] lg:w-[50%] w-[100%]  relative">
             <Image
-              src={mortgage.src}
+              src={mortgage4.src}
               alt="mortgage"
               layout="fill"
               objectFit="cover"

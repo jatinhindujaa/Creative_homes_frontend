@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Featured_1 from "../assets/featured/featured_1.png";
-import Featured_2 from "../assets/featured/featured_2.png";
-import Featured_3 from "../assets/featured/featured_3.png";
-import Featured_4 from "../assets/featured/featured_4.png";
-import Featured_5 from "../assets/featured/featured_5.png";
+import Featured_1 from "../assets/featured/featured_1.jpg";
+import Featured_2 from "../assets/featured/featured_2.jpg";
+import Featured_3 from "../assets/featured/featured_3.jpg";
+import Featured_4 from "../assets/featured/featured_4.jpg";
+import Featured_5 from "../assets/featured/featured_5.jpg";
 import Button from "@/app/_components/ui/Button";
 import { FcGoogle } from "react-icons/fc";
 
@@ -19,7 +19,7 @@ const Featured = () => {
         <div className="flex items-center justify-center mt-2 space-x-2">
           <FcGoogle size={40} />
           <p className="text-[1.5rem] font-semibold">
-            Reviews <span className="text-gray-300">11,000+</span>
+            Reviews <span className="text-gray-300">4.8+</span>
           </p>
         </div>
       </div>

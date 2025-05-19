@@ -14,10 +14,10 @@ const Passionate = () => {
             Working With You
           </span>
           <p className="text-[#fff] max-md:text-[0.8rem] text-[1.4rem] pt-5">
-            Discover your ideal property with our extensive listings and expert
-            guidance. From luxurious city apartments to spacious family villas,
-            we cater to all your real estate needs in Dubai. Let us make your
-            property journey smooth, efficient, and successful.
+            Discover the perfect property with our expert guidance and wide
+            range of options. From luxurious city apartments to spacious family
+            villas, we have something for everyone. Our team is dedicated to
+            making your real estate journey smooth, efficient, and successful.
           </p>
         </div>
       </div>

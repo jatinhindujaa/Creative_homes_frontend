@@ -16,14 +16,14 @@ function AgentsRow({
   agent: {
     _id,
     name,
-    nationality,
-    languages,
+    // nationality,
+    // languages,
     phoneNo,
     whatsapp,
     designation,
-    experience,
-    brokerLicense,
-    reraNumber,
+    // experience,
+    // brokerLicense,
+    // reraNumber,
     about,
     image,
     status,
@@ -37,14 +37,14 @@ function AgentsRow({
 
   const [editData, setEditData] = useState({
     name,
-    nationality,
-    languages,
+    // nationality,
+    // languages,
     phoneNo,
     whatsapp,
     designation,
-    experience,
-    brokerLicense,
-    reraNumber,
+    // experience,
+    // brokerLicense,
+    // reraNumber,
     about,
     image,
   });
@@ -99,11 +99,11 @@ function AgentsRow({
 
       <div className="text-sm">{designation}</div>
 
-      <div className="text-sm">{experience}</div>
+      {/* <div className="text-sm">{experience}</div> */}
 
       <div className="text-sm">{phoneNo}</div>
 
-      <div className="text-sm ">
+      {/* <div className="text-sm ">
         {show
           ? about
           : `${about.slice(0, 100)}${about.length > 100 ? "..." : ""}`}
@@ -113,7 +113,7 @@ function AgentsRow({
         >
           {show ? "Show less" : "Show more"}
         </span>
-      </div>
+      </div> */}
 
       <div className="text-sm">
         {image ? (

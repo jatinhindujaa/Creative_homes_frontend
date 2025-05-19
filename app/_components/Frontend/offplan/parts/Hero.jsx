@@ -19,7 +19,7 @@ const Hero = () => {
       />
 
       {/* Search and filter section */}
-      <div className="relative -bottom-[13rem] z-10 flex w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
+      <div className="relative -bottom-[13rem] z-10 lg:flex hidden w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
         <div className="bg-white bg-opacity-20 backdrop-blur-lg py-5 rounded-full px-6 flex gap-4 w-full">
           {/* Search Input for City, Building, or Community */}
           <div className="flex-1 relative">

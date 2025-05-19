@@ -5,13 +5,22 @@ import MarqueeSection from '../meettheteam/parts/marque';
 import Popular from './parts/Popular';
 
 const News = () => {
+  const locations = [
+    "3 Bedroom Apartment For Rent",
+    "Dubai Hill Estate",
+    "2 Bedroom Studio For Rent",
+    "Palm Al Jumeriah",
+    "Jumeriah Golf Estate",
+    "Emirate Hills",
+    "Downtown Dubai",
+  ];
   return (
     <>
       <Hero />
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <NewsCards />
         <MarqueeSection />
-        <Popular/>
+        <Popular locations={locations}/>
       </div>
     </>
   );

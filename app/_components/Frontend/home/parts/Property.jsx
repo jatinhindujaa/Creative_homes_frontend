@@ -137,7 +137,7 @@ const Property = () => {
 
       <div className="h-[30%] w-full lg:hidden flex flex-col justify-start items-center space-y-6  relative">
         <span className="text-[1.2rem] leading-[2.3rem]">
-          Get the right valuation for your property
+          Get the Best Price for Your Property.
         </span>
         <Button text="Submit Property" className="px-3 py-1 font-light" />
       </div>

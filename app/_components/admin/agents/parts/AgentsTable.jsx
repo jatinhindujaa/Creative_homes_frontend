@@ -39,13 +39,13 @@ function AgentsTable() {
   if (!data.length) return <Empty resourceName="Agent" />;
   return (
     <Menus>
-      <Table columns="grid-cols-8">
+      <Table columns="grid-cols-6">
         <Table.Header>
           <div>Name</div>
           <div>Designation</div>
-          <div>Experience</div>
+          {/* <div>Experience</div> */}
           <div>Phone No.</div>
-          <div>About</div>
+          {/* <div>About</div> */}
           <div>Image</div>
           <div>Status</div>
           <div>Actions</div>
