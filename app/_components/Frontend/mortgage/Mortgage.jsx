@@ -6,7 +6,6 @@ import InterestSection from '../meettheteam/parts/GotQues';
 import MarqueeSection from '../meettheteam/parts/marque';
 import News from '../home/parts/News';
 import PropertyCard from '../property/parts/PropertyCard';
-import { Counter } from './parts/Counter';
 
 const Mortgage = () => {
   const faqs = [
@@ -52,7 +51,6 @@ const Mortgage = () => {
       <Hero />
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <MortgageCalculator />
-        <Counter/>
         <FAQSection faqs ={faqs}/>
         <InterestSection />
         <MarqueeSection />
