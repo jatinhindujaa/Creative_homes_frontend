@@ -344,59 +344,61 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import card from "../assets/1.png"; // Replace with actual image path
+import { useNews } from "@/app/_components/admin/news/useNews";
 
 const NewsCards = () => {
-  const data = [
-    {
-      img: card,
-      title: "Creative homes wins Town Square Award for the best agent",
-      desc: `Welcome to the thriving world of Dubai investments, where opportunities abound and financial success beckons. In this quick guide, we’ll explore why investing in Dubai is a game-changer for savvy investors like yourself......`,
-      view: 25,
-      date: "1 Nov, 2023",
-    },
-    {
-      img: card,
-      title: "Luxury villas set new benchmark in Dubai real estate",
-      desc: `With Dubai's ever-growing skyline, luxury villas are setting new records in design and investment opportunities. Let's explore why this sector is booming......`,
-      view: 35,
-      date: "5 Nov, 2023",
-    },
-    {
-      img: card,
-      title: "Why Dubai remains a top investment hub in 2025",
-      desc: `The Dubai property market remains resilient and continues to attract global investors. Let's dive into the key factors driving this growth......`,
-      view: 50,
-      date: "10 Nov, 2023",
-    },
-    {
-      img: card,
-      title: "Best neighborhoods for investment in Dubai",
-      desc: `Looking to invest in Dubai? Here are the best locations offering excellent ROI and long-term growth potential......`,
-      view: 40,
-      date: "15 Nov, 2023",
-    },
-    {
-      img: card,
-      title: "Dubai's property market trends for 2026",
-      desc: `As we move into 2026, let’s analyze the trends shaping the Dubai real estate sector for the coming year......`,
-      view: 60,
-      date: "20 Nov, 2023",
-    },
-    {
-      img: card,
-      title: "How to get the best mortgage deals in Dubai",
-      desc: `Thinking about financing your property purchase? Here’s how to secure the best mortgage rates in Dubai......`,
-      view: 30,
-      date: "25 Nov, 2023",
-    },
-  ];
+  const {data, isLoading} = useNews()
+  // const data = [
+  //   {
+  //     img: card,
+  //     title: "Creative homes wins Town Square Award for the best agent",
+  //     desc: `Welcome to the thriving world of Dubai investments, where opportunities abound and financial success beckons. In this quick guide, we’ll explore why investing in Dubai is a game-changer for savvy investors like yourself......`,
+  //     view: 25,
+  //     date: "1 Nov, 2023",
+  //   },
+  //   {
+  //     img: card,
+  //     title: "Luxury villas set new benchmark in Dubai real estate",
+  //     desc: `With Dubai's ever-growing skyline, luxury villas are setting new records in design and investment opportunities. Let's explore why this sector is booming......`,
+  //     view: 35,
+  //     date: "5 Nov, 2023",
+  //   },
+  //   {
+  //     img: card,
+  //     title: "Why Dubai remains a top investment hub in 2025",
+  //     desc: `The Dubai property market remains resilient and continues to attract global investors. Let's dive into the key factors driving this growth......`,
+  //     view: 50,
+  //     date: "10 Nov, 2023",
+  //   },
+  //   {
+  //     img: card,
+  //     title: "Best neighborhoods for investment in Dubai",
+  //     desc: `Looking to invest in Dubai? Here are the best locations offering excellent ROI and long-term growth potential......`,
+  //     view: 40,
+  //     date: "15 Nov, 2023",
+  //   },
+  //   {
+  //     img: card,
+  //     title: "Dubai's property market trends for 2026",
+  //     desc: `As we move into 2026, let’s analyze the trends shaping the Dubai real estate sector for the coming year......`,
+  //     view: 60,
+  //     date: "20 Nov, 2023",
+  //   },
+  //   {
+  //     img: card,
+  //     title: "How to get the best mortgage deals in Dubai",
+  //     desc: `Thinking about financing your property purchase? Here’s how to secure the best mortgage rates in Dubai......`,
+  //     view: 30,
+  //     date: "25 Nov, 2023",
+  //   },
+  // ];
 
   const cardsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(data.length / cardsPerPage);
+  const totalPages = Math.ceil(data?.length / cardsPerPage);
   const startIndex = (currentPage - 1) * cardsPerPage;
-  const currentCards = data.slice(startIndex, startIndex + cardsPerPage);
+  const currentCards = data?.slice(startIndex, startIndex + cardsPerPage);
 
   const handleNext = () => {
     if (currentPage < totalPages) {
@@ -414,7 +416,7 @@ const NewsCards = () => {
 
   return (
     <div className="text-white p-6 md:p-10 flex flex-col items-center gap-6">
-      {currentCards.map((d, index) => (
+      {currentCards?.map((d, index) => (
         <div
           key={index}
           className="flex flex-col sm:flex-row p-3 md:p-10 items-center gap-6 w-full"
@@ -422,7 +424,7 @@ const NewsCards = () => {
           {/* Image Section */}
           <div className="w-full sm:w-1/3 relative mb-4 sm:mb-0">
             <Image
-              src={d.img}
+              src={d.image}
               alt="News Image"
               width={500}
               height={300}
