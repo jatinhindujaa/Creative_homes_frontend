@@ -324,7 +324,10 @@ export default function Footer() {
   return (
     <div
       className="max-lg:hidden w-full p-10 flex justify-between bg-black text-white bg-cover bg-center"
-      style={{ backgroundImage: "url('/dubai1.png')" , backgroundSize:"contain"}} // Update with your image path
+      style={{
+        backgroundImage: "url('/dubai1.png')",
+        backgroundSize: "contain",
+      }} // Update with your image path
     >
       <div className="flex flex-col justify-around w-[35%] h-[60vh]">
         <div>
@@ -363,8 +366,11 @@ export default function Footer() {
           Quick Links
         </span>
         <ul className="grid grid-cols-2 gap-y-3 gap-x-1">
-          {quickLinks.map((link) => (
-            <li key={link.id} className="text-[0.9rem] leading-6 font-light">
+          {quickLinks.map((link, index) => (
+            <li
+              key={link.id || index}
+              className="text-[0.9rem] leading-6 font-light"
+            >
               <a
                 href={link.link}
                 className="no-underline text-white hover:text-gray-300 transition-colors"
@@ -381,8 +387,8 @@ export default function Footer() {
           Follow us on:
         </span>
         <ul className="flex flex-col space-y-4">
-          {socialMediaLinks.map((search) => (
-            <div key={search.id} className="flex flex-row gap-3">
+          {socialMediaLinks.map((search, index) => (
+            <div key={search.id || index} className="flex flex-row gap-3">
               <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                 <a
                   href={search.link}
@@ -404,8 +410,8 @@ export default function Footer() {
           Contact us:
         </span>
         <ul className="flex flex-col space-y-4">
-          {ContactLinks.map((con) => (
-            <div key={con.id} className="flex flex-row gap-3">
+          {ContactLinks.map((con, index) => (
+            <div key={con.id || index} className="flex flex-row gap-3">
               <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                 <a
                   href={con.link}

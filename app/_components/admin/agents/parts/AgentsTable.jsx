@@ -53,7 +53,7 @@ function AgentsTable() {
 
         <Table.Body
           data={filteredAgents}
-          render={(agent) => <AgentsRow key={agent.id} agent={agent} />}
+          render={(agent, index) => <AgentsRow key={agent.id  || index} agent={agent} />}
         />
         <Table.Footer>
           {/* <Pagination count={agentsData.length} /> */}

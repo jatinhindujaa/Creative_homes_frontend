@@ -53,8 +53,8 @@ function PropertiesTable() {
 
         <Table.Body
           data={filteredProperties}
-          render={(property) => (
-            <PropertiesRow key={property.id} property={property} />
+          render={(property, index) => (
+            <PropertiesRow key={property.id || index} property={property} />
           )}
         />
         <Table.Footer>
