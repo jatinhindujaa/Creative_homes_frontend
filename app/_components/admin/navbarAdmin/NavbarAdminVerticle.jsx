@@ -7,6 +7,7 @@ import Image from "next/image";
 const navData = [
   { id: 0, name: "Properties", link: "/admin/properties" },
   { id: 1, name: "Agents", link: "/admin/agents" },
+  { id: 1, name: "News", link: "/admin/news" },
 ];
 
 function NavbarAdminVerticle() {
