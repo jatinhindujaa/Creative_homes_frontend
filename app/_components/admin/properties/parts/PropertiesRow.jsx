@@ -19,17 +19,23 @@ function PropertiesRow({
     _id,
     name,
     features,
+    amenities,
     price,
     type,
     bed,
     shower,
     bua,
     plot,
+    reference,
+    zone,
+    dld,
     shortDescription,
     description,
     dealType,
-    multipleImages,
+    agent,
     status,
+    multipleImages,
+    image
   },
 }) {
   const { mutate: updateProperty, isPending: isUpdatingProperty } =
@@ -52,17 +58,24 @@ function PropertiesRow({
 
   const [editData, setEditData] = useState({
     name,
-    features: parsedFeatures,
+    features,
+    amenities,
     price,
     type,
     bed,
     shower,
     bua,
     plot,
+    reference,
+    zone,
+    dld,
     shortDescription,
     description,
     dealType,
+    agent,
+    status,
     multipleImages,
+    image,
   });
 
   const expandDescription = () => {
@@ -78,25 +91,72 @@ function PropertiesRow({
     deleteProperty(_id);
   };
 
-  const handleConfirmEdit = () => {
-    const formData = new FormData();
+  // const handleConfirmEdit = () => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
 
-    formData.append("name", editData.name);
-    editData.features.forEach((feature) => {
-      formData.append("features[]", feature);
-    });
-    formData.append("price", editData.price);
-    formData.append("type", editData.type);
-    formData.append("bed", editData.bed);
-    formData.append("shower", editData.shower);
-    formData.append("bua", editData.bua);
-    formData.append("plot", editData.plot);
-    formData.append("shortDescription", editData.shortDescription);
-    formData.append("description", editData.description);
-    formData.append("dealType", editData.dealType);
+  //   formData.append("name", editData.name);
+  //   editData.features.forEach((feature) => {
+  //     formData.append("features[]", feature);
+  //   });
+  //    editData.amenities.forEach((amenity) => {
+  //      formData.append("amenities[]", amenity);
+  //    });
+  //   formData.append("price", editData.price);
+  //   formData.append("type", editData.type);
+  //     formData.append("reference", editData.reference);
+  //     formData.append("dld", editData.dld);
+  //     formData.append("zone", editData.zone);
+  //   formData.append("bed", editData.bed);
+  //   formData.append("shower", editData.shower);
+  //   formData.append("bua", editData.bua);
+  //   formData.append("plot", editData.plot);
+  //   formData.append("shortDescription", editData.shortDescription);
+  //   formData.append("description", editData.description);
+  //   formData.append("dealType", editData.dealType);
+  //   formData.append("agent", editData.agent);
 
-    updateProperty({ id: _id, formData });
-  };
+  //   updateProperty({ id: _id, formData });
+  // };
+const handleConfirmEdit = () => {
+  const formData = new FormData();
+
+  formData.append("name", editData.name);
+  formData.append("dealType", editData.dealType);
+  formData.append("price", editData.price);
+  formData.append("type", editData.type);
+  formData.append("reference", editData.reference);
+  formData.append("dld", editData.dld);
+  formData.append("zone", editData.zone);
+  formData.append("bed", editData.bed);
+  formData.append("shower", editData.shower);
+  formData.append("bua", editData.bua);
+  formData.append("plot", editData.plot);
+  formData.append("shortDescription", editData.shortDescription);
+  formData.append("description", editData.description);
+  formData.append("agent", editData.agent);
+
+  (editData.features || []).forEach((f) => formData.append("features[]", f));
+
+  (editData.amenities || []).forEach((a) => formData.append("amenities[]", a));
+
+  // 🔁 Append all selected property images (replaces old)
+  if (
+    editData.multipleImages instanceof FileList ||
+    Array.isArray(editData.multipleImages)
+  ) {
+    Array.from(editData.multipleImages).forEach((img) =>
+      formData.append("multipleImages", img)
+    );
+  }
+
+  // ✅ Append QR image only if changed
+  if (editData.newQrImage instanceof File) {
+    formData.append("image", editData.newQrImage);
+  }
+
+  updateProperty({ id: _id, formData });
+};
 
   if (isUpdatingProperty) return <Spinner />;
 

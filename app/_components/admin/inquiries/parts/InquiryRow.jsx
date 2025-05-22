@@ -6,67 +6,57 @@ import Menus from "@/app/_components/ui/Menus";
 import { HiTrash, HiPencil } from "react-icons/hi2";
 import { FaRegImages } from "react-icons/fa";
 import { HiEye, HiEyeOff } from "react-icons/hi";
-import { useDeleteAgent, useUpdateAgent } from "../useAgents";
+import { useDeleteInquiry, useUpdateInquiry } from "../useInquiry";
 import Spinner from "@/app/_components/ui/Spinner";
 import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
-import EditAgentForm from "@/app/_components/features/Agents/EditAgentForm";
 import Image from "next/image";
+import EditInquiryForm from "@/app/_components/features/Inquiry/EditInquiryForm";
 
-function AgentsRow({
-  agent: {
-    _id,
-    name,
-    phoneNo,
-    designation,
-    about,
-    image,
-    status,
-  },
+function InquiryRow({
+  Inquiry: { _id, name, phone, email, category, message },
 }) {
-  const { mutate: updateAgent, isPending: isUpdatingAgent } = useUpdateAgent();
-  const { mutate: deleteAgent, isPending: isDeleting } = useDeleteAgent();
+  const { mutate: updateInquiry, isPending: isUpdatingInquiry } =
+    useUpdateInquiry();
+  const { mutate: deleteInquiry, isPending: isDeleting } = useDeleteInquiry();
   const [show, setShow] = useState(false);
 
   //   const [descContent, setDescContent] = useState(description);
 
-  const [editData, setEditData] = useState({
-    name,
-    phoneNo,
-    designation,
-    about,
-    image,
-  });
+  // const [editData, setEditData] = useState({
+  //   _id,
+  //   title,
+  //   date,
+  //   description,
+  //   image,
+  //   status,
+  // });
 
   const expandDescription = () => {
     setShow((prev) => !prev);
   };
 
- const handleToggleStatus = () => {
-   console.log("Toggling status for:", _id, "Current status:", status);
-   const formData = new FormData();
-   formData.append("status", !status); // string "true"/"false"
-   updateAgent({ id: _id, formData });
- };
-
-
-
+  // for propery listing [Implement in Admin ]
+  // const handleToggleStatus = () => {
+  //   updateInquiry({ id: _id, data: { status: !status } });
+  // };
 
   const handleDelete = () => {
-    deleteAgent(_id);
+    deleteInquiry(_id);
   };
 
-  const handleConfirmEdit = () => {
-    const formData = new FormData();
+  // const handleConfirmEdit = () => {
+  //   const formData = new FormData();
 
-    formData.append("name", editData.name);
-    formData.append("phoneNo", editData.phoneNo);
-    formData.append("designation", editData.designation);
-    formData.append("about", editData.about);
+  //   formData.append("name", editData.title);
+  //   formData.append("phone", editData.date);
+  //   formData.append("email", aboutContent);
+  //   formData.append("category", editData.status);
+  //   formData.append("category", editData.status);
 
-    updateAgent({ id: _id, formData });
-  };
+  //   updateInquiry({ id: _id, formData });
+  // };
 
-  if (isUpdatingAgent) return <Spinner />;
+  if (isUpdatingInquiry) return <Spinner />;
 
   const convertedStatus = status ? "active" : "inactive";
 
@@ -82,11 +72,11 @@ function AgentsRow({
         <span className="font-medium">{name}</span>
       </div>
 
-      <div className="text-sm">{designation}</div>
+      <div className="text-sm">{phone}</div>
 
-      {/* <div className="text-sm">{experience}</div> */}
-
-      <div className="text-sm">{phoneNo}</div>
+      <div className="text-sm">{email}</div>
+      <div className="text-sm">{category}</div>
+      <div className="text-sm">{message}</div>
 
       {/* <div className="text-sm ">
         {show
@@ -100,35 +90,15 @@ function AgentsRow({
         </span>
       </div> */}
 
-      <div className="text-sm">
-        {image ? (
-          <Image
-            src={image}
-            alt={name}
-            width={100}
-            height={100}
-            className="rounded-lg"
-          />
-        ) : (
-          <span>No Image</span>
-        )}
-      </div>
-
-      <div>
-        <Tag type={statusColors[convertedStatus] || "info"}>
-          {convertedStatus.replace("-", " ")}
-        </Tag>
-      </div>
-
       <Modal>
         <Menus.Menu>
-          <Menus.Button
+          {/* <Menus.Button
             icon={status ? <HiEye /> : <HiEyeOff />}
             onClick={handleToggleStatus}
           />
           <Modal.Open opens="edit">
             <Menus.Button icon={<HiPencil />} />
-          </Modal.Open>
+          </Modal.Open> */}
 
           <Modal.Open opens="delete">
             <Menus.Button icon={<HiTrash />} />
@@ -137,27 +107,29 @@ function AgentsRow({
 
         <Modal.Window name="delete">
           <ConfirmDelete
-            resourceName="Agent"
+            resourceName="Inquiry"
             disabled={isDeleting}
             onConfirm={handleDelete}
           />
         </Modal.Window>
 
-        <Modal.Window name="edit">
-          <EditAgentForm
+        {/* <Modal.Window name="edit">
+          <EditInquiryForm
             id={_id}
-            resourceName="Agent"
+            resourceName="Inquiry"
             editData={editData}
             setEditData={setEditData}
+            aboutContent={aboutContent}
+            setAboutContent={setAboutContent}
             onConfirm={handleConfirmEdit}
             // disabled={false}
             // descContent={descContent}
             // setDescContent={setDescContent}
           />
-        </Modal.Window>
+        </Modal.Window> */}
       </Modal>
     </Table.Row>
   );
 }
 
-export default AgentsRow;
+export default InquiryRow;

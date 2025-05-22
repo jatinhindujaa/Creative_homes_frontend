@@ -24,17 +24,9 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
     const formData = new FormData();
 
     formData.append("name", data.name);
-    // formData.append("nationality", data.nationality);
-
-    // tags.forEach((tag) => {
-    //   formData.append("languages[]", tag);
-    // });
     formData.append("phoneNo", data.phoneNo);
-    formData.append("whatsapp", data.whatsapp);
     formData.append("designation", data.designation);
-    // formData.append("experience", data.experience);
-    // formData.append("brokerLicense", data.brokerLicense);
-    // formData.append("reraNumber", data.reraNumber);
+    formData.append("status", true);
     formData.append("about", data.about);
     if (data.image[0]) {
       formData.append("image", data.image[0]);
@@ -70,30 +62,6 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
           )}
         </div>
 
-        {/* <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Nationality
-          </label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="nationality"
-            {...register("nationality", { required: "This field is required" })}
-          />
-          {errors.nationality && (
-            <p className="text-red-500 text-sm">{errors.nationality.message}</p>
-          )}
-        </div> */}
-
-        {/* <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Languages
-          </label>
-          <TagInput tags={tags} setTags={setTags} />
-          {errors.languages && (
-            <p className="text-red-500 text-sm">{errors.languages.message}</p>
-          )}
-        </div> */}
 
         <div>
           <label className=" text-sm font-medium text-gray-700">
@@ -112,21 +80,6 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
 
         <div>
           <label className=" text-sm font-medium text-gray-700">
-            Whatsapp No.
-          </label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="whatsapp"
-            {...register("whatsapp", { required: "This field is required" })}
-          />
-          {errors.whatsapp && (
-            <p className="text-red-500 text-sm">{errors.whatsapp.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label className=" text-sm font-medium text-gray-700">
             Designation
           </label>
           <Input
@@ -139,57 +92,6 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
             <p className="text-red-500 text-sm">{errors.designation.message}</p>
           )}
         </div>
-
-        {/* <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Experience
-          </label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="experience"
-            {...register("experience", { required: "This field is required" })}
-          />
-          {errors.experience && (
-            <p className="text-red-500 text-sm">{errors.experience.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Broker License
-          </label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="brokerLicense"
-            {...register("brokerLicense", {
-              required: "This field is required",
-            })}
-          />
-          {errors.brokerLicense && (
-            <p className="text-red-500 text-sm">
-              {errors.brokerLicense.message}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Rera Number
-          </label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="reraNumber"
-            {...register("reraNumber", { required: "This field is required" })}
-          />
-          {errors.reraNumber && (
-            <p className="text-red-500 text-sm">{errors.reraNumber.message}</p>
-          )}
-        </div>
-
-       */}
         <div>
           <label className=" text-sm font-medium text-gray-700">About</label>
           <Input

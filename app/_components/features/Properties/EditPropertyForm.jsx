@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
+import { useAgents } from "../../admin/agents/useAgents";
+import TiptapEditor from "../../admin/news/Tiptapeditor";
+import FileInput from "../../ui/FileInput";
 
 const EditPropertyForm = ({
   resourceName,
@@ -10,10 +13,27 @@ const EditPropertyForm = ({
   onCloseModal,
 }) => {
   const [tags, setTags] = useState(editData.features || []);
+const [description, setDescription] = useState(editData.description || "");
+const [amenities, setAmenities] = useState(editData.amenities || []);
+const [selectedAgent, setSelectedAgent] = useState(editData.agent || "");
+const [newQrImage, setNewQrImage] = useState(null);
+const [propertyImages, setPropertyImages] = useState(
+  editData.multipleImages || []
+);
+const [newImages, setNewImages] = useState([]);
 
-  useEffect(() => {
-    setEditData((prev) => ({ ...prev, features: tags }));
-  }, [tags, setEditData]);
+const { data: agents = [], isLoading: loadingAgents } = useAgents();
+useEffect(() => {
+  setEditData((prev) => ({
+    ...prev,
+    features: tags,
+    amenities,
+    description,
+    agent: selectedAgent,
+    multipleImages: propertyImages,
+  }));
+}, [tags, amenities, description, selectedAgent, propertyImages, setEditData]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,24 +55,28 @@ const EditPropertyForm = ({
       </h3>
 
       <div className="space-y-4">
-        <div>
-          <label className="text-sm font-medium text-gray-700">Name</label>
-          <Input
-            type="text"
-            name="name"
-            value={editData.name}
-            onChange={handleChange}
-          />
-        </div>
+        <div className="gap-2 flex flex-row">
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">Name</label>
+            <Input
+              type="text"
+              name="name"
+              value={editData.name}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Deal Type</label>
-          <Input
-            type="text"
-            name="dealType"
-            value={editData.dealType}
-            onChange={handleChange}
-          />
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">
+              Deal Type
+            </label>
+            <Input
+              type="text"
+              name="dealType"
+              value={editData.dealType}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         <div>
@@ -60,64 +84,148 @@ const EditPropertyForm = ({
           <TagInput tags={tags} setTags={setTags} />
         </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Price</label>
-          <Input
-            type="text"
-            name="price"
-            value={editData.price}
-            onChange={handleChange}
-          />
+        <div className="gap-2 flex flex-row">
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Price</label>
+            <Input
+              type="text"
+              name="price"
+              value={editData.price}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Type</label>
+            <Input
+              type="text"
+              name="type"
+              value={editData.type}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Plot</label>
+            <Input
+              type="text"
+              name="plot"
+              value={editData.plot}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Type</label>
-          <Input
-            type="text"
-            name="type"
-            value={editData.type}
-            onChange={handleChange}
-          />
-        </div>
+        <div className="gap-2 flex flex-row">
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Bed</label>
+            <Input
+              type="text"
+              name="bed"
+              value={editData.bed}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Bed</label>
-          <Input
-            type="text"
-            name="bed"
-            value={editData.bed}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Shower</label>
+            <Input
+              type="text"
+              name="shower"
+              value={editData.shower}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Shower</label>
-          <Input
-            type="text"
-            name="shower"
-            value={editData.shower}
-            onChange={handleChange}
-          />
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Bua</label>
+            <Input
+              type="text"
+              name="bua"
+              value={editData.bua}
+              onChange={handleChange}
+            />
+          </div>
         </div>
+        <div className="gap-2 flex flex-row">
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">
+              Reference
+            </label>
+            <Input
+              type="text"
+              name="reference"
+              value={editData.reference}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label className="text-sm font-medium text-gray-700">Bua</label>
-          <Input
-            type="text"
-            name="bua"
-            value={editData.bua}
-            onChange={handleChange}
-          />
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Zone</label>
+            <Input
+              type="text"
+              name="zone"
+              value={editData.zone}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Bua</label>
+            <Input
+              type="text"
+              name="bua"
+              value={editData.bua}
+              onChange={handleChange}
+            />
+          </div>
         </div>
+        <div className="gap-3 flex flex-row">
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">
+              Select Agent
+            </label>
+            <select
+              className="w-full border px-3 py-2 rounded-md"
+              value={selectedAgent}
+              onChange={(e) => setSelectedAgent(e.target.value)}
+            >
+              <option value="">-- Select Agent --</option>
+              {agents.map((agent) => (
+                <option key={agent._id} value={agent._id}>
+                  {agent.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">
+              QR Image
+            </label>
+            {editData.image && !newQrImage && (
+              <img
+                src={editData.image}
+                alt="Current QR"
+                className="w-32 h-32 object-cover rounded-md mb-2"
+              />
+            )}
+            <FileInput
+              id="image"
+              accept="image/*"
+              type="file"
+              onChange={(e) => {
+                const file = e.target.files[0];
+                if (file) {
+                  setNewQrImage(file);
+                  setEditData((prev) => ({ ...prev, newQrImage: file }));
+                }
+              }}
+            />
+          </div>
+        </div>
         <div>
-          <label className="text-sm font-medium text-gray-700">Plot</label>
-          <Input
-            type="text"
-            name="plot"
-            value={editData.plot}
-            onChange={handleChange}
-          />
+          <label className="text-sm font-medium text-gray-700">Amenities</label>
+          <TagInput tags={amenities} setTags={setAmenities} />
         </div>
 
         <div>
@@ -136,11 +244,47 @@ const EditPropertyForm = ({
           <label className="text-sm font-medium text-gray-700">
             Description
           </label>
-          <Input
-            type="text"
-            name="description"
-            value={editData.description}
-            onChange={handleChange}
+          <TiptapEditor content={description} setContent={setDescription} />
+        </div>
+        <div>
+  <label className="text-sm font-medium text-gray-700 mb-2 block">
+    Existing Property Images
+  </label>
+  <div className="flex flex-wrap gap-3">
+    {propertyImages.map((img, idx) => (
+      <div key={idx} className="relative w-24 h-24">
+        <img
+          src={img}
+          alt={`property-${idx}`}
+          className="w-full h-full object-cover rounded"
+        />
+        <button
+          type="button"
+          onClick={() =>
+            setPropertyImages(propertyImages.filter((_, i) => i !== idx))
+          }
+          className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 text-xs"
+        >
+          ✕
+        </button>
+      </div>
+    ))}
+  </div>
+</div>
+
+        <div>
+          <label className="text-sm font-medium text-gray-700 mt-4 block">
+            Add New Property Images
+          </label>
+          <FileInput
+            id="multipleImages"
+            accept="image/*"
+            multiple
+            onChange={(e) => {
+              const files = Array.from(e.target.files);
+              setNewImages(files);
+              setEditData((prev) => ({ ...prev, newImages: files }));
+            }}
           />
         </div>
 

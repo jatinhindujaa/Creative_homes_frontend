@@ -2,19 +2,21 @@ import React, { useEffect, useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
 import ImagePreviewContainer from "../../ui/ImagePreviewContainer";
-import { useUpdateAgentImage } from "../../admin/agents/useAgents";
 import Spinner from "../../ui/Spinner";
+import { useUpdateInquiryImage } from "../../admin/inquiries/useInquiry";
 
-const EditAgentForm = ({
+const EditInquiryForm = ({
   id,
   resourceName,
   editData,
   setEditData,
+  aboutContent,
+  setAboutContent,
   onConfirm,
   onCloseModal,
 }) => {
-  const { mutate: updateAgentImage, isPending: isImageUpdating } =
-    useUpdateAgentImage();
+  const { mutate: updateInquiryImage, isPending: isImageUpdating } =
+    useUpdateInquiryImage();
   const [tags, setTags] = useState(editData.languages || []);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ const EditAgentForm = ({
     const formDataImage = new FormData();
     formDataImage.append("image", file);
 
-    updateAgentImage({
+    updateInquiryImage({
       id,
       formData: formDataImage,
     });
@@ -59,49 +61,31 @@ const EditAgentForm = ({
 
       <div className="space-y-4">
         <div>
-          <label className="text-sm font-medium text-gray-700">Name</label>
+          <label className="text-sm font-medium text-gray-700">Title</label>
           <Input
             type="text"
             name="name"
-            value={editData.name}
+            value={editData.title}
             onChange={handleChange}
           />
         </div>
-
 
         <div>
-          <label className="text-sm font-medium text-gray-700">Phone No.</label>
+          <label className="text-sm font-medium text-gray-700">Date</label>
           <Input
             type="text"
-            name="phoneNo"
-            value={editData.phoneNo}
+            name="date"
+            value={editData.date}
             onChange={handleChange}
           />
         </div>
-
 
         <div>
           <label className="text-sm font-medium text-gray-700">
-            Designation
+            Description
           </label>
-          <Input
-            type="text"
-            name="designation"
-            value={editData.designation}
-            onChange={handleChange}
-          />
         </div>
 
-
-        <div>
-          <label className="text-sm font-medium text-gray-700">About</label>
-          <Input
-            type="text"
-            name="about"
-            value={editData.about}
-            onChange={handleChange}
-          />
-        </div>
 
         <ImagePreviewContainer
           image={editData.image}
@@ -120,7 +104,7 @@ const EditAgentForm = ({
             type="submit"
             className="px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition"
           >
-            Update Agent
+            Update Inquiry
           </button>
         </div>
       </div>
@@ -128,4 +112,4 @@ const EditAgentForm = ({
   );
 };
 
-export default EditAgentForm;
+export default EditInquiryForm;

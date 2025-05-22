@@ -65,6 +65,26 @@ function List({ id, children }) {
   );
 }
 
+// function Button({ children, icon, onClick }) {
+//   const { close } = useContext(MenusContext);
+
+//   function handleClick() {
+//     onClick?.();
+//     close();
+//   }
+
+//   return (
+//     <li className="list-none">
+//       <button
+//         onClick={handleClick}
+//         className="flex items-center gap-4 p-2 w-full text-left transition hover:bg-gray-100"
+//       >
+//         {icon}
+//         <span>{children}</span>
+//       </button>
+//     </li>
+//   );
+// }
 function Button({ children, icon, onClick }) {
   const { close } = useContext(MenusContext);
 
@@ -77,10 +97,10 @@ function Button({ children, icon, onClick }) {
     <li className="list-none">
       <button
         onClick={handleClick}
-        className="flex items-center gap-4 p-2 w-full text-left transition hover:bg-gray-100"
+        className="flex items-center gap-2 p-2 w-full text-left transition hover:bg-gray-100"
       >
-        {icon}
-        <span>{children}</span>
+        {icon && <span className="text-xl">{icon}</span>}
+        {children && <span>{children}</span>}
       </button>
     </li>
   );

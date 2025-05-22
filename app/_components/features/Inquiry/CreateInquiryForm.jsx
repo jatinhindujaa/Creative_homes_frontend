@@ -2,21 +2,19 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useCreateNews } from "../../admin/news/useNews";
 import Input from "../../ui/Input";
 import FileInput from "../../ui/FileInput";
 import Spinner from "../../ui/Spinner";
 import TagInput from "../../ui/TagInput";
-import TiptapEditor from "../../admin/news/Tiptapeditor";
-// import TipTapEditor from "../../ui/tiptapEditor";
+import { useCreateInquiry } from "../../admin/inquiries/useInquiry";
 
-const CreateNewsForm = ({ onCloseModal, resourceName }) => {
+const CreateInquiryForm = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {},
   });
   const [tags, setTags] = useState([]);
   const { errors } = formState;
-  const { createNewNews, isCreating } = useCreateNews();
+  const { createNewInquiry, isCreating } = useCreateInquiry();
   const [content, setContent] = useState("");
 
   if (isCreating) return <Spinner />;
@@ -32,7 +30,7 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
       formData.append("image", data.image[0]);
     }
 
-    createNewNews(formData, {
+    createNewInquiry(formData, {
       onSuccess: () => {
         reset();
         onCloseModal?.();
@@ -78,7 +76,6 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
 
         <div>
           <label className=" text-sm font-medium text-gray-700">About</label>
-          <TiptapEditor content={content} setContent={setContent} />
           {errors.about && (
             <p className="text-red-500 text-sm">{errors.about.message}</p>
           )}
@@ -109,7 +106,7 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
             disabled={isCreating}
             className="px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Create News
+            Create Inquiry
           </button>
         </div>
       </div>
@@ -117,4 +114,4 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
   );
 };
 
-export default CreateNewsForm;
+export default CreateInquiryForm;
