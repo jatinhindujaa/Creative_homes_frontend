@@ -283,8 +283,8 @@ const Agents = () => {
 
       <div className="w-[90%] mx-auto mt-10 relative lg:block hidden">
         <Slider {...settings} ref={sliderRef}>
-          {agentsData[activeTab].data.map((agent) => (
-            <div key={agent.subId} className="flex flex-col w-[250px] px-2">
+          {agentsData[activeTab].data.map((agent, index) => (
+            <div key={agent.subId || index} className="flex flex-col w-[250px] px-2">
               <Image
                 className="rounded-[20px] w-full h-[300px] object-cover"
                 src={require(`../assets/agents/${agent.image}.png`)}
@@ -328,9 +328,9 @@ const Agents = () => {
 
       <div className="w-[90%] mx-auto mt-10 relative lg:hidden block ">
         <Slider {...secondsettings} ref={SecondsliderRef}>
-          {data.map((agent) => (
+          {data.map((agent, index) => (
             <div>
-              <div key={agent.subId} className="flex flex-col w-[100%] px-2">
+              <div key={agent.subId || index} className="flex flex-col w-[100%] px-2">
                 <Image
                   className="rounded-[20px] w-full h-[200px] object-cover"
                   src={require(`../assets/agents/${agent.image}.png`)}

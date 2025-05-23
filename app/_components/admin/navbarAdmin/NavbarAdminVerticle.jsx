@@ -8,7 +8,8 @@ const navData = [
   { id: 0, name: "Properties", link: "/admin/properties" },
   { id: 1, name: "Agents", link: "/admin/agents" },
   { id: 2, name: "News", link: "/admin/news" },
-  { id: 2, name: "Inquiries", link: "/admin/inquiries" },
+  { id: 3, name: "Inquiries", link: "/admin/inquiries" },
+  { id: 4, name: "Offplan Properties", link: "/admin/offplan" },
 ];
 
 function NavbarAdminVerticle() {
