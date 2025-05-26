@@ -21,6 +21,7 @@ function AgentsRow({
     about,
     image,
     status,
+    type
   },
 }) {
   const { mutate: updateAgent, isPending: isUpdatingAgent } = useUpdateAgent();
@@ -35,6 +36,7 @@ function AgentsRow({
     designation,
     about,
     image,
+    type
   });
 
   const expandDescription = () => {
@@ -62,6 +64,8 @@ function AgentsRow({
     formData.append("phoneNo", editData.phoneNo);
     formData.append("designation", editData.designation);
     formData.append("about", editData.about);
+    formData.append("type", editData.type);
+
 
     updateAgent({ id: _id, formData });
   };

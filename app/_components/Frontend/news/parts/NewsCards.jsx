@@ -345,6 +345,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import card from "../assets/1.png"; // Replace with actual image path
 import { useNews } from "@/app/_components/admin/news/useNews";
+import { useRouter } from "next/navigation";
 
 const NewsCards = () => {
   const {data, isLoading} = useNews()
@@ -395,7 +396,7 @@ const NewsCards = () => {
 
   const cardsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
-
+const router = useRouter()
   const totalPages = Math.ceil(data?.length / cardsPerPage);
   const startIndex = (currentPage - 1) * cardsPerPage;
   const currentCards = data?.slice(startIndex, startIndex + cardsPerPage);
@@ -448,7 +449,10 @@ const NewsCards = () => {
             </p>
 
             {/* Read More Button */}
-            <div className="flex items-center gap-4">
+            <div
+              className="flex items-center gap-4"
+              onClick={() => router.push(`/news/${d._id}`)}
+            >
               <button className="bg-black text-white px-4 py-2 rounded-3xl flex items-center gap-2 border-none hover:bg-gray-800 transition">
                 Read More{" "}
                 <span className="text-2xl bg-white text-black rounded-2xl w-8 text-center">

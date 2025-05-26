@@ -10,6 +10,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
+import { useAgents } from "@/app/_components/admin/agents/useAgents";
 const hoverStyle = "text-gray-400 text-2xl";
 const normalStyle = "text-white text-2xl";
 const agentsData = [
@@ -198,6 +199,7 @@ const Agents = () => {
   const [arrowStyle2, setArrowStyle2] = useState(normalStyle);
   const [tabWidths, setTabWidths] = useState([]);
   const [tabPositions, setTabPositions] = useState([]);
+  // const { data, isLoading, error } = useAgents();
   const tabRefs = useRef([]);
   const containerRef = useRef(null);
  useEffect(() => {

@@ -335,6 +335,8 @@ import img1 from "../assets/property/img1.png";
 import img2 from "../assets/property/img2.png";
 import img3 from "../assets/property/img3.png";
 import Button from "@/app/_components/ui/Button";
+import { useOffplan } from "@/app/_components/admin/offplan/useOffplan";
+import { useRouter } from "next/navigation";
 
 const propertyData = [
   {
@@ -391,11 +393,12 @@ const propertyData = [
 const Offplan_property = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const propertyPerPage = 4;
-
-  const totalPages = Math.ceil(propertyData.length / propertyPerPage);
+ const {data, isLoading} = useOffplan();
+ console.log("data",data)
+  const totalPages = Math.ceil(data?.length / propertyPerPage);
 
   const startIndex = (currentPage - 1) * propertyPerPage;
-  const currentProperties = propertyData.slice(
+  const currentProperties = data?.slice(
     startIndex,
     startIndex + propertyPerPage
   );
@@ -467,14 +470,14 @@ const Offplan_property = () => {
           </span>
           <span className="text-[1.4rem] font-medium leading-none">|</span>
           <span className="text-[1.4rem] font-medium leading-none text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-            {propertyData.length} Results
+            {data?.length} Results
           </span>
         </div>
       </div>
 
       {/* Property Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        {currentProperties.map((property) => (
+        {currentProperties?.map((property) => (
           <PropertyCard key={property.id} el={property} />
         ))}
       </div>
@@ -510,7 +513,9 @@ const Offplan_property = () => {
 export default Offplan_property;
 
 const PropertyCard = ({ el }) => {
+  const router = useRouter()
   const {
+    _id,
     location,
     name,
     price,
@@ -535,10 +540,13 @@ const PropertyCard = ({ el }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 border border-white rounded-[20px] w-full sm:w-[45%] md:w-[90%] lg:w-[100%]">
+    <div
+      className="flex flex-col gap-4 p-4 border border-white rounded-[20px] w-full sm:w-[45%] md:w-[90%] lg:w-[100%] cursor-pointer"
+      onClick={() => router.push(`/off-plan-properties/${_id}`)}
+    >
       <div className="relative">
         <img
-          src={image.src}
+          src={image}
           alt={name}
           className="w-full h-[200px] object-cover rounded-[20px]"
         />

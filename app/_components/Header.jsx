@@ -261,7 +261,7 @@ const navLinks = [
     name: "Contact",
     items: [
       { itemName: "Contact Us", link: "/contact-us" },
-      // { itemName: "Career", link: "" },
+      { itemName: "Privacy Policy", link: "/privacy-policy" },
       { itemName: "Testimonials", link: "/about" },
       { itemName: "Our Stories", link: "/about" },
     ],

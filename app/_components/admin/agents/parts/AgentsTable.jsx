@@ -43,7 +43,7 @@ function AgentsTable() {
         <Table.Header>
           <div>Name</div>
           <div>Designation</div>
-          {/* <div>Experience</div> */}
+          <div>Type</div>
           <div>Phone No.</div>
           {/* <div>About</div> */}
           <div>Image</div>

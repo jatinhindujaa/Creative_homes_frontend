@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import image from "../assets/2.png"
-export default function DubaiInvestmentSection() {
+export default function DubaiInvestmentSection({ data }) {
+  // console.log("data",data.description)
   return (
     <section className=" text-white px-6 md:px-20 py-20 space-y-8">
-      {/* Title */}
-      <h2 className="text-center text-2xl md:text-3xl font-semibold">
+      {/* <h2 className="text-center text-2xl md:text-3xl font-semibold">
         Smart Property Investing In{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           Dubai
@@ -14,7 +14,6 @@ export default function DubaiInvestmentSection() {
         : An Expert Guide
       </h2>
 
-      {/* Image */}
       <div className="w-full h-[300px] md:h-[450px] relative rounded-lg overflow-hidden">
         <Image
           src={image} // Replace with your actual image path in /public
@@ -24,7 +23,6 @@ export default function DubaiInvestmentSection() {
         />
       </div>
 
-      {/* Intro Paragraph */}
       <p className="text-gray-300 text-sm md:text-base leading-relaxed  mx-auto">
         Dubai continues to cement its reputation as one of the world’s most
         attractive destinations for real estate investment in 2025. With its
@@ -33,7 +31,6 @@ export default function DubaiInvestmentSection() {
         from around the world for decades.
       </p>
 
-      {/* Body Text */}
       <p className="text-gray-300 text-sm md:text-base leading-relaxed  mx-auto">
         Thanks to sustained economic growth and a constantly expanding
         population, it’s clear that the property market offers substantial
@@ -51,7 +48,6 @@ export default function DubaiInvestmentSection() {
         pitfalls, you’ll get the insights you need to make informed decisions.
       </p>
 
-      {/* Subheading */}
       <h3 className="text-transparent text-2xl bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
         Dubai Property Market Outlook For 2025
       </h3>
@@ -77,7 +73,16 @@ export default function DubaiInvestmentSection() {
         and greater capital inflow, 2025 is seen as a window of opportunity for
         Dubai real estate investing. Offering high ROI and long-term benefits,
         the market remains robust and resilient with steady demand.
-      </p>
+      </p> */}
+      <div className="custom-html-content">
+        <div className="text-sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data?.description,
+            }}
+          />
+        </div>
+      </div>
     </section>
   );
 }

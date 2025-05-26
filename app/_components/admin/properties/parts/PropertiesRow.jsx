@@ -160,7 +160,7 @@ const handleConfirmEdit = () => {
 
   if (isUpdatingProperty) return <Spinner />;
 
-  const convertedStatus = status ? "active" : "inactive";
+  const convertedStatus = !status ? "active" : "inactive";
 
   const statusColors = {
     active: "success",
@@ -182,18 +182,24 @@ const handleConfirmEdit = () => {
 
       <div className="text-sm">{shortDescription}</div>
 
-      <div className="text-sm ">
-        {show
-          ? description
-          : `${description.slice(0, 100)}${
-              description.length > 100 ? "..." : ""
-            }`}
-        <span
-          className="text-blue-500 cursor-pointer ml-2"
-          onClick={expandDescription}
-        >
-          {show ? "Show less" : "Show more"}
-        </span>
+      <div className="text-sm">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: show
+              ? description
+              : `${description?.slice(0, 100)}${
+                  description?.length > 100 ? "..." : ""
+                }`,
+          }}
+        />
+        {description?.length > 100 && (
+          <span
+            className="text-blue-500 cursor-pointer ml-2"
+            onClick={expandDescription}
+          >
+            {show ? "Show less" : "Show more"}
+          </span>
+        )}
       </div>
 
       {/* <div className="text-sm">

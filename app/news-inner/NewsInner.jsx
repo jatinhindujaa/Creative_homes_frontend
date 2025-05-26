@@ -1,8 +1,14 @@
+"use client"
 import React from 'react'
 import DubaiInvestmentSection from './parts/NewsPage'
 import FAQSection from '../_components/Frontend/meettheteam/parts/Faq\'s'
+import { useParams } from 'next/navigation';
+import { useNewsById } from '../_components/admin/news/useNews';
+import Hero from './parts/Hero';
 
 const NewsInner = () => {
+  const { _id } = useParams();
+      const { data, isLoading, error } = useNewsById(_id);
   const faqs = [
     {
       question: "How much is the average rent in Dubai?",
@@ -49,10 +55,13 @@ const NewsInner = () => {
   ];
 
   return (
-    <div className="bg-[#282927]">
-      <DubaiInvestmentSection />
-      <FAQSection faqs={faqs} />
-    </div>
+    <>
+      <Hero data={data} />
+      <div className="bg-[#282927]">
+        <DubaiInvestmentSection data={data} />
+        <FAQSection faqs={faqs} />
+      </div>
+    </>
   );
 }
 

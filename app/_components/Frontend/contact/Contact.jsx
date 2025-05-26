@@ -11,7 +11,7 @@ const Contact = () => {
     <>
       <Hero />
       <div className="bg-[#282927] gap-2">
-        <Passionate />
+      <Passionate />
         <Why />
         <GotQues />
         <GetTouch />

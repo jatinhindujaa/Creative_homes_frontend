@@ -81,7 +81,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
       <div className="space-y-4">
         <div className="gap-2 flex flex-row">
           <div className="w-[50%]">
-            <label className=" text-sm font-medium text-gray-700">Name</label>
+            <label className=" text-sm font-medium text-gray-700">Title</label>
             <Input
               type="text"
               id="name"
@@ -94,7 +94,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
 
           <div className="w-[50%]">
             <label className=" text-sm font-medium text-gray-700">
-              Deal type
+              Location
             </label>
             <Input
               disabled={isCreating}
@@ -109,7 +109,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
         </div>
 
         <div>
-          <label className=" text-sm font-medium text-gray-700">features</label>
+          <label className=" text-sm font-medium text-gray-700">Amenities</label>
           <TagInput tags={tags} setTags={setTags} />
           {errors.features && (
             <p className="text-red-500 text-sm">{errors.features.message}</p>
@@ -130,7 +130,9 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Type</label>
+            <label className=" text-sm font-medium text-gray-700">
+              What's App
+            </label>
             <Input
               disabled={isCreating}
               type="text"
@@ -142,7 +144,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             )}
           </div>
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Plot</label>
+            <label className=" text-sm font-medium text-gray-700">Call</label>
             <Input
               disabled={isCreating}
               type="text"
@@ -154,9 +156,26 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             )}
           </div>
         </div>
+
         <div className="gap-2 flex flex-row">
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Bed</label>
+            <label className=" text-sm font-medium text-gray-700">
+              First Installment
+            </label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="bua"
+              {...register("bua", { required: "This field is required" })}
+            />
+            {errors.bua && (
+              <p className="text-red-500 text-sm">{errors.bua.message}</p>
+            )}
+          </div>
+          <div className="w-[33%]">
+            <label className=" text-sm font-medium text-gray-700">
+              Under Construction
+            </label>
             <Input
               disabled={isCreating}
               type="text"
@@ -169,7 +188,9 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Shower</label>
+            <label className=" text-sm font-medium text-gray-700">
+              On Handover
+            </label>
             <Input
               disabled={isCreating}
               type="text"
@@ -178,19 +199,6 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             />
             {errors.shower && (
               <p className="text-red-500 text-sm">{errors.shower.message}</p>
-            )}
-          </div>
-
-          <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Bua</label>
-            <Input
-              disabled={isCreating}
-              type="text"
-              id="bua"
-              {...register("bua", { required: "This field is required" })}
-            />
-            {errors.bua && (
-              <p className="text-red-500 text-sm">{errors.bua.message}</p>
             )}
           </div>
         </div>
@@ -258,11 +266,11 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
 
           <div className="w-[50%]">
             <label className=" text-sm font-medium text-gray-700">
-              Qr Image
+              Browsher upload
             </label>
             <FileInput
               id="image"
-              accept="image/*"
+              accept="pdf/*"
               type="file"
               multiple
               {...register("image", {
@@ -272,15 +280,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
           </div>
         </div>
 
-        <div>
-          <label className=" text-sm font-medium text-gray-700">
-            Amenities
-          </label>
-          <TagInput tags={amenities} setTags={setAmenities} />
-          {errors.features && (
-            <p className="text-red-500 text-sm">{errors.features.message}</p>
-          )}
-        </div>
+       
         <div>
           <label className=" text-sm font-medium text-gray-700">
             Short Description

@@ -156,33 +156,25 @@ const handleConfirmEdit = () => {
 
       <div className="text-sm">{shortDescription}</div>
 
-      <div className="text-sm ">
-        {show
-          ? description
-          : `${description.slice(0, 100)}${
-              description.length > 100 ? "..." : ""
-            }`}
-        <span
-          className="text-blue-500 cursor-pointer ml-2"
-          onClick={expandDescription}
-        >
-          {show ? "Show less" : "Show more"}
-        </span>
-      </div>
-
-      {/* <div className="text-sm">
-        {image ? (
-          <Image
-            src={image}
-            alt={title}
-            width={100}
-            height={100}
-            className="rounded-lg"
-          />
-        ) : (
-          <span>No Image</span>
+      <div className="text-sm">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: show
+              ? description
+              : `${description?.slice(0, 100)}${
+                  description?.length > 100 ? "..." : ""
+                }`,
+          }}
+        />
+        {description?.length > 100 && (
+          <span
+            className="text-blue-500 cursor-pointer ml-2"
+            onClick={expandDescription}
+          >
+            {show ? "Show less" : "Show more"}
+          </span>
         )}
-      </div> */}
+      </div>
 
       <div>
         <Tag type={statusColors[convertedStatus] || "info"}>
