@@ -407,16 +407,16 @@ const Neighbourhoods = () => {
   const leftPositions = [20, 45, 68, 80];
 
   return (
-    <div className="md:flex hidden flex-col">
+    <div className="md:flex hidden flex-col gap-[50px] mt-[100px]">
       {/* Heading */}
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold mt-6">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold">
         <span>BEST NEIGHBOURHOODS IN</span>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           DUBAI
         </span>
       </div>
 
-      <div className="flex w-[90%] h-[400px] mx-auto space-x-4 mt-4 relative">
+      <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">
         {images.map((item, index) => (
           <div
             key={index}

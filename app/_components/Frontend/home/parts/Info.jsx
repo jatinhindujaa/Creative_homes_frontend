@@ -65,7 +65,7 @@ import CountUp from "react-countup";
 
 const Info = () => {
   return (
-    <div className="relative z-[1] mx-auto mt-8 min-h-[500px] w-[90%] bg-[url('/work_with_us.jpg')] bg-cover bg-top bg-no-repeat bg-fixed py-[111px] pb-[114px] rounded-[18px]">
+    <div className="relative z-[1] mx-auto mt-[100px] min-h-[500px] w-[90%] bg-[url('/work_with_us.jpg')] bg-cover bg-top bg-no-repeat bg-fixed py-[111px] pb-[114px] rounded-[18px]">
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col items-center justify-evenly h-full">
           <span className="text-[1.5rem] sm:text-[2.5rem] leading-[3rem] sm:leading-[4.3rem] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold uppercase text-center">
@@ -74,16 +74,20 @@ const Info = () => {
 
           {/* Responsive Flex Container */}
           <div className="text-white flex flex-col lg:flex-row items-center justify-around w-full gap-y-[1rem] lg:gap-y-0 lg:gap-x-6 px-6 sm:px-10">
-            <StatCard label="Sales Volume" end={2.5} suffix="B+" />
+            <StatCard label="Experience" end={18} suffix="K+" />
             <div className="hidden lg:block border-r-2 h-[60px]" />
             <div className="flex lg:hidden border-b-[1px] w-[150px]" />
-            <StatCard label="Email Subscribers" end={200} suffix="K+" />
+            <StatCard label="Email Subscribers " end={40} suffix="K+" />
             <div className="hidden lg:block border-r-2 h-[60px]" />
             <div className="flex lg:hidden border-b-[1px] w-[150px]" />
-            <StatCard label="Social Media Followers" end={20.2} suffix="K+" />
+            <StatCard label="Active agents" end={35} suffix="+" />
             <div className="hidden lg:block border-r-2 h-[60px]" />
             <div className="flex lg:hidden border-b-[1px] w-[150px]" />
-            <StatCard label="Active Agents" end={100} suffix="+" />
+            <StatCard
+              label="Social media followers "
+              end={31.5}
+              suffix="K+"
+            />
           </div>
         </div>
       </div>

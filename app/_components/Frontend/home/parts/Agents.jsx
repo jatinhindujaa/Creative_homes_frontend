@@ -247,15 +247,15 @@ const Agents = () => {
   };
    const leftPositions = [20, 45, 68, 80];
   return (
-    <div className="flex flex-col">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold mt-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+    <div className="flex flex-col gap-[50px]">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold mt-[100px]">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-1">
           AGENTS
         </span>
       </div>
       <div
         ref={containerRef}
-        className="w-[80%] mx-auto mt-4 flex flex-wrap rounded-[30px] justify-between p-3 relative bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] lg:flex hidden"
+        className="w-[80%] mx-auto flex-wrap rounded-[40px] justify-between p-3 relative bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] lg:flex hidden"
       >
         {/* Dynamic Moving Background */}
         <div
@@ -283,12 +283,12 @@ const Agents = () => {
         ))}
       </div>
 
-      <div className="w-[90%] mx-auto mt-10 relative lg:block hidden">
+      <div className="w-[90%] mx-auto relative lg:block hidden">
         <Slider {...settings} ref={sliderRef}>
           {agentsData[activeTab].data.map((agent, index) => (
             <div key={agent.subId || index} className="flex flex-col w-[250px] px-2">
               <Image
-                className="rounded-[20px] w-full h-[300px] object-cover"
+                className="rounded-[20px] w-full h-[400px] object-cover"
                 src={require(`../assets/agents/${agent.image}.png`)}
                 alt={agent.name}
               />

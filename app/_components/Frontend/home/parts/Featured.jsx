@@ -24,13 +24,13 @@ const Featured = () => {
         </div>
       </div>
 
-      <div className="flex justify-center space-x-4 text-[2.5rem] pt-40 font-medium">
+      <div className="flex justify-center space-x-4 text-[2.5rem] pt-[130px] font-medium">
         <span>FEATURED </span>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           PROPERTIES
         </span>
       </div>
-      <div className="flex w-[90%] mx-auto pt-4">
+      <div className="flex w-[90%] mx-auto pt-[50px]">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           <div className="relative h-[30%] w-full ">
             <Image

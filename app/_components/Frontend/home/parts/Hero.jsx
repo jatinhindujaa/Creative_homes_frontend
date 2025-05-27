@@ -109,17 +109,9 @@ const Hero = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           Find Something Extraordinary with
         </h1>
-        <div className="relative w-[90%] max-w-[600px] h-20 sm:h-28 md:h-32 lg:h-36">
-          <Image
-            src={Name.src}
-            alt="The Elan"
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center"
-            priority
-            className="rounded-[20px]"
-          />
-        </div>
+        <h1 className="text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-light uppercase">
+         Creative Homes
+        </h1>
       </div>
     </div>
   );
