@@ -270,9 +270,8 @@ const [selectedAgent, setSelectedAgent] = useState("");
               })}
             />
             <div className="text-red-600 text-[0.8rem] mb-[20px]">
-              <p>Propery images for Mobile will be: 700 * 700</p>
-              <p>Propery images for Desktop will be: 1000 * 1000</p>
-              <p>File size should be less than 5mb.</p>
+              <p>Qr size for Mobile & desktop will be: 300 * 300</p>
+              <p>File size should be less than 10MB.</p>
             </div>
           </div>
         </div>
@@ -329,9 +328,11 @@ const [selectedAgent, setSelectedAgent] = useState("");
             })}
           />
         </div>
-        <div className="text-red-600 text-[0.8rem]">
-          <p>Qr size for Mobile & desktop will be: 300 * 300</p>
-          <p>File size should be less than 10MB.</p>
+
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 700 * 700</p>
+          <p>Propery images for Desktop will be: 1000 * 1000</p>
+          <p>File size should be less than 5mb.</p>
         </div>
         <div className="flex justify-end space-x-3">
           <button
