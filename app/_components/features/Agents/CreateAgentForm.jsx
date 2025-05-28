@@ -247,17 +247,6 @@ const typeOptions = [
         {/* ✅ Category Dropdown */}
         <div>
           <label className="text-sm font-medium text-gray-700">Type</label>
-          {/* <select
-            {...register("type", { required: "This field is required" })}
-            className="border w-full border-gray-300 bg-gray-50 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">Select type</option>
-            <option value="off plan">Off plan</option>
-            <option value="Ready">Ready</option>
-            <option value="Rental">Rental</option>
-            <option value="Commercial">Commercial</option>
-            <option value="Plots">Plots</option>
-          </select> */}
           <Controller
             name="type"
             control={control}

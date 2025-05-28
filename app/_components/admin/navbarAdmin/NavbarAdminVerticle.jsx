@@ -17,12 +17,13 @@ function NavbarAdminVerticle() {
 
   return (
     <aside className="bg-blue-950 border-r border-gray-200 h-screen p-6 flex flex-col space-y-6 overflow-auto">
-      <div className="relative flex items-center w-20 h-20 ml-7">
+      <div className="relative flex items-center w-44 h-20">
         <Image
           src="/logo.png"
           alt="Logo"
-          fill
-          className="object-cover object-center"
+          width={95}
+          height={85}
+          className="object-cover object-center w-[95%] h-[85%]"
         />
       </div>
 
