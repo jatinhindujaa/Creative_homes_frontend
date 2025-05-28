@@ -141,6 +141,7 @@
 // };
 
 // export default CreateAgentForm;
+
 "use client";
 
 import { useState } from "react";
@@ -149,12 +150,19 @@ import { useCreateAgent } from "../../admin/agents/useAgents";
 import Input from "../../ui/Input";
 import FileInput from "../../ui/FileInput";
 import Spinner from "../../ui/Spinner";
-
+import Select from "react-select";
+import { Controller } from "react-hook-form";
 const CreateAgentForm = ({ onCloseModal, resourceName }) => {
-  const { register, handleSubmit, reset, formState } = useForm({
+  const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
   });
-
+const typeOptions = [
+  { value: "off plan", label: "Off Plan" },
+  { value: "ready", label: "Ready" },
+  { value: "rental", label: "Rental" },
+  { value: "commercial", label: "Commercial" },
+  { value: "plots", label: "Plots" },
+];
   const { errors } = formState;
   const { createAgents, isCreating } = useCreateAgent();
 
@@ -166,7 +174,11 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
     formData.append("name", data.name);
     formData.append("phoneNo", data.phoneNo);
     formData.append("designation", data.designation);
-    formData.append("type", data.type); // ✅ Add category
+    // formData.append("type", data.type); // ✅ Add category
+    if (data.type && Array.isArray(data.type)) {
+      data.type.forEach((t) => formData.append("type", t));
+    }
+
     formData.append("status", true);
     formData.append("about", data.about);
 
@@ -235,7 +247,7 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
         {/* ✅ Category Dropdown */}
         <div>
           <label className="text-sm font-medium text-gray-700">Type</label>
-          <select
+          {/* <select
             {...register("type", { required: "This field is required" })}
             className="border w-full border-gray-300 bg-gray-50 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
@@ -245,11 +257,31 @@ const CreateAgentForm = ({ onCloseModal, resourceName }) => {
             <option value="Rental">Rental</option>
             <option value="Commercial">Commercial</option>
             <option value="Plots">Plots</option>
-          </select>
+          </select> */}
+          <Controller
+            name="type"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={typeOptions}
+                isMulti
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(selected) =>
+                  field.onChange(selected.map((s) => s.value))
+                }
+                value={typeOptions.filter((option) =>
+                  field.value?.includes(option.value)
+                )}
+                placeholder="Select type(s)"
+              />
+            )}
+          />
+
           {errors.type && (
-            <p className="text-red-500 text-sm">
-              {errors.cattypeegory.message}
-            </p>
+            <p className="text-red-500 text-sm">{errors.type.message}</p>
           )}
         </div>
 
