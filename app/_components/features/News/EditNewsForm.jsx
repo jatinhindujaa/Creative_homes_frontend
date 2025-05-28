@@ -88,11 +88,15 @@ const EditNewsForm = ({
           <TiptapEditor content={aboutContent} setContent={setAboutContent} />
         </div>
 
-
         <ImagePreviewContainer
           image={editData.image}
           onImageChange={handleImageChange}
         />
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 700 * 700</p>
+          <p>Propery images for Desktop will be: 1500 * 1000</p>
+          <p>File size should be less than 5MB.</p>
+        </div>
 
         <div className="flex justify-end space-x-3">
           <button

@@ -268,7 +268,6 @@ const typeOptions = [
               />
             )}
           />
-
           {errors.type && (
             <p className="text-red-500 text-sm">{errors.type.message}</p>
           )}
@@ -296,6 +295,11 @@ const typeOptions = [
             multiple
             {...register("image", { required: "This field is required" })}
           />
+        </div>
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 500 * 700</p>
+          <p>Propery images for Desktop will be: 300 * 400</p>
+          <p>File size should be less than 10MB.</p>
         </div>
 
         <div className="flex justify-end space-x-3">

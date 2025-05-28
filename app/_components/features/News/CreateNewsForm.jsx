@@ -50,7 +50,6 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
       </h3>
 
       <div className="space-y-4">
-       
         <div>
           <label className=" text-sm font-medium text-gray-700">Title</label>
           <Input
@@ -95,6 +94,11 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
               required: "This field is required",
             })}
           />
+        </div>
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 700 * 700</p>
+          <p>Propery images for Desktop will be: 1500 * 1000</p>
+          <p>File size should be less than 5MB.</p>
         </div>
 
         <div className="flex justify-end space-x-3">

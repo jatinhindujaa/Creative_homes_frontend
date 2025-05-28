@@ -64,7 +64,11 @@ function AgentsRow({
     formData.append("phoneNo", editData.phoneNo);
     formData.append("designation", editData.designation);
     formData.append("about", editData.about);
-    formData.append("type", editData.type);
+    if (editData.type && Array.isArray(editData.type)) {
+      editData.type.forEach((t) => formData.append("type", t));
+    } else if (editData.type) {
+      formData.append("type", editData.type);
+    }
 
 
     updateAgent({ id: _id, formData });

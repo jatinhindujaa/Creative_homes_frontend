@@ -422,7 +422,7 @@ const Agents = () => {
   const sliderRef = useRef(null);
   const [arrowStyle1, setArrowStyle1] = useState("text-white text-2xl");
   const [arrowStyle2, setArrowStyle2] = useState("text-white text-2xl");
-
+  const SecondsliderRef = useRef(null);
   useEffect(() => {
     if (agents?.length) {
       const grouped = {};
@@ -447,7 +447,6 @@ const Agents = () => {
     }
   }, [agents]);
 
-
   if (isLoading) return <div>Loading...</div>;
   if (!agents?.length) return <div>No agents found</div>;
 
@@ -460,7 +459,17 @@ const Agents = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
-
+    var secondsettings = {
+      autoplay: false,
+      autoplaySpeed: 2000,
+      speed: 1000,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      arrows: false,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+    };
   return (
     <div className="flex flex-col gap-[50px]">
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold mt-[100px]">
@@ -532,6 +541,60 @@ const Agents = () => {
               className={arrowStyle2}
               onMouseEnter={() => setArrowStyle2("text-gray-400 text-2xl")}
               onMouseLeave={() => setArrowStyle2("text-white text-2xl")}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="w-[90%] mx-auto mt-10 relative lg:hidden block ">
+        <Slider {...secondsettings} ref={SecondsliderRef}>
+          {agents.map((agent, index) => (
+            <div>
+              <div
+                key={agent.subId || index}
+                className="flex flex-col w-[100%] px-2"
+              >
+                <Image
+                  className="rounded-[20px] w-full h-[200px] object-cover"
+                  src={agent.image}
+                  width={100}
+                  height={100}
+                  alt={agent.name}
+                />
+                <div className="flex flex-col justify-center items-center text-[1rem] leading-[2.2rem]">
+                  <span className="leading-6">{agent.name}</span>
+                  <span className="text-[0.8rem] leading-6">
+                    {agent.designation}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        {/* Left Arrow */}
+        <div className="absolute bottom-1/2 -left-4 flex gap-2">
+          <div
+            className="border-2 border-white rounded-full flex justify-center items-center p-0.3 cursor-pointer hover:bg-transparent"
+            onClick={() => SecondsliderRef.current.slickPrev()}
+          >
+            <IoIosArrowBack
+              className={arrowStyle1}
+              onMouseEnter={() => setArrowStyle1(hoverStyle)}
+              onMouseLeave={() => setArrowStyle1(normalStyle)}
+            />
+          </div>
+        </div>
+
+        {/* Right Arrow */}
+        <div className="absolute bottom-1/2 -right-4 flex gap-2">
+          <div
+            className="border-2 border-white rounded-full flex justify-center items-center p-0.3 cursor-pointer hover:bg-transparent"
+            onClick={() => SecondsliderRef.current.slickNext()}
+          >
+            <IoIosArrowForward
+              className={arrowStyle2}
+              onMouseEnter={() => setArrowStyle2(hoverStyle)}
+              onMouseLeave={() => setArrowStyle2(normalStyle)}
             />
           </div>
         </div>
