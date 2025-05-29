@@ -109,8 +109,8 @@ const Hero = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
           Find Something Extraordinary with
         </h1>
-        <h1 className="text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-light uppercase">
-         Creative Homes
+        <h1 className="filedazzle-font text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-light uppercase">
+         <span style={{fontFamily:"Outfit", fontSize:"6.5rem"}}>C</span>reative Homes
         </h1>
       </div>
     </div>

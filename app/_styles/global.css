@@ -14,6 +14,27 @@
     transform: scaleX(1);
   }
 }
+@font-face {
+  font-family: 'Filedazzle Unicase';
+  src: url('/fonts/fonnts.com-Dazzle_Unicase_Light.ttf') format('truetype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Filedazzle Unicase';
+  src: url('/fonts/fonnts.com-Dazzle_Unicase_Medium.ttf') format('truetype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply globally */
+body {
+  font-family: 'Filedazzle Unicase', sans-serif;
+}
+
 
 .animate-scale-up-back {
   animation: scaleUpAndBack 0.6s ease-in-out 0.3s; /* Animation duration and easing */
@@ -45,6 +66,7 @@
 
 
 
+
 .custom-html-content ul {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -68,4 +90,11 @@
   margin-bottom: 1rem;
   line-height: 1.6;
   color: #d1d5db;
+}
+
+
+
+
+.filedazzle-font {
+  font-family: 'Filedazzle Unicase', sans-serif;
 }

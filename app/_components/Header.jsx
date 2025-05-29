@@ -241,8 +241,8 @@ import logo from "@/public/logo.png";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { id: 1, name: "Buy", link: "" },
-  { id: 2, name: "Rent", link: "" },
+  { id: 1, name: "Buy", link: "/property?offeringtype=buy" },
+  { id: 2, name: "Rent", link: "/property?offeringtype=rent" },
   { id: 3, name: "Meet the team", link: "/meet-the-team" },
   {
     id: 4,

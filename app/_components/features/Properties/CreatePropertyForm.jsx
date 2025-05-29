@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useCreateProperty } from "../../admin/properties/useProperties";
 import Input from "../../ui/Input";
 import FileInput from "../../ui/FileInput";
@@ -8,9 +8,9 @@ import TagInput from "../../ui/TagInput";
 import { useAgents } from "../../admin/agents/useAgents";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 // import TipTapEditor from "../../ui/tiptapEditor";
-
+import Select from "react-select";
 const CreatePropertyForm = ({ onCloseModal, resourceName }) => {
-  const { register, handleSubmit, reset, formState } = useForm({
+  const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
   });
   const [tags, setTags] = useState([]);
@@ -22,6 +22,29 @@ const CreatePropertyForm = ({ onCloseModal, resourceName }) => {
 const { data: agents = [], isLoading: loadingAgents } = useAgents();
 const [selectedAgent, setSelectedAgent] = useState("");
  const [content, setContent] = useState("");
+const propertytypeOptions = [
+  { value: "apartment", label: "Apartment" },
+  { value: "penthouse", label: "Penthouse" },
+  { value: "compound", label: "Compound" },
+];
+
+const furnishingtypeOptions = [
+  { value: "fully furnished", label: "Fully Furnished" },
+  { value: "semi furnished", label: "Semi Furnished" },
+  { value: "furnished", label: "Furnished" },
+];
+
+const offeringtypeOptions = [
+  { value: "buy", label: "Buy" },
+  { value: "sale", label: "Sale" },
+  { value: "rent", label: "Rent" },
+  { value: "offplan", label: "Offplan" },
+];
+
+const propertycategoryOptions = [
+  { value: "commercial", label: "Commercial" },
+  { value: "residential", label: "Residential" },
+];
 
   if (isCreating) return <Spinner />;
 
@@ -53,6 +76,22 @@ const [selectedAgent, setSelectedAgent] = useState("");
     formData.append("shortDescription", data.shortDescription);
     formData.append("description", content);
     formData.append("dealType", data.dealType);
+if (data.propertytype && Array.isArray(data.propertytype)) {
+  data.propertytype.forEach((item) => formData.append("propertytype", item));
+}
+if (data.furnishingtype && Array.isArray(data.furnishingtype)) {
+  data.furnishingtype.forEach((item) =>
+    formData.append("furnishingtype", item)
+  );
+}
+if (data.offeringtype && Array.isArray(data.offeringtype)) {
+  data.offeringtype.forEach((item) => formData.append("offeringtype", item));
+}
+if (data.propertycategory && Array.isArray(data.propertycategory)) {
+  data.propertycategory.forEach((item) =>
+    formData.append("propertycategory", item)
+  );
+}
 
     multipleFiles.forEach((file) => {
       formData.append("multipleImages", file);
@@ -113,6 +152,137 @@ const [selectedAgent, setSelectedAgent] = useState("");
           <TagInput tags={tags} setTags={setTags} />
           {errors.features && (
             <p className="text-red-500 text-sm">{errors.features.message}</p>
+          )}
+        </div>
+        {/* Property Type */}
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Property Type
+          </label>
+          <Controller
+            name="propertytype"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={propertytypeOptions}
+                isMulti
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(selected) =>
+                  field.onChange(selected.map((s) => s.value))
+                }
+                value={propertytypeOptions.filter((option) =>
+                  field.value?.includes(option.value)
+                )}
+                placeholder="Select property type(s)"
+              />
+            )}
+          />
+          {errors.propertytype && (
+            <p className="text-red-500 text-sm">
+              {errors.propertytype.message}
+            </p>
+          )}
+        </div>
+
+        {/* Furnishing Type */}
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Furnishing Type
+          </label>
+          <Controller
+            name="furnishingtype"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={furnishingtypeOptions}
+                isMulti
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(selected) =>
+                  field.onChange(selected.map((s) => s.value))
+                }
+                value={furnishingtypeOptions.filter((option) =>
+                  field.value?.includes(option.value)
+                )}
+                placeholder="Select furnishing type(s)"
+              />
+            )}
+          />
+          {errors.furnishingtype && (
+            <p className="text-red-500 text-sm">
+              {errors.furnishingtype.message}
+            </p>
+          )}
+        </div>
+
+        {/* Offering Type */}
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Offering Type
+          </label>
+          <Controller
+            name="offeringtype"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={offeringtypeOptions}
+                isMulti
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(selected) =>
+                  field.onChange(selected.map((s) => s.value))
+                }
+                value={offeringtypeOptions.filter((option) =>
+                  field.value?.includes(option.value)
+                )}
+                placeholder="Select offering type(s)"
+              />
+            )}
+          />
+          {errors.offeringtype && (
+            <p className="text-red-500 text-sm">
+              {errors.offeringtype.message}
+            </p>
+          )}
+        </div>
+
+        {/* Property Category */}
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Property Category
+          </label>
+          <Controller
+            name="propertycategory"
+            control={control}
+            rules={{ required: "This field is required" }}
+            render={({ field }) => (
+              <Select
+                {...field}
+                options={propertycategoryOptions}
+                isMulti
+                className="basic-multi-select"
+                classNamePrefix="select"
+                onChange={(selected) =>
+                  field.onChange(selected.map((s) => s.value))
+                }
+                value={propertycategoryOptions.filter((option) =>
+                  field.value?.includes(option.value)
+                )}
+                placeholder="Select property category(s)"
+              />
+            )}
+          />
+          {errors.propertycategory && (
+            <p className="text-red-500 text-sm">
+              {errors.propertycategory.message}
+            </p>
           )}
         </div>
         <div className="gap-2 flex flex-row">
@@ -260,7 +430,7 @@ const [selectedAgent, setSelectedAgent] = useState("");
             <label className=" text-sm font-medium text-gray-700">
               Qr Image
             </label>
-            <FileInput
+            {/* <FileInput
               id="image"
               accept="image/*"
               type="file"
@@ -268,7 +438,15 @@ const [selectedAgent, setSelectedAgent] = useState("");
               {...register("image", {
                 required: "This field is required",
               })}
+            /> */}
+            <FileInput
+              id="image"
+              accept="image/*"
+              type="file"
+              multiple
+              {...register("image")} // Remove required here
             />
+
             <div className="text-red-600 text-[0.8rem] mb-[20px]">
               <p>Qr size for Mobile & desktop will be: 300 * 300</p>
               <p>File size should be less than 10MB.</p>
@@ -318,7 +496,7 @@ const [selectedAgent, setSelectedAgent] = useState("");
           <label className=" text-sm font-medium text-gray-700">
             Property Images
           </label>
-          <FileInput
+          {/* <FileInput
             id="multipleImages"
             accept="multipleImages/*"
             type="file"
@@ -326,6 +504,13 @@ const [selectedAgent, setSelectedAgent] = useState("");
             {...register("multipleImages", {
               required: "This field is required",
             })}
+          /> */}
+          <FileInput
+            id="multipleImages"
+            accept="image/*" // fix accept type to 'image/*'
+            type="file"
+            multiple
+            {...register("multipleImages")} // Remove required here
           />
         </div>
 

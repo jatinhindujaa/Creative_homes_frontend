@@ -435,10 +435,6 @@ const Agents = () => {
             if (!grouped[type]) grouped[type] = [];
             grouped[type].push(agent);
           });
-        } else {
-          // If no types or empty array, put under 'unknown'
-          if (!grouped["unknown"]) grouped["unknown"] = [];
-          grouped["unknown"].push(agent);
         }
       });
 

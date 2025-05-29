@@ -90,9 +90,7 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
             accept="image/*"
             type="file"
             multiple
-            {...register("image", {
-              required: "This field is required",
-            })}
+            {...register("image")}
           />
         </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">

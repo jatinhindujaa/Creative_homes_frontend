@@ -75,11 +75,16 @@ const ImagesFormProperty = ({
           <div key={index} className="relative w-[150px] h-[150px]">
             <img
               src={
-                typeof image === "string" ? image : URL.createObjectURL(image)
+                typeof image === "string"
+                  ? image.startsWith("http")
+                    ? image
+                    : `${process.env.NEXT_PUBLIC_BASE_URL}${image}`
+                  : URL.createObjectURL(image)
               }
               alt={`Preview ${index}`}
               className="w-full h-full object-cover rounded-md"
             />
+
             <button
               type="button"
               onClick={() => handleDeleteImage(index)}

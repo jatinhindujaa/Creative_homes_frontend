@@ -11,6 +11,7 @@ import { PropertyCard } from './parts/PropertyCard'
 import villah from "./assets/villah.png";
 import int from "./assets/int.png";
 import { useProperties } from '../../admin/properties/useProperties'
+import { useSearchParams } from 'next/navigation'
 const properties = [
   {
     price: "AED 29,950,000",
@@ -130,18 +131,33 @@ const locations = [
 "Furnished 1 Bed Apartment For Rent",
 ];
 const Property = () => {
+   const searchParams = useSearchParams();
+   const offeringtypeFilter = searchParams.get("offeringtype");
   const {data, isLoading} = useProperties();
+   const filteredProperties = offeringtypeFilter
+     ? data?.filter((property) =>
+         property.offeringtype?.some(
+           (type) => type.toLowerCase() === offeringtypeFilter.toLowerCase()
+         )
+       )
+     : data;
   console.log("data",data)
   return (
     <>
       <Hero />
-      {data?.map((property, i) => (
+      {/* {data?.map((property, i) => (
         <PropertyCard key={i} data={property} />
-      ))}
-
+      ))} */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        filteredProperties?.map((property, i) => (
+          <PropertyCard key={i} data={property} />
+        ))
+      )}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <FAQSection faqs={faqs} />
-        <Popular locations ={locations}/>
+        <Popular locations={locations} />
         <MarqueeSection />
         <InterestSection />
         <News />

@@ -5,6 +5,7 @@ import ImagePreviewContainer from "../../ui/ImagePreviewContainer";
 import { useUpdateNewsImage } from "../../admin/news/useNews";
 import Spinner from "../../ui/Spinner";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
+import FileInput from "../../ui/FileInput";
 
 const EditNewsForm = ({
   id,
@@ -88,10 +89,40 @@ const EditNewsForm = ({
           <TiptapEditor content={aboutContent} setContent={setAboutContent} />
         </div>
 
-        <ImagePreviewContainer
+        {/* <ImagePreviewContainer
           image={editData.image}
           onImageChange={handleImageChange}
-        />
+        /> */}
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            {editData.image ? "Change Image" : "Add Image"}
+          </label>
+
+          {editData.image ? (
+            <div className="mb-4">
+              {/* Show preview of existing image */}
+              <ImagePreviewContainer
+                image={editData.image}
+                onImageChange={handleImageChange}
+              />
+            </div>
+          ) : (
+            <FileInput
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="block w-full text-sm text-gray-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-100 file:text-blue-700
+      hover:file:bg-blue-200
+    "
+            />
+          )}
+        </div>
+
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
           <p>Propery images for Mobile will be: 700 * 700</p>
           <p>Propery images for Desktop will be: 1500 * 1000</p>
