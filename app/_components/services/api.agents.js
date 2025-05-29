@@ -40,7 +40,7 @@ export const fetchAgentById = async (id) => {
   const response = await axios.get(`${ApiUrl}/agent/get-by-id?_id=${id}`, {
     withCredentials: true,
   });
-  return response.data.message;
+  return response.data.data;
 };
 
 export const updateImage = async ({ id, formData }) => {

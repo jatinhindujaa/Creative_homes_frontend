@@ -12,6 +12,7 @@ import villah from "./assets/villah.png";
 import int from "./assets/int.png";
 import { useProperties } from '../../admin/properties/useProperties'
 import { useSearchParams } from 'next/navigation'
+import { useAgentById } from '../../admin/agents/useAgents'
 const properties = [
   {
     price: "AED 29,950,000",
