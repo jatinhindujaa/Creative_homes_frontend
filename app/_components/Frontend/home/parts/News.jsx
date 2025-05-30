@@ -110,14 +110,16 @@
 
 // export default News;
 
-
+"use client"
 
 import React from "react";
 import news_1 from "../assets/news/news_1.png";
 import news_2 from "../assets/news/news_2.png";
 import news_3 from "../assets/news/news_3.png";
 import Image from "next/image";
-
+import { useNews } from "@/app/_components/admin/news/useNews";
+import { useRouter } from "next/navigation";
+  
 const newsData = [
   {
     image: news_1.src,
@@ -137,13 +139,51 @@ const newsData = [
 ];
 
 const News = () => {
+  const { data, isLoading } = useNews();
+  const router =useRouter()
   return (
+    //     <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-8 text-white my-10">
+    //       {data.map((item, i) => (
+    //         <div
+    //           key={i}
+    //           className="flex flex-col w-full lg:w-[33.33%] space-y-4"
+    //         >
+    //           {/* Image */}
+    //           <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[560px] w-full">
+    //             <Image
+    //               src={item.image}
+    //               alt={item.title}
+    //               fill
+    //               className="object-cover object-center rounded-[20px]"
+    //             />
+    //           </div>
+
+    //           {/* Title + Date */}
+    //           <div className="flex flex-col text-[1.2rem] sm:text-[1.4rem] leading-[2.2rem] space-y-1">
+    //             <span className="font-medium">{item.title}</span>
+    //             <span className="font-light text-sm">{item.date}</span>
+    //           </div>
+
+    //           {/* Description */}
+    //           <span className="text-[1rem] font-light leading-[1.6rem]">
+    //           {item.description}
+    //           </span>
+
+    //           {/* Read More */}
+    //       <div>
+    //   <button className="text-[1rem] font-light leading-[1.6rem]">
+    // Read more
+    // <div className="relative w-full h-[2px]">
+    // <div className="absolute inset-0 bg-gradient-to-r from-gold via-bronze to-gold"></div>
+    // </div>
+    //  </button>
+    // </div>
+    //         </div>
+    //       ))}
+    //     </div>
     <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-8 text-white my-10">
-      {newsData.map((item, i) => (
-        <div
-          key={i}
-          className="flex flex-col w-full lg:w-[33.33%] space-y-4"
-        >
+      {data?.slice(0, 3).map((item, i) => (
+        <div key={i} className="flex flex-col w-full lg:w-[33.33%] space-y-4">
           {/* Image */}
           <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[560px] w-full">
             <Image
@@ -161,22 +201,22 @@ const News = () => {
           </div>
 
           {/* Description */}
-          <span className="text-[1rem] font-light leading-[1.6rem]">
-            Welcome to the thriving world of Dubai investments, where
-            opportunities abound and financial success beckons. In this quick
-            guide, we’ll explore why investing in Dubai is a game-changer for
-            savvy investors like yourself.
-          </span>
-
+          {/* <span className="text-[1rem] font-light leading-[1.6rem]">
+            {item.description}
+          </span> */}
+          <div
+            className="text-[1rem] font-light leading-[1.6rem] line-clamp-3"
+            dangerouslySetInnerHTML={{ __html: item.description }}
+          />
           {/* Read More */}
-      <div>
-  <button className="text-[1rem] font-light leading-[1.6rem]">
-Read more
-<div className="relative w-full h-[2px]">
-<div className="absolute inset-0 bg-gradient-to-r from-gold via-bronze to-gold"></div>
-</div>
- </button>
-</div>
+          <div>
+            <button className="text-[1rem] font-light leading-[1.6rem]" onClick={() => router.push(`/news/${item._id}`)}>
+              Read more
+              <div className="relative w-full h-[2px]">
+                <div className="absolute inset-0 bg-gradient-to-r from-gold via-bronze to-gold"></div>
+              </div>
+            </button>
+          </div>
         </div>
       ))}
     </div>

@@ -288,7 +288,7 @@ export default function Header() {
             >
               {nav.name}
               {nav.items && (
-                <span className="ml-1 transform transition-transform group-hover:rotate-180">
+                <span className="ml-1 transform transition-transform group-hover:rotate-180 text-[0.7rem]">
                   ▼
                 </span>
               )}
@@ -341,7 +341,7 @@ export default function Header() {
               >
                 <a href={nav.link}>{nav.name}</a>
                 {nav.items && (
-                  <span className="ml-2 text-sm">
+                  <span className="ml-2 text-[0.7rem]">
                     {openSubMenu === nav.id ? "▲" : "▼"}
                   </span>
                 )}

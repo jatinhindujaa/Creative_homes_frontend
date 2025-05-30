@@ -1,11 +1,14 @@
+"use client"
 import React from "react";
 import property_1 from "../assets/property/property_1.png";
 import property_2 from "../assets/property/property_2.png";
 import property_3 from "../assets/property/property_3.png";
 import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
+import { useRouter } from "next/navigation";
 
 const Property = () => {
+  const router = useRouter();
   return (
     <div className="flex flex-col gap-5 lg:gap-[0px] mt-[100px]">
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold text-center">
@@ -15,8 +18,11 @@ const Property = () => {
         <span>PROPERTY</span>
       </div>
       <div className="w-[90%] mx-auto  space-x-20 sm:flex hidden">
-        <div className="h-[750px] w-[33.33%] flex items-end">
-          <div className="relative w-full h-[500px] hover:motion-scale-out-105">
+        <div
+          className="h-[750px] w-[33.33%] flex items-end "
+          onClick={() => router.push(`/property?propertytype=apartment`)}
+        >
+          <div className="relative w-full h-[500px] hover:motion-scale-out-105 cursor-pointer">
             <Image
               src={property_1.src}
               alt="Apartments"
@@ -32,9 +38,12 @@ const Property = () => {
             </div>
           </div>
         </div>
-        <div className="h-[750px] w-[33.33%] flex flex-col top-14 relative">
+        <div
+          className="h-[750px] w-[33.33%] flex flex-col top-14 relative"
+          onClick={() => router.push(`/property?propertytype=penthouse`)}
+        >
           <div className="h-[70%]">
-            <div className="relative w-full h-[500px] hover:motion-scale-out-105">
+            <div className="relative w-full h-[500px] hover:motion-scale-out-105 cursor-pointer">
               <Image
                 src={property_2.src}
                 alt="Mansions/villas/Penthouses"
@@ -58,7 +67,10 @@ const Property = () => {
           </div>
         </div>
         <div className="h-[750px] w-[33.33%] flex items-end">
-          <div className="relative w-full h-[500px] hover:motion-scale-out-105">
+          <div
+            className="relative w-full h-[500px] hover:motion-scale-out-105 cursor-pointer"
+            onClick={() => router.push(`/property?propertytype=compound`)}
+          >
             <Image
               src={property_3.src}
               alt="Townhouses"

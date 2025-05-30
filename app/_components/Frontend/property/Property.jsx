@@ -13,6 +13,7 @@ import int from "./assets/int.png";
 import { useProperties } from '../../admin/properties/useProperties'
 import { useSearchParams } from 'next/navigation'
 import { useAgentById } from '../../admin/agents/useAgents'
+import Spinner from '../../ui/Spinner'
 const properties = [
   {
     price: "AED 29,950,000",
@@ -134,28 +135,62 @@ const locations = [
 const Property = () => {
    const searchParams = useSearchParams();
    const offeringtypeFilter = searchParams.get("offeringtype");
+   const propertytypeFilter = searchParams.get("propertytype"); 
   const {data, isLoading} = useProperties();
-   const filteredProperties = offeringtypeFilter
-     ? data?.filter((property) =>
-         property.offeringtype?.some(
-           (type) => type.toLowerCase() === offeringtypeFilter.toLowerCase()
-         )
-       )
-     : data;
-  console.log("data",data)
+  
+  //  const filteredProperties = offeringtypeFilter
+  //    ? data?.filter((property) =>
+  //        property.offeringtype?.some(
+  //          (type) => type.toLowerCase() === offeringtypeFilter.toLowerCase()
+  //        )
+  //      )
+  //    : data;
+  const filteredProperties = data?.filter((property) => {
+    const offeringMatch = offeringtypeFilter
+      ? property.offeringtype?.some(
+          (type) => type.toLowerCase() === offeringtypeFilter.toLowerCase()
+        )
+      : true;
+
+    const propertyTypeMatch = propertytypeFilter
+      ? property.propertytype?.some(
+          (type) => type.toLowerCase() === propertytypeFilter.toLowerCase()
+        )
+      : true;
+
+    return offeringMatch && propertyTypeMatch;
+  });
+
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center h-[50vh]">
+          <Spinner />
+        </div>
+      );
+    }
   return (
     <>
       <Hero />
       {/* {data?.map((property, i) => (
         <PropertyCard key={i} data={property} />
       ))} */}
-      {isLoading ? (
-        <p>Loading...</p>
+      {/* {filteredProperties?.map((property, i) => (
+          <PropertyCard key={i} data={property} />
+        ))
+      } */}
+      {filteredProperties?.length === 0 ? (
+        <div className="text-center text-white py-20">
+          <h2 className="text-2xl font-semibold">No properties found</h2>
+          <p className="text-gray-400 mt-2">
+            We’re working on bringing more listings your way. Stay tuned!
+          </p>
+        </div>
       ) : (
-        filteredProperties?.map((property, i) => (
+        filteredProperties.map((property, i) => (
           <PropertyCard key={i} data={property} />
         ))
       )}
+
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <FAQSection faqs={faqs} />
         <Popular locations={locations} />

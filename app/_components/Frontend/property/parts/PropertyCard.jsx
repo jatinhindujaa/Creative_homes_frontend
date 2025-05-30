@@ -7,11 +7,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; // Import Slick CSS
 import "slick-carousel/slick/slick-theme.css"; // Import Slick theme CSS
 import { useAgentById } from "@/app/_components/admin/agents/useAgents";
+import Spinner from "@/app/_components/ui/Spinner";
 
 
 
 export function PropertyCard({ data }) {
-  const { data:agents, isLoading:isAgentLoading, error } = useAgentById(data.agent);
+  const { data: agents, isLoading: isAgentLoading } = useAgentById(data.agent);
+
   const [isMobile, setIsMobile] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +39,9 @@ export function PropertyCard({ data }) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
+if (isAgentLoading) {
+  <Spinner />;
+}
   return (
     <div className="text-white p-6 md:p-10 rounded-lg flex flex-col md:flex-row items-center gap-6 bg-[#1c1c1c] mb-10">
       {/* Left Section */}
@@ -133,7 +137,7 @@ export function PropertyCard({ data }) {
           {data.shortDescription}
         </p>
 
-        <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap">
+        {/* <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap">
           <div className="flex flex-row items-center gap-2">
             <div className="relative w-[50px] h-[50px] overflow-hidden">
               <Image
@@ -161,7 +165,42 @@ export function PropertyCard({ data }) {
               </button>
             </a>
           </div>
-        </div>
+        </div> */}
+        {agents && (
+          <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap">
+            <div className="flex flex-row items-center gap-2">
+              <div className="relative w-[50px] h-[50px] overflow-hidden">
+                <Image
+                  src={agents.image}
+                  alt="Agent"
+                  fill
+                  className="object-cover rounded-full"
+                />
+              </div>
+              <div className="flex flex-col">
+                <p className="text-lg font-medium">{agents.name}</p>
+                <p className="text-lg font-normal">{agents.designation}</p>
+              </div>
+            </div>
+
+            <div className="flex flex-row items-center gap-2">
+              <a href={`tel:${agents.phoneNo}`}>
+                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
+                  📞 Call
+                </button>
+              </a>
+              <a
+                href={`https://wa.me/${agents.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
+                  💬 WhatsApp
+                </button>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Image Viewer Modal */}
