@@ -6,39 +6,13 @@ import React, { useState } from "react";
 import team from "../assets/team1.png"; // Replace with actual images
 import Button from "@/app/_components/ui/Button";
 import { useAgents } from "@/app/_components/admin/agents/useAgents";
+import { useRouter } from "next/navigation";
 
 // const teamMembers = Array.from({ length: 57 }, (_, i) => ({
 //   name: `Member ${i + 1}`,
 //   role: `Role ${i + 1}`,
 //   image: team,
 // }));
-const teamMembers = [
-  { name: "Jatin Todi", role: "Sales Director", image: team },
-  { name: "Member 2", role: "Sales Manager", image: team },
-  { name: "Member 3", role: "Marketing Head", image: team },
-  { name: "Member 4", role: "Operations", image: team },
-  { name: "Member 5", role: "Finance Head", image: team },
-  { name: "Member 6", role: "HR Manager", image: team },
-  { name: "Member 7", role: "Property Consultant", image: team },
-  { name: "Member 8", role: "Legal Advisor", image: team },
-  { name: "Member 9", role: "Sales Executive", image: team },
-  { name: "Member 10", role: "Marketing Executive", image: team },
-  { name: "Member 11", role: "IT Specialist", image: team },
-  { name: "Member 12", role: "Operations Manager", image: team },
-  { name: "Member 13", role: "HR Assistant", image: team },
-  { name: "Member 14", role: "Property Consultant", image: team },
-  { name: "Member 15", role: "Legal Advisor", image: team },
-  { name: "Member 16", role: "Sales Executive", image: team },
-  { name: "Member 17", role: "Marketing Executive", image: team },
-  { name: "Member 18", role: "Team Lead", image: team },
-  { name: "Member 19", role: "Support Staff", image: team },
-  { name: "Member 20", role: "Support Staff", image: team },
-  { name: "Member 21", role: "Support Staff", image: team },
-  { name: "Member 22", role: "Support Staff", image: team },
-  { name: "Member 23", role: "Support Staff", image: team },
-  { name: "Member 24", role: "Support Staff", image: team },
-  { name: "Member 25", role: "Support Staff", image: team },
-];
 
 const columnLayout = [3, 4, 5, 4, 3]; // Cards per column
 const membersPerPage = 19;
@@ -55,7 +29,7 @@ console.log("dat",data)
   const startIndex = (currentPage - 1) * membersPerPage;
   // const currentMembers = data.slice(startIndex, startIndex + membersPerPage);
   const currentMembers = data? data.slice(startIndex, startIndex + membersPerPage):0;
-
+const router = useRouter();
   let memberIndex = 0;
 
   const handleNext = () => {
@@ -89,6 +63,9 @@ console.log("dat",data)
                   <div
                     key={member.name}
                     className="relative w-[120px] h-[220px] md:w-[150px] md:h-[280px] lg:w-[230px] lg:h-[300px] rounded-2xl overflow-hidden group"
+                    onClick={() =>
+                      router.push(`/meet-the-team/${member._id}`)
+                    }
                   >
                     <Image
                       src={member.image}

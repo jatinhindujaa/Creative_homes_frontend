@@ -33,14 +33,18 @@ const Mortgage_calculator = () => {
           Home Financing with Confidence
         </p>
         <div className="flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 sm:flex hidden">
-          <HoverButton
-            text="Mortgage Calculator"
-            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
-          />
-          <Button
-            text="Speak To The Team"
-            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
-          />
+          <a href="/mortgage-calculator">
+            <HoverButton
+              text="Mortgage Calculator"
+              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+            />
+          </a>
+          <a href="/contact-us">
+            <Button
+              text="Speak To The Team"
+              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+            />
+          </a>
         </div>
       </div>
       <div className="w-full lg:w-[25%] h-[200px] md:h-[250px] lg:h-[477px] xl:h-[623px] relative">
@@ -88,14 +92,18 @@ const Mortgage_calculator = () => {
         </div>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 sm:hidden">
-        <HoverButton
-          text="Mortgage Calculator"
-          className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
-        />
-        <Button
-          text="Speak To The Team"
-          className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
-        />
+        <a href="/mortgage-calculator">
+          <HoverButton
+            text="Mortgage Calculator"
+            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+          />
+        </a>
+        <a href="/contact-us">
+          <Button
+            text="Speak To The Team"
+            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+          />
+        </a>
       </div>
     </div>
   );

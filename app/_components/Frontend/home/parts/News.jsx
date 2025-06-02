@@ -181,7 +181,7 @@ const News = () => {
     //         </div>
     //       ))}
     //     </div>
-    <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-8 text-white my-10">
+    <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-8 text-white py-10">
       {data?.slice(0, 3).map((item, i) => (
         <div key={i} className="flex flex-col w-full lg:w-[33.33%] space-y-4">
           {/* Image */}

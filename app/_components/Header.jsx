@@ -309,10 +309,12 @@ export default function Header() {
           </div>
         ))}
       </nav>
-      <Button
-        text="Sell Your Property"
-        className="px-4 text-[1rem] py-1 text-white hidden md:flex"
-      />
+      <a href="/list-your-property">
+        <Button
+          text="Sell Your Property"
+          className="px-4 text-[1rem] py-1 text-white hidden md:flex"
+        />
+      </a>
 
       {/* Hamburger Toggle */}
       <button
@@ -348,7 +350,7 @@ export default function Header() {
               </div>
               {nav.items && openSubMenu === nav.id && (
                 <div className="ml-4 mt-2 space-y-2">
-                  {nav.items.map((item , index) => (
+                  {nav.items.map((item, index) => (
                     <a
                       key={item.itemName || index}
                       href={item.link}
@@ -362,10 +364,12 @@ export default function Header() {
               )}
             </div>
           ))}
-          <Button
-            text="Sell Your Property"
-            className="text-white border border-white mt-4 py-2"
-          />
+          <a href="/list-your-property">
+            <Button
+              text="Sell Your Property"
+              className="text-white border border-white mt-4 py-2"
+            />
+          </a>
         </div>
       </div>
     </header>

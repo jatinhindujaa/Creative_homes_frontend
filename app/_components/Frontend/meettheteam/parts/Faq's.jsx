@@ -189,14 +189,14 @@ const FAQSection = ({ faqs }) => {
       {/* FAQ List */}
       <div className="max-w-[71rem] mx-auto space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="relative">
+          <div key={index} className="relative flex flex-col items-center">
             {/* Outer Shadow for Glow Effect */}
             <div className="absolute inset-0 rounded-full blur-md opacity-30"></div>
 
             {/* FAQ Button */}
-            <div className="bg-white bg-opacity-20 backdrop-blur-lg lg:p-4 p-0 rounded-full lg:px-[1.3rem] px-0">
+            <div className="w-full bg-white bg-opacity-20 backdrop-blur-lg lg:p-4 p-0 rounded-full lg:px-[1.3rem] px-0">
               <button
-                className="relative w-full flex justify-between items-center px-6 lg:py-3 py-2 bg-white rounded-full text-black text-sm sm:text-lg font-medium shadow-lg transition-all"
+                className="relative w-full flex justify-between items-center px-6 lg:py-2 py-2 bg-white rounded-full text-black text-sm sm:text-lg font-medium shadow-lg transition-all"
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
@@ -220,11 +220,11 @@ const FAQSection = ({ faqs }) => {
 
             {/* FAQ Answer (Collapsible) */}
             <div
-              className={`overflow-hidden transition-all duration-300 ${
+              className={`w-[94%] overflow-hidden transition-all duration-300 ${
                 openIndex === index ? "opacity-100 py-4" : "max-h-0 opacity-0"
               }`}
             >
-              <div className="bg-white text-black text-sm px-6 py-6 rounded-[20px] leading-relaxed shadow-md">
+              <div className="bg-white text-black text-sm px-6 py-3 rounded-[20px] leading-relaxed shadow-md">
                 <p className="whitespace-pre-line">{faq.answer}</p>
               </div>
             </div>

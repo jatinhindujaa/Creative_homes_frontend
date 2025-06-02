@@ -4,18 +4,22 @@ import Slider from "react-slick";
 import { FcGoogle } from "react-icons/fc";
 import Button from "@/app/_components/ui/Button";
 
-import Featured_1 from "../assets/featured/featured_1Mob.jpg";
-import Featured_2 from "../assets/featured/featured_2Mob.jpg";
-import Featured_3 from "../assets/featured/featured_3Mob.jpg";
-import Featured_4 from "../assets/featured/featured_4Mob.jpg";
-import Featured_5 from "../assets/featured/featured_5Mob.jpg";
+import Featured_1 from "../assets/featured/featured_11Mob.jpg";
+import Featured_2 from "../assets/featured/featured_22Mob.jpg";
+import Featured_3 from "../assets/featured/featured_33Mob.jpg";
+import Featured_4 from "../assets/featured/featured_44Mob.jpg";
+import Featured_5 from "../assets/featured/featured_55Mob.jpg";
 
 const featuredData = [
-  { src: Featured_1, title: "The Elan", price: "AED 15,900,000" },
-  { src: Featured_2, title: "Harmony", price: "AED 20,600,000" },
-  { src: Featured_3, title: "The Sundials", price: "AED 29,800,000" },
-  { src: Featured_4, title: "Aseel", price: "AED 24,400,000" },
-  { src: Featured_5, title: "Mira", price: "AED 35,100,000" },
+  {
+    src: Featured_1,
+    title: "Grand Polo Club & Resort",
+    price: "AED 5,670,000",
+  },
+  { src: Featured_2, title: "Elwood", price: "AED 7,930,000" },
+  { src: Featured_3, title: "Kensington Gardens", price: "AED 3,200,000" },
+  { src: Featured_4, title: "Palm Jebel Ali", price: "AED 18,000,000" },
+  { src: Featured_5, title: "Burj Azizi", price: "AED 7,500,000" },
 ];
 
 const sliderSettings = {

@@ -499,7 +499,7 @@ const Agents = () => {
           {(groupedAgents[activeTab] || []).map((agent) => (
             <div key={agent._id} className="flex flex-col w-[250px] px-2">
               <Image
-                className="rounded-[20px] w-full h-[400px] object-cover"
+                className="rounded-[20px] w-full xxl:h-[500px] h-[400px] object-cover"
                 src={agent.image}
                 alt={agent.name}
                 width={250}

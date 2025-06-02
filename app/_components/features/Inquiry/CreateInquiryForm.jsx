@@ -12,7 +12,6 @@ const CreateInquiryForm = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {},
   });
-  const [tags, setTags] = useState([]);
   const { errors } = formState;
   const { createNewInquiry, isCreating } = useCreateInquiry();
   const [content, setContent] = useState("");

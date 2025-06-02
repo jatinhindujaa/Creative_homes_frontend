@@ -253,25 +253,25 @@ const socialMediaLinks = [
   {
     id: 1,
     icon: <FaInstagram color="black" size={"25px"} />,
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/creativehomesrealestate/",
     name: "Instagram",
   },
   {
     id: 2,
     icon: <RiFacebookFill color="black" size={"25px"} />,
-    link: "https://www.facebook.com/",
+    link: "https://www.facebook.com/creativehomesrealestate/",
     name: "facebook",
   },
   {
     id: 3,
     icon: <FaLinkedinIn color="black" size={"25px"} />,
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/company/creativehomesrealestate/",
     name: "LinkedIn",
   },
   {
     id: 4,
     icon: <FaYoutube color="black" size={"25px"} />,
-    link: "https://www.youtube.com",
+    link: "https://www.youtube.com/@creativehomesrealestate",
     name: "Youtube",
   },
 ];
@@ -332,7 +332,7 @@ export default function Footer() {
       <div className="flex flex-col justify-around w-[35%] h-[60vh]">
         <div>
           <a href={"/"}>
-            <Image src={logo} alt="Logo" className="w-[7rem] h-[7rem]" />
+            <Image src={logo} alt="Logo" className="w-[19rem] h-[7rem]" />
           </a>
         </div>
         <div className="flex flex-col">

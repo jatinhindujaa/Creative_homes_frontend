@@ -373,7 +373,7 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
               disabled={isCreating}
               type="text"
               id="reference"
-              {...register("reference", { required: "This field is required" })}
+              {...register("reference")}
             />
             {errors.reference && (
               <p className="text-red-500 text-sm">{errors.reference.message}</p>
@@ -381,7 +381,7 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Zone</label>
+            <label className=" text-sm font-medium text-gray-700">Google Map link</label>
             <Input
               disabled={isCreating}
               type="text"
@@ -399,7 +399,7 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
               disabled={isCreating}
               type="text"
               id="dld"
-              {...register("dld", { required: "This field is required" })}
+              {...register("dld")}
             />
             {errors.dld && (
               <p className="text-red-500 text-sm">{errors.dld.message}</p>

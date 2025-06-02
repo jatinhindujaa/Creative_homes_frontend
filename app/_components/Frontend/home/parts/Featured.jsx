@@ -1,30 +1,18 @@
 import Image from "next/image";
-import Featured_1 from "../assets/featured/featured_1.jpg";
-import Featured_2 from "../assets/featured/featured_2.jpg";
-import Featured_3 from "../assets/featured/featured_3.jpg";
-import Featured_4 from "../assets/featured/featured_4.jpg";
-import Featured_5 from "../assets/featured/featured_5.jpg";
+import Featured_1 from "../assets/featured/featured_11.jpg";
+import Featured_2 from "../assets/featured/featured_22Mob.jpg";
+import Featured_3 from "../assets/featured/featured_55Mob.jpg";
+import Featured_4 from "../assets/featured/featured_33Mob.jpg";
+import Featured_5 from "../assets/featured/featured_44.jpg";
 import Button from "@/app/_components/ui/Button";
 import { FcGoogle } from "react-icons/fc";
 
 const Featured = () => {
   return (
-    <div className="hidden md:flex flex-col items-center relative">
-      <div className="bg-[#202120] text-white p-6 rounded-lg border border-[#FCD15B] w-[60%] text-center absolute -top-[6rem]">
-        <p className="text-[1.5rem] space-x-4 tracking-wider">
-          <span className="text-[#FCD15B]">AWARDED</span> TOP AGENT:
-          <span className="text-[#A97C50]">EXCELLENCE</span> AT TOWN SQUARE
-          <span className="text-[#FCD15B]">DUBAI</span>
-        </p>
-        <div className="flex items-center justify-center mt-2 space-x-2">
-          <FcGoogle size={40} />
-          <p className="text-[1.5rem] font-semibold">
-            Reviews <span className="text-gray-300">4.8+</span>
-          </p>
-        </div>
-      </div>
+    <div className="hidden md:flex flex-col items-center relative cursor-pointer">
+      
 
-      <div className="flex justify-center space-x-4 text-[2.5rem] pt-[130px] font-medium">
+      <div className="flex justify-center space-x-4 text-[2.5rem] pt-[70px] font-medium">
         <span>FEATURED </span>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           PROPERTIES
@@ -44,10 +32,10 @@ const Featured = () => {
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                The Elan
+                Grand Polo Club & Resort
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                AED 15,900,000
+                AED 5,670,000
               </span>
             </div>
           </div>
@@ -63,10 +51,10 @@ const Featured = () => {
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                Harmony
+                Elwood
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                AED 20,600,000
+                AED 7,930,000
               </span>
             </div>
           </div>
@@ -84,10 +72,10 @@ const Featured = () => {
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                The Sundials
+                Kensington Gardens
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                AED 29,800,000
+                AED 3,200,000
               </span>
             </div>
           </div>
@@ -106,10 +94,10 @@ const Featured = () => {
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                Aseel
+                Palm Jebel Ali
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                AED 24,400,000
+                AED 18,000,000
               </span>
             </div>
           </div>
@@ -126,10 +114,10 @@ const Featured = () => {
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                Mira
+                Burj Azizi
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                AED 35,100,000
+                AED 7,500,000
               </span>
             </div>
           </div>

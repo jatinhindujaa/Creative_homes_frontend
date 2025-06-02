@@ -111,22 +111,30 @@
 </div>; */}
 // export default Projects;
 import React from "react";
-import projects_1 from "../assets/projects/projects_1.png";
-import projects_2 from "../assets/projects/projects_2.png";
-import projects_3 from "../assets/projects/projects_3.png";
-import projects_4 from "../assets/projects/projects_4.png";
+import projects_1 from "../assets/projects/Project_1.jpg";
+import projects_2 from "../assets/projects/Project_2.jpg";
+import projects_3 from "../assets/projects/Project_3.jpg";
+import projects_4 from "../assets/projects/Project_4.jpg";
 import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
 
 const projectList = [
   {
     src: projects_1.src,
-    title: "Palm Jebel Ali Villas",
+    title: "Seacrest",
     radius: "10px 10px 0 0",
   },
-  { src: projects_2.src, title: "Trup Tower", radius: "0px 0px 0 0" },
-  { src: projects_3.src, title: "Atelis at D3", radius: "0px 0px 0 0" },
-  { src: projects_4.src, title: "Ellington Cove", radius: "0px 0px 10px 10px" },
+  {
+    src: projects_2.src,
+    title: "Jacob & Co Residences",
+    radius: "0px 0px 0 0",
+  },
+  { src: projects_3.src, title: "Trump Tower", radius: "0px 0px 0 0" },
+  {
+    src: projects_4.src,
+    title: "Palm Beach Towers",
+    radius: "0px 0px 10px 10px",
+  },
 ];
 
 const Projects = () => {

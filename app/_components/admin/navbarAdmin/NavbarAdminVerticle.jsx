@@ -10,6 +10,7 @@ const navData = [
   { id: 2, name: "News", link: "/admin/news" },
   { id: 3, name: "Inquiries", link: "/admin/inquiries" },
   { id: 4, name: "Offplan Properties", link: "/admin/offplan" },
+  { id: 5, name: "List Property", link: "/admin/listproperty" },
 ];
 
 function NavbarAdminVerticle() {

@@ -389,7 +389,7 @@ import React, { useState } from "react";
 import img_1 from "../assets/neighbourhood/img_1.png";
 import img_2 from "../assets/neighbourhood/img_2.png";
 import img_3 from "../assets/neighbourhood/img_3.png";
-import img_4 from "../assets/neighbourhood/img_4.png";
+import img_4 from "../assets/neighbourhood/img_41.jpg";
 
 const Neighbourhoods = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -400,7 +400,7 @@ const Neighbourhoods = () => {
     { img: img_1, title: "Dubai Marina", listings: 18, defaultWidth: "25%" },
     { img: img_2, title: "Downtown Dubai", listings: 12, defaultWidth: "30%" },
     { img: img_3, title: "Palm Jumeirah", listings: 23, defaultWidth: "20%" },
-    { img: img_4, title: "Jumeirah Beach", listings: 31, defaultWidth: "10%" },
+    { img: img_4, title: "Creek Harbour", listings: 31, defaultWidth: "10%" },
   ];
 
   // Custom left positions for each box

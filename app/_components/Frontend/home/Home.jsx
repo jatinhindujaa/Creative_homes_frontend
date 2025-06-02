@@ -12,12 +12,14 @@ import work_banner from "./assets/info/work_with_us.jpg";
 import Image from "next/image";
 import MobileFeatured from "./parts/MobileFeatured";
 import MobileProp from "./parts/MobileProp";
+import DeveloperLogos from "./parts/ContinuousSlider";
 
 const Home = () => {
   return (
     <div className="flex flex-col">
       
       <Hero />
+      <DeveloperLogos/>
       <Featured />
       <MobileFeatured/>
       <Mortgage_calculator />

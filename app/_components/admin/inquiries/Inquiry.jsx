@@ -7,6 +7,7 @@
 // }
 
 // export default Inquiry
+
 "use client";
 import { InquiryProvider } from "./parts/InquiryContext.jsx";
 import Row from "../../ui/Row.jsx";
