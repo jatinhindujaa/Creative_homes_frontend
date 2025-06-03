@@ -26,12 +26,14 @@ const propertytypeOptions = [
   { value: "apartment", label: "Apartment" },
   { value: "penthouse", label: "Penthouse" },
   { value: "compound", label: "Compound" },
+  { value: "villah", label: "Villah" },
 ];
 
 const furnishingtypeOptions = [
   { value: "fully furnished", label: "Fully Furnished" },
   { value: "semi furnished", label: "Semi Furnished" },
   { value: "furnished", label: "Furnished" },
+  { value: "unfurnished", label: "Unfurnished" },
 ];
 
 const offeringtypeOptions = [
