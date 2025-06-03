@@ -411,9 +411,7 @@ const Neighbourhoods = () => {
       {/* Heading */}
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold">
         <span>BEST NEIGHBOURHOODS IN</span>
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-          DUBAI
-        </span>
+         
       </div>
 
       <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">

@@ -296,16 +296,16 @@ const ContactLinks = [
   },
 ];
 const quickLinks = [
-  { id: 1, name: "Home", link: "" },
-  { id: 2, name: "Properties", link: "" },
-  { id: 3, name: "Rent Properties", link: "" },
-  { id: 4, name: "Buy Properties", link: "" },
-  { id: 5, name: "Off Plan Properties", link: "" },
-  { id: 6, name: "About Us", link: "" },
-  { id: 7, name: "News", link: "" },
-  { id: 8, name: "Contact Us", link: "" },
-  { id: 9, name: "Privacy Policy", link: "" },
-  { id: 10, name: "Terms & Conditions", link: "" },
+  { id: 1, name: "Home", link: "/" },
+  { id: 2, name: "Properties", link: "/property" },
+  { id: 3, name: "Rent Properties", link: "/property?offeringtype=rent" },
+  { id: 4, name: "Buy Properties", link: "/property?offeringtype=buy" },
+  { id: 5, name: "Off Plan Properties", link: "/off-plan-properties" },
+  { id: 6, name: "About Us", link: "/about" },
+  { id: 7, name: "News", link: "/news" },
+  { id: 8, name: "Contact Us", link: "/contact-us" },
+  { id: 9, name: "Privacy Policy", link: "/privacy-policy" },
+  { id: 10, name: "Terms & Conditions", link: "/privacy-policy" },
 ];
 
 const popularSearches = [
@@ -388,19 +388,19 @@ export default function Footer() {
         </span>
         <ul className="flex flex-col space-y-4">
           {socialMediaLinks.map((search, index) => (
-            <div key={search.id || index} className="flex flex-row gap-3">
-              <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
-                <a
-                  href={search.link}
-                  className="no-underline text-white hover:text-gray-300 transition-colors"
-                >
+            <a
+              href={search.link}
+              className="no-underline text-white hover:text-gray-300 transition-colors"
+            >
+              <div key={search.id || index} className="flex flex-row gap-3">
+                <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                   {search.icon}
-                </a>
-              </li>
-              <li className="text-[0.9rem] leading-6 font-light">
-                {search.name}
-              </li>
-            </div>
+                </li>
+                <li className="text-[0.9rem] leading-6 font-light">
+                  {search.name}
+                </li>
+              </div>
+            </a>
           ))}
         </ul>
       </div>

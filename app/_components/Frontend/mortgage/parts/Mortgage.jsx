@@ -67,7 +67,8 @@ const MortgageCalculator = () => {
               />
             </div>
 
-            <div className="flex flex-col items-center w-full">
+            <div className="w-full mb-4">
+              <label className="block text-sm py-3">Down-payment</label>
               <input
                 type="number"
                 className="w-full bg-gray-800 border border-gray-600 bg-transparent pl-5 p-2 rounded-[20px]"

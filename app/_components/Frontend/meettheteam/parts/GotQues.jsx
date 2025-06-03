@@ -166,9 +166,9 @@ const InterestSection = () => {
   const [selected, setSelected] = useState(null);
 
   const interestOptions = [
-    { id: 1, label: "Buy Property", icon: <FaHome size={24} /> },
-    { id: 2, label: "Sell Property", icon: <FaHandshake size={24} /> },
-    { id: 3, label: "Rent Property", icon: <FaKey size={24} /> },
+    { id: 1, label: "Buying", icon: <FaHome size={24} /> },
+    { id: 2, label: "Selling", icon: <FaHandshake size={24} /> },
+    { id: 3, label: "Renting", icon: <FaKey size={24} /> },
   ];
 
   return (
@@ -199,6 +199,7 @@ const InterestSection = () => {
           {/* Icon Options */}
           <div className="flex gap-4 md:gap-6 flex-wrap justify-center">
             {interestOptions.map((option) => (
+              <div className="flex flex-col items-center">
               <button
                 key={option.id}
                 onClick={() => setSelected(option.id)}
@@ -214,6 +215,8 @@ const InterestSection = () => {
               >
                 {option.icon}
               </button>
+              <p className="text-white">{option.label}</p>
+              </div>
             ))}
           </div>
 

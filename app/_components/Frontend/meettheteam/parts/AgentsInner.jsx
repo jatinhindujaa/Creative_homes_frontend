@@ -43,16 +43,20 @@ export default function AgentsInner() {
       </div>
 
       {/* Content below banner */}
-      <div className="pt-20 px-[15rem] pb-12">
+      <div className="pt-20 px-[15rem] pb-12 bg-[#282927]">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           {/* Left text block */}
           <div>
-            <h1 className="text-4xl font-semibold leading-tight">
+            <h1 className="text-4xl font-semibold leading-tight text-white">
               Hi <span className="inline-block align-middle">👋</span>,<br />I
               am{" "}
-              <span className="text-blue-600 font-semibold">{agents?.name}</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+                {agents?.name}
+              </span>
             </h1>
-            <p className="text-lg font-medium mt-2">I am a Property Advisor</p>
+            <p className="text-lg font-medium mt-2 text-white">
+              {agents?.designation}
+            </p>
             <div className="mt-2 flex items-center space-x-1">
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -71,7 +75,7 @@ export default function AgentsInner() {
           <div className="mt-8 md:mt-0 flex gap-4">
             <button
               type="button"
-              className="flex items-center gap-2 border border-green-600 text-green-600 px-5 py-2 rounded-md font-semibold hover:bg-green-600 hover:text-white transition"
+              className="flex items-center gap-2 border bg-white border-black text-black px-5 py-2 rounded-md font-semibold hover:border-white hover:bg-transparent hover:text-white transition"
             >
               <svg
                 className="w-5 h-5"
@@ -85,7 +89,7 @@ export default function AgentsInner() {
             </button>
             <button
               type="button"
-              className="flex items-center gap-2 border border-gray-900 text-gray-900 px-5 py-2 rounded-md font-semibold hover:bg-gray-900 hover:text-white transition"
+              className="flex items-center gap-2 border border-white text-white px-5 py-2 rounded-md font-semibold hover:bg-white hover:text-black transition"
             >
               <svg
                 className="w-5 h-5"
@@ -98,17 +102,20 @@ export default function AgentsInner() {
                 <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2h-6a2 2 0 01-2-2v-4" />
                 <path d="M12 12v8m0-8L8 16m4-4l4 4" />
               </svg>
-              Save contacts
+              Call
             </button>
           </div>
         </div>
 
         {/* Services text */}
-        <div className="mt-12 text-center text-gray-600 font-semibold tracking-wide">
+        <div className="mt-12 text-center text-white font-semibold tracking-wide">
           My Services
-          <div className="text-2xl font-bold mt-1">[{agents?.type}]</div>
+          <div className="text-2xl font-bold mt-1">
+            {agents?.type?.join(", ")}
+          </div>
         </div>
-        <div className="mt-8 px-2 text-center text-gray-500 mx-auto">
+
+        <div className="mt-8 px-2 text-center text-white mx-auto">
           <h2 className="text-xl font-semibold mb-2">About Me</h2>
           <p>{agents?.about}</p>
         </div>

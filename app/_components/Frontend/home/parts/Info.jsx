@@ -74,7 +74,7 @@ const Info = () => {
 
           {/* Responsive Flex Container */}
           <div className="text-white flex flex-col lg:flex-row items-center justify-around w-full gap-y-[1rem] lg:gap-y-0 lg:gap-x-6 px-6 sm:px-10">
-            <StatCard label="Experience" end={18} suffix="Years+" />
+            <StatCard label="Years of Experience" end={18} suffix="+" />
             <div className="hidden lg:block border-r-2 h-[60px]" />
             <div className="flex lg:hidden border-b-[1px] w-[150px]" />
             <StatCard label="Email Subscribers " end={15} suffix="K+" />

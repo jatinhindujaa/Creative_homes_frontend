@@ -414,6 +414,7 @@ import Slider from "react-slick";
 import Image from "next/image";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useAgents } from "@/app/_components/admin/agents/useAgents";
+import { useRouter } from "next/navigation";
 
 const Agents = () => {
   const { data: agents, isLoading } = useAgents();
@@ -423,6 +424,7 @@ const Agents = () => {
   const [arrowStyle1, setArrowStyle1] = useState("text-white text-2xl");
   const [arrowStyle2, setArrowStyle2] = useState("text-white text-2xl");
   const SecondsliderRef = useRef(null);
+  const router = useRouter();
   useEffect(() => {
     if (agents?.length) {
       const grouped = {};
@@ -497,9 +499,13 @@ const Agents = () => {
       <div className="w-[90%] mx-auto relative lg:block hidden">
         <Slider {...settings} ref={sliderRef}>
           {(groupedAgents[activeTab] || []).map((agent) => (
-            <div key={agent._id} className="flex flex-col w-[250px] px-2">
+            <div
+              key={agent._id}
+              className="flex flex-col w-[250px] px-2"
+              onClick={() => router.push(`/meet-the-team/${agent._id}`)}
+            >
               <Image
-                className="rounded-[20px] w-full xxl:h-[500px] h-[400px] object-cover"
+                className="rounded-[20px] w-full xxl:h-[500px] h-[400px] object-cover cursor-pointer"
                 src={agent.image}
                 alt={agent.name}
                 width={250}
