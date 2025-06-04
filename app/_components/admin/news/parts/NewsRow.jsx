@@ -20,6 +20,7 @@ function NewsRow({
     date,
     description,
     image,
+    mobileImage,
     status,
   },
 }) {
@@ -35,6 +36,7 @@ function NewsRow({
     date,
     description,
     image,
+    mobileImage,
     status,
   });
   const [aboutContent, setAboutContent] = useState(description);

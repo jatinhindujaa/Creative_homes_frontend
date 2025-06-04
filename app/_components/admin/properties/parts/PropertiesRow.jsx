@@ -39,6 +39,7 @@ function PropertiesRow({
     agent,
     status,
     multipleImages,
+    mobilemultipleImages,
     image,
   },
 }) {
@@ -83,6 +84,7 @@ function PropertiesRow({
     agent,
     status,
     multipleImages,
+    mobilemultipleImages,
     image,
   });
 
@@ -111,7 +113,8 @@ function PropertiesRow({
     formData.append("shortDescription", editData.shortDescription);
     formData.append("description", editData.description);
     formData.append("agent", editData.agent);
-
+ console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
+  console.log(" Multiple Images:", editData);
     (editData.features || []).forEach((f) => formData.append("features[]", f));
 
     (editData.amenities || []).forEach((a) =>
@@ -141,7 +144,14 @@ if (editData.newImages && editData.newImages.length > 0) {
     formData.append("multipleImages", file);
   });
 }
-
+ if (
+   editData.mobilemultipleImages &&
+   editData.mobilemultipleImages.length > 0
+ ) {
+   editData.mobilemultipleImages.forEach((file) => {
+     formData.append("mobilemultipleImages", file); // Correct field name
+   });
+ }
     updateProperty(
       { id: _id, formData },
       {

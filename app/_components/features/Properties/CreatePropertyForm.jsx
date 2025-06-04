@@ -26,7 +26,15 @@ const propertytypeOptions = [
   { value: "apartment", label: "Apartment" },
   { value: "penthouse", label: "Penthouse" },
   { value: "compound", label: "Compound" },
-  { value: "villah", label: "Villah" },
+  { value: "villa", label: "Villa" },
+  { value: "duplex", label: "Duplex" },
+  { value: "townhouse", label: "Townhouse" },
+  { value: "fullfloor", label: "Full Floor" },
+  { value: "halffloor", label: "Half Floor" },
+  { value: "wholebuilding", label: "Whole Building" },
+  { value: "bulkrentunit", label: "Bulk Rent Unit" },
+  { value: "bungalow", label: "Bungalow" },
+  { value: "hotelandhotelapartment", label: "Hotel & Hotel Apratment" },
 ];
 
 const furnishingtypeOptions = [
@@ -54,6 +62,9 @@ const propertycategoryOptions = [
     const multipleFiles = data.multipleImages
       ? Array.from(data.multipleImages)
       : [];
+      const mobileMultipleFiles = data.mobilemultipleImages
+        ? Array.from(data.mobilemultipleImages)
+        : [];
     const formData = new FormData();
 
     formData.append("name", data.name);
@@ -98,6 +109,9 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
     multipleFiles.forEach((file) => {
       formData.append("multipleImages", file);
     });
+     mobileMultipleFiles.forEach((file) => {
+       formData.append("mobilemultipleImages", file);
+     });
      if (data.image[0]) {
        formData.append("image", data.image[0]);
      }
@@ -383,7 +397,9 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Google Map link</label>
+            <label className=" text-sm font-medium text-gray-700">
+              Google Map link
+            </label>
             <Input
               disabled={isCreating}
               type="text"
@@ -517,8 +533,24 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
         </div>
 
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
-          <p>Propery images for Mobile will be: 700 * 700</p>
           <p>Propery images for Desktop will be: 1000 * 1000</p>
+          <p>File size should be less than 5mb.</p>
+        </div>
+
+        <div>
+          <label className=" text-sm font-medium text-gray-700">
+            Mobile Property Images
+          </label>
+          <FileInput
+            id="mobilemultipleImages"
+            accept="image/*"
+            type="file"
+            multiple
+            {...register("mobilemultipleImages")}
+          />
+        </div>
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 700 * 700</p>
           <p>File size should be less than 5mb.</p>
         </div>
         <div className="flex justify-end space-x-3">

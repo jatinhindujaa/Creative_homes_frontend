@@ -31,7 +31,9 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
     if (data.image[0]) {
       formData.append("image", data.image[0]);
     }
-
+if (data.mobileImage[0]) {
+  formData.append("mobileImage", data.mobileImage[0]);
+}
     createNewNews(formData, {
       onSuccess: () => {
         reset();
@@ -93,9 +95,24 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
             {...register("image")}
           />
         </div>
+           <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Desktop will be: 1500 * 1000</p>
+          <p>File size should be less than 5MB.</p>
+        </div>
+        <div className="space-x-12">
+          <label className=" text-sm font-medium text-gray-700">
+            Mobile Image
+          </label>
+          <FileInput
+            id="mobileImage"
+            accept="image/*"
+            type="file"
+            multiple
+            {...register("mobileImage")}
+          />
+        </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
           <p>Propery images for Mobile will be: 700 * 700</p>
-          <p>Propery images for Desktop will be: 1500 * 1000</p>
           <p>File size should be less than 5MB.</p>
         </div>
 

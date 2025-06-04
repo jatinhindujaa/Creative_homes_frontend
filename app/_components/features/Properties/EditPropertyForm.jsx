@@ -13,30 +13,39 @@ const EditPropertyForm = ({
   onConfirm,
   onCloseModal,
 }) => {
-  const propertytypeOptions = [
-    { value: "apartment", label: "Apartment" },
-    { value: "penthouse", label: "Penthouse" },
-    { value: "compound", label: "Compound" },
-  ];
+ const propertytypeOptions = [
+   { value: "apartment", label: "Apartment" },
+   { value: "penthouse", label: "Penthouse" },
+   { value: "compound", label: "Compound" },
+   { value: "villa", label: "Villa" },
+   { value: "duplex", label: "Duplex" },
+   { value: "townhouse", label: "Townhouse" },
+   { value: "fullfloor", label: "Full Floor" },
+   { value: "halffloor", label: "Half Floor" },
+   { value: "wholebuilding", label: "Whole Building" },
+   { value: "bulkrentunit", label: "Bulk Rent Unit" },
+   { value: "bungalow", label: "Bungalow" },
+   { value: "hotelandhotelapartment", label: "Hotel & Hotel Apratment" },
+ ];
 
-  const furnishingtypeOptions = [
-    { value: "fully furnished", label: "Fully Furnished" },
-    { value: "semi furnished", label: "Semi Furnished" },
-    { value: "furnished", label: "Furnished" },
-  ];
+ const furnishingtypeOptions = [
+   { value: "fully furnished", label: "Fully Furnished" },
+   { value: "semi furnished", label: "Semi Furnished" },
+   { value: "furnished", label: "Furnished" },
+   { value: "unfurnished", label: "Unfurnished" },
+ ];
 
-  const offeringtypeOptions = [
-    { value: "buy", label: "Buy" },
-    { value: "sale", label: "Sale" },
-    { value: "rent", label: "Rent" },
-    { value: "offplan", label: "Offplan" },
-  ];
+ const offeringtypeOptions = [
+   { value: "buy", label: "Buy" },
+   { value: "sale", label: "Sale" },
+   { value: "rent", label: "Rent" },
+   { value: "offplan", label: "Offplan" },
+ ];
 
-  const propertycategoryOptions = [
-    { value: "commercial", label: "Commercial" },
-    { value: "residential", label: "Residential" },
-  ];
-
+ const propertycategoryOptions = [
+   { value: "commercial", label: "Commercial" },
+   { value: "residential", label: "Residential" },
+ ];
   const [tags, setTags] = useState(editData.features || []);
   const [description, setDescription] = useState(editData.description || "");
   const [amenities, setAmenities] = useState(editData.amenities || []);
@@ -45,6 +54,9 @@ const EditPropertyForm = ({
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
   );
+    const [mobilemultipleImages, setmobilemultipleImages] = useState(
+      editData.mobilemultipleImages || []
+    );
  const [propertytype, setPropertyType] = useState(editData.propertytype || []);
  const [furnishingtype, setFurnishingType] = useState(
    editData.furnishingtype || []
@@ -57,6 +69,8 @@ const EditPropertyForm = ({
 
 
   const [newImages, setNewImages] = useState([]);
+  const [mobilenewImages, setmobileNewImages] = useState([]);
+
 
   const { data: agents = [], isLoading: loadingAgents } = useAgents();
   useEffect(() => {
@@ -105,6 +119,7 @@ const EditPropertyForm = ({
       description,
       agent: selectedAgent,
       multipleImages: propertyImages,
+      mobilemultipleImages: mobilemultipleImages,
       propertytype,
       furnishingtype,
       offeringtype,
@@ -116,6 +131,7 @@ const EditPropertyForm = ({
     description,
     selectedAgent,
     propertyImages,
+    mobilemultipleImages,
     propertytype,
     furnishingtype,
     offeringtype,
@@ -132,6 +148,19 @@ const EditPropertyForm = ({
     e.preventDefault();
     onConfirm(editData);
   };
+
+  const handleMobileImageChange = (e) => {
+    const files = Array.from(e.target.files); // Convert the file list to an array
+    console.log("Selected mobile images:", files); // Check if files are selected correctly
+
+
+    // Also update editData so that it reflects the changes in the parent component
+    setEditData((prev) => ({
+      ...prev,
+      mobileMultipleImages: files, // Update editData with the selected mobile images
+    }));
+  };
+
 
   return (
     <form
@@ -443,6 +472,46 @@ const EditPropertyForm = ({
               setNewImages(files);
               setEditData((prev) => ({ ...prev, newImages: files }));
             }}
+          />
+        </div>
+        <div>
+          <label className="text-sm font-medium text-gray-700 mb-2 block">
+            Existing Mobile Property Images
+          </label>
+          <div className="flex flex-wrap gap-3">
+            {mobilemultipleImages.map((img, idx) => (
+              <div key={idx} className="relative w-24 h-24">
+                <img
+                  src={img}
+                  alt={`property-${idx}`}
+                  className="w-full h-full object-cover rounded"
+                />
+                <button
+                  type="button"
+                  onClick={() =>
+                    setmobilemultipleImages(
+                      mobilemultipleImages.filter((_, i) => i !== idx)
+                    )
+                  }
+                  className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 text-xs"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <label className="text-sm font-medium text-gray-700 mt-4 block">
+            Add New Property Images
+          </label>
+          <FileInput
+            id="mobileMultipleImages"
+            accept="image/*"
+            type="file"
+            multiple
+            onChange={handleMobileImageChange} // Trigger the handler when files are selected
           />
         </div>
 
