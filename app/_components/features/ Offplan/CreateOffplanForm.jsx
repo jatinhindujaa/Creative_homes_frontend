@@ -30,6 +30,9 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
     const multipleFiles = data.multipleImages
       ? Array.from(data.multipleImages)
       : [];
+        const mobileMultipleFiles = data.mobilemultipleImages
+          ? Array.from(data.mobilemultipleImages)
+          : [];
     const formData = new FormData();
 
     formData.append("name", data.name);
@@ -251,7 +254,9 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Handover In</label>
+            <label className=" text-sm font-medium text-gray-700">
+              Handover In
+            </label>
             <Input
               disabled={isCreating}
               type="text"
@@ -298,7 +303,26 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             })}
           />
         </div>
-
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Desktop will be: 1000 * 1000</p>
+          <p>File size should be less than 5mb.</p>
+        </div>
+        <div>
+          <label className=" text-sm font-medium text-gray-700">
+            Mobile Property Images
+          </label>
+          <FileInput
+            id="mobilemultipleImages"
+            accept="image/*"
+            type="file"
+            multiple
+            {...register("mobilemultipleImages")}
+          />
+        </div>
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
+          <p>Propery images for Mobile will be: 700 * 700</p>
+          <p>File size should be less than 5mb.</p>
+        </div>
         {/* Submit buttons */}
         <div className="flex justify-end space-x-3">
           <button

@@ -631,6 +631,9 @@ const EditOffplanForm = ({
   const [views, setViews] = useState(editData.views || []);
   const [amenities, setAmenities] = useState(editData.amenities || []);
   const [description, setDescription] = useState(editData.description || "");
+  const [mobilemultipleImages, setmobilemultipleImages] = useState(
+      editData.mobilemultipleImages || []
+    );
   const [floorPlanCategories, setFloorPlanCategories] = useState(
     editData.floorPlanCategories || []
   );
@@ -663,6 +666,7 @@ const EditOffplanForm = ({
       floorPlanCategories,
       status,
       multipleImages: existingMultipleImages,
+      mobilemultipleImages: mobilemultipleImages,
       newMultipleImages,
       image: brochureFile || editData.image,
     }));
@@ -678,6 +682,7 @@ const EditOffplanForm = ({
     floorPlanCategories,
     status,
     existingMultipleImages,
+    mobilemultipleImages,
     newMultipleImages,
     brochureFile,
     setEditData,
@@ -688,7 +693,29 @@ const EditOffplanForm = ({
     e.preventDefault();
     onConfirm(editData);
   };
+const handleMobileImageChange = (e) => {
+  const files = Array.from(e.target.files); // Convert the file list to an array
+  console.log("Selected mobile images:", files); // Check if files are selected correctly
+  setmobilemultipleImages(files); // Update state with selected files
 
+  // Also update editData to reflect the new images
+  setEditData((prev) => ({
+    ...prev,
+    mobilemultipleImages: files,
+  }));
+};
+
+// Handle removal of mobile image
+const handleRemoveMobileImage = (index) => {
+  const updatedImages = mobilemultipleImages.filter((_, idx) => idx !== index); // Remove image at the given index
+  setmobilemultipleImages(updatedImages); // Update state with the remaining images
+
+  // Update editData with the new image array
+  setEditData((prev) => ({
+    ...prev,
+    mobilemultipleImages: updatedImages,
+  }));
+};
   const handleRemoveExistingImage = (index) => {
     setExistingMultipleImages((images) => images.filter((_, i) => i !== index));
   };
