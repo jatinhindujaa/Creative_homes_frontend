@@ -4,6 +4,7 @@ import SortBy from "@/app/_components/ui/SortBy.jsx";
 import Filter from "@/app/_components/ui/Filter";
 import Modal from "@/app/_components/ui/Modal";
 import CreatePropertyForm from "@/app/_components/features/Properties/CreatePropertyForm";
+import CreateArea from "@/app/_components/features/Properties/CreateArea";
 
 function PropertiesTableOperations() {
   const { filter, setFilter, sort, setSort } = usePropertiesContext();
@@ -36,8 +37,16 @@ function PropertiesTableOperations() {
             Add Property
           </button>
         </Modal.Open>
+        <Modal.Open opens="area-form">
+          <button className="font-outfit bg-blue-950 text-white p-2 font-light text-[1rem] leading-[1.5rem] border-[1.5px] border-white hover:bg-blue-900  rounded-[41px]">
+            Create Area
+          </button>
+        </Modal.Open>
         <Modal.Window name="property-form">
           <CreatePropertyForm resourceName="Property" />
+        </Modal.Window>
+        <Modal.Window name="area-form">
+          <CreateArea resourceName="Areas" />
         </Modal.Window>
       </Modal>
     </TableOperations>

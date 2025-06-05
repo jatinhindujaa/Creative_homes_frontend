@@ -80,7 +80,7 @@ const DeveloperLogos = () => {
         <Slider {...settings}>
           {sliderItems.map((logo, i) => (
             <div key={i} className="px-3">
-              <div className="bg-[#f5f5f5] rounded-xl p-6 flex items-center justify-center h-32 shadow-sm">
+              <div className="rounded-xl p-6 flex items-center justify-center h-32 shadow-sm">
                 <Image
                   src={logo.src}
                   alt={logo.alt}

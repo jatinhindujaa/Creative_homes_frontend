@@ -246,6 +246,7 @@ if (editData.newImages && editData.newImages.length > 0) {
           <Modal.Open opens="delete">
             <Menus.Button icon={<HiTrash />} />
           </Modal.Open>
+          
         </Menus.Menu>
 
         <Modal.Window name="delete">

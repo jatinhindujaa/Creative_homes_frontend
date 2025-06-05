@@ -134,6 +134,8 @@ const EditPropertyForm = ({
     propertycategory,
     setEditData,
   ]);
+console.log("mobilemultipleImages", mobilemultipleImages);
+console.log("propertyImages", propertyImages);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -519,7 +521,6 @@ const EditPropertyForm = ({
           <FileInput
             id="mobileMultipleImages"
             accept="image/*"
-            type="file"
             multiple
             onChange={handleMobileImageChange} // Trigger the handler when files are selected
           />
