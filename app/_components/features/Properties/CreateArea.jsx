@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useCreateProperty } from "../../admin/properties/useProperties";
+import { useCreateArea, useCreateProperty } from "../../admin/properties/useProperties";
 import Input from "../../ui/Input";
 import FileInput from "../../ui/FileInput";
 import Spinner from "../../ui/Spinner";
@@ -13,48 +13,25 @@ const CreateArea = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
   });
-  const [tags, setTags] = useState([]);
-  const [amenities, setAmenities] = useState([]);
-
   const { errors } = formState;
-  const { createProperties, isCreating } = useCreateProperty();
-  // const [content, setContent] = useState("");
-  const { data: agents = [], isLoading: loadingAgents } = useAgents();
-  const [selectedAgent, setSelectedAgent] = useState("");
-  const [content, setContent] = useState("");
+  const { createAreas, isCreating } = useCreateArea();
 
   if (isCreating) return <Spinner />;
 
   const onSubmit = (data) => {
-    const multipleFiles = data.multipleImages
-      ? Array.from(data.multipleImages)
-      : [];
-    const mobileMultipleFiles = data.mobilemultipleImages
-      ? Array.from(data.mobilemultipleImages)
-      : [];
     const formData = new FormData();
 
     formData.append("name", data.name);
+    formData.append("order", data.order);
 
-    tags.forEach((tag) => {
-      formData.append("features[]", tag);
-    });
-    amenities.forEach((amenity) => {
-      formData.append("amenities[]", amenity);
-    });
+if (data.image[0]) {
+  formData.append("image", data.image[0]);
+}
+if (data.mobileImage[0]) {
+  formData.append("mobileImage", data.mobileImage[0]);
+}
 
-
-    multipleFiles.forEach((file) => {
-      formData.append("multipleImages", file);
-    });
-    mobileMultipleFiles.forEach((file) => {
-      formData.append("mobilemultipleImages", file);
-    });
-    if (data.image[0]) {
-      formData.append("image", data.image[0]);
-    }
-
-    createProperties(formData, {
+    createAreas(formData, {
       onSuccess: () => {
         reset();
         onCloseModal?.();
@@ -101,23 +78,12 @@ const CreateArea = ({ onCloseModal, resourceName }) => {
 
         <div className="space-x-12">
           <label className=" text-sm font-medium text-gray-700">
-            Property Images
+            Area Image
           </label>
-          {/* <FileInput
-            id="multipleImages"
-            accept="multipleImages/*"
-            type="file"
-            multiple
-            {...register("multipleImages", {
-              required: "This field is required",
-            })}
-          /> */}
           <FileInput
-            id="multipleImages"
+            id="image"
             accept="image/*" // fix accept type to 'image/*'
-            type="file"
-            multiple
-            {...register("multipleImages")} // Remove required here
+            {...register("image")} // Remove required here
           />
         </div>
 
@@ -127,23 +93,12 @@ const CreateArea = ({ onCloseModal, resourceName }) => {
         </div>
         <div className="space-x-12">
           <label className=" text-sm font-medium text-gray-700">
-            Property Images
+            Area Mobile Image
           </label>
-          {/* <FileInput
-            id="multipleImages"
-            accept="multipleImages/*"
-            type="file"
-            multiple
-            {...register("multipleImages", {
-              required: "This field is required",
-            })}
-          /> */}
           <FileInput
-            id="multipleImages"
+            id="mobileImage"
             accept="image/*" // fix accept type to 'image/*'
-            type="file"
-            multiple
-            {...register("multipleImages")} // Remove required here
+            {...register("mobileImage")} // Remove required here
           />
         </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">

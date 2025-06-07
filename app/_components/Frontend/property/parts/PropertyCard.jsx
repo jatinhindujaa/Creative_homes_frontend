@@ -8,12 +8,13 @@ import "slick-carousel/slick/slick.css"; // Import Slick CSS
 import "slick-carousel/slick/slick-theme.css"; // Import Slick theme CSS
 import { useAgentById } from "@/app/_components/admin/agents/useAgents";
 import Spinner from "@/app/_components/ui/Spinner";
+import { useRouter } from "next/navigation";
 
 
 
 export function PropertyCard({ data }) {
   const { data: agents, isLoading: isAgentLoading } = useAgentById(data.agent);
-
+const router  = useRouter()
   const [isMobile, setIsMobile] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -106,10 +107,15 @@ if (isAgentLoading) {
 
       {/* Right Section */}
       <div className="w-full md:w-1/2 flex flex-col gap-2">
-        {/* <h2 className="text-2xl md:text-3xl font-bold">{data.name}</h2> */}
-        <h2 className="text-2xl md:text-3xl font-bold">AED {data.price}</h2>
+        <h2
+          className="text-2xl md:text-3xl font-bold cursor-pointer"
+          onClick={() => router.push(`/property/${data._id}`)}
+        >
+          {data.name}
+        </h2>
+        <h2 className="text-2xl md:text2xl ">AED {data.price}</h2>
         <div className="flex flex-row gap-4">
-          {data.features.map((d, i) => (
+          {data.features.slice(0,3).map((d, i) => (
             <span key={i} className="text-[1rem]">
               {d}{" "}
             </span>
@@ -167,8 +173,11 @@ if (isAgentLoading) {
           </div>
         </div> */}
         {agents && (
-          <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap">
-            <div className="flex flex-row items-center gap-2">
+          <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap cursor-pointer">
+            <div
+              className="flex flex-row items-center gap-2"
+              onClick={() => router.push(`/meet-the-team/${agents._id}`)}
+            >
               <div className="relative w-[50px] h-[50px] overflow-hidden">
                 <Image
                   src={agents.image}

@@ -392,7 +392,7 @@ const propertyData = [
 
 const Offplan_property = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const propertyPerPage = 4;
+  const propertyPerPage = 6;
  const {data, isLoading} = useOffplan();
  console.log("data",data)
   const totalPages = Math.ceil(data?.length / propertyPerPage);
@@ -516,7 +516,7 @@ const PropertyCard = ({ el }) => {
   const router = useRouter()
   const {
     _id,
-    location,
+  location,
     name,
     price,
     developer,

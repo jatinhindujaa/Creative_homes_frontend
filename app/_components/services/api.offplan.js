@@ -43,7 +43,7 @@ export const fetchOffplanById = async (id) => {
   const response = await axios.get(`${ApiUrl}/offplan/get-by-id?_id=${id}`, {
     withCredentials: true,
   });
-  return response.data.message;
+  return response.data.data;
 };
 
 export const updateMultiImagesFromOffplan = async ({ id, multipleImages }) => {

@@ -14,9 +14,9 @@ const OffplanInner = () => {
     console.log("data", data);
   return (
     <div className="bg-[#282927]">
-      <OffplanGallery />
-      <OffplanDetail />
-      <OffplanExtras/>
+      <OffplanGallery data={data}/>
+      <OffplanDetail data ={data}/>
+      <OffplanExtras data={data} />
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <InterestSection />
         <MarqueeSection />

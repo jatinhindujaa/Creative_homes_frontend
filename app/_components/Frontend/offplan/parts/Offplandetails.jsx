@@ -2,27 +2,14 @@
 import Image from "next/image";
 import agentImage from "../assets/1.png"; // Replace with actual path
 
-export default function OffplanDetail() {
+export default function OffplanDetail({ data }) {
   return (
     <div className="flex flex-col md:flex-row gap-6 justify-between text-white p-6 md:p-10 rounded-xl">
       {/* Left Column */}
       <div className="w-full md:w-[60%] flex flex-col gap-4">
-        <h1 className="text-3xl font-semibold text-[#f1c376]">
-          AED 29,950,000
+        <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+          AED {data?.price}
         </h1>
-        <div className="flex gap-6 text-gray-300 text-lg">
-          <p>🏡 Villa</p>
-          <p>🛏 6</p>
-          <p>🛁 6</p>
-        </div>
-        <div className="flex gap-6 text-sm text-gray-400">
-          <p>BUA: 7,535 sq.ft</p>
-          <p>Plot: 6,900 sq.ft</p>
-        </div>
-
-        <h2 className="text-2xl font-semibold mt-2">
-          Upgraded | Three Bedroom | Exclusive
-        </h2>
         <p className="text-gray-400 text-md">
           📍 The Sundials, Jumeirah Golf Estates, Dubai
         </p>
@@ -63,33 +50,32 @@ export default function OffplanDetail() {
       <div className="w-full md:w-1/3 flex flex-col gap-6">
         {/* Agent Card */}
         <div className=" border rounded-xl p-5 flex flex-col gap-4">
-          <div className="flex items-center gap-4">
-            <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden">
-              <Image
-                src={agentImage}
-                alt="Agent"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold">Ghizlane Haddi</h3>
-              <p className="text-sm text-gray-400">Sr. Offplan Consultant</p>
-              <p className="text-sm text-gray-400">Speaks English</p>
-              <p className="text-sm text-gray-400">RERA Number: 55365</p>
+          <div className=" text-white p-6 rounded-xl flex flex-col gap-4">
+            <h3 className="text-lg font-semibold text-gray-400">
+              Starting Price
+            </h3>
+            <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+              AED {data?.price}
+            </h1>
+
+            <div className="flex gap-4 mt-2">
+              <a href={`tel:${""}`} className="w-[50%]">
+                <button className="w-[100%] flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
+                  📞 Call
+                </button>
+              </a>
+              <a
+                className="w-[50%]"
+                href={`https://wa.me/${""}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="w-full flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
+                  💬 WhatsApp
+                </button>
+              </a>
             </div>
           </div>
-          <div className="flex gap-4 mt-2">
-            <button className="flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-              📞 Call
-            </button>
-            <button className="flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-              💬 WhatsApp
-            </button>
-          </div>
-          <button className="w-full mt-2 bg-white text-black py-2 rounded-full text-sm font-medium hover:bg-gray-300 transition">
-            📅 Book A Viewing
-          </button>
         </div>
 
         {/* Mortgage Card */}

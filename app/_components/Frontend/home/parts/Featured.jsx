@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Featured_1 from "../assets/featured/featured_11.jpg";
 import Featured_2 from "../assets/featured/featured_22Mob.jpg";
@@ -6,12 +7,13 @@ import Featured_4 from "../assets/featured/featured_33Mob.jpg";
 import Featured_5 from "../assets/featured/featured_44.jpg";
 import Button from "@/app/_components/ui/Button";
 import { FcGoogle } from "react-icons/fc";
+import { useRouter } from "next/navigation";
 
 const Featured = () => {
+const router = useRouter();
+
   return (
     <div className="hidden md:flex flex-col items-center relative cursor-pointer">
-      
-
       <div className="flex justify-center space-x-4 text-[2.5rem] pt-[70px] font-medium">
         <span>FEATURED </span>
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
@@ -79,7 +81,11 @@ const Featured = () => {
               </span>
             </div>
           </div>
-          <Button text="VIEW ALL" className="px-4 w-fit py-1 text-[0.9rem]" />
+          <Button
+            text="VIEW ALL"
+            className="px-4 w-fit py-1 text-[0.9rem]"
+            onClick={() => router.push("/property")}
+          />
         </div>
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           <div className="relative h-[32.4rem] w-full  ">

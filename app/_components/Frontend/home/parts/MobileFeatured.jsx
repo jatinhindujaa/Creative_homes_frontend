@@ -9,6 +9,7 @@ import Featured_2 from "../assets/featured/featured_22Mob.jpg";
 import Featured_3 from "../assets/featured/featured_33Mob.jpg";
 import Featured_4 from "../assets/featured/featured_44Mob.jpg";
 import Featured_5 from "../assets/featured/featured_55Mob.jpg";
+import { useRouter } from "next/navigation";
 
 const featuredData = [
   {
@@ -21,7 +22,6 @@ const featuredData = [
   { src: Featured_4, title: "Palm Jebel Ali", price: "AED 18,000,000" },
   { src: Featured_5, title: "Burj Azizi", price: "AED 7,500,000" },
 ];
-
 const sliderSettings = {
   autoplay: false,
   autoplaySpeed: 3000,
@@ -35,6 +35,8 @@ const sliderSettings = {
 };
 
 export default function MobileFeatured() {
+const router = useRouter();
+
   return (
     <div className="flex flex-col items-center w-full px-4 py-10 bg-[#282927] text-white md:hidden relative">
       <style jsx global>{`
@@ -133,6 +135,7 @@ export default function MobileFeatured() {
         <Button
           text="VIEW ALL"
           className="text-white border border-white px-6 py-2 rounded-full text-sm"
+          onClick={() => router.push("/property")}
         />
       </div>
     </div>

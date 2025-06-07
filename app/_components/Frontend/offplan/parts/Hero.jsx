@@ -17,11 +17,8 @@ const Hero = () => {
         objectPosition="center"
         priority
       />
-
-      {/* Search and filter section */}
-      <div className="relative -bottom-[13rem] z-10 lg:flex hidden w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
+      {/* <div className="relative -bottom-[13rem] z-10 lg:flex hidden w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
         <div className="bg-white bg-opacity-20 backdrop-blur-lg py-5 rounded-full px-6 flex gap-4 w-full">
-          {/* Search Input for City, Building, or Community */}
           <div className="flex-1 relative">
             <input
               type="text"
@@ -31,7 +28,6 @@ const Hero = () => {
             <CiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-black" />
           </div>
 
-          {/* Property Type Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black  py-2 pl-4 pr-8 cursor-pointer appearance-none focus:outline-none"
@@ -57,7 +53,6 @@ const Hero = () => {
             </svg>
           </div>
 
-          {/* Min Price Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black  py-2 px-4 cursor-pointer appearance-none focus:outline-none"
@@ -83,7 +78,6 @@ const Hero = () => {
             </svg>
           </div>
 
-          {/* Max Price Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black  py-2 px-4 cursor-pointer appearance-none focus:outline-none"
@@ -109,7 +103,6 @@ const Hero = () => {
             </svg>
           </div>
 
-          {/* Beds Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black  py-2 pl-4 px-8 cursor-pointer appearance-none focus:outline-none"
@@ -135,7 +128,6 @@ const Hero = () => {
             </svg>
           </div>
 
-          {/* Bath Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black  py-2 pl-4 px-8  cursor-pointer appearance-none focus:outline-none"
@@ -161,7 +153,6 @@ const Hero = () => {
             </svg>
           </div>
 
-          {/* Developer Dropdown */}
           <div className="relative">
             <select
               className="bg-white text-black rounded-r-full py-2 px-4 cursor-pointer appearance-none focus:outline-none"
@@ -185,7 +176,7 @@ const Hero = () => {
             </svg>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
