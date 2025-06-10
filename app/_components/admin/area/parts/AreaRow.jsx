@@ -13,7 +13,7 @@ import Image from "next/image";
 import { useDeleteAreas, useUpdateAreas } from "../useArea";
 // import EditAreaForm from "@/app/_components/features/Area/EditAreaForm";
 
-function AreaRow({ Areas: { name, image, mobileImage, status } }) {
+function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
   const { mutate: updateArea, isPending: isUpdatingArea } = useUpdateAreas();
   const { mutate: deleteArea, isPending: isDeleting } = useDeleteAreas();
   const [show, setShow] = useState(false);
@@ -21,6 +21,7 @@ function AreaRow({ Areas: { name, image, mobileImage, status } }) {
   //   const [descContent, setDescContent] = useState(description);
 
   const [editData, setEditData] = useState({
+    _id,
     name,
     image,
     mobileImage,

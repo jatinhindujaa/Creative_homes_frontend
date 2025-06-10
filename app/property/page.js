@@ -7,6 +7,4 @@ export default function Page (){
       </h2>
     );
     
-
-    
 }

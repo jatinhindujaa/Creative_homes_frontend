@@ -152,10 +152,12 @@ import FileInput from "../../ui/FileInput";
 import Spinner from "../../ui/Spinner";
 import Select from "react-select";
 import { Controller } from "react-hook-form";
+import TagInput from "../../ui/TagInput";
 const CreateAgentForm = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
   });
+  const [languages, setlanguages] = useState([])
 const typeOptions = [
   { value: "off plan", label: "Off Plan" },
   { value: "ready", label: "Ready" },
@@ -170,11 +172,15 @@ const typeOptions = [
 
   const onSubmit = (data) => {
     const formData = new FormData();
-
+ languages.forEach((language) => {
+   formData.append("languages[]", language);
+ });
     formData.append("name", data.name);
     formData.append("phoneNo", data.phoneNo);
     formData.append("designation", data.designation);
-    // formData.append("type", data.type); // ✅ Add category
+    formData.append("experience", data.experience);
+    formData.append("order", data.order);
+
     if (data.type && Array.isArray(data.type)) {
       data.type.forEach((t) => formData.append("type", t));
     }
@@ -243,7 +249,50 @@ const typeOptions = [
             <p className="text-red-500 text-sm">{errors.designation.message}</p>
           )}
         </div>
+        <div className="gap-2 flex flex-row">
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">
+              Experience
+            </label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="experience"
+              {...register("experience", {
+                required: "This field is required",
+              })}
+            />
+            {errors.designation && (
+              <p className="text-red-500 text-sm">
+                {errors.experience.message}
+              </p>
+            )}
+          </div>
 
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">Order</label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="order"
+              {...register("order", {
+                required: "This field is required",
+              })}
+            />
+            {errors.order && (
+              <p className="text-red-500 text-sm">{errors.order.message}</p>
+            )}
+          </div>
+        </div>
+        <div>
+          <label className=" text-sm font-medium text-gray-700">
+            Languages
+          </label>
+          <TagInput tags={languages} setTags={setlanguages} />
+          {errors.languages && (
+            <p className="text-red-500 text-sm">{errors.languages.message}</p>
+          )}
+        </div>
         {/* ✅ Category Dropdown */}
         <div>
           <label className="text-sm font-medium text-gray-700">Type</label>

@@ -1,6 +1,6 @@
 import { FaEdit } from "react-icons/fa";
 
-// const ImagePreviewContainer = ({ image, onImageChange }) => {
+// const MobileImagePreviewContainer = ({ image, onImageChange }) => {
 //   return (
 //     <div className="flex flex-col">
 //       <label className="font-medium text-gray-700">Image:</label>
@@ -32,8 +32,8 @@ import { FaEdit } from "react-icons/fa";
 //     </div>
 //   );
 // };
-// ImagePreviewContainer.js
-const ImagePreviewContainer = ({ image, onImageChange }) => {
+// MobileImagePreviewContainer.js
+const MobileImagePreviewContainer = ({ image, onImageChange }) => {
   return (
     <div className="flex flex-col">
       <label className="font-medium text-gray-700">Image:</label>
@@ -54,7 +54,7 @@ const ImagePreviewContainer = ({ image, onImageChange }) => {
                 type="file"
                 accept="image/*"
                 className="hidden"
-                onChange={onImageChange} // This will call handleImageChange
+                onChange={onImageChange} // This will call handleMobileImageChange
               />
             </div>
           </>
@@ -64,4 +64,4 @@ const ImagePreviewContainer = ({ image, onImageChange }) => {
   );
 };
 
-export default ImagePreviewContainer;
+export default MobileImagePreviewContainer;

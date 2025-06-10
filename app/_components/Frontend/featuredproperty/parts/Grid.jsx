@@ -16,7 +16,13 @@ const images = [
 export default function Grid() {
   return (
     <div className="py-8 max-w-7xl mx-auto w-[100%]">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="w-[90%] mx-auto gap-2 text-white flex flex-row justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold mt-6">
+        <span>FEATURED {""}</span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+          {""} PROPERTIES
+        </span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
         {/* Top row */}
         <div className="relative col-span-1">
           <Image

@@ -69,6 +69,16 @@ export default function ListYourProperty() {
           <option value="Rent">Rent</option>
           <option value="Sale">Sale</option>
         </select>
+
+        <select
+          {...register("listingType", { required: true })}
+          className="w-full px-4 py-2 border rounded"
+        >
+          <option value="">Property Type*</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Penthouse">Penthouse/Villas/Mansions</option>
+          <option value="Townhouse">Townhouse</option>
+        </select>
         <input
           type="text"
           {...register("propertyAddress", { required: true })}

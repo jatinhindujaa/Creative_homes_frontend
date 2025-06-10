@@ -156,10 +156,11 @@ import React, { useEffect, useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
 import ImagePreviewContainer from "../../ui/ImagePreviewContainer";
-import { useUpdateNewsImage } from "../../admin/news/useNews";
+import { useUpdateMobileNewsImage, useUpdateNewsImage } from "../../admin/news/useNews";
 import Spinner from "../../ui/Spinner";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 import FileInput from "../../ui/FileInput";
+import MobileImagePreviewContainer from "../../ui/MobileImagePreviewContainer";
 
 const EditNewsForm = ({
   id,
@@ -172,8 +173,11 @@ const EditNewsForm = ({
   onCloseModal,
 }) => {
   console.log("mobile",editData)
-  const { mutate: updateNewsImage, isPending: isImageUpdating } =
+  const { mutate: updateImage, isPending: isImageUpdating } =
     useUpdateNewsImage();
+
+      const { mutate: MobileImage, isPending: isMobileImageUpdating } =
+        useUpdateMobileNewsImage();
   const [tags, setTags] = useState(editData.languages || []);
 
   useEffect(() => {
@@ -195,7 +199,7 @@ const EditNewsForm = ({
     const formDataImage = new FormData();
     formDataImage.append("image", file);
 
-    updateNewsImage({
+    updateImage({
       id,
       formData: formDataImage,
     });
@@ -209,7 +213,7 @@ const EditNewsForm = ({
     const formDataImage = new FormData();
     formDataImage.append("mobileImage", file);
 
-    updateNewsImage({
+    MobileImage({
       id,
       formData: formDataImage,
     });
@@ -296,7 +300,7 @@ const EditNewsForm = ({
           {editData.mobileImage ? (
             <div className="mb-4">
               {/* Show preview of existing mobile image */}
-              <ImagePreviewContainer
+              <MobileImagePreviewContainer
                 image={editData.mobileImage}
                 onImageChange={handleMobileImageChange}
               />

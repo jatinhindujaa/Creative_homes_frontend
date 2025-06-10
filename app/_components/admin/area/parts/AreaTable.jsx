@@ -39,11 +39,9 @@ function AreasTable() {
   if (!data.length) return <Empty resourceName="Areas" />;
   return (
     <Menus>
-      <Table columns="grid-cols-6">
+      <Table columns="grid-cols-4">
         <Table.Header>
           <div>Name</div>
-          <div>Date</div>
-          <div>Desctiption</div>
           <div>Image</div>
           <div>Status</div>
           <div>Actions</div>

@@ -3,6 +3,9 @@ import Image from "next/image";
 import Featured_1 from "../assets/featured/featured_11.jpg";
 import Featured_2 from "../assets/featured/featured_22Mob.jpg";
 import Featured_3 from "../assets/featured/featured_55Mob.jpg";
+import Featured_6 from "../assets/featured/featured_66.jpg";
+import Featured_7 from "../assets/featured/featured_66Mob.jpg";
+
 import Featured_4 from "../assets/featured/featured_33Mob.jpg";
 import Featured_5 from "../assets/featured/featured_44.jpg";
 import Button from "@/app/_components/ui/Button";
@@ -64,7 +67,7 @@ const router = useRouter();
         <div className="flex flex-col w-[33.33%] p-2 space-y-16 items-center">
           <div className="relative h-[75%] w-full ">
             <Image
-              src={Featured_3.src}
+              src={Featured_6.src}
               alt="Harmony"
               layout="fill"
               objectFit="cover"
@@ -74,7 +77,7 @@ const router = useRouter();
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[20px] backdrop-blur-[2px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
-                Kensington Gardens
+                W Residences
               </span>
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 AED 3,200,000

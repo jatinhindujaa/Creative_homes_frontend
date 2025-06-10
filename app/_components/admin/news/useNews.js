@@ -7,6 +7,7 @@ import {
   fetchNewsById,
   updateImage,
   updateBanner,
+  updateMobileImage,
 } from "../../services/api.news";
 
 import toast from "react-hot-toast";
@@ -93,6 +94,25 @@ export const useUpdateNewsImage = () => {
     },
   });
 };
+
+
+export const useUpdateMobileNewsImage = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: updateMobileImage,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["News"]);
+      toast.success("News image updated successfully!");
+    },
+    onError: (error) => {
+      console.error("Failed to update News image:", error);
+      toast.error("Failed to update News image. Please try again.");
+    },
+  });
+};
+
+
 
 export const useUpdateNewsBanner = () => {
   const queryClient = useQueryClient();

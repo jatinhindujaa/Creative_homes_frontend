@@ -11,6 +11,7 @@ import { Toaster } from "react-hot-toast";
 import MobileFooter from "./_components/MobileFooter";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import WhatsAppIcon from "./_components/WhatsappIcon";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -33,8 +34,9 @@ export default function RootLayout({ children }) {
         <body className={outfit.className} style={{ position: "relative" }}>
           <Toaster position="top-center" reverseOrder={false} />
           {!isAdminRoute && <Header />}
-          <ReactQueryDevtools initialIsOpen={false} /> {children}
+          {children}
           {!isAdminRoute && <Footer />} {!isAdminRoute && <MobileFooter />}
+          <WhatsAppIcon />
         </body>
       </QueryClientProvider>
     </html>

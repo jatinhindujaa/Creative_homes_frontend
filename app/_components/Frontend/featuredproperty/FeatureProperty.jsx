@@ -4,6 +4,7 @@ import Grid from './parts/Grid';
 import Neighbourhoods from './parts/Neighbourhoods';
 import Popular from '../news/parts/Popular';
 import MarqueeSection from '../meettheteam/parts/marque';
+import FeaturedSlider from './parts/FeaturedSlider';
 
 const FeatureProperty = () => {
   const locations = [
@@ -21,7 +22,9 @@ const FeatureProperty = () => {
       <div className="bg-[#282927] flex  flex-col items-center">
         <Grid />
         <Neighbourhoods />
+        <FeaturedSlider/>
         <MarqueeSection />
+
         <Popular locations ={locations}/>
       </div>
     </>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useCreateArea, useCreateProperty } from "../../admin/properties/useProperties";
 import Input from "../../ui/Input";
 import FileInput from "../../ui/FileInput";
 import Spinner from "../../ui/Spinner";
@@ -9,12 +8,13 @@ import { useAgents } from "../../admin/agents/useAgents";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 // import TipTapEditor from "../../ui/tiptapEditor";
 import Select from "react-select";
+import { useCreateAreas } from "../../admin/area/useArea";
 const CreateArea = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
   });
   const { errors } = formState;
-  const { createAreas, isCreating } = useCreateArea();
+  const { createNewAreas, isCreating } = useCreateAreas();
 
   if (isCreating) return <Spinner />;
 
@@ -31,7 +31,7 @@ if (data.mobileImage[0]) {
   formData.append("mobileImage", data.mobileImage[0]);
 }
 
-    createAreas(formData, {
+    createNewAreas(formData, {
       onSuccess: () => {
         reset();
         onCloseModal?.();

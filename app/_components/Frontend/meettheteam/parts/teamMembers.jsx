@@ -8,27 +8,36 @@ import Button from "@/app/_components/ui/Button";
 import { useAgents } from "@/app/_components/admin/agents/useAgents";
 import { useRouter } from "next/navigation";
 
-// const teamMembers = Array.from({ length: 57 }, (_, i) => ({
-//   name: `Member ${i + 1}`,
-//   role: `Role ${i + 1}`,
-//   image: team,
-// }));
 
 const columnLayout = [3, 4, 5, 4, 3]; // Cards per column
 const membersPerPage = 19;
 
 const TeamSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortOrder, setSortOrder] = useState("asc");
 const {data, isLoading} = useAgents()
-console.log("dat",data)
+ const sortedData = data
+   ? [...data].sort((a, b) => {
+       if (sortOrder === "asc") {
+         return a.order - b.order;
+       } else {
+         return b.order - a.order;
+       }
+     })
+   : [];
+
   // const totalPages = Math.ceil(data.length / membersPerPage);
-  const totalPages = data ? Math.ceil(data.length / membersPerPage) : 0;
+  const totalPages = sortedData
+    ? Math.ceil(sortedData.length / membersPerPage)
+    : 0;
 
 
   // Get members for current page
   const startIndex = (currentPage - 1) * membersPerPage;
   // const currentMembers = data.slice(startIndex, startIndex + membersPerPage);
-  const currentMembers = data? data.slice(startIndex, startIndex + membersPerPage):0;
+  const currentMembers = sortedData
+    ? sortedData.slice(startIndex, startIndex + membersPerPage)
+    : 0;
 const router = useRouter();
   let memberIndex = 0;
 

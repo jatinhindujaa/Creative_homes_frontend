@@ -390,6 +390,7 @@ export default function Footer() {
           {socialMediaLinks.map((search, index) => (
             <a
               href={search.link}
+              key={index}
               className="no-underline text-white hover:text-gray-300 transition-colors"
             >
               <div key={search.id || index} className="flex flex-row gap-3">

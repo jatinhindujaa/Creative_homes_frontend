@@ -22,7 +22,8 @@ const navLinks = [
     ],
   },
   { id: 5, name: "Mortgage Calculator", link: "/mortgage-calculator" },
-  // { id: 6, name: "Guides", link: "" },
+  { id: 6, name: "News", link: "/news" },
+  { id: 6, name: "Guides", link: "/guides" },
   { id: 7, name: "Off plan", link: "/off-plan-properties" },
   {
     id: 8,
@@ -30,11 +31,10 @@ const navLinks = [
     items: [
       { itemName: "Contact Us", link: "/contact-us" },
       { itemName: "Privacy Policy", link: "/privacy-policy" },
+      { itemName: "About us", link: "/about" },
       { itemName: "Testimonials", link: "/about" },
-      { itemName: "Our Stories", link: "/about" },
     ],
   },
-  { id: 9, name: "Guides", link: "/guides" },
 ];
 
 export default function Header() {
@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className="absolute w-full h-24 flex items-center justify-between px-6 md:px-10 bg-transparent z-40">
       <a href="/" className="flex items-center">
-        <Image src={logo} alt="Logo" className="w-[100%] h-20" />
+        <Image src={logo} alt="Logo" className="w-[100%] h-16" />
       </a>
 
       {/* Desktop Nav */}

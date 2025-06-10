@@ -21,7 +21,10 @@ function AgentsRow({
     about,
     image,
     status,
-    type
+    type,
+    experience,
+    order,
+    languages,
   },
 }) {
   const { mutate: updateAgent, isPending: isUpdatingAgent } = useUpdateAgent();
@@ -36,22 +39,22 @@ function AgentsRow({
     designation,
     about,
     image,
-    type
+    type,
+    experience,
+    order,
+    languages,
   });
 
   const expandDescription = () => {
     setShow((prev) => !prev);
   };
 
- const handleToggleStatus = () => {
-   console.log("Toggling status for:", _id, "Current status:", status);
-   const formData = new FormData();
-   formData.append("status", !status); // string "true"/"false"
-   updateAgent({ id: _id, formData });
- };
-
-
-
+  const handleToggleStatus = () => {
+    console.log("Toggling status for:", _id, "Current status:", status);
+    const formData = new FormData();
+    formData.append("status", !status); // string "true"/"false"
+    updateAgent({ id: _id, formData });
+  };
 
   const handleDelete = () => {
     deleteAgent(_id);
@@ -64,13 +67,18 @@ function AgentsRow({
     formData.append("phoneNo", editData.phoneNo);
     formData.append("designation", editData.designation);
     formData.append("about", editData.about);
+    formData.append("experience", editData.experience);
+    formData.append("order", editData.order);
+
     if (editData.type && Array.isArray(editData.type)) {
       editData.type.forEach((t) => formData.append("type", t));
     } else if (editData.type) {
       formData.append("type", editData.type);
     }
 
-
+    (editData.languages || []).forEach((a) =>
+      formData.append("languages[]", a)
+    );
     updateAgent({ id: _id, formData });
   };
 

@@ -6,7 +6,7 @@ import Button from "@/app/_components/ui/Button";
 
 import Featured_1 from "../assets/featured/featured_11Mob.jpg";
 import Featured_2 from "../assets/featured/featured_22Mob.jpg";
-import Featured_3 from "../assets/featured/featured_33Mob.jpg";
+import Featured_3 from "../assets/featured/featured_66Mob.jpg";
 import Featured_4 from "../assets/featured/featured_44Mob.jpg";
 import Featured_5 from "../assets/featured/featured_55Mob.jpg";
 import { useRouter } from "next/navigation";

@@ -7,7 +7,7 @@ import {
   updateMultiImagesFromProperty,
   fetchPropertyById,
   removeMultiImageFromProperty,
-  createArea,
+  fetchPropertyByAgentId,
 } from "../../services/api.property";
 
 import toast from "react-hot-toast";
@@ -30,6 +30,16 @@ export const usePropertyById = (id) => {
   return { data, isLoading, error };
 };
 
+export const usePropertyByAgentId = (id) => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["Property", id],
+    queryFn: () => fetchPropertyByAgentId(id),
+    staleTime: 5 * 60 * 1000,
+  });
+  return { data, isLoading, error };
+};
+
+
 export const useCreateProperty = () => {
   const queryClient = useQueryClient();
   const { mutate: createProperties, isPending: isCreating } = useMutation({
@@ -45,22 +55,6 @@ export const useCreateProperty = () => {
   });
 
   return { createProperties, isCreating };
-};
-export const useCreateArea = () => {
-  const queryClient = useQueryClient();
-  const { mutate: createAreas, isPending: isCreating } = useMutation({
-    mutationFn: createArea,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["Property"]);
-      toast.success("Property Created successfully!");
-    },
-    onError: (error) => {
-      console.error("Failed to create Property:", error);
-      toast.error("Failed to create Property. Please try again.");
-    },
-  });
-
-  return { createAreas, isCreating };
 };
 
 

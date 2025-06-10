@@ -17,15 +17,6 @@ export const createProperty = async (formData) => {
   });
   return response.data;
 };
-export const createArea = async (formData) => {
-  const response = await axios.post(`${ApiUrl}/area/create`, formData, {
-    withCredentials: true,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
-  });
-  return response.data;
-};
 export const updateProperty = async ({ id, formData }) => {
   const response = await axios.post(
     `${ApiUrl}/property/update?id=${id}`,
@@ -51,6 +42,16 @@ export const fetchPropertyById = async (id) => {
   const response = await axios.get(`${ApiUrl}/property/get-by-id?_id=${id}`, {
     withCredentials: true,
   });
+  return response.data.data;
+};
+
+export const fetchPropertyByAgentId = async (id) => {
+  const response = await axios.get(
+    `${ApiUrl}/property/get-by-agentid?agent=${id}`,
+    {
+      withCredentials: true,
+    }
+  );
   return response.data.data;
 };
 

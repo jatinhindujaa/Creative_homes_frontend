@@ -553,7 +553,7 @@ const Agents = () => {
           {agents.map((agent, index) => (
             <div>
               <div
-                key={agent.subId || index}
+                key={agent._id || index}
                 className="flex flex-col w-[100%] px-2"
               >
                 <Image

@@ -5,12 +5,17 @@ import React from "react";
 import Popular from "../../news/parts/Popular";
 import InterestSection from "./GotQues";
 import MarqueeSection from "./marque";
+import { usePropertyByAgentId } from "@/app/_components/admin/properties/useProperties";
+import { PropertyCard } from "../../property/parts/PropertyCard";
 
 export default function AgentsInner() {
 
     const { _id } = useParams();
       const { data: agents, isLoading: isAgentLoading } = useAgentById(_id);
-      console.log("data", agents);
+      const { data: properties, isLoading: isPropertiesLoading } =
+        usePropertyByAgentId(_id);
+
+      console.log("properties", properties);
       const locations = [
         "3 Bedroom Apartment For Rent",
         "Dubai Hill Estate",
@@ -38,7 +43,7 @@ export default function AgentsInner() {
         </div>
       </div>
 
-      <div className="pt-20 px-[15rem] pb-12 bg-[#282927]">
+      <div className="pt-20 px-[15rem] pb-12 bg-[#282927] ">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-4xl font-semibold leading-tight text-white">
@@ -51,6 +56,12 @@ export default function AgentsInner() {
             <p className="text-lg font-medium mt-2 text-white">
               {agents?.designation}
             </p>
+            <p className="text-lg font-medium mt-2 text-white">
+              Years of Experience: {agents?.experience}
+            </p>
+            <div className="text-xl font-normal mt-1 text-white">
+              Languages: {agents?.languages?.join(", ")}
+            </div>
             <div className="mt-2 flex items-center space-x-1">
               {[...Array(5)].map((_, i) => (
                 <svg
@@ -110,19 +121,34 @@ export default function AgentsInner() {
         </div>
 
         {/* Services text */}
-        <div className="mt-12 text-center text-white font-semibold tracking-wide">
-          My Services
-          <div className="text-2xl font-bold mt-1">
+        <div className="mt-12 text-left text-white font-semibold text-2xl tracking-wide">
+          My{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+            Services
+          </span>
+          <div className="text-lg font-bold mt-1">
             {agents?.type?.join(", ")}
           </div>
         </div>
 
-        <div className="mt-8 px-2 text-center text-white mx-auto">
-          <h2 className="text-xl font-semibold mb-2">About Me</h2>
+        <div className="mt-8 text-left text-white mx-auto">
+          <h2 className="text-2xl font-semibold mb-2">About Me</h2>
           <p>{agents?.about}</p>
         </div>
+
+        <div className="mt-12 text-left text-white font-semibold text-2xl tracking-wide">
+          My
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+            Listing
+          </span>
+          <div className="text-xl font-bold mt-1">
+            {properties?.map((property, index) => (
+              <PropertyCard key={property.id || index} data={property} />
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="pt-20 pb-12 bg-[#282927]">
+      <div className="pt-20 pb-12 bg-[#282927] flex flex-col items-center">
         <MarqueeSection />
         <InterestSection />
         <Popular locations={locations} />
