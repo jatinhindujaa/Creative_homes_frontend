@@ -6,7 +6,7 @@ import MarqueeSection from '../meettheteam/parts/marque';
 import Popular from '../news/parts/Popular';
 
 
-const InsideguideHome = () => {
+const InsideguideHome = ({steps}) => {
   const locations = [
     "3 Bedroom Apartment For Rent",
     "Dubai Hill Estate",
@@ -20,7 +20,7 @@ const InsideguideHome = () => {
     
     <>
       <ImageBox />
-      <InsideGuide />
+      <InsideGuide steps={steps}/>
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
 
       <InterestSection                                 />

@@ -50,6 +50,8 @@ const EditPropertyForm = ({
   const [description, setDescription] = useState(editData.description || "");
   const [amenities, setAmenities] = useState(editData.amenities || []);
   const [selectedAgent, setSelectedAgent] = useState(editData.agent || "");
+  const [selectedArea, setSelectedArea] = useState(editData.area || "");
+
   const [newQrImage, setNewQrImage] = useState(null);
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
@@ -398,31 +400,45 @@ console.log("propertyImages", propertyImages);
               ))}
             </select>
           </div>
-
           <div className="w-[50%]">
             <label className="text-sm font-medium text-gray-700">
-              QR Image
+              Select Area
             </label>
-            {editData.image && !newQrImage && (
-              <img
-                src={editData.image}
-                alt="Current QR"
-                className="w-32 h-32 object-cover rounded-md mb-2"
-              />
-            )}
-            <FileInput
-              id="image"
-              accept="image/*"
-              type="file"
-              onChange={(e) => {
-                const file = e.target.files[0];
-                if (file) {
-                  setNewQrImage(file);
-                  setEditData((prev) => ({ ...prev, newQrImage: file }));
-                }
-              }}
-            />
+            <select
+              className="w-full border px-3 py-2 rounded-md"
+              value={selectedArea}
+              onChange={(e) => setSelectedArea(e.target.value)}
+            >
+              <option value="">-- Select Area --</option>
+              {agents.map((agent) => (
+                <option key={agent._id} value={agent._id}>
+                  {agent.name}
+                </option>
+              ))}
+            </select>
           </div>
+        </div>
+        <div className="w-[50%]">
+          <label className="text-sm font-medium text-gray-700">QR Image</label>
+          {editData.image && !newQrImage && (
+            <img
+              src={editData.image}
+              alt="Current QR"
+              className="w-32 h-32 object-cover rounded-md mb-2"
+            />
+          )}
+          <FileInput
+            id="image"
+            accept="image/*"
+            type="file"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                setNewQrImage(file);
+                setEditData((prev) => ({ ...prev, newQrImage: file }));
+              }
+            }}
+          />
         </div>
         <div>
           <label className="text-sm font-medium text-gray-700">Amenities</label>

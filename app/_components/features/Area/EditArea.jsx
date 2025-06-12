@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import Input from "../../ui/Input";
 import TagInput from "../../ui/TagInput";
@@ -9,14 +6,14 @@ import TiptapEditor from "../../admin/news/Tiptapeditor";
 import FileInput from "../../ui/FileInput";
 
 import Select from "react-select";
-const EditNewsForm = ({
+const EditPropertyForm = ({
   resourceName,
   editData,
   setEditData,
   onConfirm,
   onCloseModal,
 }) => {
-  const [description, setDescription] = useState(editData.description || "");
+  const [newQrImage, setNewQrImage] = useState(null);
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
   );
@@ -27,12 +24,16 @@ const EditNewsForm = ({
   const [newImages, setNewImages] = useState([]);
   const [mobilenewImages, setmobileNewImages] = useState([]);
 
- useEffect(() => {
-   setDescription(editData.description || "");
-   setPropertyImages(editData.multipleImages || []);
-   setmobilemultipleImages(editData.mobilemultipleImages || []);
- }, [editData]);
-
+  useEffect(() => {
+    setEditData((prev) => ({
+      ...prev,
+      multipleImages: propertyImages,
+      mobilemultipleImages: mobilemultipleImages,
+    }));
+  }, [
+    propertyImages,
+    mobilemultipleImages,
+  ]);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditData((prev) => ({ ...prev, [name]: value }));
@@ -43,7 +44,6 @@ const EditNewsForm = ({
     onConfirm(editData);
   };
 
-  // Handle mobile image selection
   // Handle mobile image selection
   const handleMobileImageChange = (e) => {
     const files = Array.from(e.target.files); // Convert the file list to an array
@@ -56,7 +56,7 @@ const EditNewsForm = ({
       mobilemultipleImages: files,
     }));
   };
-  // Handle removal of mobile image
+
   // Handle removal of mobile image
   const handleRemoveMobileImage = (index) => {
     const updatedImages = mobilemultipleImages.filter(
@@ -71,10 +71,10 @@ const EditNewsForm = ({
     }));
   };
 
-   useEffect(() => {
-     // Ensure the state is initialized correctly with existing images
-     setmobilemultipleImages(editData.mobilemultipleImages || []);
-   }, [editData]);
+  useEffect(() => {
+    // Ensure the state is initialized correctly with existing images
+    setmobilemultipleImages(editData.mobilemultipleImages || []);
+  }, [editData]);
   return (
     <form
       onSubmit={handleSubmit}
@@ -90,28 +90,25 @@ const EditNewsForm = ({
             <label className="text-sm font-medium text-gray-700">Name</label>
             <Input
               type="text"
-              name="title"
-              value={editData.title}
+              name="name"
+              value={editData.name}
               onChange={handleChange}
             />
           </div>
 
           <div className="w-[50%]">
-            <label className="text-sm font-medium text-gray-700">Date</label>
+            <label className="text-sm font-medium text-gray-700">
+              Order
+            </label>
             <Input
               type="text"
-              name="data"
-              value={editData.date}
+              name="order"
+              value={editData.order}
               onChange={handleChange}
             />
           </div>
         </div>
-        <div>
-          <label className="text-sm font-medium text-gray-700">
-            Description
-          </label>
-          <TiptapEditor content={description} setContent={setDescription} />
-        </div>
+
         <div>
           <label className="text-sm font-medium text-gray-700 mb-2 block">
             Existing Property Images
@@ -211,4 +208,4 @@ const EditNewsForm = ({
   );
 };
 
-export default EditNewsForm;
+export default EditPropertyForm;

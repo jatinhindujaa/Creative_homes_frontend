@@ -7,6 +7,7 @@ import {
   fetchAreasById,
   updateImage,
   updateBanner,
+  updatemobileImage,
 } from "../../services/api.areas.js";
 
 import toast from "react-hot-toast";
@@ -83,6 +84,21 @@ export const useUpdateAreasImage = () => {
 
   return useMutation({
     mutationFn: updateImage,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["Areas"]);
+      toast.success("Areas image updated successfully!");
+    },
+    onError: (error) => {
+      console.error("Failed to update Areas image:", error);
+      toast.error("Failed to update Areas image. Please try again.");
+    },
+  });
+};
+export const useUpdateAreasmobileImage = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: updatemobileImage,
     onSuccess: () => {
       queryClient.invalidateQueries(["Areas"]);
       toast.success("Areas image updated successfully!");

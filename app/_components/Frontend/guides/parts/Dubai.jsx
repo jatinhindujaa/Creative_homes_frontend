@@ -3,34 +3,29 @@ import Box from './Box';
 import first from "../assets/Box/1.png"
 const boxData = [
   {
-    title: "Buying Off-Plan Guide",
+    title: "Buying Guide",
     imgSrc: first, // Image from public folder
-    altText: "Off-plan house model",
+    altText: "buying-guide",
   },
   {
-    title: "Understanding the Market",
+    title: "Off Plan Guide",
     imgSrc: first,
-    altText: "Real estate market trends",
+    altText: "off-plan-guide",
   },
   {
-    title: "Financing Your Purchase",
+    title: "Mortgage Guide",
     imgSrc: first,
-    altText: "Financial planning for off-plan buying",
+    altText: "mortgage-guide",
   },
   {
-    title: "Buying Off-Plan Guide",
+    title: "Renting Guide",
     imgSrc: first, // Image from public folder
-    altText: "Off-plan house model",
+    altText: "renting-guide",
   },
   {
-    title: "Understanding the Market",
+    title: "Selling Guide",
     imgSrc: first,
-    altText: "Real estate market trends",
-  },
-  {
-    title: "Financing Your Purchase",
-    imgSrc: first,
-    altText: "Financial planning for off-plan buying",
+    altText: "selling-guide",
   },
   // More items can be added here
 ];

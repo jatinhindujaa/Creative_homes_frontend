@@ -11,9 +11,13 @@ import Spinner from "@/app/_components/ui/Spinner";
 import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import Image from "next/image";
 import { useDeleteAreas, useUpdateAreas } from "../useArea";
+import EditAreaForm from "@/app/_components/features/Area/EditArea";
+import toast from "react-hot-toast";
 // import EditAreaForm from "@/app/_components/features/Area/EditAreaForm";
 
-function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
+function AreaRow({
+  Areas: { _id, name, multipleImages, mobilemultipleImages, status,order },
+}) {
   const { mutate: updateArea, isPending: isUpdatingArea } = useUpdateAreas();
   const { mutate: deleteArea, isPending: isDeleting } = useDeleteAreas();
   const [show, setShow] = useState(false);
@@ -23,8 +27,9 @@ function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
   const [editData, setEditData] = useState({
     _id,
     name,
-    image,
-    mobileImage,
+    order,
+    multipleImages,
+    mobilemultipleImages,
     status,
   });
 
@@ -46,8 +51,30 @@ function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
 
     formData.append("name", editData.name);
     formData.append("status", editData.status);
-
-    updateArea({ id: _id, formData });
+    formData.append("order", editData.order);
+if (editData.newImages && editData.newImages.length > 0) {
+  editData.newImages.forEach((file) => {
+    formData.append("multipleImages", file);
+  });
+}
+if (editData.mobilemultipleImages && editData.mobilemultipleImages.length > 0) {
+  editData.mobilemultipleImages.forEach((file) => {
+    formData.append("mobilemultipleImages", file); // Correct field name
+  });
+}
+    updateArea(
+      { id: _id, formData },
+      {
+        onSuccess: (response) => {
+          setEditData(response.data); // update state with new data (including new image URLs)
+          toast.success("Property updated successfully");
+        },
+        onError: (error) => {
+          toast.error("Failed to update property");
+          console.error(error);
+        },
+      }
+    );
   };
 
   if (isUpdatingArea) return <Spinner />;
@@ -66,7 +93,6 @@ function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
         <span className="font-medium">{name}</span>
       </div>
 
-
       {/* <div className="text-sm">{experience}</div> */}
 
       {/* <div className="text-sm ">
@@ -82,9 +108,9 @@ function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
       </div> */}
 
       <div className="text-sm">
-        {image ? (
+        {multipleImages ? (
           <Image
-            src={image}
+            src={multipleImages[0]}
             alt={name}
             width={100}
             height={100}
@@ -125,18 +151,16 @@ function AreaRow({ Areas: {_id, name, image, mobileImage, status } }) {
         </Modal.Window>
 
         <Modal.Window name="edit">
-          {/* <EditAreaForm
+          <EditAreaForm
             id={_id}
             resourceName="Area"
             editData={editData}
             setEditData={setEditData}
-            aboutContent={aboutContent}
-            setAboutContent={setAboutContent}
             onConfirm={handleConfirmEdit}
             // disabled={false}
             // descContent={descContent}
             // setDescContent={setDescContent}
-          /> */}
+          />
         </Modal.Window>
       </Modal>
     </Table.Row>

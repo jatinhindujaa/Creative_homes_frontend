@@ -19,17 +19,22 @@ const CreateArea = ({ onCloseModal, resourceName }) => {
   if (isCreating) return <Spinner />;
 
   const onSubmit = (data) => {
+    const multipleFiles = data.multipleImages
+      ? Array.from(data.multipleImages)
+      : [];
+    const mobileMultipleFiles = data.mobilemultipleImages
+      ? Array.from(data.mobilemultipleImages)
+      : [];
     const formData = new FormData();
 
     formData.append("name", data.name);
     formData.append("order", data.order);
-
-if (data.image[0]) {
-  formData.append("image", data.image[0]);
-}
-if (data.mobileImage[0]) {
-  formData.append("mobileImage", data.mobileImage[0]);
-}
+       multipleFiles.forEach((file) => {
+         formData.append("multipleImages", file);
+       });
+       mobileMultipleFiles.forEach((file) => {
+         formData.append("mobilemultipleImages", file);
+       });
 
     createNewAreas(formData, {
       onSuccess: () => {
@@ -83,7 +88,8 @@ if (data.mobileImage[0]) {
           <FileInput
             id="image"
             accept="image/*" // fix accept type to 'image/*'
-            {...register("image")} // Remove required here
+            type="file"
+            {...register("multipleImages")} // Remove required here
           />
         </div>
 
@@ -96,9 +102,10 @@ if (data.mobileImage[0]) {
             Area Mobile Image
           </label>
           <FileInput
-            id="mobileImage"
+            id="mobilemultipleImages"
             accept="image/*" // fix accept type to 'image/*'
-            {...register("mobileImage")} // Remove required here
+            type="file"
+            {...register("mobilemultipleImages")} // Remove required here
           />
         </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">

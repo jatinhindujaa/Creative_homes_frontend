@@ -51,16 +51,16 @@ import HoverButton from "@/app/_components/ui/HoverButton";
 
 const Hero = () => {
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-black">
-      <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
-      <Image
+    <div className="relative h-screen flex flex-col items-center justify-center bg-[#282927]">
+      <div className=" w-full h-full absolute top-0 left-0 z-10"></div>
+      {/* <Image
         src={Meet.src}
         alt="The Elan"
         layout="fill"
         objectPosition="center"
         priority
         className="object-cover"
-      />
+      /> */}
       <div className="relative z-10 flex w-[100%] sm:w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
         {/* Title */}
         <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">

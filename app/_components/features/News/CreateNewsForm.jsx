@@ -22,18 +22,24 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
   if (isCreating) return <Spinner />;
 
   const onSubmit = (data) => {
+     const multipleFiles = data.multipleImages
+       ? Array.from(data.multipleImages)
+       : [];
+     const mobileMultipleFiles = data.mobilemultipleImages
+       ? Array.from(data.mobilemultipleImages)
+       : [];
     const formData = new FormData();
 
     formData.append("title", data.title);
     formData.append("date", data.date);
     formData.append("description", content);
     formData.append("status", true);
-    if (data.image[0]) {
-      formData.append("image", data.image[0]);
-    }
-if (data.mobileImage[0]) {
-  formData.append("mobileImage", data.mobileImage[0]);
-}
+   multipleFiles.forEach((file) => {
+     formData.append("multipleImages", file);
+   });
+   mobileMultipleFiles.forEach((file) => {
+     formData.append("mobilemultipleImages", file);
+   });
     createNewNews(formData, {
       onSuccess: () => {
         reset();
@@ -88,14 +94,14 @@ if (data.mobileImage[0]) {
         <div className="space-x-12">
           <label className=" text-sm font-medium text-gray-700">Image</label>
           <FileInput
-            id="image"
+            id="multipleImages"
             accept="image/*"
             type="file"
             multiple
-            {...register("image")}
+            {...register("multipleImages")}
           />
         </div>
-           <div className="text-red-600 text-[0.8rem] mb-[20px]">
+        <div className="text-red-600 text-[0.8rem] mb-[20px]">
           <p>Propery images for Desktop will be: 1500 * 1000</p>
           <p>File size should be less than 5MB.</p>
         </div>
@@ -104,11 +110,11 @@ if (data.mobileImage[0]) {
             Mobile Image
           </label>
           <FileInput
-            id="mobileImage"
+            id="mobilemultipleImages"
             accept="image/*"
             type="file"
             multiple
-            {...register("mobileImage")}
+            {...register("mobilemultipleImages")}
           />
         </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">

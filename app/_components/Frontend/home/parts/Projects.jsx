@@ -110,6 +110,8 @@
   <Button text="Submit Property" className="px-3 py-1 font-light" />
 </div>; */}
 // export default Projects;
+
+
 import React from "react";
 import projects_1 from "../assets/projects/Project_1.jpg";
 import projects_2 from "../assets/projects/Project_2.jpg";

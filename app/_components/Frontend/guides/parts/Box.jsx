@@ -23,19 +23,20 @@
 
 
 // components/Box.js
+"use client"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const Box = ({ title, imgSrc, altText }) => {
+const Box = ({ title, imgSrc, altText, box }) => {
+  const router = useRouter();
   return (
-    <div className="relative w-[90%] shadow-md hover:shadow-xl transition-all">
+    <div
+      className="relative w-[90%] shadow-md hover:shadow-xl transition-all cursor-pointer"
+      onClick={() => router.push(`/guides/${altText}`)}
+    >
       <div className="relative w-full h-48">
         {/* Image */}
-        <Image
-          src={imgSrc}
-          alt={altText}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={imgSrc} alt={altText} layout="fill" objectFit="cover" />
         {/* Black Overlay */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         {/* Text in Center */}

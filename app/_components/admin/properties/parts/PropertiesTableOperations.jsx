@@ -4,7 +4,7 @@ import SortBy from "@/app/_components/ui/SortBy.jsx";
 import Filter from "@/app/_components/ui/Filter";
 import Modal from "@/app/_components/ui/Modal";
 import CreatePropertyForm from "@/app/_components/features/Properties/CreatePropertyForm";
-import CreateArea from "@/app/_components/features/Properties/CreateArea";
+import CreateArea from "@/app/_components/features/Area/CreateArea";
 
 function PropertiesTableOperations() {
   const { filter, setFilter, sort, setSort } = usePropertiesContext();

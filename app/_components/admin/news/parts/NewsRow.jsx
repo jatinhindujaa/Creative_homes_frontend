@@ -12,6 +12,7 @@ import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import Image from "next/image";
 import TruncatedHtml from "./ContentLimit";
 import EditNewsForm from "@/app/_components/features/News/EditNewsForm";
+import toast from "react-hot-toast";
 
 function NewsRow({
   News: {
@@ -19,8 +20,8 @@ function NewsRow({
     title,
     date,
     description,
-    image,
-    mobileImage,
+    multipleImages,
+    mobilemultipleImages,
     status,
   },
 }) {
@@ -35,8 +36,8 @@ function NewsRow({
     title,
     date,
     description,
-    image,
-    mobileImage,
+    multipleImages,
+    mobilemultipleImages,
     status,
   });
   const [aboutContent, setAboutContent] = useState(description);
@@ -45,10 +46,6 @@ function NewsRow({
     setShow((prev) => !prev);
   };
 
-  // for propery listing [Implement in Admin ]
-  // const handleToggleStatus = () => {
-  //   updateNews({ id: _id, data: { status: !status } });
-  // };
 
   const handleDelete = () => {
     deleteNews(_id);
@@ -56,13 +53,38 @@ function NewsRow({
 
   const handleConfirmEdit = () => {
     const formData = new FormData();
-
     formData.append("name", editData.title);
     formData.append("date", editData.date);
     formData.append("description", aboutContent);
     formData.append("status", editData.status);
 
-    updateNews({ id: _id, formData });
+ if (editData.newImages && editData.newImages.length > 0) {
+   editData.newImages.forEach((file) => {
+     formData.append("multipleImages", file);
+   });
+ }
+ if (
+   editData.mobilemultipleImages &&
+   editData.mobilemultipleImages.length > 0
+ ) {
+   editData.mobilemultipleImages.forEach((file) => {
+     formData.append("mobilemultipleImages", file); // Correct field name
+   });
+ }
+
+    updateNews(
+      { id: _id, formData },
+      {
+        onSuccess: (response) => {
+          setEditData(response.data); // Update with the new data
+          toast.success("Property updated successfully");
+        },
+        onError: (error) => {
+          toast.error("Failed to update property");
+          console.error(error);
+        },
+      }
+    );
   };
 
   if (isUpdatingNews) return <Spinner />;
@@ -101,9 +123,9 @@ function NewsRow({
       </div> */}
 
       <div className="text-sm">
-        {image ? (
+        {multipleImages ? (
           <Image
-            src={image}
+            src={multipleImages[0]}
             alt={title}
             width={100}
             height={100}

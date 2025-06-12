@@ -1,14 +1,13 @@
 "use client"
 import { useAgentById } from "@/app/_components/admin/agents/useAgents";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import Popular from "../../news/parts/Popular";
 import InterestSection from "./GotQues";
 import MarqueeSection from "./marque";
 import { usePropertyByAgentId } from "@/app/_components/admin/properties/useProperties";
-import { PropertyCard } from "../../property/parts/PropertyCard";
 
-export default function AgentsInner() {
+const AgentsInner=()=> {
 
     const { _id } = useParams();
       const { data: agents, isLoading: isAgentLoading } = useAgentById(_id);
@@ -43,7 +42,7 @@ export default function AgentsInner() {
         </div>
       </div>
 
-      <div className="pt-20 px-[15rem] pb-12 bg-[#282927] ">
+      <div className="pt-20 px-[9rem] pb-12 bg-[#282927] ">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-4xl font-semibold leading-tight text-white">
@@ -137,13 +136,13 @@ export default function AgentsInner() {
         </div>
 
         <div className="mt-12 text-left text-white font-semibold text-2xl tracking-wide">
-          My
+          My {""}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Listing
           </span>
-          <div className="text-xl font-bold mt-1">
+          <div className="text-xl font-bold mt-1 flex flex-row flex-wrap gap-4 pt-4">
             {properties?.map((property, index) => (
-              <PropertyCard key={property.id || index} data={property} />
+              <PropertyCard key={property.id || index} el={property} />
             ))}
           </div>
         </div>
@@ -156,3 +155,97 @@ export default function AgentsInner() {
     </div>
   );
 }
+export default AgentsInner
+const PropertyCard = ({ el }) => {
+  const router = useRouter()
+  const {
+    _id,
+  location,
+    name,
+    price,
+    developer,
+    image,
+    handoverDate,
+    phoneNo,
+    email,
+    whatsapp,
+  } = el;
+
+  const handleCall = () => {
+    window.location.href = `tel:${phoneNo}`;
+  };
+
+  const handleEmail = () => {
+    window.location.href = `mailto:${email}`;
+  };
+
+  const handleWhatsapp = () => {
+    window.open(`https://wa.me/${whatsapp}`, "_blank");
+  };
+
+  return (
+    <div
+      className="flex flex-col gap-4 p-4 border border-white rounded-[20px] w-full sm:w-[45%] md:w-[90%] lg:w-[31%] cursor-pointer"
+      onClick={() => router.push(`/property/${_id}`)}
+    >
+      <div className="relative">
+        <img
+          src={image}
+          alt={name}
+          className="w-full h-[200px] object-cover rounded-[20px]"
+        />
+        <span className="absolute top-4 left-4 bg-gradient-to-r from-[rgba(0,0,0,0.5)_0.07%] to-[rgba(0,0,0,0.3)_97%] text-white text-[1rem] font-medium px-3 py-2 rounded-full">
+          COMING SOON
+        </span>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <span className="text-[1.2rem] font-medium leading-none">{name}</span>
+        <span className="text-[0.9rem] flex items-center space-x-1">
+          <svg
+            width="10"
+            height="16"
+            viewBox="0 0 14 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.88108 0C3.08683 0 0 3.08683 0 6.88104C0 11.5898 6.15789 18.5025 6.42007 18.7945C6.66633 19.0687 7.09628 19.0682 7.34209 18.7945C7.60427 18.5025 13.7622 11.5898 13.7622 6.88104C13.7621 3.08683 10.6753 0 6.88108 0ZM6.88108 10.3431C4.9721 10.3431 3.41907 8.79002 3.41907 6.88104C3.41907 4.97206 4.97214 3.41904 6.88108 3.41904C8.79002 3.41904 10.3431 4.9721 10.3431 6.88108C10.3431 8.79006 8.79002 10.3431 6.88108 10.3431Z"
+              fill="white"
+            />
+          </svg>
+          <span>{location}</span>
+        </span>
+        <span className="text-[1rem] flex justify-between w-full">
+          <span>Developer: {developer}</span>
+          <span>Price: {price}</span>
+        </span>
+        <span className="text-[1rem] flex justify-between w-full">
+          <span>Handover Date: {handoverDate}</span>
+        </span>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-4 mt-4">
+        <button
+          onClick={handleCall}
+          className="flex items-center gap-2 bg-transparent border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black"
+        >
+          Call
+        </button>
+        <button
+          onClick={handleEmail}
+          className="flex items-center gap-2 bg-transparent border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black"
+        >
+          Email
+        </button>
+        <button
+          onClick={handleWhatsapp}
+          className="flex items-center gap-2 bg-transparent border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black"
+        >
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  );
+};

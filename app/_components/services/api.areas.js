@@ -56,6 +56,16 @@ export const updateImage = async ({ id, formData }) => {
   );
   return response.data;
 };
+export const updatemobileImage = async ({ id, formData }) => {
+  const response = await axios.post(
+    `${ApiUrl}/area/update-mobile-image?id=${id}`,
+    formData,
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data;
+};
 
 export const updateBanner = async ({ id, formData }) => {
   const response = await axios.post(

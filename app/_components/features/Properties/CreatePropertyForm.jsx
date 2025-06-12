@@ -9,6 +9,7 @@ import { useAgents } from "../../admin/agents/useAgents";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 // import TipTapEditor from "../../ui/tiptapEditor";
 import Select from "react-select";
+import { useAreas } from "../../admin/area/useArea";
 const CreatePropertyForm = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState, control } = useForm({
     defaultValues: {},
@@ -20,7 +21,11 @@ const CreatePropertyForm = ({ onCloseModal, resourceName }) => {
   const { createProperties, isCreating } = useCreateProperty();
   // const [content, setContent] = useState("");
 const { data: agents = [], isLoading: loadingAgents } = useAgents();
+const { data: areas = [], isLoading: loadingArea } = useAreas();
+
 const [selectedAgent, setSelectedAgent] = useState("");
+const [selectedArea, setSelectedArea] = useState("");
+
  const [content, setContent] = useState("");
 const propertytypeOptions = [
   { value: "apartment", label: "Apartment" },
@@ -443,12 +448,28 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
               ))}
             </select>
           </div>
-
           <div className="w-[50%]">
-            <label className=" text-sm font-medium text-gray-700">
-              Qr Image
+            <label className="text-sm font-medium text-gray-700">
+              Select Area
             </label>
-            {/* <FileInput
+            <select
+              className="w-full border px-3 py-2 rounded-md"
+              value={selectedArea}
+              onChange={(e) => setSelectedArea(e.target.value)}
+              required
+            >
+              <option value="">-- Select Area --</option>
+              {areas.map((area) => (
+                <option key={area._id} value={area._id}>
+                  {area.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="w-[50%]">
+          <label className=" text-sm font-medium text-gray-700">Qr Image</label>
+          {/* <FileInput
               id="image"
               accept="image/*"
               type="file"
@@ -457,21 +478,19 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
                 required: "This field is required",
               })}
             /> */}
-            <FileInput
-              id="image"
-              accept="image/*"
-              type="file"
-              multiple
-              {...register("image")} // Remove required here
-            />
+          <FileInput
+            id="image"
+            accept="image/*"
+            type="file"
+            multiple
+            {...register("image")} // Remove required here
+          />
 
-            <div className="text-red-600 text-[0.8rem] mb-[20px]">
-              <p>Qr size for Mobile & desktop will be: 300 * 300</p>
-              <p>File size should be less than 10MB.</p>
-            </div>
+          <div className="text-red-600 text-[0.8rem] mb-[20px]">
+            <p>Qr size for Mobile & desktop will be: 300 * 300</p>
+            <p>File size should be less than 10MB.</p>
           </div>
         </div>
-
         <div>
           <label className=" text-sm font-medium text-gray-700">
             Amenities
