@@ -42,8 +42,8 @@ const teamMembers = [
   
 ];
 
-const columnLayout = [ 4, 5, 4]; // Cards per column
-const membersPerPage = 13;
+const columnLayout = [ 5, 4, 5]; // Cards per column
+const membersPerPage = 14;
 
 const TeamSectionMobile = () => {
   const [currentPage, setCurrentPage] = useState(1);

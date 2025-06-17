@@ -191,7 +191,7 @@ const DeveloperLogos = () => {
         </div>
       </div>
       <div className="flex justify-center space-x-4 text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] md:pt-[70px] pt-0 font-medium md:pb-10 pb-2 uppercase">
-        <span className="text-[1.3rem] md:text-[2.5rem]">
+        <span className="text-[1.2rem] md:text-[2.5rem]">
           Trusted Partner of the Most Prominent{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Developers
