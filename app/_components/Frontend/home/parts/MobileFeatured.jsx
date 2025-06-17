@@ -10,17 +10,39 @@ import Featured_3 from "../assets/featured/featured_66Mob.jpg";
 import Featured_4 from "../assets/featured/featured_44Mob.jpg";
 import Featured_5 from "../assets/featured/featured_55Mob.jpg";
 import { useRouter } from "next/navigation";
+import Featured_7 from "../assets/featured/featured_66Mob.jpg";
 
 const featuredData = [
   {
     src: Featured_1,
     title: "Grand Polo Club & Resort",
     price: "AED 5,670,000",
+    link: "/property/683eff4393ad0b623ed8cdc7",
   },
-  { src: Featured_2, title: "Elwood", price: "AED 7,930,000" },
-  { src: Featured_3, title: "Kensington Gardens", price: "AED 3,200,000" },
-  { src: Featured_4, title: "Palm Jebel Ali", price: "AED 18,000,000" },
-  { src: Featured_5, title: "Burj Azizi", price: "AED 7,500,000" },
+  {
+    src: Featured_2,
+    title: "Elwood",
+    price: "AED 7,930,000",
+    link: "/property/683fee7b93ad0b623ed8cf09",
+  },
+  {
+    src: Featured_7,
+    title: "W Residences",
+    price: "AED 3,200,000",
+    link: "/property/6846d001a627e54705c3b77f",
+  },
+  {
+    src: Featured_4,
+    title: "Palm Jebel Ali",
+    price: "AED 18,000,000",
+    link: "/property/683ff3d593ad0b623ed8cf36",
+  },
+  {
+    src: Featured_5,
+    title: "Burj Azizi",
+    price: "AED 7,500,000",
+    link: "/property/683ee710a2552c2a789740e9",
+  },
 ];
 const sliderSettings = {
   autoplay: false,
@@ -66,7 +88,7 @@ const router = useRouter();
         <div className="flex items-center justify-center mt-2 space-x-2">
           <FcGoogle size={30} />
           <p className="text-[1rem] font-medium">
-            Reviews <span className="text-gray-300">11,000+</span>
+            Reviews <span className="text-gray-300">4.8+</span>
           </p>
         </div>
       </div>
@@ -86,7 +108,12 @@ const router = useRouter();
         <Slider {...sliderSettings}>
           {featuredData.map((item, index) => (
             <div key={index} className="p-2">
-              <div className="relative w-full h-[18rem] rounded-[20px] overflow-hidden">
+              <div
+                className="relative w-full h-[18rem] rounded-[20px] overflow-hidden"
+                onClick={() =>
+                  router.push(`${item.link}`)
+                }
+              >
                 <Image
                   src={item.src}
                   alt={item.title}

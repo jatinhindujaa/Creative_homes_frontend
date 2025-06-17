@@ -5,6 +5,8 @@ import Image from "next/image";
 import React, { useState } from "react";
 import team from "../assets/team1.png"; // Replace with actual images
 import Button from "@/app/_components/ui/Button";
+import { useAgents } from "@/app/_components/admin/agents/useAgents";
+import { useRouter } from "next/navigation";
 
 // const teamMembers = Array.from({ length: 57 }, (_, i) => ({
 //   name: `Member ${i + 1}`,
@@ -45,39 +47,53 @@ const membersPerPage = 13;
 
 const TeamSectionMobile = () => {
   const [currentPage, setCurrentPage] = useState(1);
-
-  const totalPages = Math.ceil(teamMembers.length / membersPerPage);
-
-  // Get members for current page
-  const startIndex = (currentPage - 1) * membersPerPage;
-  const currentMembers = teamMembers.slice(
-    startIndex,
-    startIndex + membersPerPage
-  );
-
-  let memberIndex = 0;
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-      window.scroll(0,0)
-    }
-  };
-
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
-    }
-  };
-
+ const [sortOrder, setSortOrder] = useState("asc");
+const {data, isLoading} = useAgents()
+  const sortedData = data
+     ? [...data].sort((a, b) => {
+         if (sortOrder === "asc") {
+           return a.order - b.order;
+         } else {
+           return b.order - a.order;
+         }
+       })
+     : [];
+  
+    // const totalPages = Math.ceil(data.length / membersPerPage);
+    const totalPages = sortedData
+      ? Math.ceil(sortedData.length / membersPerPage)
+      : 0;
+  
+  
+    // Get members for current page
+    const startIndex = (currentPage - 1) * membersPerPage;
+    // const currentMembers = data.slice(startIndex, startIndex + membersPerPage);
+    const currentMembers = sortedData
+      ? sortedData.slice(startIndex, startIndex + membersPerPage)
+      : 0;
+  const router = useRouter();
+    let memberIndex = 0;
+  
+    const handleNext = () => {
+      if (currentPage < totalPages) {
+        setCurrentPage((prev) => prev + 1);
+        window.scroll(0,0)
+      }
+    };
+  
+    const handlePrev = () => {
+      if (currentPage > 1) {
+        setCurrentPage((prev) => prev - 1);
+      }
+    };
   return (
     <div className="py-16 lg:hidden block">
-      <h2 className="text-4xl font-bold text-white text-center mb-12">
+      <h2 className="text-[1.2rem] font-bold text-white text-center mb-12">
         Meet Our Team
       </h2>
 
       <div className="flex justify-center">
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-[1rem] items-center">
           {columnLayout.map((cardCount, colIndex) => (
             <div key={colIndex} className="flex flex-col gap-4 items-center">
               {Array.from({ length: cardCount }).map((_, i) => {
@@ -88,6 +104,7 @@ const TeamSectionMobile = () => {
                   <div
                     key={member.name}
                     className="relative w-[100px] h-[140px] md:w-[150px] md:h-[280px] lg:w-[230px] lg:h-[300px] rounded-2xl overflow-hidden group"
+                    onClick={() => router.push(`/meet-the-team/${member._id}`)}
                   >
                     <Image
                       src={member.image}
@@ -125,7 +142,7 @@ const TeamSectionMobile = () => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-between mt-8 gap-4 items-center">
+      <div className="flex justify-evenly mt-8 gap-4 items-center">
         {/* <button
           onClick={handlePrev}
           disabled={currentPage === 1}

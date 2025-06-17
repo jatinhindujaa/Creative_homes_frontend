@@ -182,9 +182,9 @@ const Property = () => {
   };
 
   return (
-    <div className="flex flex-col gap-5 lg:gap-[0px] md:mt-[100px] mt-[30px]">
+    <div className="flex flex-col gap-5 lg:gap-[0px] md:mt-[100px] mt-[0px]">
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold text-center max-w-[1200px]">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+        <span className="leading-8 text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           LIST YOUR
         </span>
         <span>PROPERTY</span>
@@ -264,7 +264,10 @@ const Property = () => {
       </div>
 
       <div className="w-[90%] mx-auto sm:hidden flex flex-col items-center gap-5 lg:gap-0 max-w-[1200px]">
-        <div className="w-[100%] flex relative flex-col justify-center">
+        <div
+          className="w-[100%] flex relative flex-col justify-center"
+          onClick={() => handleNavigate("apartment")}
+        >
           <div className="w-[100%] flex justify-center">
             <div className="relative w-full h-[161px] md:h-[300px] xs:w-[40%] md:w-[47%] lg:w-[48%] xl:w-[23%]">
               <Image
@@ -282,34 +285,40 @@ const Property = () => {
           </div>
         </div>
 
-        <div className="flex flex-row w-[100%]">
-          <div className=" w-[50%] flex flex-col items-center">
+        <div className="flex flex-row w-[100%] gap-[15px]">
+          <div
+            className=" w-[50%] flex flex-col items-center"
+            onClick={() => handleNavigate("penthouse")}
+          >
             <div className="relative w-full h-[161px] md:h-[300px] xs:w-[80%] md:w-[47%] lg:w-[48%] xl:w-[23%]">
               <Image
                 src={property_2.src}
-                alt="Apartments"
+                alt="Mansions/villas/Penthouses"
                 fill
                 className="object-cover object-center rounded-t-[300px] rounded-b-[20px]"
               />
               <div className="absolute h-[161px] w-[100%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-all duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
                 <span className="text-white text-[1.2rem] leading-[2.4rem]">
-                  Apartments
+                  Penthouses
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="w-[50%] flex flex-col items-center">
+          <div
+            className="w-[50%] flex flex-col items-center"
+            onClick={() => handleNavigate("townhouse")}
+          >
             <div className="relative w-full h-[161px] md:h-[300px] xs:w-[80%] md:w-[47%] lg:w-[48%] xl:w-[23%]">
               <Image
                 src={property_3.src}
-                alt="Apartments"
+                alt="Townhouses"
                 fill
                 className="object-cover object-center rounded-t-[300px] rounded-b-[20px]"
               />
               <div className="absolute h-[161px] w-[100%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-all duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
                 <span className="text-white text-[1.2rem] leading-[2.4rem]">
-                  Apartments
+                  Townhouses
                 </span>
               </div>
             </div>

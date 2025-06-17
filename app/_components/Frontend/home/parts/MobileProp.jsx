@@ -36,9 +36,9 @@ const MobileProp = () => {
 
   return (
     <div className="block md:hidden w-full px-4 mt-10">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.4rem] leading-[3.3rem] font-semibold mt-6">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.2rem] leading-[3.3rem] font-semibold mt-6">
         <span className="leading-4">BEST NEIGHBOURHOODS IN</span>
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+        <span className=" leading-10 text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           DUBAI
         </span>
       </div>
