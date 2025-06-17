@@ -97,7 +97,7 @@ const Hero = () => {
       {/* Background Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/Night.mp4"
+        src="/Night2.mp4"
         autoPlay
         loop
         muted
@@ -110,7 +110,13 @@ const Hero = () => {
           Find Something Extraordinary with
         </h1>
         <h1 className="filedazzle-font text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-light uppercase">
-         <span style={{fontFamily:"Outfit", fontSize:"6.5rem"}}>C</span>reative Homes
+          <span
+            className="text-[2.4rem] md:text-[6.5rem]"
+            style={{ fontFamily: "Outfit" }}
+          >
+            C
+          </span>
+          reative Homes
         </h1>
       </div>
     </div>

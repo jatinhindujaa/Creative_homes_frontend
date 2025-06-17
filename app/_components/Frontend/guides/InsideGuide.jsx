@@ -70,7 +70,7 @@ export default function InsideGuide({ steps }) {
   // ];
 
   return (
-    <div className="min-h-screen bg-[#282927] text-white py-10 px-5">
+    <div className="bg-[#282927] text-white py-10 px-5">
       <div className="max-w-5xl mx-auto lg:block hidden">
         {steps.map((stepData) => (
           <TimelineStep key={stepData.step} {...stepData} />

@@ -425,7 +425,7 @@ const router = useRouter()
           {/* Image Section */}
           <div className="w-full sm:w-1/3 relative mb-4 sm:mb-0">
             <Image
-              src={d.image}
+              src={d.multipleImages[0]}
               alt="News Image"
               width={500}
               height={300}

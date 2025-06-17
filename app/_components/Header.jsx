@@ -48,16 +48,16 @@ export default function Header() {
       </a>
 
       {/* Desktop Nav */}
-      <nav className="hidden md:flex space-x-8 items-center">
+      <nav className="hidden md:flex space-x-8 items-start pb-[24px]">
         {navLinks.map((nav, index) => (
           <div key={nav.id || index} className="relative group">
             <a
               href={nav.link}
-              className="text-white font-semibold text-[1rem] hover:text-gray-300 transition-colors flex items-center"
+              className="text-white font-light text-[1rem] hover:text-gray-300 transition-colors flex items-center "
             >
               {nav.name}
               {nav.items && (
-                <span className="ml-1 transform transition-transform group-hover:rotate-180 text-[0.7rem]">
+                <span className="ml-1 transform transition-transform group-hover:rotate-180  text-[0.8rem] ">
                   ▼
                 </span>
               )}
@@ -108,7 +108,7 @@ export default function Header() {
                     ? setOpenSubMenu(openSubMenu === nav.id ? null : nav.id)
                     : setMobileMenuOpen(false)
                 }
-                className="flex justify-between items-center text-white font-semibold text-lg cursor-pointer"
+                className="flex justify-between items-center text-white font-light text-lg cursor-pointer"
               >
                 <a href={nav.link}>{nav.name}</a>
                 {nav.items && (

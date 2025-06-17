@@ -390,6 +390,7 @@ import img_1 from "../assets/neighbourhood/img_1.png";
 import img_2 from "../assets/neighbourhood/img_2.png";
 import img_3 from "../assets/neighbourhood/img_3.png";
 import img_4 from "../assets/neighbourhood/img_41.jpg";
+import Button from "@/app/_components/ui/Button";
 
 const Neighbourhoods = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -411,7 +412,6 @@ const Neighbourhoods = () => {
       {/* Heading */}
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold">
         <span>BEST NEIGHBOURHOODS IN</span>
-         
       </div>
 
       <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">

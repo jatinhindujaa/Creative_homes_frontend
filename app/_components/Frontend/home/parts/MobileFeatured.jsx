@@ -38,7 +38,7 @@ export default function MobileFeatured() {
 const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center w-full px-4 py-10 bg-[#282927] text-white md:hidden relative">
+    <div className="flex flex-col items-center w-full px-4 md:py-40 pb-10 pt-[10.5rem] bg-[#282927] text-white md:hidden relative">
       <style jsx global>{`
         .slick-dots {
           position: relative;
@@ -56,7 +56,7 @@ const router = useRouter();
         }
       `}</style>
       {/* Top Banner */}
-      <div className="bg-[#202120] text-white px-5 py-4 rounded-xl border border-[#FCD15B] text-center w-[95%] max-w-md shadow-md  absolute -top-[6rem]">
+      <div className="bg-[#202120] text-white px-5 py-4 rounded-xl border border-[#FCD15B] text-center w-[95%] max-w-md shadow-md  absolute top-[1rem]">
         <p className="text-[1.2rem] leading-tight">
           <span className="text-[#FCD15B] font-semibold">AWARDED</span> TOP
           AGENT:

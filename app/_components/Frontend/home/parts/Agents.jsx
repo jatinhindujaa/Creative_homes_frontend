@@ -701,8 +701,8 @@ const Agents = () => {
   };
 
   return (
-    <div className="flex flex-col gap-[50px]">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold mt-[100px] max-w-[1200px]">
+    <div className="flex flex-col md:gap-[50px] gap-[10px]">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold md:mt-[100px] mt-[30px] max-w-[1200px]">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-1">
           AGENTS
         </span>
@@ -743,15 +743,13 @@ const Agents = () => {
                 width={250}
                 height={400}
               />
-              <div className="flex flex-col justify-center items-center text-[1.6rem] leading-[2.2rem]">
-                <span>{agent.name}</span>
-                <span>{agent.designation}</span>
+              <div className="flex flex-col justify-center items-center text-[1.6rem] leading-[2.2rem] pt-1">
+                <span className="text-[1.4rem]">{agent.name}</span>
+                <span className="text-[1rem] leading-6">{agent.designation}</span>
               </div>
             </div>
           ))}
         </Slider>
-
-        {/* Left Arrow */}
         <div className="absolute bottom-1/2 -left-9 flex gap-2">
           <div
             className="border-2 border-white rounded-full flex justify-center items-center p-0.5 cursor-pointer hover:bg-transparent"
@@ -780,7 +778,7 @@ const Agents = () => {
         </div>
       </div>
 
-      <div className="w-[90%] mx-auto mt-10 relative lg:hidden block max-w-[1200px]">
+      <div className="w-[90%] mx-auto md:mt-10 mt-2 relative lg:hidden block max-w-[1200px]">
         <Slider {...secondsettings} ref={SecondsliderRef}>
           {agents.map((agent, index) => (
             <div

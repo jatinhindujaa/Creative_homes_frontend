@@ -135,7 +135,7 @@ export default function MobileFooter() {
         <div className="flex flex-col">
           <div>
             <a href={"/"}>
-              <Image src={logo} alt="Logo" className=" w-[5rem] h-[5rem]" />
+              <Image src={logo} alt="Logo" className=" w-[15rem] h-[5rem]" />
             </a>
           </div>
           <span className="font-semibold max-sm:text-[0.8rem] text-[1rem] leading-6 mb-1">

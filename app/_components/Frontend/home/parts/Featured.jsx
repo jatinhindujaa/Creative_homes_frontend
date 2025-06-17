@@ -25,7 +25,10 @@ const router = useRouter();
       </div>
       <div className="flex w-[90%] mx-auto pt-[50px]">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
-          <div className="relative h-[30%] w-full ">
+          <div
+            className="relative h-[30%] w-full "
+            onClick={() => router.push(`/property/683eff4393ad0b623ed8cdc7`)}
+          >
             <Image
               src={Featured_1.src}
               alt="The Elan"
@@ -44,7 +47,10 @@ const router = useRouter();
               </span>
             </div>
           </div>
-          <div className="relative h-[70%] w-full ">
+          <div
+            className="relative h-[70%] w-full"
+            onClick={() => router.push(`/property/683fee7b93ad0b623ed8cf09`)}
+          >
             <Image
               src={Featured_2.src}
               alt="Harmony"
@@ -65,7 +71,10 @@ const router = useRouter();
           </div>
         </div>
         <div className="flex flex-col w-[33.33%] p-2 space-y-16 items-center">
-          <div className="relative h-[75%] w-full ">
+          <div
+            className="relative h-[75%] w-full "
+            onClick={() => router.push(`/property/6846d001a627e54705c3b77f`)}
+          >
             <Image
               src={Featured_6.src}
               alt="Harmony"
@@ -90,8 +99,12 @@ const router = useRouter();
             onClick={() => router.push("/property")}
           />
         </div>
+
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
-          <div className="relative h-[32.4rem] w-full  ">
+          <div
+            className="relative h-[32.4rem] w-full  "
+            onClick={() => router.push(`/property/683ff3d593ad0b623ed8cf36`)}
+          >
             <Image
               src={Featured_4.src}
               alt="Aseel"
@@ -111,7 +124,10 @@ const router = useRouter();
             </div>
           </div>
 
-          <div className="relative h-[15rem] w-full  ">
+          <div
+            className="relative h-[15rem] w-full"
+            onClick={() => router.push(`/property/683ee710a2552c2a789740e9`)}
+          >
             <Image
               src={Featured_5.src}
               alt="Mira"

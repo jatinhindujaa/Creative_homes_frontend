@@ -301,6 +301,8 @@ const quickLinks = [
   { id: 3, name: "Rent Properties", link: "/property?offeringtype=rent" },
   { id: 4, name: "Buy Properties", link: "/property?offeringtype=buy" },
   { id: 5, name: "Off Plan Properties", link: "/off-plan-properties" },
+];
+const quickLinks2 = [
   { id: 6, name: "About Us", link: "/about" },
   { id: 7, name: "News", link: "/news" },
   { id: 8, name: "Contact Us", link: "/contact-us" },
@@ -361,11 +363,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-8 relative pt-8 w-[25%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
         <span className="font-medium text-[1rem] leading-6 mb-1">
           Quick Links
         </span>
-        <ul className="grid grid-cols-2 gap-y-3 gap-x-1">
+        <ul className="grid grid-cols-1 gap-y-3 gap-x-1">
           {quickLinks.map((link, index) => (
             <li
               key={link.id || index}
@@ -381,8 +383,28 @@ export default function Footer() {
           ))}
         </ul>
       </div>
+      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
+        <span className="font-medium text-[1rem] leading-6 mb-1">
+          Quick Links
+        </span>
+        <ul className="grid grid-cols-1 gap-y-3 gap-x-1">
+          {quickLinks2.map((link, index) => (
+            <li
+              key={link.id || index}
+              className="text-[0.9rem] leading-6 font-light"
+            >
+              <a
+                href={link.link}
+                className="no-underline text-white hover:text-gray-300 transition-colors"
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <div className="flex flex-col space-y-8 relative pt-8 w-[10%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
         <span className="font-medium text-[1rem] leading-6 mb-1 ">
           Follow us on:
         </span>

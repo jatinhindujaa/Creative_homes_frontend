@@ -10,7 +10,7 @@ import HoverButton from "@/app/_components/ui/HoverButton";
 
 const Mortgage_calculator = () => {
   return (
-    <div className="w-[95%] mx-auto mt-[100px] flex flex-col lg:flex-row lg:space-x-4 xs:bg-[#202120] lg:bg-[transparent] rounded-2xl xs:p-[10px] lg:p-[0]">
+    <div className="w-[95%] mx-auto md:mt-[100px] mt-[10px] flex flex-col lg:flex-row lg:space-x-4 xs:bg-[#202120] lg:bg-[transparent] rounded-2xl xs:p-[10px] lg:p-[0]">
       <div className="w-full lg:w-[45%] flex flex-col bg-[#202120] rounded-[10px] p-6 space-y-4 text-center lg:text-left">
         <div>
           <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[3.2rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold tracking-wider">

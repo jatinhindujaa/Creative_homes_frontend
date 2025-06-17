@@ -9,8 +9,8 @@ import { useAgents } from "@/app/_components/admin/agents/useAgents";
 import { useRouter } from "next/navigation";
 
 
-const columnLayout = [3, 4, 5, 4, 3]; // Cards per column
-const membersPerPage = 19;
+const columnLayout = [3, 4, 3, 4, 3]; // Cards per column
+const membersPerPage = 17;
 
 const TeamSection = () => {
   const [currentPage, setCurrentPage] = useState(1);

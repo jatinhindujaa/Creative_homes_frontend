@@ -546,12 +546,12 @@ const PropertyCard = ({ el }) => {
     >
       <div className="relative">
         <img
-          src={image}
+          src={el.multipleImages[0]}
           alt={name}
           className="w-full h-[200px] object-cover rounded-[20px]"
         />
         <span className="absolute top-4 left-4 bg-gradient-to-r from-[rgba(0,0,0,0.5)_0.07%] to-[rgba(0,0,0,0.3)_97%] text-white text-[1rem] font-medium px-3 py-2 rounded-full">
-          COMING SOON
+          {el.firstpay} /{el.handoverpay} /{el.underpay} Payment plan
         </span>
       </div>
 
@@ -577,12 +577,12 @@ const PropertyCard = ({ el }) => {
           <span>Price: {price}</span>
         </span>
         <span className="text-[1rem] flex justify-between w-full">
-          <span>Handover Date: {handoverDate}</span>
+          <span>Handover Date: {el.handoverin}</span>
         </span>
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-4 mt-4">
+      {/* <div className="flex gap-4 mt-4">
         <button
           onClick={handleCall}
           className="flex items-center gap-2 bg-transparent border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black"
@@ -601,7 +601,7 @@ const PropertyCard = ({ el }) => {
         >
           WhatsApp
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

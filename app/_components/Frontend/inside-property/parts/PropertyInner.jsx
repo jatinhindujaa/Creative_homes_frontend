@@ -14,7 +14,7 @@ const PropertyInner = () => {
       const { data, isLoading, error } = usePropertyById(_id);
   return (
     <div className="bg-[#282927]">
-      <PropertyGallery />
+      <PropertyGallery data={data}/>
       <PropertyDetail data={data}/>
       <PropertyExtras data={data}/>
       <div className="bg-[#282927] gap-2 flex items-center flex-col">

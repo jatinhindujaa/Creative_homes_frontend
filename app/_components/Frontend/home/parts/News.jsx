@@ -187,7 +187,7 @@ const News = () => {
           {/* Image */}
           <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[560px] w-full">
             <Image
-              src={item.image}
+              src={item.multipleImages[0]}
               alt={item.title}
               fill
               className="object-cover object-center rounded-[20px]"
@@ -210,7 +210,10 @@ const News = () => {
           />
           {/* Read More */}
           <div>
-            <button className="text-[1rem] font-light leading-[1.6rem]" onClick={() => router.push(`/news/${item._id}`)}>
+            <button
+              className="text-[1rem] font-light leading-[1.6rem]"
+              onClick={() => router.push(`/news/${item._id}`)}
+            >
               Read more
               <div className="relative w-full h-[2px]">
                 <div className="absolute inset-0 bg-gradient-to-r from-gold via-bronze to-gold"></div>
