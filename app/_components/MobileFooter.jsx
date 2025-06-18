@@ -103,7 +103,7 @@ export default function MobileFooter() {
               className="flex justify-between items-center cursor-pointer"
               onClick={() => toggleDropdown(index)}
             >
-              <span className="max-sm:text-[0.8rem] text-[1rem] font-semibold">
+              <span className="max-sm:text-[14px] text-[1rem] font-semibold">
                 {section.title}
               </span>
               {openDropdown === index ? (
@@ -120,7 +120,7 @@ export default function MobileFooter() {
                     className="flex items-center space-x-2 text-gray-300"
                   >
                     {item.icon && <span>{item.icon}</span>}
-                    <span className="max-sm:text-[0.7rem] text-[0.8rem]">
+                    <span className="max-sm:text-[12px] text-[0.8rem]">
                       {typeof item === "string" ? item : item.name}
                     </span>
                   </div>
@@ -135,7 +135,7 @@ export default function MobileFooter() {
         <div className="flex flex-col">
           <div>
             <a href={"/"}>
-              <Image src={logo} alt="Logo" className=" w-[15rem] h-[5rem]" />
+              <Image src={logo} alt="Logo" className=" w-auto h-[3.5rem]" />
             </a>
           </div>
           <span className="font-semibold max-sm:text-[0.8rem] text-[1rem] leading-6 mb-1">
