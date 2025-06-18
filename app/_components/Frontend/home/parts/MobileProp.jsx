@@ -25,7 +25,7 @@ const MobileProp = () => {
     arrows: false,
     slidesToShow: 1,
     centerMode: true,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
     slidesToScroll: 1,
   };

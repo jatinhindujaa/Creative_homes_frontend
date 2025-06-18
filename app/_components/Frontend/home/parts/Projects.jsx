@@ -73,7 +73,7 @@ const Projects = () => {
       </div>
       <div className="w-full flex justify-center">
         <Button
-          text="VIEW ALL"
+          text="VIEW ALL PROJECTS"
           className="px-4 w-fit py-1 text-[0.9rem]"
           onClick={() => router.push("/off-plan-properties")}
         />

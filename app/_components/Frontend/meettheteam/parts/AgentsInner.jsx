@@ -382,7 +382,7 @@ const AgentsInner = () => {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Services
           </span>
-          <div className="text-lg font-bold mt-1">
+          <div className="text-lg font-bold mt-1 capitalize">
             {agents?.type?.join(", ")}
           </div>
         </div>

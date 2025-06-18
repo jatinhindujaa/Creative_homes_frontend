@@ -183,7 +183,7 @@ const Property = () => {
 
   return (
     <div className="flex flex-col gap-5 lg:gap-[0px] md:mt-[100px] mt-[0px]">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold text-center max-w-[1200px]">
+      <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold text-center max-w-[1200px] sm:pt-[17px]">
         <span className="leading-8 text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           LIST YOUR
         </span>

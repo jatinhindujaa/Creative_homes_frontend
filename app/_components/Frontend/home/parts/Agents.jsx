@@ -652,7 +652,7 @@ const Agents = () => {
   if (!agents?.length) return <div>No agents found</div>;
 
   const settings = {
-    autoplay: false,
+    autoplay: true,
     speed: 500,
     dots: false,
     infinite: true,
@@ -682,7 +682,7 @@ const Agents = () => {
   };
 
   const secondsettings = {
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     speed: 1000,
     dots: false,
@@ -745,7 +745,9 @@ const Agents = () => {
               />
               <div className="flex flex-col justify-center items-center text-[1.6rem] leading-[2.2rem] pt-1">
                 <span className="text-[1.4rem]">{agent.name}</span>
-                <span className="text-[1rem] leading-6">{agent.designation}</span>
+                <span className="text-[1rem] leading-6">
+                  {agent.designation}
+                </span>
               </div>
             </div>
           ))}
@@ -784,6 +786,7 @@ const Agents = () => {
             <div
               key={agent._id || index}
               className="flex flex-col w-[100%] px-2"
+              onClick={() => router.push(`/meet-the-team/${agent._id}`)}
             >
               <Image
                 className="rounded-[20px] w-full h-[200px] object-cover"
@@ -792,9 +795,9 @@ const Agents = () => {
                 height={100}
                 alt={agent.name}
               />
-              <div className="flex flex-col justify-center items-center text-[1rem] leading-[2.2rem]">
-                <span className="leading-6">{agent.name}</span>
-                <span className="text-[0.8rem] leading-6">
+              <div className="flex flex-col justify-center pt-[10px] items-center text-[0.7rem] leading-[2.2rem]">
+                <span className="leading-[1rem]">{agent.name}</span>
+                <span className="text-[0.6rem] leading-[1rem]">
                   {agent.designation}
                 </span>
               </div>
@@ -803,7 +806,7 @@ const Agents = () => {
         </Slider>
 
         {/* Left Arrow */}
-        <div className="absolute bottom-1/2 -left-4 flex gap-2">
+        <div className="absolute bottom-[55%] -left-4 flex gap-2">
           <div
             className="border-2 border-white rounded-full flex justify-center items-center p-0.3 cursor-pointer hover:bg-transparent"
             onClick={() => SecondsliderRef.current.slickPrev()}
@@ -817,7 +820,7 @@ const Agents = () => {
         </div>
 
         {/* Right Arrow */}
-        <div className="absolute bottom-1/2 -right-4 flex gap-2">
+        <div className="absolute bottom-[55%] -right-4 flex gap-2">
           <div
             className="border-2 border-white rounded-full flex justify-center items-center p-0.3 cursor-pointer hover:bg-transparent"
             onClick={() => SecondsliderRef.current.slickNext()}

@@ -57,7 +57,7 @@ const Mortgage_calculator = () => {
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300  rounded-[10px]"></div>
       </div>
-      <div className="w-full lg:w-[30%] flex-row lg:flex-col h-[300px] lg:h-[477px]  xl:h-[623px] gap-2 lg:gap:2 flex pt-2 lg:pt-0">
+      <div className="w-full lg:w-[30%] flex-row lg:flex-col h-[200px] lg:h-[477px]  xl:h-[623px] gap-2 lg:gap:2 flex pt-2 lg:pt-0">
         <div className="h-[100%] lg:h-[60%] w-[60%] lg:w-[100%] relative">
           <Image
             src={mortgage2.src}

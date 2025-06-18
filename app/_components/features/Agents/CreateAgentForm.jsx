@@ -299,7 +299,7 @@ const typeOptions = [
           <Controller
             name="type"
             control={control}
-            rules={{ required: "This field is required" }}
+            // rules={{ required: "This field is required" }}
             render={({ field }) => (
               <Select
                 {...field}
@@ -317,9 +317,9 @@ const typeOptions = [
               />
             )}
           />
-          {errors.type && (
+          {/* {errors.type && (
             <p className="text-red-500 text-sm">{errors.type.message}</p>
-          )}
+          )} */}
         </div>
 
         <div>

@@ -419,6 +419,17 @@ const Hero = () => {
         webkit-playsinline="true"
         controls={false}
       />
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        src="/Night2.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        disablePictureInPicture
+        webkit-playsinline="true"
+        controls={false}
+      />
 
       {/* Foreground Content */}
       <div className="relative z-10 flex flex-col items-center justify-center text-white text-center px-4 w-full max-w-4xl">
@@ -466,7 +477,7 @@ const Hero = () => {
         </div>
 
         {/* Search Bar with Dropdown */}
-        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-[95%] sm:w-full max-w-lg mx-auto sm:space-x-4">
+        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-[100%] sm:w-full max-w-lg mx-auto sm:space-x-4">
           <input
             type="text"
             value={searchQuery}
@@ -477,7 +488,7 @@ const Hero = () => {
           <select
             value={selectedOfferingType}
             onChange={handleOfferingTypeChange}
-            className="bg-transparent text-black font-normal py-2 rounded-full outline-none w-[40%] sm:w-auto"
+            className="bg-transparent text-black font-normal py-2 rounded-full outline-none w-[40%] sm:w-auto hidden sm:block"
           >
             <option value="">Select Type</option>
             <option value="rent">Rent</option>
