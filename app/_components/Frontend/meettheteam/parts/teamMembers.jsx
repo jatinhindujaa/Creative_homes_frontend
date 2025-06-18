@@ -759,7 +759,7 @@ console.log("sortedData", sortedData);
         <div className="flex gap-4 items-center">
           <input
             type="text"
-            placeholder="Enter Location Or Agent Name"
+            placeholder="Enter Agent Name"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="px-4 py-2 rounded-md"

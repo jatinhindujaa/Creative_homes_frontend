@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Hero from './parts/Hero'
 import TeamSection from './parts/teamMembers'
