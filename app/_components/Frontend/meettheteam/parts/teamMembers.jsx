@@ -705,7 +705,7 @@ const TeamSection = () => {
         }
       })
     : [];
-
+console.log("sortedData", sortedData);
   // Custom swap logic
   if (sortedData.length > 0) {
     const index1 = sortedData.findIndex((item) => item.order === 1);
