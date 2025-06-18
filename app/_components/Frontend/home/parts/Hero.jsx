@@ -102,6 +102,9 @@ const Hero = () => {
         loop
         muted
         playsInline
+        disablePictureInPicture
+        webkit-playsinline="true"
+        controls={false}
       />
 
       {/* Foreground Content */}
