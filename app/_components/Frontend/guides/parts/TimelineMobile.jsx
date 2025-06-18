@@ -23,7 +23,7 @@ export default function TimelineStepMobile({ step, title, content }) {
           <div className="flex w-full justify-between items-center">
             <button
               onClick={() => setOpen(!open)}
-              className="flex justify-between items-center w-full bg-white p-4 rounded-full text-black text-lg font-medium shadow-lg transition-all"
+              className="flex justify-between items-center w-full bg-white p-[0.6rem] rounded-full text-black text-lg font-medium shadow-lg transition-all"
             >
               <span>{title}</span>
               <span

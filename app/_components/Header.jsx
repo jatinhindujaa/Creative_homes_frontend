@@ -136,7 +136,7 @@ export default function Header() {
           <a href="/list-your-property">
             <Button
               text="Sell Your Property"
-              className="text-white border border-white mt-4 py-2"
+              className="text-white border border-white mt-4 py-1 px-4"
             />
           </a>
         </div>

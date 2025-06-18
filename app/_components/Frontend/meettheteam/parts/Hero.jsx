@@ -88,10 +88,12 @@ const Hero = () => {
         <div className="bg-white bg-opacity-20 w-[100%] xl:w-[50%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
           <Button
             text="Contact Us"
+            onClick={() => router.push("/contact-us")}
             className="w-fit text-[1rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
           />
           <HoverButton
             text="About Us"
+            onClick={() => router.push("/about")}
             className="w-fit text-[1rem] leading-[2.4rem] px-5 font-normal tracking-wider"
           />
         </div>

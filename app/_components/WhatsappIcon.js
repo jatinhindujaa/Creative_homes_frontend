@@ -203,7 +203,8 @@ const WhatsAppIcon = () => {
               {/* Interests */}
               <div className="mb-4 text-left flex flex-col gap-2">
                 <p className="mb-2 font-medium">What are you interested in?</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 flex-row items-center">
+                  <p className="font-normal">A.</p>
                   {["Buy", "Rent"].map((opt) => (
                     <button
                       key={opt}
@@ -218,7 +219,8 @@ const WhatsAppIcon = () => {
                     </button>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 flex-row items-center">
+                  <p className="font-normal">B.</p>
                   {["Residential", "Commercial"].map((opt) => (
                     <button
                       key={opt}

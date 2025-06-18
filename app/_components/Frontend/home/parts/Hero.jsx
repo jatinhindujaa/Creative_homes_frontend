@@ -403,13 +403,13 @@ const Hero = () => {
   console.log("properties", properties);
 
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-black overflow-hidden">
+    <div className="relative h-screen flex flex-col items-center sm:justify-center justify-end sm:gap-0 gap-[90px] bg-black overflow-hidden">
       {/* Background Gradient Overlay */}
       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10" />
 
       {/* Background Video */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover sm:block hidden"
         src="/Night2.mp4"
         autoPlay
         loop
@@ -420,8 +420,8 @@ const Hero = () => {
         controls={false}
       />
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/Night2.mp4"
+        className="absolute top-0 left-0 w-full h-full object-cover sm:hidden block"
+        src="/night12.mp4"
         autoPlay
         loop
         muted
@@ -448,7 +448,7 @@ const Hero = () => {
       </div>
 
       {/* Filter Buttons */}
-      <div className="bg-white z-10 bg-opacity-20 backdrop-blur-lg p-4 rounded-full sm:px-8 px-4 m-2">
+      <div className="bg-white z-10 bg-opacity-20 backdrop-blur-lg p-4 rounded-full sm:px-8 px-4 m-2 sm:mb-0 mb-[105px]">
         <div className="flex flex-wrap justify-center sm:space-x-3 mb-3 gap-1">
           <button
             onClick={() => handleFilterClick("buy")}
@@ -477,7 +477,7 @@ const Hero = () => {
         </div>
 
         {/* Search Bar with Dropdown */}
-        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-[100%] sm:w-full max-w-lg mx-auto sm:space-x-4">
+        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-[100%] sm:w-full max-w-lg mx-auto sm:space-x-4 ">
           <input
             type="text"
             value={searchQuery}

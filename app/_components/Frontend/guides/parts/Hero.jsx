@@ -64,11 +64,11 @@ const Hero = () => {
       />
       <div className="relative z-10 flex w-[100%] md:w-[77%] flex-col items-center justify-center text-white text-center lg:px-4 px-4 gap-4">
         {/* Title */}
-        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
+        <h1 className="text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
           Why Invest In Dubai?
         </h1>
         {/* Description */}
-        <h1 className="text-base sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
+        <h1 className="text-[0.8rem] sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
           Dubai offers a highly rewarding real estate market—if approached
           wisely. Whether you're a first-time buyer or a seasoned investor,
           investing in Dubai can provide strong returns, financial security, and
@@ -76,7 +76,7 @@ const Hero = () => {
           maximize profits, and minimize risks.
         </h1>
         {/* Button Section */}
-        <div className="bg-white bg-opacity-20 lg:w-[45%] w-[100%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
+        {/* <div className="bg-white bg-opacity-20 lg:w-[45%] w-[100%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
           <Button
             text="Properties"
             className="w-fit text-[1.2rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
@@ -86,6 +86,19 @@ const Hero = () => {
             text="Off plan"
             className="w-fit text-[1.2rem] leading-[2.4rem] px-5 font-normal tracking-wider"
             onClick={() => router.push("/off-plan-properties")}
+          />
+        </div> */}
+
+        <div className="bg-white bg-opacity-20 w-[100%] xl:w-[50%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
+          <Button
+            text="Properties"
+            onClick={() => router.push("/property")}
+            className="w-fit text-[1rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
+          />
+          <HoverButton
+            text="Off plan"
+            onClick={() => router.push("/off-plan-properties")}
+            className="w-fit text-[1rem] leading-[2.4rem] px-5 font-normal tracking-wider"
           />
         </div>
       </div>
