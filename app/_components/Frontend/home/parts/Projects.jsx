@@ -34,7 +34,7 @@ const Projects = () => {
   return (
     <div className="flex flex-col md:gap-[50px] gap-[25px] md:mt-[100px] mt-[40px]">
       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[1.5rem] lg:text-[2.5rem] lg:leading-[3.3rem] leading-[2] font-semibold mt-4 text-center">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-6">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-[2.5rem]">
           UPCOMING
         </span>
         <span className="leading-12">PROJECTS</span>

@@ -125,6 +125,8 @@ import toast from "react-hot-toast";
 const WhatsAppIcon = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("");
+  const [selectedType2, setSelectedType2] = useState("");
+
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -132,7 +134,7 @@ const WhatsAppIcon = () => {
   const handleClose = () => setIsModalOpen(false);
 
   const handleSubmit = async () => {
-    if (!selectedType || !phone) {
+    if (!selectedType || !selectedType2 || !phone) {
       toast.error("Please select an interest and enter your phone number.");
       return;
     }
@@ -144,14 +146,14 @@ const WhatsAppIcon = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ type: selectedType, phone }),
+        body: JSON.stringify({ type1: selectedType, type2:selectedType2, phone }),
       });
 
       const data = await res.json();
 
       if (res.ok) {
         toast.success("Redirecting to WhatsApp...");
-        window.location.href = "https://wa.me/919829231118";
+        window.location.href = "https://wa.me/971585611099";
       } else {
         toast.error(data.message || "Submission failed.");
       }
@@ -199,15 +201,30 @@ const WhatsAppIcon = () => {
               </h2>
 
               {/* Interests */}
-              <div className="mb-4 text-left">
+              <div className="mb-4 text-left flex flex-col gap-2">
                 <p className="mb-2 font-medium">What are you interested in?</p>
                 <div className="flex flex-wrap gap-2">
-                  {["Buy", "Rent", "Residential", "Commercial"].map((opt) => (
+                  {["Buy", "Rent"].map((opt) => (
                     <button
                       key={opt}
                       onClick={() => setSelectedType(opt)}
                       className={`border px-4 py-2 rounded-md text-sm ${
                         selectedType === opt
+                          ? "bg-green-500 text-white"
+                          : "hover:bg-gray-100"
+                      }`}
+                    >
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {["Residential", "Commercial"].map((opt) => (
+                    <button
+                      key={opt}
+                      onClick={() => setSelectedType2(opt)}
+                      className={`border px-4 py-2 rounded-md text-sm ${
+                        selectedType2 === opt
                           ? "bg-green-500 text-white"
                           : "hover:bg-gray-100"
                       }`}

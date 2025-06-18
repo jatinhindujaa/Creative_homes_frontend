@@ -441,32 +441,32 @@ const Hero = () => {
         <div className="flex flex-wrap justify-center sm:space-x-3 mb-3 gap-1">
           <button
             onClick={() => handleFilterClick("buy")}
-            className="bg-white text-black font-semibold md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
+            className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Buy
           </button>
           <button
             onClick={() => handleFilterClick("rent")}
-            className="bg-white text-black font-semibold md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
+            className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Rent
           </button>
           <button
             onClick={() => handleFilterClick("off-plan")}
-            className="bg-white text-black font-semibold md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
+            className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Off Plan
           </button>
           <button
             onClick={() => handleFilterClick("commercial")}
-            className="bg-white text-black font-semibold md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
+            className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Commercial
           </button>
         </div>
 
         {/* Search Bar with Dropdown */}
-        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-full max-w-lg mx-auto sm:space-x-4">
+        <div className="flex flex-row items-center bg-white px-2 rounded-full space-x-2 shadow-md w-[95%] sm:w-full max-w-lg mx-auto sm:space-x-4">
           <input
             type="text"
             value={searchQuery}
@@ -477,7 +477,7 @@ const Hero = () => {
           <select
             value={selectedOfferingType}
             onChange={handleOfferingTypeChange}
-            className="bg-transparent text-black font-semibold py-2 rounded-full outline-none w-[50%] sm:w-auto"
+            className="bg-transparent text-black font-normal py-2 rounded-full outline-none w-[40%] sm:w-auto"
           >
             <option value="">Select Type</option>
             <option value="rent">Rent</option>

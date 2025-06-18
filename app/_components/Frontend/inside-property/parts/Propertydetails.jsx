@@ -11,9 +11,7 @@ export default function PropertyDetail({data}) {
     <div className="flex flex-col md:flex-row gap-6 justify-between text-white p-6 md:p-10 rounded-xl">
       {/* Left Column */}
       <div className="w-full md:w-[60%] flex flex-col gap-4">
-        <h1 className="text-3xl font-semibold text-[#f1c376]">
-          {data?.name}
-        </h1>
+        <h1 className="text-3xl font-semibold text-[#f1c376]">{data?.name}</h1>
         <h1 className="text-3xl font-semibold text-[#f1c376]">
           AED {data?.price}
         </h1>
@@ -30,16 +28,17 @@ export default function PropertyDetail({data}) {
         <h2 className="text-2xl font-semibold mt-2">
           {data?.features?.join(" | ")}
         </h2>
-
+        {/* 
         <p className="text-gray-400 text-md">
           📍 The Sundials, Jumeirah Golf Estates, Dubai
-        </p>
+        </p> */}
         <div className="text-gray-300 mt-4 text-sm leading-relaxed space-y-3">
           <p>{data?.shortDescription}</p>
         </div>
-        <div className="text-gray-300 mt-4 text-sm leading-relaxed space-y-3">
-          {data?.description}
-        </div>
+        <div
+          className="text-gray-300 mt-4 text-sm leading-relaxed space-y-3"
+          dangerouslySetInnerHTML={{ __html: data?.description }}
+        ></div>
       </div>
 
       {/* Right Column */}
