@@ -16,15 +16,46 @@ const TeamSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sortOrder, setSortOrder] = useState("asc");
 const {data, isLoading} = useAgents()
- const sortedData = data
-   ? [...data].sort((a, b) => {
-       if (sortOrder === "asc") {
-         return a.order - b.order;
-       } else {
-         return b.order - a.order;
-       }
-     })
-   : [];
+//  const sortedData = data
+//    ? [...data].sort((a, b) => {
+//        if (sortOrder === "asc") {
+//          return a.order - b.order;
+//        } else {
+//          return b.order - a.order;
+//        }
+//      })
+//    : [];
+let sortedData = data
+  ? [...data].sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.order - b.order;
+      } else {
+        return b.order - a.order;
+      }
+    })
+  : [];
+console.log("sortedData", sortedData);
+// Custom swap logic
+if (sortedData.length > 0) {
+  const index1 = sortedData.findIndex((item) => item.order === 1);
+  const index4 = sortedData.findIndex((item) => item.order === 4);
+  if (index1 !== -1 && index4 !== -1) {
+    [sortedData[index1], sortedData[index4]] = [
+      sortedData[index4],
+      sortedData[index1],
+    ];
+  }
+
+  const index10 = sortedData.findIndex((item) => item.order === 10);
+  const index11 = sortedData.findIndex((item) => item.order === 11);
+  if (index10 !== -1 && index11 !== -1) {
+    [sortedData[index10], sortedData[index11]] = [
+      sortedData[index11],
+      sortedData[index10],
+    ];
+  }
+}
+
 
   // const totalPages = Math.ceil(data.length / membersPerPage);
   const totalPages = sortedData
