@@ -125,7 +125,7 @@ import toast from "react-hot-toast";
 const WhatsAppIcon = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("");
-  const [selectedType2, setSelectedType2] = useState("");
+  // const [selectedType2, setSelectedType2] = useState("");
 
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
@@ -134,7 +134,7 @@ const WhatsAppIcon = () => {
   const handleClose = () => setIsModalOpen(false);
 
   const handleSubmit = async () => {
-    if (!selectedType || !selectedType2 || !phone) {
+    if (!selectedType|| !phone) {
       toast.error("Please select an interest and enter your phone number.");
       return;
     }
@@ -146,7 +146,7 @@ const WhatsAppIcon = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ type1: selectedType, type2:selectedType2, phone }),
+        body: JSON.stringify({ type1: selectedType, type2:"Residential", phone }),
       });
 
       const data = await res.json();
@@ -219,7 +219,7 @@ const WhatsAppIcon = () => {
                     </button>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-2 flex-row items-center">
+                {/* <div className="flex flex-wrap gap-2 flex-row items-center">
                   <p className="font-normal">B.</p>
                   {["Residential", "Commercial"].map((opt) => (
                     <button
@@ -234,7 +234,7 @@ const WhatsAppIcon = () => {
                       {opt}
                     </button>
                   ))}
-                </div>
+                </div> */}
               </div>
 
               {/* WhatsApp Input */}
