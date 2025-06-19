@@ -121,7 +121,7 @@ const router = useRouter();
                   objectFit="cover"
                   className="rounded-[20px]"
                 />
-                <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 backdrop-blur-sm text-center">
+                <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-10  text-center">
                   <span className="text-white font-medium text-lg">
                     {item.title}
                   </span>

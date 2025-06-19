@@ -121,5 +121,5 @@ export default function Page(){
       },
     ];
 
-    return <InsideguideHome steps={steps} />;
+    return <InsideguideHome steps={steps} title={"Mortgage"} des={"Guide"} />;
 }

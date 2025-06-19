@@ -44,12 +44,15 @@ export default function ValuationForm() {
       <div className="bg-[#272727] p-8 rounded-lg shadow-lg max-w-md mx-auto ">
         <div className="flex justify-center text-[2.5rem] font-medium">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-            Book a Valuation
+            List Your Property
           </span>
         </div>
         <p className="text-center text-sm mb-6 text-white">
-          Ready to make your move? Start with a free property valuation. It’s
-          quick, easy, and informative.
+          {/* Ready to make your move? Start with a free property valuation. It’s
+          quick, easy, and informative. */}
+          Looking to sell or rent your property in Dubai? Please complete the
+          form below, and we will contact you promptly to facilitate the
+          process.
         </p>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <input

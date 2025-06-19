@@ -67,5 +67,5 @@ export default function Page(){
         position: "left",
       },
     ];
-    return <InsideguideHome steps={steps} />;
+    return <InsideguideHome steps={steps} title={"Buying"} des={"Guide"}/>;
 }

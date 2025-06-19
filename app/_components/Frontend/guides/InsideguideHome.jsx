@@ -6,7 +6,7 @@ import MarqueeSection from '../meettheteam/parts/marque';
 import Popular from '../news/parts/Popular';
 
 
-const InsideguideHome = ({steps}) => {
+const InsideguideHome = ({steps, title,des}) => {
   const locations = [
     "3 Bedroom Apartment For Rent",
     "Dubai Hill Estate",
@@ -19,7 +19,7 @@ const InsideguideHome = ({steps}) => {
   return (
     
     <>
-      <ImageBox />
+      <ImageBox title={title} des={des}/>
       <InsideGuide steps={steps}/>
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
 

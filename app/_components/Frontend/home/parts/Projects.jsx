@@ -15,17 +15,25 @@ const projectList = [
     src: projects_1.src,
     title: "Seacrest",
     radius: "10px 10px 0 0",
+    link: "6846c446a627e54705c3b66c",
   },
   {
     src: projects_2.src,
     title: "Jacob & Co Residences",
     radius: "0px 0px 0 0",
+    link: "6846cdc0a627e54705c3b71a",
   },
-  { src: projects_3.src, title: "Trump Tower", radius: "0px 0px 0 0" },
+  {
+    src: projects_3.src,
+    title: "Trump Tower",
+    radius: "0px 0px 0 0",
+    link: "6846c8aaa627e54705c3b6c0",
+  },
   {
     src: projects_4.src,
     title: "Palm Beach Towers",
     radius: "0px 0px 10px 10px",
+    link: "6846da81a627e54705c3b853",
   },
 ];
 
@@ -64,6 +72,7 @@ const Projects = () => {
                 <span className="font-light">{project.title}</span>
                 <Button
                   text="VIEW PROJECT"
+                  onClick={() => router.push(`/off-plan-properties/${project.link}`)}
                   className="px-4 w-fit py-1 text-[0.9rem] uppercase"
                 />
               </div>

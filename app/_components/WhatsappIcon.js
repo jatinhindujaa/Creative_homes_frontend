@@ -141,13 +141,20 @@ const WhatsAppIcon = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:7000/api/v1/contact/whatsp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ type1: selectedType, type2:"Residential", phone }),
-      });
+      const res = await fetch(
+        "https://creativehomes.ae/api/v1/contact/whatsp",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type1: selectedType,
+            type2: "Residential",
+            phone,
+          }),
+        }
+      );
 
       const data = await res.json();
 
