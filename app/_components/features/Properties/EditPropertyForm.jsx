@@ -6,6 +6,7 @@ import TiptapEditor from "../../admin/news/Tiptapeditor";
 import FileInput from "../../ui/FileInput";
 
 import Select from "react-select";
+import { useAreas } from "../../admin/area/useArea";
 const EditPropertyForm = ({
   resourceName,
   editData,
@@ -72,6 +73,10 @@ const EditPropertyForm = ({
   const [mobilenewImages, setmobileNewImages] = useState([]);
 
   const { data: agents = [], isLoading: loadingAgents } = useAgents();
+  const { data: areas = [], isLoading: loadingAreas } = useAreas();
+
+  console.log("da",areas)
+
   useEffect(() => {
     setPropertyType(
       Array.isArray(editData.propertytype)
@@ -116,6 +121,7 @@ const EditPropertyForm = ({
       amenities,
       description,
       agent: selectedAgent,
+      area: selectedArea,
       multipleImages: propertyImages,
       mobilemultipleImages: mobilemultipleImages,
       propertytype,
@@ -128,6 +134,7 @@ const EditPropertyForm = ({
     amenities,
     description,
     selectedAgent,
+    selectedArea,
     propertyImages,
     mobilemultipleImages,
     propertytype,
@@ -144,10 +151,20 @@ console.log("propertyImages", propertyImages);
     setEditData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onConfirm(editData);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   onConfirm(editData);
+  // };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // If area is an empty string, set it to null
+  const updatedData = {
+    ...editData,
+    area: selectedArea ? selectedArea : null,
   };
+  onConfirm(updatedData);
+};
+
 
   // Handle mobile image selection
   const handleMobileImageChange = (e) => {
@@ -406,13 +423,13 @@ console.log("propertyImages", propertyImages);
             </label>
             <select
               className="w-full border px-3 py-2 rounded-md"
-              value={selectedArea}
+              value={selectedArea||""}
               onChange={(e) => setSelectedArea(e.target.value)}
             >
               <option value="">-- Select Area --</option>
-              {agents.map((agent) => (
-                <option key={agent._id} value={agent._id}>
-                  {agent.name}
+              {areas.map((area) => (
+                <option key={area._id} value={area._id}>
+                  {area.name}
                 </option>
               ))}
             </select>

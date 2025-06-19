@@ -41,6 +41,7 @@ function PropertiesRow({
     multipleImages,
     mobilemultipleImages,
     image,
+    area
   },
 }) {
   const { mutate: updateProperty, isPending: isUpdatingProperty } =
@@ -74,6 +75,7 @@ function PropertiesRow({
     offeringtype,
     propertycategory,
     bua,
+    area,
     plot,
     reference,
     zone,
@@ -113,6 +115,8 @@ function PropertiesRow({
     formData.append("shortDescription", editData.shortDescription);
     formData.append("description", editData.description);
     formData.append("agent", editData.agent);
+    formData.append("area", editData.area);
+
  console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
   console.log(" Multiple Images:", editData);
     (editData.features || []).forEach((f) => formData.append("features[]", f));
