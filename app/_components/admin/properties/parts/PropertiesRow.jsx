@@ -41,7 +41,8 @@ function PropertiesRow({
     multipleImages,
     mobilemultipleImages,
     image,
-    area
+    area,
+    order,
   },
 }) {
   const { mutate: updateProperty, isPending: isUpdatingProperty } =
@@ -88,6 +89,7 @@ function PropertiesRow({
     multipleImages,
     mobilemultipleImages,
     image,
+    order,
   });
 
   const expandDescription = () => {
@@ -116,9 +118,9 @@ function PropertiesRow({
     formData.append("description", editData.description);
     formData.append("agent", editData.agent);
     formData.append("area", editData.area);
-
- console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
-  console.log(" Multiple Images:", editData);
+    formData.append("order", editData.order);
+       console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
+    console.log(" Multiple Images:", editData);
     (editData.features || []).forEach((f) => formData.append("features[]", f));
 
     (editData.amenities || []).forEach((a) =>
@@ -137,25 +139,24 @@ function PropertiesRow({
       formData.append("propertycategory", pc)
     );
 
-   
-if (editData.newQrImage) {
-  formData.append("image", editData.newQrImage); // single file
-}
+    if (editData.newQrImage) {
+      formData.append("image", editData.newQrImage); // single file
+    }
 
-// For multiple files:
-if (editData.newImages && editData.newImages.length > 0) {
-  editData.newImages.forEach((file) => {
-    formData.append("multipleImages", file);
-  });
-}
- if (
-   editData.mobilemultipleImages &&
-   editData.mobilemultipleImages.length > 0
- ) {
-   editData.mobilemultipleImages.forEach((file) => {
-     formData.append("mobilemultipleImages", file); // Correct field name
-   });
- }
+    // For multiple files:
+    if (editData.newImages && editData.newImages.length > 0) {
+      editData.newImages.forEach((file) => {
+        formData.append("multipleImages", file);
+      });
+    }
+    if (
+      editData.mobilemultipleImages &&
+      editData.mobilemultipleImages.length > 0
+    ) {
+      editData.mobilemultipleImages.forEach((file) => {
+        formData.append("mobilemultipleImages", file); // Correct field name
+      });
+    }
     updateProperty(
       { id: _id, formData },
       {
@@ -250,7 +251,6 @@ if (editData.newImages && editData.newImages.length > 0) {
           <Modal.Open opens="delete">
             <Menus.Button icon={<HiTrash />} />
           </Modal.Open>
-          
         </Menus.Menu>
 
         <Modal.Window name="delete">

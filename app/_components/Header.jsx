@@ -53,7 +53,7 @@ export default function Header() {
           <div key={nav.id || index} className="relative group">
             <a
               href={nav.link}
-              className="text-white font-light text-[1rem] hover:text-gray-300 transition-colors flex items-center "
+              className="text-white font-light text-[1rem] hover:text-gray-300 transition-colors flex items-center cursor-pointer"
             >
               {nav.name}
               {nav.items && (

@@ -100,8 +100,17 @@ const EditNewsForm = ({
             <label className="text-sm font-medium text-gray-700">Date</label>
             <Input
               type="text"
-              name="data"
+              name="date"
               value={editData.date}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="w-[50%]">
+            <label className="text-sm font-medium text-gray-700">Order</label>
+            <Input
+              type="text"
+              name="order"
+              value={editData.order}
               onChange={handleChange}
             />
           </div>

@@ -158,7 +158,7 @@ export default function PropertyGallery({ data }) {
       <div className="flex flex-col md:flex-row gap-6 mt-[80px]">
         {/* Left: Main Image */}
         <div
-          className="relative w-full md:w-2/3 h-[400px] rounded-lg overflow-hidden mb-6 md:mb-0 cursor-pointer"
+          className="relative w-full md:w-2/3 h-[600px] rounded-lg overflow-hidden mb-6 md:mb-0 cursor-pointer"
           onClick={() => openViewer(0)}
         >
           <Image
@@ -178,13 +178,13 @@ export default function PropertyGallery({ data }) {
         </div>
 
         {/* Right: Thumbnail section */}
-        <div className="flex flex-col gap-4 md:w-1/3">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:w-1/3 ">
+          <div className="flex flex-col gap-4 h-full">
             {/* First 2 thumbnails */}
             {images.slice(1, 2).map((thumb, i) => (
               <div
                 key={i}
-                className="relative w-full h-[120px] md:h-[190px] rounded-lg overflow-hidden cursor-pointer"
+                className="relative w-full md:h-[50%] h-[120px] rounded-lg overflow-hidden cursor-pointer"
                 onClick={() => openViewer(i + 1)}
               >
                 <Image
@@ -199,7 +199,7 @@ export default function PropertyGallery({ data }) {
             {/* Final “+X” thumbnail */}
             {images.length > 3 && (
               <div
-                className="relative w-full h-[120px] md:h-[190px] rounded-lg overflow-hidden bg-black/50 flex items-center justify-center text-white text-xl font-semibold cursor-pointer"
+                className="relative w-full md:h-[50%] h-[120px] rounded-lg overflow-hidden bg-black/50 flex items-center justify-center text-white text-xl font-semibold cursor-pointer"
                 onClick={() => openViewer(3)}
               >
                 +{remainingCount}

@@ -57,7 +57,6 @@ const dropdownData = [
       { id: 2, name: "News", link: "" },
       { id: 3, name: "Contact Us", link: "" },
       { id: 4, name: "Privacy Policy", link: "" },
-      { id: 5, name: "Terms & Conditions", link: "" },
     ],
   },
   {

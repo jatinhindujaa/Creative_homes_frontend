@@ -82,7 +82,7 @@ const propertycategoryOptions = [
     });
 
     formData.append("price", data.price);
-    formData.append("type", data.type);
+    formData.append("order", data.order);
     formData.append("reference", data.reference);
     formData.append("dld", data.dld);
     formData.append("zone", data.zone);
@@ -321,12 +321,12 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
           </div>
 
           <div className="w-[33%]">
-            <label className=" text-sm font-medium text-gray-700">Type</label>
+            <label className=" text-sm font-medium text-gray-700">Order</label>
             <Input
               disabled={isCreating}
               type="text"
-              id="type"
-              {...register("type", { required: "This field is required" })}
+              id="order"
+              {...register("order", { required: "This field is required" })}
             />
             {errors.type && (
               <p className="text-red-500 text-sm">{errors.type.message}</p>

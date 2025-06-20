@@ -32,6 +32,7 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
 
     formData.append("title", data.title);
     formData.append("date", data.date);
+    formData.append("order", data.order);
     formData.append("description", content);
     formData.append("status", true);
    multipleFiles.forEach((file) => {
@@ -69,18 +70,32 @@ const CreateNewsForm = ({ onCloseModal, resourceName }) => {
             <p className="text-red-500 text-sm">{errors.title.message}</p>
           )}
         </div>
+        <div className="flex flex-row gap-4">
+          <div className="w-[50%]">
+            <label className=" text-sm font-medium text-gray-700">Date</label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="date"
+              {...register("date", { required: "This field is required" })}
+            />
+            {errors.date && (
+              <p className="text-red-500 text-sm">{errors.phoneNo.message}</p>
+            )}
+          </div>
 
-        <div>
-          <label className=" text-sm font-medium text-gray-700">Date</label>
-          <Input
-            disabled={isCreating}
-            type="text"
-            id="date"
-            {...register("date", { required: "This field is required" })}
-          />
-          {errors.date && (
-            <p className="text-red-500 text-sm">{errors.phoneNo.message}</p>
-          )}
+          <div className="w-[50%]">
+            <label className=" text-sm font-medium text-gray-700">Order</label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="date"
+              {...register("order", { required: "This field is required" })}
+            />
+            {errors.order && (
+              <p className="text-red-500 text-sm">{errors.order.message}</p>
+            )}
+          </div>
         </div>
 
         <div>

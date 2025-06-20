@@ -340,7 +340,7 @@
 // };
 
 // export default NewsCards;
-
+"use client"
 import React, { useState } from "react";
 import Image from "next/image";
 import card from "../assets/1.png"; // Replace with actual image path

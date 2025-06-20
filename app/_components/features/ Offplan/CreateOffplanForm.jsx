@@ -51,6 +51,9 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
     formData.append("handoverpay", data.handoverpay);
     formData.append("developer", data.developer);
     formData.append("handoverin", data.handoverin);
+    formData.append("maplink", data.maplink);
+    formData.append("order", data.order);
+
 
    formData.append("description", content);
     formData.append("status", data.status ? "true" : "false");
@@ -129,7 +132,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
 
         {/* Price and Reference */}
         <div className="flex gap-2">
-          <div className="w-1/2">
+          <div className="w-1/3">
             <label className="text-sm font-medium text-gray-700">Price</label>
             <Input
               disabled={isCreating}
@@ -139,6 +142,32 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             />
             {errors.price && (
               <p className="text-red-500 text-sm">{errors.price.message}</p>
+            )}
+          </div>
+          <div className="w-1/3">
+            <label className="text-sm font-medium text-gray-700">Order</label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="order"
+              {...register("order", { required: "This field is required" })}
+            />
+            {errors.order && (
+              <p className="text-red-500 text-sm">{errors.order.message}</p>
+            )}
+          </div>
+          <div className="w-1/3">
+            <label className="text-sm font-medium text-gray-700">
+              Google Map link
+            </label>
+            <Input
+              disabled={isCreating}
+              type="text"
+              id="maplink"
+              {...register("maplink", { required: "This field is required" })}
+            />
+            {errors.maplink && (
+              <p className="text-red-500 text-sm">{errors.maplink.message}</p>
             )}
           </div>
         </div>

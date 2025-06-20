@@ -23,6 +23,7 @@ function NewsRow({
     multipleImages,
     mobilemultipleImages,
     status,
+    order
   },
 }) {
   const { mutate: updateNews, isPending: isUpdatingNews } = useUpdateNews();
@@ -39,6 +40,7 @@ function NewsRow({
     multipleImages,
     mobilemultipleImages,
     status,
+    order
   });
   const [aboutContent, setAboutContent] = useState(description);
 
@@ -57,6 +59,8 @@ function NewsRow({
     formData.append("date", editData.date);
     formData.append("description", aboutContent);
     formData.append("status", editData.status);
+    formData.append("order", editData.order);
+
 
  if (editData.newImages && editData.newImages.length > 0) {
    editData.newImages.forEach((file) => {

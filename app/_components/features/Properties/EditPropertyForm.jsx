@@ -323,6 +323,15 @@ const handleSubmit = (e) => {
               onChange={handleChange}
             />
           </div>
+          <div className="w-[33%]">
+            <label className="text-sm font-medium text-gray-700">Order</label>
+            <Input
+              type="text"
+              name="order"
+              value={editData.order}
+              onChange={handleChange}
+            />
+          </div>
 
           <div className="w-[33%]">
             <label className="text-sm font-medium text-gray-700">Plot</label>
@@ -380,7 +389,9 @@ const handleSubmit = (e) => {
           </div>
 
           <div className="w-[33%]">
-            <label className="text-sm font-medium text-gray-700">Zone</label>
+            <label className="text-sm font-medium text-gray-700">
+              Google Map link
+            </label>
             <Input
               type="text"
               name="zone"
@@ -399,6 +410,7 @@ const handleSubmit = (e) => {
             />
           </div>
         </div>
+
         <div className="gap-3 flex flex-row">
           <div className="w-[50%]">
             <label className="text-sm font-medium text-gray-700">
@@ -423,7 +435,7 @@ const handleSubmit = (e) => {
             </label>
             <select
               className="w-full border px-3 py-2 rounded-md"
-              value={selectedArea||""}
+              value={selectedArea || ""}
               onChange={(e) => setSelectedArea(e.target.value)}
             >
               <option value="">-- Select Area --</option>

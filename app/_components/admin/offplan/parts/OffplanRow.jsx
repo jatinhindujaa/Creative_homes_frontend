@@ -35,7 +35,9 @@ function OffplanRow({
     agent,
     status,
     multipleImages,
-    image
+    image,
+    maplink,
+    order
   },
 }) {
   const { mutate: updateOffplan, isPending: isUpdatingOffplan } =
@@ -76,6 +78,8 @@ function OffplanRow({
     status,
     multipleImages,
     image,
+    maplink,
+    order,
   });
 
   const expandDescription = () => {
@@ -109,6 +113,11 @@ const handleConfirmEdit = () => {
   formData.append("shortDescription", editData.shortDescription);
   formData.append("description", editData.description);
   formData.append("agent", editData.agent);
+  formData.append("maplink", editData.maplink);
+  formData.append("order", editData.order);
+
+
+  
 
   (editData.features || []).forEach((f) => formData.append("features[]", f));
 

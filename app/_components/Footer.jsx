@@ -307,7 +307,6 @@ const quickLinks2 = [
   { id: 7, name: "News", link: "/news" },
   { id: 8, name: "Contact Us", link: "/contact-us" },
   { id: 9, name: "Privacy Policy", link: "/privacy-policy" },
-  { id: 10, name: "Terms & Conditions", link: "/privacy-policy" },
 ];
 
 const popularSearches = [
