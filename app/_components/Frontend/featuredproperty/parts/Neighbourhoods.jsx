@@ -111,22 +111,28 @@ if (isLoading) return <Spinner />;
         {/* Left Agent Detail */}
         <div className="text-white transition-all duration-500 ease-in-out z-10 w-[30%] flex flex-col items-start justify-center px-6 py-10 space-y-3">
           <h2 className="text-[1.8rem] font-bold bg-gradient-to-r from-[#F1C376] to-[#C89249] bg-clip-text text-transparent">
-            {agents[hoverIndex !== null ? hoverIndex : lastActiveIndex].name}
+            {
+              sortedTopAgents[
+                hoverIndex !== null ? hoverIndex : lastActiveIndex
+              ].name
+            }
           </h2>
           <p className="text-lg border-b border-white pb-1 w-fit">
             {
-              agents[hoverIndex !== null ? hoverIndex : lastActiveIndex]
-                .designation
+              sortedTopAgents[
+                hoverIndex !== null ? hoverIndex : lastActiveIndex
+              ].designation
             }
           </p>
           <p>
             {
-              agents[hoverIndex !== null ? hoverIndex : lastActiveIndex]
-                .language
+              sortedTopAgents[
+                hoverIndex !== null ? hoverIndex : lastActiveIndex
+              ].language
             }
           </p>
           <p className="capitalize">
-            {agents[
+            {sortedTopAgents[
               hoverIndex !== null ? hoverIndex : lastActiveIndex
             ].type?.join(", ")}
           </p>
