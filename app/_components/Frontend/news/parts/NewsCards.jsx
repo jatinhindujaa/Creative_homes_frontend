@@ -394,7 +394,7 @@ const NewsCards = () => {
   //   },
   // ];
 
-  const cardsPerPage = 3;
+  const cardsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 const router = useRouter()
   const totalPages = Math.ceil(data?.length / cardsPerPage);

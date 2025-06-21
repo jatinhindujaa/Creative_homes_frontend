@@ -328,7 +328,7 @@ const handleSubmit = (e) => {
             <Input
               type="text"
               name="order"
-              value={editData.order}
+              value={editData.order || ""}
               onChange={handleChange}
             />
           </div>

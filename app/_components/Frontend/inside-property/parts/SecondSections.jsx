@@ -62,14 +62,36 @@ export default function PropertyExtras({data}) {
           loading="lazy"
         ></iframe>
       </div> */}
-      <div className="w-full h-[300px] rounded-lg overflow-hidden">
+      {/* <div className="w-full h-[300px] rounded-lg overflow-hidden">
         <iframe
           src="https://maps.google.com/maps?q=Jumeirah%20Dubai&t=m&z=13&ie=UTF8&iwloc=&output=embed"
           className="w-full h-full"
           loading="lazy"
         ></iframe>
+      </div> */}
+      {/* <div className="w-full h-[300px] rounded-lg overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=${Jumeirah%20Dubai}&t=m&z=13&ie=UTF8&iwloc=&output=embed"
+          className="w-full h-full"
+          loading="lazy"
+        ></iframe>
+      </div> */}
+      <div className="w-full h-[300px] rounded-lg overflow-hidden">
+        <iframe
+          src={`https://maps.google.com/maps?q=${encodeURIComponent(
+            data?.zone
+          )}&t=m&z=13&ie=UTF8&iwloc=&output=embed`}
+          className="w-full h-full"
+          loading="lazy"
+        ></iframe>
       </div>
-
+      {/* <div className="w-full h-[300px] rounded-lg overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=Sobha%20Orbis&t=m&z=13&ie=UTF8&iwloc=&output=embed"
+          className="w-full h-full"
+          loading="lazy"
+        ></iframe>
+      </div> */}
       {/* Amenities */}
       <div>
         <h2 className="text-2xl font-semibold">
@@ -97,7 +119,6 @@ export default function PropertyExtras({data}) {
           </div> */}
         </div>
       </div>
-
       {/* Regulatory Info */}
       <div>
         <h2 className="text-2xl font-semibold">
@@ -129,7 +150,6 @@ export default function PropertyExtras({data}) {
           </div>
         </div>
       </div>
-
       {/* Mortgage Calculator */}
       <div>
         <h2 className="text-2xl font-semibold mb-2">

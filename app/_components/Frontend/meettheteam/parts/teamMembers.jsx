@@ -743,7 +743,7 @@ console.log("sortedData", sortedData);
   const handleNext = () => {
     if (currentPage < totalPages) {
       setCurrentPage((prev) => prev + 1);
-      window.scroll(0, 0);
+      window.scroll(1000, 1000);
     }
   };
 

@@ -95,7 +95,7 @@ export default function Header() {
 
       {/* Mobile Nav Drawer */}
       <div
-        className={`fixed top-0 left-0 h-full w-[80%] sm:w-[60%] bg-black bg-opacity-90 backdrop-blur-md z-40 p-6 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full overflow-auto w-[80%] sm:w-[60%] bg-black bg-opacity-90 backdrop-blur-md z-40 p-6 transform transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

@@ -118,7 +118,7 @@ function PropertiesRow({
     formData.append("description", editData.description);
     formData.append("agent", editData.agent);
     formData.append("area", editData.area);
-    formData.append("order", editData.order);
+    formData.append("order", editData.order || "");
        console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
     console.log(" Multiple Images:", editData);
     (editData.features || []).forEach((f) => formData.append("features[]", f));

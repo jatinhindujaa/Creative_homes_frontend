@@ -197,12 +197,28 @@ export default function PropertyGallery({ data }) {
             ))}
 
             {/* Final “+X” thumbnail */}
-            {images.length > 3 && (
+            {/* {images.length > 3 && (
               <div
                 className="relative w-full md:h-[50%] h-[120px] rounded-lg overflow-hidden bg-black/50 flex items-center justify-center text-white text-xl font-semibold cursor-pointer"
                 onClick={() => openViewer(3)}
               >
                 +{remainingCount}
+              </div>
+            )} */}
+            {images.length > 3 && (
+              <div
+                className="relative w-full md:h-[50%] h-[120px] rounded-lg overflow-hidden cursor-pointer"
+                onClick={() => openViewer(3)}
+              >
+                <Image
+                  src={images[3]} // Show the 3rd image
+                  alt={`Thumbnail 3`}
+                  layout="fill"
+                  className="object-cover rounded-lg"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-xl font-semibold">
+                  +{remainingCount}
+                </div>
               </div>
             )}
           </div>

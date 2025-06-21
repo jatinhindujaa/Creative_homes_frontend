@@ -3,6 +3,8 @@ import Image from "next/image";
 import agentImage from "../assets/1.png"; // Replace with actual path
 import { useAgentById } from "@/app/_components/admin/agents/useAgents";
 import { useRouter } from "next/navigation";
+import { FaWhatsapp } from "react-icons/fa6";
+import { IoCallOutline } from "react-icons/io5";
 
 export default function PropertyDetail({data}) {
   const router = useRouter()
@@ -62,19 +64,19 @@ export default function PropertyDetail({data}) {
             </div>
           </div>
           <div className="flex gap-4 mt-2">
-            <a href={`tel:${agents?.phoneNo}`} className="w-[50%]">
-              <button className="w-[100%] flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-                📞 Call
+            <a href={`tel:${agents?.phoneNo}`} className="w-[25%]">
+              <button className="w-[100%] flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-md flex gap-2 items-center">
+               <IoCallOutline size={20}/> Call
               </button>
             </a>
             <a
-              className="w-[50%]"
+              className="w-[35%]"
               href={`https://wa.me/${agents?.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="w-full flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-                💬 WhatsApp
+              <button className="w-full flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-md flex gap-2 items-center">
+               <FaWhatsapp size={20}/> WhatsApp
               </button>
             </a>
           </div>
