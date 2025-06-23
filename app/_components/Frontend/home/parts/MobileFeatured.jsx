@@ -32,13 +32,13 @@ const featuredData = [
     link: "/property/6846d001a627e54705c3b77f",
   },
   {
-    src: Featured_4,
+    src: Featured_5,
     title: "Palm Jebel Ali",
     price: "AED 18,000,000",
     link: "/property/683ff3d593ad0b623ed8cf36",
   },
   {
-    src: Featured_5,
+    src: Featured_4,
     title: "Burj Azizi",
     price: "AED 7,500,000",
     link: "/property/683ee710a2552c2a789740e9",
