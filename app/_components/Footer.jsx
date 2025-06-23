@@ -286,7 +286,7 @@ const ContactLinks = [
     id: 2,
     icon: <CgMail color="black" size={"25px"} />,
     link: "https://www.facebook.com/",
-    name: "Office 3107, BLDG 3, Gold & Diamond Park, Sheikh Zayed Road 37468 Dubai, United Arab Emirates",
+    name: `Office 3107, BLDG 3, Gold & Diamond Park,Sheikh Zayed Road, Dubai, United Arab Emirates<br /> <br />Postal code: 37468`,
   },
   {
     id: 3,
@@ -333,7 +333,7 @@ export default function Footer() {
       <div className="flex flex-col justify-around w-[35%] h-[60vh]">
         <div>
           <a href={"/"}>
-            <Image src={logo} alt="Logo" className="w-[19rem] h-[7rem]" />
+            <Image src={logo} alt="Logo" className="w-[auto] h-[5rem]" />
           </a>
         </div>
         <div className="flex flex-col">
@@ -375,9 +375,8 @@ export default function Footer() {
               <a
                 href={link.link}
                 className="no-underline text-white hover:text-gray-300 transition-colors"
-              >
-                {link.name}
-              </a>
+                dangerouslySetInnerHTML={{ __html: link.name }}
+              ></a>
             </li>
           ))}
         </ul>
@@ -442,7 +441,10 @@ export default function Footer() {
                   {con.icon}
                 </a>
               </li>
-              <li className="text-[0.9rem] leading-6 font-light">{con.name}</li>
+              <li
+                className="text-[0.9rem] leading-6 font-light"
+                dangerouslySetInnerHTML={{ __html: con.name }} // Using dangerouslySetInnerHTML here
+              ></li>
             </div>
           ))}
         </ul>

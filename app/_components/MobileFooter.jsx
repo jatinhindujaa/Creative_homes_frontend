@@ -66,7 +66,7 @@ const dropdownData = [
         id: 1,
         icon: <MdLocationOn size={15} />,
         link: "",
-        name: "Office 3107, BLDG 3, Gold & Diamond Park, Sheikh Zayed Road 37468 Dubai, United Arab Emirates",
+        name: `Office 3107, BLDG 3, Gold & Diamond Park, Sheikh Zayed Road, Dubai, United Arab Emirates <br/> <br/> Postal Code: 37468`,
       },
       {
         id: 2,

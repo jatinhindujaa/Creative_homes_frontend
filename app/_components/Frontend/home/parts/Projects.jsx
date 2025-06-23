@@ -2,7 +2,7 @@
 
 "use client"
 import React from "react";
-import projects_1 from "../assets/projects/Project_1.jpg";
+import projects_1 from "../assets/projects/3600.jpg";
 import projects_2 from "../assets/projects/Project_2.jpg";
 import projects_3 from "../assets/projects/Project_3.jpg";
 import projects_4 from "../assets/projects/Project_4.jpg";
@@ -60,7 +60,7 @@ const Projects = () => {
               alt={project.title}
               layout="fill"
               objectFit="cover"
-              objectPosition="center"
+              objectPosition={project.link === "6846c446a627e54705c3b66c"?"bottom":"center"}
               style={{ borderRadius: project.radius }}
             />
             <div className="absolute inset-0 flex flex-col justify-center items-center">
@@ -72,7 +72,9 @@ const Projects = () => {
                 <span className="font-light">{project.title}</span>
                 <Button
                   text="VIEW PROJECT"
-                  onClick={() => router.push(`/off-plan-properties/${project.link}`)}
+                  onClick={() =>
+                    router.push(`/off-plan-properties/${project.link}`)
+                  }
                   className="px-4 w-fit py-1 text-[0.9rem] uppercase"
                 />
               </div>
