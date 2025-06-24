@@ -64,8 +64,8 @@ const features = [
   },
 ];
   return (
-    <div className=" text-white p-6 md:p-10 rounded-xl flex flex-col gap-[1.5rem]">
-      <section className="text-white pt-10">
+    <div className=" text-white p-6 md:p-10 md:py-2 rounded-xl flex flex-col gap-[1.5rem]">
+      <section className="text-white pt-4">
         <h2 className="text-3xl font-semibold mb-8">
           <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Payment
@@ -115,8 +115,10 @@ const features = [
         {/* Map Section */}
         <div className="w-full h-[400px] overflow-hidden">
           <iframe
-            src="https://maps.google.com/maps?q=Jumeirah%20Dubai&t=m&z=13&ie=UTF8&iwloc=&output=embed"
-            className="w-[65%] h-full"
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(
+              data?.maplink
+            )}&t=m&z=13&ie=UTF8&iwloc=&output=embed`}
+            className="w-full h-full"
             loading="lazy"
           ></iframe>
         </div>
@@ -154,7 +156,7 @@ const features = [
           ))}
         </div>
       </div>
-      <div className="px-0 py-10">
+      <div className="px-0 py-4">
         <h2 className="text-4xl font-semibold mb-8">Floor plans</h2>
 
         {data?.floorPlanCategories?.map((category) => (

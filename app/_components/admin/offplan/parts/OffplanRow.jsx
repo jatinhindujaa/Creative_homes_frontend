@@ -37,7 +37,12 @@ function OffplanRow({
     multipleImages,
     image,
     maplink,
-    order
+    order,
+    firstpay,
+    underpay,
+    handoverpay,
+    handoverin,
+    developer
   },
 }) {
   const { mutate: updateOffplan, isPending: isUpdatingOffplan } =
@@ -80,6 +85,11 @@ function OffplanRow({
     image,
     maplink,
     order,
+    firstpay,
+    underpay,
+    handoverpay,
+    handoverin,
+    developer,
   });
 
   const expandDescription = () => {
@@ -95,51 +105,55 @@ function OffplanRow({
     deleteOffplan(_id);
   };
 
-  
-const handleConfirmEdit = () => {
-  const formData = new FormData();
+  const handleConfirmEdit = () => {
+    const formData = new FormData();
 
-  formData.append("name", editData.name);
-  formData.append("dealType", editData.dealType);
-  formData.append("price", editData.price);
-  formData.append("type", editData.type);
-  formData.append("reference", editData.reference);
-  formData.append("dld", editData.dld);
-  formData.append("zone", editData.zone);
-  formData.append("bed", editData.bed);
-  formData.append("shower", editData.shower);
-  formData.append("bua", editData.bua);
-  formData.append("plot", editData.plot);
-  formData.append("shortDescription", editData.shortDescription);
-  formData.append("description", editData.description);
-  formData.append("agent", editData.agent);
-  formData.append("maplink", editData.maplink);
-  formData.append("order", editData.order);
+    formData.append("name", editData.name);
+    formData.append("dealType", editData.dealType);
+    formData.append("price", editData.price);
+    formData.append("type", editData.type);
+    formData.append("reference", editData.reference);
+    formData.append("dld", editData.dld);
+    formData.append("zone", editData.zone);
+    formData.append("bed", editData.bed);
+    formData.append("shower", editData.shower);
+    formData.append("bua", editData.bua);
+    formData.append("plot", editData.plot);
+    formData.append("shortDescription", editData.shortDescription);
+    formData.append("description", editData.description);
+    formData.append("agent", editData.agent);
+    formData.append("maplink", editData.maplink);
+    formData.append("order", editData.order);
+    formData.append("firstpay", editData.firstpay);
+    formData.append("underpay", editData.underpay);
+    formData.append("handoverpay", editData.handoverpay);
+    formData.append("handoverin", editData.handoverin);
+    formData.append("developer", editData.developer);
 
 
-  
+    (editData.features || []).forEach((f) => formData.append("features[]", f));
 
-  (editData.features || []).forEach((f) => formData.append("features[]", f));
-
-  (editData.amenities || []).forEach((a) => formData.append("amenities[]", a));
-
-  // 🔁 Append all selected offplan images (replaces old)
-  if (
-    editData.multipleImages instanceof FileList ||
-    Array.isArray(editData.multipleImages)
-  ) {
-    Array.from(editData.multipleImages).forEach((img) =>
-      formData.append("multipleImages", img)
+    (editData.amenities || []).forEach((a) =>
+      formData.append("amenities[]", a)
     );
-  }
 
-  // ✅ Append QR image only if changed
-  if (editData.newQrImage instanceof File) {
-    formData.append("image", editData.newQrImage);
-  }
+    // 🔁 Append all selected offplan images (replaces old)
+    if (
+      editData.multipleImages instanceof FileList ||
+      Array.isArray(editData.multipleImages)
+    ) {
+      Array.from(editData.multipleImages).forEach((img) =>
+        formData.append("multipleImages", img)
+      );
+    }
 
-  updateOffplan({ id: _id, formData });
-};
+    // ✅ Append QR image only if changed
+    if (editData.newQrImage instanceof File) {
+      formData.append("image", editData.newQrImage);
+    }
+
+    updateOffplan({ id: _id, formData });
+  };
 
   if (isUpdatingOffplan) return <Spinner />;
 

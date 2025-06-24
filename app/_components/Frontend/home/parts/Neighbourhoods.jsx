@@ -384,29 +384,134 @@
 // export default Neighbourhoods;
 
 
+// "use client";
+// import React, { useState } from "react";
+// import img_1 from "../assets/neighbourhood/img_1.png";
+// import img_2 from "../assets/neighbourhood/img_2.png";
+// import img_3 from "../assets/neighbourhood/img_3.png";
+// import img_4 from "../assets/neighbourhood/img_41.jpg";
+// import Button from "@/app/_components/ui/Button";
+// import { useAreas } from "@/app/_components/admin/area/useArea";
+// import Spinner from "@/app/_components/ui/Spinner";
+
+// const Neighbourhoods = () => {
+//   const [activeIndex, setActiveIndex] = useState(0);
+//   const [hoverIndex, setHoverIndex] = useState(null);
+//   const [lastActiveIndex, setLastActiveIndex] = useState(0);
+// const { data: areas, isLoading } = useAreas();
+// console.log("areas", areas);
+//   const images = [
+//     { img: img_1, title: "Dubai Marina", listings: 18, defaultWidth: "25%" },
+//     { img: img_2, title: "Downtown Dubai", listings: 12, defaultWidth: "30%" },
+//     { img: img_3, title: "Palm Jumeirah", listings: 23, defaultWidth: "20%" },
+//     { img: img_4, title: "Creek Harbour", listings: 31, defaultWidth: "10%" },
+//   ];
+
+//   // Custom left positions for each box
+//   const leftPositions = [20, 45, 68, 80];
+// if (isLoading) return <Spinner />;
+//   return (
+//     <div className="md:flex hidden flex-col gap-[50px] mt-[100px]">
+//       {/* Heading */}
+//       <div className="w-[90%] mx-auto flex flex-col justify-center items-center text-[2.5rem] leading-[3.3rem] font-semibold">
+//         <span>BEST NEIGHBOURHOODS IN</span>
+//         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-[2.5rem]">
+//           DUBAI
+//         </span>
+//       </div>
+
+//       <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">
+//         {areas.map((item, index) => (
+//           <div
+//             key={index}
+//             style={{
+//               backgroundImage: `url(${item.multipleImages[0]})`,
+//               backgroundSize: "cover",
+//               backgroundPosition: "center center",
+//               height: "100%",
+//               width: activeIndex === index ? "50%" : item.defaultWidth,
+//             }}
+//             className={`rounded-[20px] transition-all duration-500 ease-in-out relative overflow-hidden ${
+//               activeIndex === index ? "animate-scale-up-back" : ""
+//             }`}
+//             onMouseEnter={() => {
+//               setActiveIndex(index);
+//               setHoverIndex(index);
+//               setLastActiveIndex(index);
+//             }}
+//             onMouseLeave={() => setHoverIndex(null)}
+//           />
+//         ))}
+
+//         <div
+//           className="absolute  text-[2.5rem] font-light text-white transition-all duration-500 ease-in-out z-10 w-[25%] flex flex-col items-center text-center space-y-2"
+//           style={{
+//             top: "50%",
+//             left: `${
+//               leftPositions[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+//             }%`,
+//             transform: "translate(-50%, -50%)",
+//           }}
+//         >
+//           <span>
+//             {areas[hoverIndex !== null ? hoverIndex : lastActiveIndex].name}
+//           </span>
+//           <button className="text-[1.3rem] font-medium leading-[1.6rem] w-fit px-6 py-3 border-[1.5px] bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] border-white hover:bg-white hover:text-black rounded-[41px]">
+//             {/* {
+//               areas[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+//                 .listings
+//             }{" "} */}
+//             LISTINGS
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Neighbourhoods;
+
+
+
+
+
 "use client";
 import React, { useState } from "react";
-import img_1 from "../assets/neighbourhood/img_1.png";
-import img_2 from "../assets/neighbourhood/img_2.png";
-import img_3 from "../assets/neighbourhood/img_3.png";
-import img_4 from "../assets/neighbourhood/img_41.jpg";
-import Button from "@/app/_components/ui/Button";
+import { useAreas } from "@/app/_components/admin/area/useArea";
+import Spinner from "@/app/_components/ui/Spinner";
+import { usePropertyByAreaId } from "@/app/_components/admin/properties/useProperties";
 
 const Neighbourhoods = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
   const [lastActiveIndex, setLastActiveIndex] = useState(0);
+  const { data: areas, isLoading } = useAreas();
+  
+  console.log("areas", areas);
 
-  const images = [
-    { img: img_1, title: "Dubai Marina", listings: 18, defaultWidth: "25%" },
-    { img: img_2, title: "Downtown Dubai", listings: 12, defaultWidth: "30%" },
-    { img: img_3, title: "Palm Jumeirah", listings: 23, defaultWidth: "20%" },
-    { img: img_4, title: "Creek Harbour", listings: 31, defaultWidth: "10%" },
-  ];
+  if (isLoading) return <Spinner />;
 
-  // Custom left positions for each box
-  const leftPositions = [20, 45, 68, 80];
+  // Manually assigning defaultWidth for each area
+  const getDefaultWidth = (index) => {
+    switch (index) {
+      case 0:
+        return "25%";
+      case 1:
+        return "30%";
+      case 2:
+        return "20%";
+      case 3:
+        return "15%";
+      default:
+        return "25%"; // Default width
+    }
+  };
 
+  // Sort the areas based on the 'order' field
+  const sortedAreas = areas
+    .sort((a, b) => a.order - b.order) // Sorting by order field in ascending order
+    .slice(0, 4); // Only take the first 4 areas after sorting
+const leftPositions = [20, 45, 68, 80];
   return (
     <div className="md:flex hidden flex-col gap-[50px] mt-[100px]">
       {/* Heading */}
@@ -418,50 +523,88 @@ const Neighbourhoods = () => {
       </div>
 
       <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">
-        {images.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundImage: `url(${item.img.src})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center center",
-              height: "100%",
-              width: activeIndex === index ? "50%" : item.defaultWidth,
-            }}
-            className={`rounded-[20px] transition-all duration-500 ease-in-out relative overflow-hidden ${
-              activeIndex === index ? "animate-scale-up-back" : ""
-            }`}
-            onMouseEnter={() => {
-              setActiveIndex(index);
-              setHoverIndex(index);
-              setLastActiveIndex(index);
-            }}
-            onMouseLeave={() => setHoverIndex(null)}
-          />
-        ))}
+        {sortedAreas.map((item, index) => {
+          const defaultWidth = getDefaultWidth(index);
+
+          return (
+            <div
+              key={index}
+              style={{
+                backgroundImage: `url(${item.multipleImages[0]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center center",
+                height: "100%",
+                width: activeIndex === index ? "50%" : defaultWidth,
+              }}
+              className={`rounded-[20px] transition-all duration-500 ease-in-out relative overflow-hidden flex items-center justify-center pt-[120px] ${
+                activeIndex === index ? "animate-scale-up-back" : ""
+              }`}
+              onMouseEnter={() => {
+                setActiveIndex(index);
+                setHoverIndex(index);
+                setLastActiveIndex(index);
+              }}
+              onMouseLeave={() => setHoverIndex(null)}
+            >
+              {/* <Listing el={item._id} /> */}
+            </div>
+          );
+        })}
 
         <div
           className="absolute  text-[2.5rem] font-light text-white transition-all duration-500 ease-in-out z-10 w-[25%] flex flex-col items-center text-center space-y-2"
           style={{
             top: "50%",
             left: `${
-              leftPositions[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+              hoverIndex !== null
+                ? leftPositions[hoverIndex]
+                : leftPositions[lastActiveIndex]
             }%`,
             transform: "translate(-50%, -50%)",
           }}
         >
           <span>
-            {images[hoverIndex !== null ? hoverIndex : lastActiveIndex].title}
-          </span>
-          <button className="text-[1.3rem] font-medium leading-[1.6rem] w-fit px-6 py-3 border-[1.5px] bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] border-white hover:bg-white hover:text-black rounded-[41px]">
             {
-              images[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+              sortedAreas[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+                ?.name
+            }
+          </span>
+
+          {/* <button className="text-[1.3rem] font-medium leading-[1.6rem] w-fit px-6 py-3 border-[1.5px] bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] border-white hover:bg-white hover:text-black rounded-[41px]">
+            <Listing el={item._id} />
+          </button> */}
+          {/* <button className="text-[1.3rem] font-medium leading-[1.6rem] w-fit px-6 py-3 border-[1.5px] bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] border-white hover:bg-white hover:text-black rounded-[41px]">
+            {
+              areas[hoverIndex !== null ? hoverIndex : lastActiveIndex]
                 .listings
-            }{" "}
-            LISTINGS
+            }
+             LISTINGS 
+          </button> */}
+          <button className="text-[1.3rem] font-medium leading-[1.6rem] w-fit px-6 py-3 border-[1.5px] bg-gradient-to-r from-[rgba(255,255,255,0.3)_0.07%] to-[rgba(255,255,255,0.2)_97%] border-white hover:bg-white hover:text-black rounded-[41px]">
+            LISTINGS: 
+            {""}
+            {
+              sortedAreas[hoverIndex !== null ? hoverIndex : lastActiveIndex]
+                ?.propertiesCount
+            }
+            {/* <Listing el={item._id} /> */}
           </button>
         </div>
       </div>
+    </div>
+  );
+};
+
+const Listing = ({ el }) => {
+  // Fetch properties by areaId
+  const { data: properties, isLoading } = usePropertyByAreaId(el);
+
+  if (isLoading) return <Spinner />;
+
+  // Assuming properties is an array, display the number of properties for this area
+  return (
+    <div>
+      <p>Listing: {properties?.length}</p>
     </div>
   );
 };

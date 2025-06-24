@@ -8,6 +8,7 @@ import {
   fetchPropertyById,
   removeMultiImageFromProperty,
   fetchPropertyByAgentId,
+  fetchPropertyByArea,
 } from "../../services/api.property";
 
 import toast from "react-hot-toast";
@@ -39,7 +40,14 @@ export const usePropertyByAgentId = (id) => {
   return { data, isLoading, error };
 };
 
-
+export const usePropertyByAreaId = (id) => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["Property", id],
+    queryFn: () => fetchPropertyByArea(id),
+    staleTime: 5 * 60 * 1000,
+  });
+  return { data, isLoading, error };
+};
 export const useCreateProperty = () => {
   const queryClient = useQueryClient();
   const { mutate: createProperties, isPending: isCreating } = useMutation({

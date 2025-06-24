@@ -99,3 +99,9 @@ body {
   font-family: 'Filedazzle Unicase', sans-serif;
 }
 
+.react-tel-input input::placeholder {
+  color: #aaa !important; /* Light grey or whatever color you need */
+  opacity: 1 !important;  /* Ensures the placeholder is not transparent */
+}
+
+

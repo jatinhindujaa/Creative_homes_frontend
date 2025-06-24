@@ -5,6 +5,7 @@ import { useAgents } from "../../admin/agents/useAgents";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 import FileInput from "../../ui/FileInput";
 import { FloorPlanCategoriesInput } from "./FloorPlanCategoriesInput";
+import { useAreas } from "../../admin/area/useArea";
 
 const EditOffplanForm = ({
   resourceName,
@@ -15,6 +16,8 @@ const EditOffplanForm = ({
   isUpdating,
 }) => {
   const { data: agents = [], isLoading: loadingAgents } = useAgents();
+  const { data: areas = [], isLoading: loadingAreas } = useAreas();
+
 
   // Controlled states initialized with fallback defaults
   const [views, setViews] = useState(editData.views || []);
@@ -27,11 +30,18 @@ const EditOffplanForm = ({
     editData.floorPlanCategories || []
   );
   const [selectedAgent, setSelectedAgent] = useState(editData.agent || "");
+  const [selectedArea, setSelectedArea] = useState(editData.area || "");
+
   const [shortDescription, setShortDescription] = useState(
     editData.shortDescription || ""
   );
   const [name, setName] = useState(editData.name || "");
   const [order, setOrder] = useState(editData.order || "");
+  const [firstpay, setfirstpay] = useState(editData.firstpay || "");
+  const [underpay, setunderpay] = useState(editData.underpay || "");
+  const [handoverpay, sethandoverpay] = useState(editData.handoverpay || "");
+  const [developer, setdeveloper] = useState(editData.developer || "");
+  const [handoverin, sethandoverin] = useState(editData.handoverin || "");
   const [maplink, setMap] = useState(editData.maplink || "");
 
   const [dealType, setDealType] = useState(editData.dealType || "");
@@ -48,6 +58,11 @@ const EditOffplanForm = ({
     setEditData((prev) => ({
       ...prev,
       name,
+      firstpay,
+      underpay,
+      handoverpay,
+      developer,
+      handoverin,
       dealType,
       amenities,
       price,
@@ -68,7 +83,12 @@ const EditOffplanForm = ({
     name,
     dealType,
     amenities,
+    firstpay,
+    underpay,
+    handoverpay,
     price,
+    developer,
+    handoverin,
     views,
     order,
     maplink,
@@ -133,7 +153,6 @@ const handleRemoveMobileImage = (index) => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
           />
         </div>
         <div className="w-1/2">
@@ -142,7 +161,6 @@ const handleRemoveMobileImage = (index) => {
             type="text"
             value={dealType}
             onChange={(e) => setDealType(e.target.value)}
-            required
           />
         </div>
       </div>
@@ -154,65 +172,15 @@ const handleRemoveMobileImage = (index) => {
       </div>
 
       {/* Price */}
-      <div>
-        <label className="text-sm font-medium text-gray-700">Price</label>
-        <Input
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-      </div>
-
-      {/* Views */}
-      <div>
-        <label className="text-sm font-medium text-gray-700">Views</label>
-        <TagInput tags={views} setTags={setViews} />
-      </div>
-
-      {/* Agent Select */}
-      <div>
-        <label className="text-sm font-medium text-gray-700">
-          Select Agent
-        </label>
-        <select
-          className="w-full border px-3 py-2 rounded-md"
-          value={selectedAgent}
-          onChange={(e) => setSelectedAgent(e.target.value)}
-          required
-        >
-          <option value="">-- Select Agent --</option>
-          {agents.map((agent) => (
-            <option key={agent._id} value={agent._id}>
-              {agent.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Brochure Upload */}
-      <div>
-        <label className="text-sm font-medium text-gray-700">
-          Brochure Upload
-        </label>
-        {editData.image && !brochureFile && (
-          <img
-            src={editData.image}
-            alt="Current Brochure"
-            className="w-32 h-32 object-cover rounded-md mb-2"
+      <div className="flex gap-3">
+        <div>
+          <label className="text-sm font-medium text-gray-700">Price</label>
+          <Input
+            type="text"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
-        )}
-        <FileInput
-          id="image"
-          accept="application/pdf"
-          type="file"
-          onChange={(e) => {
-            const file = e.target.files[0];
-            setBrochureFile(file || null);
-          }}
-        />
-      </div>
-      <div className="gap-2 flex flex-row">
+        </div>
         <div className="w-[33%]">
           <label className="text-sm font-medium text-gray-700">
             Google Map link
@@ -235,8 +203,143 @@ const handleRemoveMobileImage = (index) => {
           />
         </div>
       </div>
-      {/* Short Description */}
+
+      {/* Views */}
       <div>
+        <label className="text-sm font-medium text-gray-700">Views</label>
+        <TagInput tags={views} setTags={setViews} />
+      </div>
+
+      {/* Agent Select */}
+      <div className="flex gap-2">
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Select Agent
+          </label>
+          <select
+            className="w-full border px-3 py-2 rounded-md"
+            value={selectedAgent}
+            onChange={(e) => setSelectedAgent(e.target.value)}
+          >
+            <option value="">-- Select Agent --</option>
+            {agents.map((agent) => (
+              <option key={agent._id} value={agent._id}>
+                {agent.name}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="text-sm font-medium text-gray-700">
+            Select Area
+          </label>
+          <select
+            className="w-full border px-3 py-2 rounded-md"
+            value={selectedArea}
+            onChange={(e) => setSelectedArea(e.target.value)}
+          >
+            <option value="">-- Select Area --</option>
+            {areas.map((agent) => (
+              <option key={agent._id} value={agent._id}>
+                {agent.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+      <div className="gap-3 flex flex-row">
+        <div className="w-[33%]">
+          <label className=" text-sm font-medium text-gray-700">
+            Payment First pay
+          </label>
+          <Input
+            type="text"
+            id="firstpay"
+            name="firstpay"
+            value={editData.firstpay}
+            onChange={(e) => setfirstpay(e.target.value)}
+          />
+        </div>
+
+        <div className="w-[33%]">
+          <label className=" text-sm font-medium text-gray-700">
+            Payment Under pay
+          </label>
+          <Input
+            type="text"
+            id="underpay"
+            name="underpay"
+            value={editData.underpay}
+            onChange={(e) => setunderpay(e.target.value)}
+          />
+        </div>
+
+        <div className="w-[33%]">
+          <label className=" text-sm font-medium text-gray-700">
+            Payment Handover pay
+          </label>
+          <Input
+            type="text"
+            id="handoverpay"
+            name="handoverpay"
+            value={editData.handoverpay}
+            onChange={(e) => sethandoverpay(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="gap-2 flex flex-row">
+        <div className="w-[33%]">
+          <label className=" text-sm font-medium text-gray-700">
+            Developer
+          </label>
+          <Input
+            type="text"
+            id="developer"
+            name="developer"
+            value={editData.developer}
+            onChange={(e) => setdeveloper(e.target.value)}
+          />
+        </div>
+
+        <div className="w-[33%]">
+          <label className=" text-sm font-medium text-gray-700">
+            Handover In
+          </label>
+          <Input
+            type="text"
+            id="handoverin"
+            name="handoverin"
+            value={editData.handoverin}
+            onChange={(e) => sethandoverin(e.target.value)}
+          />
+        </div>
+
+      </div>
+      {/* Brochure Upload */}
+      <div>
+        <label className="text-sm font-medium text-gray-700">
+          Brochure Upload
+        </label>
+        {editData.image && !brochureFile && (
+          <img
+            src={editData.image}
+            alt="Current Brochure"
+            className="w-32 h-32 object-cover rounded-md mb-2"
+          />
+        )}
+        <FileInput
+          id="image"
+          accept="application/pdf"
+          type="file"
+          onChange={(e) => {
+            const file = e.target.files[0];
+            setBrochureFile(file || null);
+          }}
+        />
+      </div>
+      {/* Short Description */}
+      {/* <div>
         <label className="text-sm font-medium text-gray-700">
           Short Description
         </label>
@@ -246,7 +349,7 @@ const handleRemoveMobileImage = (index) => {
           onChange={(e) => setShortDescription(e.target.value)}
           required
         />
-      </div>
+      </div> */}
 
       {/* Description */}
       <div>

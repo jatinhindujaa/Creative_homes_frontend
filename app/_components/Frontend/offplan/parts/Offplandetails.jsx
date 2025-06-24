@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import agentImage from "../assets/1.png"; // Replace with actual path
+import { FaWhatsapp } from "react-icons/fa";
+import { IoCallOutline } from "react-icons/io5";
 
 export default function OffplanDetail({ data }) {
   return (
@@ -8,7 +10,7 @@ export default function OffplanDetail({ data }) {
       {/* Left Column */}
       <div className="w-full md:w-[60%] flex flex-col gap-4">
         <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-          AED {data?.price}
+          AED {data?.price}M
         </h1>
         <p className="text-gray-400 text-md">
           📍 The Sundials, Jumeirah Golf Estates, Dubai
@@ -47,10 +49,10 @@ export default function OffplanDetail({ data }) {
       </div>
 
       {/* Right Column */}
-      <div className="w-full md:w-1/3 flex flex-col gap-6">
+      <div className="w-full md:w-[30%] flex flex-col gap-6">
         {/* Agent Card */}
         <div className=" border rounded-xl p-5 flex flex-col gap-4">
-          <div className=" text-white p-6 rounded-xl flex flex-col gap-4">
+          <div className=" text-white rounded-xl flex flex-col gap-4">
             <h3 className="text-lg font-semibold text-gray-400">
               Starting Price
             </h3>
@@ -59,9 +61,9 @@ export default function OffplanDetail({ data }) {
             </h1>
 
             <div className="flex gap-4 mt-2">
-              <a href={`tel:${""}`} className="w-[50%]">
-                <button className="w-[100%] flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-                  📞 Call
+              <a href={`tel:${""}`} className="w-[25%]">
+                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
+                  <IoCallOutline size={20} /> Call
                 </button>
               </a>
               <a
@@ -70,8 +72,8 @@ export default function OffplanDetail({ data }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="w-full flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-sm">
-                  💬 WhatsApp
+                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
+                  <FaWhatsapp size={20} /> WhatsApp
                 </button>
               </a>
             </div>
@@ -83,7 +85,7 @@ export default function OffplanDetail({ data }) {
           <p className="text-sm text-gray-400">Need A Mortgage?</p>
           <h4 className="text-md font-medium">
             Estimated Mortgage is <br />{" "}
-            <span className="text-white">AED 129,166</span>
+            <span className="text-white">AED {data?.price}M</span>
           </h4>
           <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition">
             Try Our Calculator

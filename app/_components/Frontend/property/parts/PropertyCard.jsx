@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css"; // Import Slick theme CSS
 import { useAgentById } from "@/app/_components/admin/agents/useAgents";
 import Spinner from "@/app/_components/ui/Spinner";
 import { useRouter } from "next/navigation";
+import { FaWhatsapp } from "react-icons/fa";
 
 
 
@@ -195,7 +196,7 @@ if (isAgentLoading) {
             <div className="flex flex-row items-center gap-2">
               <a href={`tel:${agents.phoneNo}`}>
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  📞 Call
+                  <IoCallOutline size={20}/> Call
                 </button>
               </a>
               <a
@@ -204,7 +205,7 @@ if (isAgentLoading) {
                 rel="noopener noreferrer"
               >
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  💬 WhatsApp
+                  <FaWhatsapp size={20}/> WhatsApp
                 </button>
               </a>
             </div>

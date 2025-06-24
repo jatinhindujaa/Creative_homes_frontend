@@ -54,7 +54,15 @@ export const fetchPropertyByAgentId = async (id) => {
   );
   return response.data.data;
 };
-
+export const fetchPropertyByArea = async (id) => {
+  const response = await axios.get(
+    `${ApiUrl}/property/get-by-areaid?area=${id}`,
+    {
+      withCredentials: true,
+    }
+  );
+  return response.data.data;
+};
 export const updateMultiImagesFromProperty = async ({ id, multipleImages }) => {
   const response = await axios.post(
     `${ApiUrl}/property//update-multiple-images?id=${id}`,
