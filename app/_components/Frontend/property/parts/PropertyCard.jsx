@@ -48,7 +48,7 @@ if (isAgentLoading) {
   return (
     <div className="text-white p-6 md:p-10 rounded-lg flex flex-col md:flex-row items-center gap-6 bg-[#1c1c1c] mb-10">
       {/* Left Section */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 pt-[90px] md:pt-0">
         {isMobile ? (
           <Slider {...slickSettings}>
             {data?.multipleImages?.map((img, i) => (
@@ -96,10 +96,18 @@ if (isAgentLoading) {
               ))}
               {data.multipleImages.length > 4 && (
                 <div
-                  className="relative w-full h-[95px] rounded-lg overflow-hidden bg-black bg-opacity-60 flex items-center justify-center text-white text-xl font-semibold cursor-pointer"
+                  className="relative w-full h-[95px] rounded-lg overflow-hidden flex items-center justify-center text-white text-xl font-semibold cursor-pointer"
                   onClick={() => openViewer(4)}
                 >
-                  +{data.multipleImages.length - 4}
+                  <Image
+                    src={data.multipleImages[4]} // Show the 3rd image
+                    alt={`Thumbnail 3`}
+                    layout="fill"
+                    className="object-cover rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-xl font-semibold">
+                    +{data.multipleImages.length - 4}
+                  </div>
                 </div>
               )}
             </div>
@@ -117,7 +125,7 @@ if (isAgentLoading) {
         </h2>
         <h2 className="text-2xl md:text2xl ">AED {data.price}</h2>
         <div className="flex flex-row gap-4">
-          {data.features.slice(0,3).map((d, i) => (
+          {data.features.slice(0, 3).map((d, i) => (
             <span key={i} className="text-[1rem]">
               {d}{" "}
             </span>
@@ -197,7 +205,7 @@ if (isAgentLoading) {
             <div className="flex flex-row items-center gap-2">
               <a href={`tel:${agents.phoneNo}`}>
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  <IoCallOutline size={20}/> Call
+                  <IoCallOutline size={20} /> Call
                 </button>
               </a>
               <a
@@ -206,7 +214,7 @@ if (isAgentLoading) {
                 rel="noopener noreferrer"
               >
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  <FaWhatsapp size={20}/> WhatsApp
+                  <FaWhatsapp size={20} /> WhatsApp
                 </button>
               </a>
             </div>

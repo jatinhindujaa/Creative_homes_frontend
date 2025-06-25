@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className="absolute w-full h-24 flex items-center justify-between px-6 md:px-10 bg-transparent z-40">
       <a href="/" className="flex items-center">
-        <Image src={logo} alt="Logo" className="h-14 w-auto" priority />
+        <Image src={logo} alt="Logo" className="h-[3rem] w-auto" priority />
       </a>
 
       {/* Desktop Nav */}

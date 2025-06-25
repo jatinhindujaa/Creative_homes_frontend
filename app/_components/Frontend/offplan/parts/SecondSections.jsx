@@ -65,7 +65,7 @@ const features = [
 ];
   return (
     <div className=" text-white p-6 md:p-10 md:py-2 rounded-xl flex flex-col gap-[1.5rem]">
-      <section className="text-white pt-4">
+      {/* <section className="text-white pt-4">
         <h2 className="text-3xl font-semibold mb-8">
           <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             Payment
@@ -86,7 +86,32 @@ const features = [
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
+      {(data?.firstpay > 0 || data?.underpay > 0 || data?.handoverpay > 0) && (
+        <section className="text-white pt-4">
+          <h2 className="text-3xl font-semibold mb-8">
+            <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+              Payment
+            </span>{" "}
+            <span className="font-medium text-white">Plans</span>
+          </h2>
+
+          <div className="flex flex-col md:flex-row gap-6">
+            {plans.map((plan, i) => (
+              <div
+                key={i}
+                className="border border-white rounded-md px-6 py-6 text-center w-[20%]"
+              >
+                <p className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+                  {plan.percent}
+                </p>
+                <p className="text-md mt-2">{plan.label}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="flex gap-[26px] items-center px-6">
         {features.map((feature, i) => (
           <div

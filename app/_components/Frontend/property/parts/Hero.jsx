@@ -6,7 +6,7 @@ import HoverButton from "@/app/_components/ui/HoverButton";
 
 const Hero = () => {
   return (
-    <div className="relative h-[70vh] flex flex-col items-center  bg-black">
+    <div className="relative md:flex h-[70vh] hidden flex-col items-center  bg-black">
       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
       <div className="h-[70vh] w-full relative">
         <Image

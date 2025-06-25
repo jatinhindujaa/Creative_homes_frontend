@@ -38,13 +38,13 @@ const EditOffplanForm = ({
   const [name, setName] = useState(editData.name || "");
   const [order, setOrder] = useState(editData.order || "");
   const [firstpay, setfirstpay] = useState(editData.firstpay || "");
+  const [address, setaddress] = useState(editData.address || "");
   const [underpay, setunderpay] = useState(editData.underpay || "");
   const [handoverpay, sethandoverpay] = useState(editData.handoverpay || "");
   const [developer, setdeveloper] = useState(editData.developer || "");
   const [handoverin, sethandoverin] = useState(editData.handoverin || "");
   const [maplink, setMap] = useState(editData.maplink || "");
 
-  const [dealType, setDealType] = useState(editData.dealType || "");
   const [price, setPrice] = useState(editData.price || "");
   const [status, setStatus] = useState(!!editData.status);
   const [existingMultipleImages, setExistingMultipleImages] = useState(
@@ -63,7 +63,6 @@ const EditOffplanForm = ({
       handoverpay,
       developer,
       handoverin,
-      dealType,
       amenities,
       price,
       views,
@@ -78,10 +77,10 @@ const EditOffplanForm = ({
       mobilemultipleImages: mobilemultipleImages,
       newMultipleImages,
       image: brochureFile || editData.image,
+      address
     }));
   }, [
     name,
-    dealType,
     amenities,
     firstpay,
     underpay,
@@ -101,6 +100,7 @@ const EditOffplanForm = ({
     mobilemultipleImages,
     newMultipleImages,
     brochureFile,
+    address,
     setEditData,
     editData.image,
   ]);
@@ -156,11 +156,13 @@ const handleRemoveMobileImage = (index) => {
           />
         </div>
         <div className="w-1/2">
-          <label className="text-sm font-medium text-gray-700">Location</label>
+          <label className=" text-sm font-medium text-gray-700">Location</label>
           <Input
             type="text"
-            value={dealType}
-            onChange={(e) => setDealType(e.target.value)}
+            id="address"
+            name="address"
+            value={editData.address}
+            onChange={(e) => setaddress(e.target.value)}
           />
         </div>
       </div>
@@ -314,7 +316,6 @@ const handleRemoveMobileImage = (index) => {
             onChange={(e) => sethandoverin(e.target.value)}
           />
         </div>
-
       </div>
       {/* Brochure Upload */}
       <div>

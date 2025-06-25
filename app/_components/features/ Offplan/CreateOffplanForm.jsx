@@ -52,6 +52,8 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
     formData.append("developer", data.developer);
     formData.append("handoverin", data.handoverin);
     formData.append("maplink", data.maplink);
+    formData.append("address", data.address);
+
     formData.append("order", data.order);
 
 
@@ -112,11 +114,11 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             <Input
               disabled={isCreating}
               type="text"
-              id="dealType"
-              {...register("dealType", { required: "This field is required" })}
+              id="address"
+              {...register("address", { required: "This field is required" })}
             />
-            {errors.dealType && (
-              <p className="text-red-500 text-sm">{errors.dealType.message}</p>
+            {errors.address && (
+              <p className="text-red-500 text-sm">{errors.address.message}</p>
             )}
           </div>
         </div>

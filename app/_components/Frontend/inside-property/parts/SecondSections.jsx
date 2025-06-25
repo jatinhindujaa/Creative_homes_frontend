@@ -159,7 +159,7 @@ export default function PropertyExtras({data}) {
           Estimate whether you can get a mortgage to buy this property.
         </p>
 
-        <div className="lg:w-[80%] w-[90%] bg-[#202120] flex flex-col items-center my-10 rounded-xl">
+        <div className="lg:w-[80%] w-[100%] bg-[#202120] flex flex-col items-center my-10 rounded-xl">
           <div className="text-white px-6 py-3 rounded-lg w-full flex flex-col md:flex-row">
             <div className="w-full md:w-[50%]">
               <div className="w-full mb-4">
@@ -207,7 +207,55 @@ export default function PropertyExtras({data}) {
               </div>
             </div>
 
-            <div className="w-full md:w-[50%] flex justify-center items-center">
+            <div className="w-full md:w-[50%] md:flex hidden justify-center items-center">
+              <ResponsiveContainer width="100%" height={400}>
+                <PieChart>
+                  <defs>
+                    <linearGradient
+                      id="goldGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#FFD45C" />
+                      <stop offset="52%" stopColor="#A97C50" />
+                      <stop offset="100%" stopColor="#FFD45C" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="bronzeGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stopColor="#A97C50" />
+                      <stop offset="50%" stopColor="#5F4A30" />
+                      <stop offset="100%" stopColor="#3D2A17" />
+                    </linearGradient>
+                  </defs>
+
+                  <Pie
+                    data={datas}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={95}
+                    outerRadius={140}
+                    startAngle={90}
+                    endAngle={-270}
+                    label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                    labelLine={false}
+                  >
+                    <Cell key="cell-1" fill="url(#bronzeGradient)" />
+                    <Cell key="cell-0" fill="url(#goldGradient)" />
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="w-full md:w-[50%] flex md:hidden justify-center items-center">
               <ResponsiveContainer width="100%" height={400}>
                 <PieChart>
                   <defs>

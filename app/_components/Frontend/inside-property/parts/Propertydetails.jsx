@@ -64,13 +64,13 @@ export default function PropertyDetail({data}) {
             </div>
           </div>
           <div className="flex gap-4 mt-2">
-            <a href={`tel:${agents?.phoneNo}`} className="w-[25%]">
+            <a href={`tel:${agents?.phoneNo}`} className="md:w-[25%] w-[37%]">
               <button className="w-[100%] flex-1 border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition text-md flex gap-2 items-center">
                <IoCallOutline size={20}/> Call
               </button>
             </a>
             <a
-              className="w-[35%]"
+              className="md:w-[35%] w-[56%]"
               href={`https://wa.me/${agents?.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"

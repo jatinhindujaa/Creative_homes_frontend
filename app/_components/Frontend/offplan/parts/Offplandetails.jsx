@@ -10,7 +10,7 @@ export default function OffplanDetail({ data }) {
       {/* Left Column */}
       <div className="w-full md:w-[60%] flex flex-col gap-4">
         <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-          AED {data?.price}M
+          AED {data?.price}
         </h1>
         <p className="text-gray-400 text-md">
           📍 The Sundials, Jumeirah Golf Estates, Dubai
@@ -61,14 +61,14 @@ export default function OffplanDetail({ data }) {
             </h1>
 
             <div className="flex gap-4 mt-2">
-              <a href={`tel:${""}`} className="w-[25%]">
+              <a href={`tel:${"+971585611099"}`} className="w-[25%]">
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
                   <IoCallOutline size={20} /> Call
                 </button>
               </a>
               <a
                 className="w-[50%]"
-                href={`https://wa.me/${""}`}
+                href={`https://wa.me/${"+971585611099"}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -85,7 +85,7 @@ export default function OffplanDetail({ data }) {
           <p className="text-sm text-gray-400">Need A Mortgage?</p>
           <h4 className="text-md font-medium">
             Estimated Mortgage is <br />{" "}
-            <span className="text-white">AED {data?.price}M</span>
+            <span className="text-white">AED {data?.price}</span>
           </h4>
           <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition">
             Try Our Calculator

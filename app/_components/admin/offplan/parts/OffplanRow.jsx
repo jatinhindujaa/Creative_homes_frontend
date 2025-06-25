@@ -31,7 +31,7 @@ function OffplanRow({
     dld,
     shortDescription,
     description,
-    dealType,
+    address,
     agent,
     status,
     multipleImages,
@@ -42,7 +42,7 @@ function OffplanRow({
     underpay,
     handoverpay,
     handoverin,
-    developer
+    developer,
   },
 }) {
   const { mutate: updateOffplan, isPending: isUpdatingOffplan } =
@@ -78,7 +78,6 @@ function OffplanRow({
     dld,
     shortDescription,
     description,
-    dealType,
     agent,
     status,
     multipleImages,
@@ -90,6 +89,7 @@ function OffplanRow({
     handoverpay,
     handoverin,
     developer,
+    address,
   });
 
   const expandDescription = () => {
@@ -109,7 +109,6 @@ function OffplanRow({
     const formData = new FormData();
 
     formData.append("name", editData.name);
-    formData.append("dealType", editData.dealType);
     formData.append("price", editData.price);
     formData.append("type", editData.type);
     formData.append("reference", editData.reference);
@@ -129,7 +128,7 @@ function OffplanRow({
     formData.append("handoverpay", editData.handoverpay);
     formData.append("handoverin", editData.handoverin);
     formData.append("developer", editData.developer);
-
+    formData.append("address", editData.address);
 
     (editData.features || []).forEach((f) => formData.append("features[]", f));
 
@@ -171,7 +170,7 @@ function OffplanRow({
         <span className="font-medium">{name}</span>
       </div>
 
-      <div className="text-sm">{dealType}</div>
+      <div className="text-sm">{address}</div>
 
       <div className="text-sm">{price}</div>
 

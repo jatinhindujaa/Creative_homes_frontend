@@ -286,7 +286,7 @@ const ContactLinks = [
     id: 2,
     icon: <CgMail color="black" size={"25px"} />,
     link: "https://www.facebook.com/",
-    name: `Office 3107, BLDG 3, Gold & Diamond Park,Sheikh Zayed Road, Dubai, United Arab Emirates<br /> <br />Postal code: 37468`,
+    name: `Office 3107, BLDG 3, Gold & Diamond Park,<br />Sheikh Zayed Road, Dubai, United Arab Emirates<br /> <br />Postal code: 37468`,
   },
   {
     id: 3,
@@ -330,7 +330,7 @@ export default function Footer() {
         backgroundSize: "contain",
       }} // Update with your image path
     >
-      <div className="flex flex-col justify-around w-[35%] h-[60vh]">
+      <div className="flex flex-col justify-around w-[32%] h-[60vh]">
         <div>
           <a href={"/"}>
             <Image src={logo} alt="Logo" className="w-[auto] h-[5rem]" />
@@ -362,7 +362,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[10%]">
         <span className="font-medium text-[1rem] leading-6 mb-1">
           Quick Links
         </span>
@@ -381,7 +381,7 @@ export default function Footer() {
           ))}
         </ul>
       </div>
-      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[10%]">
         <span className="font-medium text-[1rem] leading-6 mb-1">
           Quick Links
         </span>
@@ -402,7 +402,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="flex flex-col space-y-8 relative pt-8 w-[15%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[10%]">
         <span className="font-medium text-[1rem] leading-6 mb-1 ">
           Follow us on:
         </span>
@@ -426,7 +426,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div className="flex flex-col space-y-8 relative pt-8 w-[20%]">
+      <div className="flex flex-col space-y-8 relative pt-8 w-[26%]">
         <span className="font-medium text-[1rem] leading-6 mb-1 ">
           Contact us:
         </span>
