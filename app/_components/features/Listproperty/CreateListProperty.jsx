@@ -163,10 +163,10 @@ export default function ValuationForm() {
   };
 
   return (
-    <div className="bg-[#333] flex justify-center flex-col h-screen pt-[50px]">
+    <div className="bg-[#333] flex justify-center flex-col h-screen">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="bg-[#272727] p-8 rounded-lg shadow-lg max-w-md mx-auto ">
-        <div className="flex justify-center text-[2.5rem] font-medium">
+      <div className="bg-[#272727] p-8 pt-40 rounded-lg shadow-lg max-w-md mx-auto ">
+        <div className="flex justify-center text-[2rem] font-medium">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             List Your Property
           </span>

@@ -53,13 +53,16 @@
 // };
 
 // export default Hero;
-
+"use client"
 import React from "react";
 import Name from "../assets/new.png";
 import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
 import HoverButton from "@/app/_components/ui/HoverButton";
+import { useRouter } from "next/navigation";
 const Hero = () => {
+      const router = useRouter();
+  
   return (
     <div className="relative h-screen flex flex-col items-center justify-center bg-black">
       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
@@ -99,11 +102,13 @@ const Hero = () => {
         <div className="bg-white bg-opacity-20 w-[100%] xl:w-[40%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-15 px-1 gap-[0.5rem] flex">
           <Button
             text="Properties"
-            className="w-fit text-[1rem] text-black bg-white leading-[1.4rem] px-7 py-2 font-normal tracking-wider"
+            onClick={() => router.push("/property")}
+            className="w-fit text-[1rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
           />
           <HoverButton
-            text="Find A Consultant"
-            className="w-fit text-[1rem] leading-[1.4rem] px-3 font-normal tracking-wider"
+            text="Consultant"
+            onClick={() => router.push("/contact-us")}
+            className="w-fit text-[1rem] leading-[2.4rem] px-5 font-normal tracking-wider"
           />
         </div>
       </div>

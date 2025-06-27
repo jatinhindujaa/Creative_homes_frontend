@@ -418,7 +418,7 @@ const Offplan_property = () => {
   };
 
   return (
-    <div className="bg-[#282927] text-white flex flex-col px-5 py-12">
+    <div className="bg-[#282927] text-white flex flex-col px-5 md:py-12 md:pt-32 pt-32">
       <div className=" flex justify-between mb-6 flex-col lg:gap-10 gap-5">
         <div className="flex space-x-6">
           <div className="relative">

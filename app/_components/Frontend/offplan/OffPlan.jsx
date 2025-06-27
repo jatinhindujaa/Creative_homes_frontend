@@ -7,7 +7,6 @@ import MarqueeSection from "../meettheteam/parts/marque";
 const OffPlan = () => {
   return (
     <>
-      <Hero />
       <Offplan_property />
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <MarqueeSection />

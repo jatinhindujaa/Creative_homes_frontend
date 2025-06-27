@@ -16,7 +16,7 @@ import { IoCallOutline } from "react-icons/io5";
 
 export function PropertyCard({ data }) {
   const { data: agents, isLoading: isAgentLoading } = useAgentById(data.agent);
-const router  = useRouter()
+  const router  = useRouter()
   const [isMobile, setIsMobile] = useState(false);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);

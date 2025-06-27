@@ -89,7 +89,7 @@ const Hero = () => {
           />
         </div> */}
 
-        <div className="bg-white bg-opacity-20 w-[100%] xl:w-[50%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
+        <div className="bg-white bg-opacity-20 w-[100%] xl:w-[40%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[2rem] flex">
           <Button
             text="Properties"
             onClick={() => router.push("/property")}

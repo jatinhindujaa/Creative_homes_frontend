@@ -53,6 +53,7 @@
 // };
 
 // export default Hero;
+"use client";
 
 import React from "react";
 import Name from "../assets/group.png";
@@ -60,7 +61,10 @@ import Image from "next/image";
 import Button from "@/app/_components/ui/Button";
 import HoverButton from "@/app/_components/ui/HoverButton";
 import sm_banner from "../assets/sm_banner.png";
+import { useRouter } from "next/navigation";
 const Hero = () => {
+      const router = useRouter();
+  
   return (
     <div className="relative h-screen flex flex-col items-center justify-center bg-black">
       <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
@@ -83,8 +87,8 @@ const Hero = () => {
           priority
         />
       </div>
-      <div className="relative z-10 flex w-[100%] sm:w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
-        {/* Title */}
+      {/* Title */}
+      <div className="relative z-10 flex sm:w-[77%] w-[100%] flex-col items-center justify-center text-white text-center px-4 gap-4">
         <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
           contact US
         </h1>
@@ -94,14 +98,16 @@ const Hero = () => {
           seeking advice on the best property deals, our experienced team is
           here to help you with all your property needs.
         </h1>
-        <div className="bg-white bg-opacity-20 w-[100%] xl:w-[50%] md:w-[70%] justify-center backdrop-blur-lg py-5 rounded-full lg:px-20 px-1 gap-[0.5rem] flex">
+        <div className="bg-white-glass-gradient border border-white-glass-gradient backdrop-blur-sm py-5 rounded-[10px] max-md:px-4 max-md:py-2 px-10 gap-4 flex flex-col">
           <Button
             text="General Enquiry"
-            className="w-fit text-[1rem] text-black bg-white leading-[1.4rem] px-3 py-2 font-normal tracking-wider"
+            onClick={() => router.push("/property")}
+            className="w-fit text-[1rem] text-black bg-white leading-[2.4rem] px-5 font-normal tracking-wider"
           />
           <HoverButton
             text="Find A Consultant"
-            className="w-fit text-[1rem] leading-[1.4rem] px-3 font-normal tracking-wider"
+            onClick={() => router.push("/off-plan-properties")}
+            className="w-fit text-[1rem] leading-[2.4rem] px-5 font-normal tracking-wider"
           />
         </div>
       </div>

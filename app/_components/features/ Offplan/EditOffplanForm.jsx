@@ -51,7 +51,7 @@ const EditOffplanForm = ({
     editData.multipleImages || []
   );
   const [newMultipleImages, setNewMultipleImages] = useState([]);
-  const [brochureFile, setBrochureFile] = useState(null);
+  // const [brochureFile, setBrochureFile] = useState(null);
 
   // Sync controlled states back to parent editData
   useEffect(() => {
@@ -76,7 +76,7 @@ const EditOffplanForm = ({
       multipleImages: existingMultipleImages,
       mobilemultipleImages: mobilemultipleImages,
       newMultipleImages,
-      image: brochureFile || editData.image,
+      // image: brochureFile || editData.image,
       address
     }));
   }, [
@@ -99,7 +99,7 @@ const EditOffplanForm = ({
     existingMultipleImages,
     mobilemultipleImages,
     newMultipleImages,
-    brochureFile,
+    // brochureFile,
     address,
     setEditData,
     editData.image,
@@ -318,7 +318,7 @@ const handleRemoveMobileImage = (index) => {
         </div>
       </div>
       {/* Brochure Upload */}
-      <div>
+      {/* <div>
         <label className="text-sm font-medium text-gray-700">
           Brochure Upload
         </label>
@@ -338,7 +338,7 @@ const handleRemoveMobileImage = (index) => {
             setBrochureFile(file || null);
           }}
         />
-      </div>
+      </div> */}
       {/* Short Description */}
       {/* <div>
         <label className="text-sm font-medium text-gray-700">

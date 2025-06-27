@@ -12,6 +12,7 @@ const navData = [
   { id: 4, name: "Offplan Properties", link: "/admin/offplan" },
   { id: 5, name: "List Property", link: "/admin/listproperty" },
   { id: 6, name: "Areas", link: "/admin/area" },
+  { id: 6, name: "Whtsapp Inquiry", link: "/admin/whtsapp" },
 ];
 
 function NavbarAdminVerticle() {
@@ -25,7 +26,7 @@ function NavbarAdminVerticle() {
           alt="Logo"
           width={95}
           height={85}
-          className="object-cover object-center w-[95%] h-[85%]"
+          className="object-cover object-center w-[95%] h-[68%]"
         />
       </div>
 

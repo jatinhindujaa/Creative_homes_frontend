@@ -39,14 +39,14 @@ export default function TimelineStep({ step, title, content, position }) {
               open ? "max-h-[500px] opacity-100 py-4" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-white text-black text-md px-6 py-3 rounded-[60px] leading-relaxed shadow-md text-left">
+            <div className="bg-white text-black text-[0.8rem] px-6 py-3 rounded-[60px] leading-relaxed shadow-md text-left">
               <p className="whitespace-pre-line">{content}</p>
             </div>
           </div>
         </div>
       )}
 
-      <div className="relative w-1 h-[15rem] flex flex-col items-center">
+      <div className="relative w-1 h-[16rem] flex flex-col items-center">
         <div className="absolute top-0 bottom-0 w-px bg-white z-0" />
         <div className="w-6 h-6 rounded-full bg-white border-2 border-gray-800 flex items-center justify-center text-sm font-bold text-black z-10">
           {step}
@@ -76,7 +76,7 @@ export default function TimelineStep({ step, title, content, position }) {
               open ? "max-h-[500px] opacity-100 py-2" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-white text-black text-md px-6 py-3 rounded-[60px] leading-relaxed shadow-md mt-3 text-left">
+            <div className="bg-white text-black text-[0.8rem] px-6 py-3 rounded-[60px] leading-relaxed shadow-md mt-3 text-left">
               <p className="whitespace-pre-line">{content}</p>
             </div>
           </div>

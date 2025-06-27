@@ -480,13 +480,21 @@ import React, { useState } from "react";
 import { useAreas } from "@/app/_components/admin/area/useArea";
 import Spinner from "@/app/_components/ui/Spinner";
 import { usePropertyByAreaId } from "@/app/_components/admin/properties/useProperties";
+import { useRouter } from "next/navigation";
+
+const links = [
+  "/properties/downtown-dubai",
+  "/properties/marina",
+  "/properties/palm-jumeirah",
+  "/properties/jumeirah-village-circle",
+];
 
 const Neighbourhoods = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
   const [lastActiveIndex, setLastActiveIndex] = useState(0);
   const { data: areas, isLoading } = useAreas();
-  
+  const router = useRouter()
   console.log("areas", areas);
 
   if (isLoading) return <Spinner />;
@@ -545,6 +553,7 @@ const leftPositions = [20, 45, 68, 80];
                 setLastActiveIndex(index);
               }}
               onMouseLeave={() => setHoverIndex(null)}
+              onClick={() => router.push(links[index])}
             >
               {/* <Listing el={item._id} /> */}
             </div>
