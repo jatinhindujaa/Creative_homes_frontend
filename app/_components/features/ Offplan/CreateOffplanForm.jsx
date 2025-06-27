@@ -204,7 +204,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             </select>
           </div>
 
-          {/* <div className="w-1/2">
+          <div className="w-1/2">
             <label className="text-sm font-medium text-gray-700">
               Brochure upload
             </label>
@@ -215,7 +215,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
               multiple
               {...register("image", { required: "This field is required" })}
             />
-          </div> */}
+          </div>
         </div>
 
         <div className="gap-2 flex flex-row">

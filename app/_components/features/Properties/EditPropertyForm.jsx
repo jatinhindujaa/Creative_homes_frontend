@@ -53,7 +53,7 @@ const EditPropertyForm = ({
   const [selectedAgent, setSelectedAgent] = useState(editData.agent || "");
   const [selectedArea, setSelectedArea] = useState(editData.area || "");
 
-  // const [newQrImage, setNewQrImage] = useState(null);
+  const [newQrImage, setNewQrImage] = useState(null);
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
   );
@@ -447,7 +447,7 @@ const handleSubmit = (e) => {
             </select>
           </div>
         </div>
-        {/* <div className="w-[50%]">
+        <div className="w-[50%]">
           <label className="text-sm font-medium text-gray-700">QR Image</label>
           {editData.image && !newQrImage && (
             <img
@@ -468,7 +468,7 @@ const handleSubmit = (e) => {
               }
             }}
           />
-        </div> */}
+        </div>
         <div>
           <label className="text-sm font-medium text-gray-700">Amenities</label>
           <TagInput tags={amenities} setTags={setAmenities} />

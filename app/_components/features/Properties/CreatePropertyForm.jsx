@@ -467,21 +467,30 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
             </select>
           </div>
         </div>
-        {/* <div className="w-[50%]">
+        <div className="w-[50%]">
           <label className=" text-sm font-medium text-gray-700">Qr Image</label>
+          {/* <FileInput
+              id="image"
+              accept="image/*"
+              type="file"
+              multiple
+              {...register("image", {
+                required: "This field is required",
+              })}
+            /> */}
           <FileInput
             id="image"
             accept="image/*"
             type="file"
             multiple
-            {...register("image")}
+            {...register("image")} // Remove required here
           />
 
           <div className="text-red-600 text-[0.8rem] mb-[20px]">
             <p>Qr size for Mobile & desktop will be: 300 * 300</p>
             <p>File size should be less than 10MB.</p>
           </div>
-        </div> */}
+        </div>
         <div>
           <label className=" text-sm font-medium text-gray-700">
             Amenities
