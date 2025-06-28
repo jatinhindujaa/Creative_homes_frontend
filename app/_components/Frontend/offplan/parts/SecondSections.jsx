@@ -64,7 +64,7 @@ const features = [
   },
 ];
   return (
-    <div className=" text-white p-6 md:p-10 md:py-2 rounded-xl flex flex-col gap-[1.5rem]">
+    <div className=" text-white p-6 md:p-10 md:py-2 rounded-xl flex flex-col gap-[1.5rem] sm:w-[100%]">
       {/* <section className="text-white pt-4">
         <h2 className="text-3xl font-semibold mb-8">
           <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
@@ -100,7 +100,7 @@ const features = [
             {plans.map((plan, i) => (
               <div
                 key={i}
-                className="border border-white rounded-md px-6 py-6 text-center w-[20%]"
+                className="border border-white rounded-md px-6 py-6 text-center w-[32%]"
               >
                 <p className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
                   {plan.percent}
@@ -116,7 +116,7 @@ const features = [
         {features.map((feature, i) => (
           <div
             key={i}
-            className="pl-[6px] flex items-center gap-2 text-xl font-semibold text-white w-[20%]"
+            className="pl-[6px] flex items-center gap-2 text-xl font-semibold text-white w-[32%]"
           >
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center ${feature.bgColor}`}
@@ -149,7 +149,7 @@ const features = [
         </div>
 
         {/* Views Section */}
-        <div className="p-6 border-r border-l border-b mt-0 w-[65%]">
+        <div className="p-6 border-r border-l border-b mt-0 w-[100%]">
           <h3 className="text-xl font-semibold mt-0">Views</h3>
           <ul className="pt-5">
             {data?.views.map((d) => (

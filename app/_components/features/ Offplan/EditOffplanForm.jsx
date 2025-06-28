@@ -320,7 +320,7 @@ const handleRemoveMobileImage = (index) => {
       {/* Brochure Upload */}
       <div>
         <label className="text-sm font-medium text-gray-700">
-          Brochure Upload
+          Qr Image
         </label>
         {editData.image && !brochureFile && (
           <img

@@ -7,6 +7,9 @@ import {
   fetchInquiryById,
   updateImage,
   updateBanner,
+  createBrousher,
+  createWhtsap,
+  fetchWhtsap,
 } from "../../services/api.Inquiry.js";
 
 import toast from "react-hot-toast";
@@ -19,6 +22,17 @@ export const useInquiry = () => {
   });
   return { data, isLoading, error };
 };
+
+
+export const useWhtsap = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["Inquiry"],
+    queryFn: fetchWhtsap,
+    staleTime: 5 * 60 * 1000,
+  });
+  return { data, isLoading, error };
+};
+
 
 export const useInquiryById = (id) => {
   const { data, isLoading, error } = useQuery({
@@ -44,6 +58,39 @@ export const useCreateInquiry = () => {
   });
 
   return { createNewInquiry, isCreating };
+};
+export const useCreateBrousher= () => {
+  const queryClient = useQueryClient();
+  const { mutate: createNewBrousher, isPending: isCreating } = useMutation({
+    mutationFn: createBrousher,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["Inquiry"]);
+      toast.success("Inquiry Created successfully!");
+    },
+    onError: (error) => {
+      console.error("Failed to create Inquiry:", error);
+      toast.error("Failed to create Inquiry. Please try again.");
+    },
+  });
+
+  return { createNewBrousher, isCreating };
+};
+
+export const useCreatewhatsap = () => {
+  const queryClient = useQueryClient();
+  const { mutate: createNewWhatsap, isPending: isCreating } = useMutation({
+    mutationFn: createWhtsap,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["Inquiry"]);
+      toast.success("Inquiry Created successfully!");
+    },
+    onError: (error) => {
+      console.error("Failed to create Inquiry:", error);
+      toast.error("Failed to create Inquiry. Please try again.");
+    },
+  });
+
+  return { createNewWhatsap, isCreating };
 };
 
 export const useUpdateInquiry = () => {

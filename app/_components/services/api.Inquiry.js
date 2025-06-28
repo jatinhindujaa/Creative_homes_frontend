@@ -8,8 +8,32 @@ export const fetchInquiry = async () => {
   return response.data.message; // Adjust based on actual API structure
 };
 
+export const fetchWhtsap = async () => {
+  const response = await axios.get(`${ApiUrl}/contact/get-all-whatsapp`, {
+    withCredentials: true,
+  });
+  return response.data.message; // Adjust based on actual API structure
+};
 export const createInquiry = async (formData) => {
   const response = await axios.post(`${ApiUrl}/contact/create`, formData, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response.data;
+};
+export const createBrousher = async (formData) => {
+  const response = await axios.post(`${ApiUrl}/contact/brousher`, formData, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response.data;
+};
+export const createWhtsap = async (formData) => {
+  const response = await axios.post(`${ApiUrl}/contact/whatsp`, formData, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",

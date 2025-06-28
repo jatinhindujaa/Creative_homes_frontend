@@ -399,6 +399,9 @@ const Hero = () => {
   const handleFilterClick = (type) => {
     router.push(`/property?offeringtype=${type}`);
   };
+   const handleFilterCategoryClick = (type) => {
+     router.push(`/property?propertycategory=${type}`);
+   };
 
   console.log("properties", properties);
 
@@ -463,13 +466,13 @@ const Hero = () => {
             Rent
           </button>
           <button
-            onClick={() => handleFilterClick("off-plan")}
+            onClick={() => router.push("/off-plan-properties")}
             className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Off Plan
           </button>
           <button
-            onClick={() => handleFilterClick("commercial")}
+            onClick={() => handleFilterCategoryClick("commercial")}
             className="bg-white text-black font-normal md:px-6 px-2 md:py-2 py-1 rounded-full text-sm sm:text-base"
           >
             Commercial

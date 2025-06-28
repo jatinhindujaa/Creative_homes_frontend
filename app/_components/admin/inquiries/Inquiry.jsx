@@ -1,13 +1,3 @@
-// import React from 'react'
-
-// const Inquiry = () => {
-//   return (
-//     <div>Inquiry</div>
-//   )
-// }
-
-// export default Inquiry
-
 "use client";
 import { InquiryProvider } from "./parts/InquiryContext.jsx";
 import Row from "../../ui/Row.jsx";

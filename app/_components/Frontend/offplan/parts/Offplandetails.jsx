@@ -8,7 +8,7 @@ export default function OffplanDetail({ data }) {
   return (
     <div className="flex flex-col md:flex-row gap-6 justify-between text-white p-6 md:p-10 rounded-xl">
       {/* Left Column */}
-      <div className="w-full md:w-[60%] flex flex-col gap-4">
+      <div className="w-full md:w-[100%] flex flex-col gap-4">
         <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           AED {data?.price}
         </h1>
@@ -49,49 +49,7 @@ export default function OffplanDetail({ data }) {
       </div>
 
       {/* Right Column */}
-      <div className="w-full md:w-[30%] flex flex-col gap-6">
-        {/* Agent Card */}
-        <div className=" border rounded-xl p-5 flex flex-col gap-4">
-          <div className=" text-white rounded-xl flex flex-col gap-4">
-            <h3 className="text-lg font-semibold text-gray-400">
-              Starting Price
-            </h3>
-            <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
-              AED {data?.price}
-            </h1>
-
-            <div className="flex gap-4 mt-2">
-              <a href={`tel:${"+971585611099"}`} className="w-[25%]">
-                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  <IoCallOutline size={20} /> Call
-                </button>
-              </a>
-              <a
-                className="w-[50%]"
-                href={`https://wa.me/${"+971585611099"}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
-                  <FaWhatsapp size={20} /> WhatsApp
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Mortgage Card */}
-        <div className="border rounded-xl p-5 text-center flex flex-col items-center gap-3">
-          <p className="text-sm text-gray-400">Need A Mortgage?</p>
-          <h4 className="text-md font-medium">
-            Estimated Mortgage is <br />{" "}
-            <span className="text-white">AED {data?.price}</span>
-          </h4>
-          <button className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition">
-            Try Our Calculator
-          </button>
-        </div>
-      </div>
+      
     </div>
   );
 }

@@ -206,7 +206,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
 
           <div className="w-1/2">
             <label className="text-sm font-medium text-gray-700">
-              Brochure upload
+              Qr Image
             </label>
             <FileInput
               id="image"
