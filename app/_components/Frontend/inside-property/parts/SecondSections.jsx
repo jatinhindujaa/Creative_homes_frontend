@@ -99,7 +99,7 @@ export default function PropertyExtras({data}) {
         </h2>
         <div className="flex flex-wrap gap-6 mt-6 text-center text-sm text-white">
           {data?.amenities?.map((d, i) => (
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-1" key={i}>
               {/* <GiGymBag size={24} /> */}
               <span>{d}</span>
             </div>
@@ -141,7 +141,7 @@ export default function PropertyExtras({data}) {
           </div>
           <div className="flex">
             <Image
-              src={data?.image}
+              src={data?.image || null}
               alt="QR"
               className="object-cover rounded-md"
               width={150}

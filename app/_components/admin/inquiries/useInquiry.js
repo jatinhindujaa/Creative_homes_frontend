@@ -26,7 +26,7 @@ export const useInquiry = () => {
 
 export const useWhtsap = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["Inquiry"],
+    queryKey: ["Whatsapp"],
     queryFn: fetchWhtsap,
     staleTime: 5 * 60 * 1000,
   });

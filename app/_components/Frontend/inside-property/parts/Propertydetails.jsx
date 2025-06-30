@@ -50,7 +50,7 @@ export default function PropertyDetail({data}) {
           <div className="flex items-center gap-4">
             <div className="relative w-[60px] h-[60px] rounded-full overflow-hidden">
               <Image
-                src={agents?.image}
+                src={agents?.image ||null}
                 alt="Agent"
                 fill
                 className="object-cover"

@@ -50,7 +50,7 @@ export default function Header() {
       {/* Desktop Nav */}
       <nav className="hidden md:flex space-x-8 items-start pb-[24px]">
         {navLinks.map((nav, index) => (
-          <div key={nav.id || index} className="relative group">
+          <div key={index} className="relative group">
             <a
               href={nav.link}
               className="text-white font-light text-[1rem] hover:text-gray-300 transition-colors flex items-center cursor-pointer"
@@ -66,7 +66,7 @@ export default function Header() {
               <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-white bg-opacity-10 mt-2 space-y-2 p-4 rounded-xl min-w-[10rem] backdrop-blur-md transition-all duration-300">
                 {nav.items.map((item, index) => (
                   <a
-                    key={item.itemName || index}
+                    key={index}
                     href={item.link}
                     className="block text-white hover:text-black hover:bg-white hover:rounded-full p-2 transition"
                   >
@@ -101,7 +101,7 @@ export default function Header() {
       >
         <div className="flex flex-col space-y-5 mt-16">
           {navLinks.map((nav, index) => (
-            <div key={nav.id || index}>
+            <div key={index}>
               <div
                 onClick={() =>
                   nav.items
@@ -121,7 +121,7 @@ export default function Header() {
                 <div className="ml-4 mt-2 space-y-2">
                   {nav.items.map((item, index) => (
                     <a
-                      key={item.itemName || index}
+                      key={index}
                       href={item.link}
                       className="block text-white text-base hover:underline"
                       onClick={() => setMobileMenuOpen(false)}

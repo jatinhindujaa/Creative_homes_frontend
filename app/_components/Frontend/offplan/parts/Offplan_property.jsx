@@ -477,8 +477,8 @@ const Offplan_property = () => {
 
       {/* Property Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-        {currentProperties?.map((property) => (
-          <PropertyCard key={property.id} el={property} />
+        {currentProperties?.map((property, index) => (
+          <PropertyCard key={index} el={property} />
         ))}
       </div>
 
@@ -551,7 +551,10 @@ const PropertyCard = ({ el }) => {
           className="w-full h-[200px] object-cover rounded-[20px]"
         />
         <span className="absolute top-4 left-4 bg-gradient-to-r from-[rgba(0,0,0,0.5)_0.07%] to-[rgba(0,0,0,0.3)_97%] text-white text-[1rem] font-medium px-3 py-2 rounded-full">
-          {el.firstpay} /{el.handoverpay} /{el.underpay} Payment plan
+          {el.firstpay}
+          {"%"} / {el.handoverpay}
+          {"%"} / {el.underpay}
+          {"%"} Payment plan
         </span>
       </div>
 

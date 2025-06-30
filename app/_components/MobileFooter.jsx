@@ -162,7 +162,7 @@ export default function MobileFooter() {
           <div className="flex space-x-2 gap-2">
             {socialMediaLinks.map((social, index) => (
               <div
-                key={social.id || index}
+                key={index}
                 className="w-[1.8rem] h-[1.8rem] bg-white flex justify-center items-center rounded-lg "
               >
                 <a href={social.link} className="text-black">

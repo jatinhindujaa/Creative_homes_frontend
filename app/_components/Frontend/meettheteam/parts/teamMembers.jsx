@@ -661,6 +661,7 @@ import React, { useState } from "react";
 import Button from "@/app/_components/ui/Button";
 import { useAgents } from "@/app/_components/admin/agents/useAgents";
 import { useRouter } from "next/navigation";
+import Spinner from "@/app/_components/ui/Spinner";
 
 const columnLayout = [3, 4, 3, 4, 3]; // Cards per column
 const membersPerPage = 17;
@@ -676,24 +677,55 @@ const TeamSection = () => {
   const { data, isLoading } = useAgents();
 
   // Function to filter agents based on search criteria
+  // const filteredData = data?.filter((agent) => {
+  //   // Apply filters only if they are not empty
+  //   return (
+  //     (agent.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //       searchQuery === "") &&
+  //     (selectedType
+  //       ? (agent.type || "").toLowerCase() === selectedType.toLowerCase()
+  //       : true) &&
+  //     (selectedLanguage
+  //       ? (agent.language || "").toLowerCase() ===
+  //         selectedLanguage.toLowerCase()
+  //       : true) &&
+  //     (selectedNationality
+  //       ? (agent.nationality || "").toLowerCase() ===
+  //         selectedNationality.toLowerCase()
+  //       : true)
+  //   );
+  // });
+  // Function to filter agents based on search criteria
   const filteredData = data?.filter((agent) => {
-    // Apply filters only if they are not empty
-    return (
-      (agent.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        searchQuery === "") &&
-      (selectedType
-        ? (agent.type || "").toLowerCase() === selectedType.toLowerCase()
-        : true) &&
-      (selectedLanguage
-        ? (agent.language || "").toLowerCase() ===
-          selectedLanguage.toLowerCase()
-        : true) &&
-      (selectedNationality
-        ? (agent.nationality || "").toLowerCase() ===
-          selectedNationality.toLowerCase()
-        : true)
-    );
+    const searchMatch =
+      searchQuery === "" ||
+      agent.name.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const typeMatch =
+      selectedType === "" ||
+      agent.type.some((t) => t.toLowerCase() === selectedType.toLowerCase());
+
+    const languageMatch =
+      selectedLanguage === "" ||
+      agent.languages.some(
+        (lang) => lang.toLowerCase() === selectedLanguage.toLowerCase()
+      );
+
+    const nationalityMatch =
+      selectedNationality === "" ||
+      (typeof agent.nationality === "string" &&
+        agent.nationality.toLowerCase() === selectedNationality.toLowerCase());
+
+    return searchMatch && typeMatch && languageMatch && nationalityMatch;
   });
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center h-[50vh]">
+          <Spinner />
+        </div>
+      );
+    }
+
 
   // Sorting the filtered data based on order
   let sortedData = filteredData
@@ -705,7 +737,7 @@ const TeamSection = () => {
         }
       })
     : [];
-console.log("sortedData", sortedData);
+  console.log("sortedData", sortedData);
   // Custom swap logic
   if (sortedData.length > 0) {
     const index1 = sortedData.findIndex((item) => item.order === 1);
@@ -762,7 +794,7 @@ console.log("sortedData", sortedData);
             placeholder="Enter Agent Name"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-4 py-2 rounded-md"
+            className="px-4 py-2 rounded-md w-[400px] text-black placeholder-black"
           />
           <select
             value={selectedType}
@@ -782,7 +814,7 @@ console.log("sortedData", sortedData);
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
           </select>
-          <select
+          {/* <select
             value={selectedNationality}
             onChange={(e) => setSelectedNationality(e.target.value)}
             className="px-4 py-2 rounded-md"
@@ -790,10 +822,10 @@ console.log("sortedData", sortedData);
             <option value="">Nationality</option>
             <option value="Indian">Indian</option>
             <option value="UAE">UAE</option>
-          </select>
-          <button className="px-4 py-2 rounded-md bg-gray-800 text-white">
+          </select> */}
+          {/* <button className="px-4 py-2 rounded-md bg-gray-800 text-white">
             Search
-          </button>
+          </button> */}
         </div>
       </div>
 

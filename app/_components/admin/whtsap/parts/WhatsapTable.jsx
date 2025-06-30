@@ -4,7 +4,7 @@ import { useWhatsapContext } from "./WhatsapContext";
 import WhatsapRow from "./WhatsapRow.jsx";
 import Spinner from "@/app/_components/ui/Spinner.jsx";
 import Empty from "@/app/_components/ui/Empty.jsx";
-import { useWhtsap } from "../../inquiries/useInquiry";
+import { useWhtsap } from "../useWhatsap";
 
 function WhatsapTable() {
   const { filter, sort } = useWhatsapContext();

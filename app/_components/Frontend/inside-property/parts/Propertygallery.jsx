@@ -174,7 +174,7 @@ export default function PropertyGallery({ data }) {
               onClick={() => openViewer(i)}
             >
               <Image
-                src={img}
+                src={img || null}
                 alt={`Slide ${i + 1}`}
                 fill
                 className="object-cover rounded-lg"
@@ -190,7 +190,7 @@ export default function PropertyGallery({ data }) {
           onClick={() => openViewer(0)}
         >
           <Image
-            src={images[0]}
+            src={images[0] || null}
             alt="Main Image"
             layout="fill"
             className="object-cover rounded-lg"
@@ -216,7 +216,7 @@ export default function PropertyGallery({ data }) {
                 onClick={() => openViewer(i + 1)}
               >
                 <Image
-                  src={thumb}
+                  src={thumb || null}
                   alt={`Thumbnail ${i + 1}`}
                   layout="fill"
                   className="object-cover rounded-lg"
@@ -239,7 +239,7 @@ export default function PropertyGallery({ data }) {
                 onClick={() => openViewer(3)}
               >
                 <Image
-                  src={images[3]} // Show the 3rd image
+                  src={images[3] || null} // Show the 3rd image
                   alt={`Thumbnail 3`}
                   layout="fill"
                   className="object-cover rounded-lg"
@@ -274,7 +274,7 @@ export default function PropertyGallery({ data }) {
           {/* Image */}
           <div className="relative w-[90%] h-[80%] max-w-4xl">
             <Image
-              src={images[currentIndex]}
+              src={images[currentIndex] || null}
               alt={`Image ${currentIndex + 1}`}
               layout="fill"
               className="object-contain"

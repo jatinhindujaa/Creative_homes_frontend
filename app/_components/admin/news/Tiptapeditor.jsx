@@ -320,9 +320,9 @@ const TiptapEditor = ({ content, setContent }) => {
             ¶
           </MenuButton>
 
-          {[1, 2, 3, 4, 5, 6].map((level) => (
+          {[1, 2, 3, 4, 5, 6].map((level, index) => (
             <MenuButton
-              key={level}
+              key={index}
               onClick={() =>
                 editor.chain().focus().toggleHeading({ level }).run()
               }

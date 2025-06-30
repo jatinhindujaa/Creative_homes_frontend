@@ -369,7 +369,7 @@ export default function Footer() {
         <ul className="grid grid-cols-1 gap-y-3 gap-x-1">
           {quickLinks.map((link, index) => (
             <li
-              key={link.id || index}
+              key={index}
               className="text-[0.9rem] leading-6 font-light"
             >
               <a
@@ -388,7 +388,7 @@ export default function Footer() {
         <ul className="grid grid-cols-1 gap-y-3 gap-x-1">
           {quickLinks2.map((link, index) => (
             <li
-              key={link.id || index}
+              key={index}
               className="text-[0.9rem] leading-6 font-light"
             >
               <a
@@ -432,7 +432,7 @@ export default function Footer() {
         </span>
         <ul className="flex flex-col space-y-4">
           {ContactLinks.map((con, index) => (
-            <div key={con.id || index} className="flex flex-row gap-3">
+            <div key={ index} className="flex flex-row gap-3">
               <li className="w-[1.7rem] h-[1.7rem] bg-white  text-[1rem] leading-6 font-light rounded-lg flex justify-center items-center">
                 <a
                   href={con.link}

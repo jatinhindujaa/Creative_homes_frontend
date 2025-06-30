@@ -14,6 +14,13 @@ export const fetchWhtsap = async () => {
   });
   return response.data.message; // Adjust based on actual API structure
 };
+
+export const fetchBrousher = async () => {
+  const response = await axios.get(`${ApiUrl}/contact/get-all-whatsapp`, {
+    withCredentials: true,
+  });
+  return response.data.message; // Adjust based on actual API structure
+};
 export const createInquiry = async (formData) => {
   const response = await axios.post(`${ApiUrl}/contact/create`, formData, {
     withCredentials: true,
