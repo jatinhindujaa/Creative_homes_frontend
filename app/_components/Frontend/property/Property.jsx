@@ -288,7 +288,10 @@ const Property = () => {
   //     bathMatch
   //   );
   // });
-  const filteredProperties = data?.filter((property) => {
+  
+  const filteredDatas = data?.filter((el, i) => el.status === false);
+  
+  const filteredProperties = filteredDatas?.filter((property) => {
     const offeringMatch = offeringType
       ? property.offeringtype?.some(
           (type) => type.toLowerCase() === offeringType.toLowerCase()

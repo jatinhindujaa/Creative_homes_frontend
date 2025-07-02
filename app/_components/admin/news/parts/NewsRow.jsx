@@ -43,7 +43,12 @@ function NewsRow({
     order
   });
   const [aboutContent, setAboutContent] = useState(description);
-
+ const handleToggleStatus = () => {
+   console.log("Toggling status for:", _id, "Current status:", status);
+   const formData = new FormData();
+   formData.append("status", !status); // string "true"/"false"
+   updateNews({ id: _id, formData });
+ };
   const expandDescription = () => {
     setShow((prev) => !prev);
   };
@@ -148,10 +153,10 @@ function NewsRow({
 
       <Modal>
         <Menus.Menu>
-          {/* <Menus.Button
+          <Menus.Button
             icon={status ? <HiEye /> : <HiEyeOff />}
             onClick={handleToggleStatus}
-          /> */}
+          />
           <Modal.Open opens="edit">
             <Menus.Button icon={<HiPencil />} />
           </Modal.Open>

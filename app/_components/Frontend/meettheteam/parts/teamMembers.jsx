@@ -675,28 +675,10 @@ const TeamSection = () => {
   const [selectedNationality, setSelectedNationality] = useState("");
 
   const { data, isLoading } = useAgents();
+  const router = useRouter();
 
-  // Function to filter agents based on search criteria
-  // const filteredData = data?.filter((agent) => {
-  //   // Apply filters only if they are not empty
-  //   return (
-  //     (agent.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //       searchQuery === "") &&
-  //     (selectedType
-  //       ? (agent.type || "").toLowerCase() === selectedType.toLowerCase()
-  //       : true) &&
-  //     (selectedLanguage
-  //       ? (agent.language || "").toLowerCase() ===
-  //         selectedLanguage.toLowerCase()
-  //       : true) &&
-  //     (selectedNationality
-  //       ? (agent.nationality || "").toLowerCase() ===
-  //         selectedNationality.toLowerCase()
-  //       : true)
-  //   );
-  // });
-  // Function to filter agents based on search criteria
-  const filteredData = data?.filter((agent) => {
+  const filteredDatas = data?.filter((el, i) => el.status === true);
+  const filteredData = filteredDatas?.filter((agent) => {
     const searchMatch =
       searchQuery === "" ||
       agent.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -769,7 +751,6 @@ const TeamSection = () => {
     ? sortedData.slice(startIndex, startIndex + membersPerPage)
     : [];
 
-  const router = useRouter();
   let memberIndex = 0;
 
   const handleNext = () => {

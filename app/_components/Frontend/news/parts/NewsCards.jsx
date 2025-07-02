@@ -393,13 +393,16 @@ const NewsCards = () => {
   //     date: "25 Nov, 2023",
   //   },
   // ];
-
+  const filteredDatas = data?.filter((el, i) => el.status === true);
   const cardsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 const router = useRouter()
-  const totalPages = Math.ceil(data?.length / cardsPerPage);
+  const totalPages = Math.ceil(filteredDatas?.length / cardsPerPage);
   const startIndex = (currentPage - 1) * cardsPerPage;
-  const currentCards = data?.slice(startIndex, startIndex + cardsPerPage);
+  const currentCards = filteredDatas?.slice(
+    startIndex,
+    startIndex + cardsPerPage
+  );
 
   const handleNext = () => {
     if (currentPage < totalPages) {

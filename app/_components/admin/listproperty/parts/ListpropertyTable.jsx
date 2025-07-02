@@ -39,20 +39,24 @@ function ListpropertyTable() {
   if (!data.length) return <Empty resourceName="Listproperty" />;
   return (
     <Menus>
-      <Table columns="grid-cols-6">
+      <Table columns="grid-cols-7">
         <Table.Header>
           <div>Name</div>
           <div>Phone</div>
           <div>Email</div>
-          <div>Category</div>
-          <div>Message</div>
+          <div className="min-w-[150px]">Listing type</div>
+          <div>Property type</div>
+          <div>Address</div>
           <div>Action</div>
         </Table.Header>
 
         <Table.Body
           data={filteredListproperty}
           render={(Listproperty, index) => (
-            <ListpropertyRow key={Listproperty.id || index} Listproperty={Listproperty} />
+            <ListpropertyRow
+              key={Listproperty.id || index}
+              Listproperty={Listproperty}
+            />
           )}
         />
         <Table.Footer>

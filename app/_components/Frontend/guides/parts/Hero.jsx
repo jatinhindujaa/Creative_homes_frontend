@@ -52,8 +52,8 @@ import { useRouter } from "next/navigation";
 const Hero = () => {
   const router = useRouter();
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-black">
-      <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
+    <div className="relative h-screen flex flex-col items-center justify-center bg-[#282927]">
+      {/* <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
       <Image
         src={News.src}
         alt="The Elan"
@@ -61,14 +61,14 @@ const Hero = () => {
         objectPosition="center"
         priority
         className="object-cover"
-      />
+      /> */}
       <div className="relative z-10 flex w-[100%] md:w-[77%] flex-col items-center justify-center text-white text-center lg:px-4 px-4 gap-4">
         {/* Title */}
-        <h1 className="text-[2rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
+        <h1 className="text-[2rem] sm:text-[4rem] md:text-[3.5rem] font-normal uppercase">
           Why Invest In Dubai?
         </h1>
         {/* Description */}
-        <h1 className="text-[0.8rem] sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
+        <h1 className="text-[0.8rem] sm:text-lg md:text-lg font-normal max-w-[80%] mx-auto">
           Dubai offers a highly rewarding real estate market—if approached
           wisely. Whether you're a first-time buyer or a seasoned investor,
           investing in Dubai can provide strong returns, financial security, and

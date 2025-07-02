@@ -54,8 +54,8 @@ import Button from "@/app/_components/ui/Button";
 import HoverButton from "@/app/_components/ui/HoverButton";
 const Hero = () => {
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-black">
-      <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
+    <div className="relative h-screen flex flex-col items-center justify-center bg-[#282927]">
+      {/* <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
       <div className="max-md:hidden">
         <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
         <Image
@@ -65,7 +65,7 @@ const Hero = () => {
           objectPosition="center"
           priority
         />
-      </div>
+      </div> */}
       <div className="md:hidden">
         <Image
           src={Mortgage.src}
@@ -77,11 +77,11 @@ const Hero = () => {
       </div>
       <div className="relative z-10 flex w-[100%] sm:w-[77%] flex-col items-center justify-center text-white text-center px-4 gap-4">
         {/* Title */}
-        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
+        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[3.5rem] font-normal uppercase">
           Mortgage Calculator
         </h1>
         {/* Description */}
-        <h1 className="text-base sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
+        <h1 className="text-base sm:text-lg md:text-lg font-normal max-w-[80%] mx-auto">
           Our mortgage calculator factors in key costs like homeowners
           association fees and private mortgage insurance (PMI), without the
           burden of property taxes. Get a complete view of your total monthly

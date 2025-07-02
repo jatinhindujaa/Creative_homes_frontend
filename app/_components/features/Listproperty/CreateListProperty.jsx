@@ -163,9 +163,9 @@ export default function ValuationForm() {
   };
 
   return (
-    <div className="bg-[#333] flex justify-center flex-col h-screen">
+    <div className="bg-[#333] flex justify-end flex-col h-screen">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="bg-[#272727] p-8 pt-40 rounded-lg shadow-lg max-w-md mx-auto ">
+      <div className="bg-[#272727] p-8 pt-10 rounded-lg shadow-lg max-w-md mx-auto ">
         <div className="flex justify-center text-[2rem] font-medium">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             List Your Property
@@ -206,7 +206,7 @@ export default function ValuationForm() {
                     placeholder: "Mobile Number*",
                   }}
                   containerClass="w-full"
-                  inputClass="!w-full !px-4 !py-2 !border !rounded !text-black"
+                  inputClass="!w-full px-4 !py-2 !border !rounded !text-black "
                   buttonClass="!border !border-r !rounded-l"
                   dropdownClass="country-dropdown"
                 />

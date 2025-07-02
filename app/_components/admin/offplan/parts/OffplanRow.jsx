@@ -100,7 +100,12 @@ function OffplanRow({
   // const handleToggleStatus = () => {
   //   updateOffplan({ id: _id, data: { status: !status } });
   // };
-
+ const handleToggleStatus = () => {
+   console.log("Toggling status for:", _id, "Current status:", status);
+   const formData = new FormData();
+   formData.append("status", !status); // string "true"/"false"
+   updateOffplan({ id: _id, formData });
+ };
   const handleDelete = () => {
     deleteOffplan(_id);
   };
@@ -156,7 +161,7 @@ function OffplanRow({
 
   if (isUpdatingOffplan) return <Spinner />;
 
-  const convertedStatus = status ? "active" : "inactive";
+  const convertedStatus = !status ? "active" : "inactive";
 
   const statusColors = {
     active: "success",
@@ -206,10 +211,10 @@ function OffplanRow({
 
       <Modal>
         <Menus.Menu>
-          {/* <Menus.Button
-            icon={status ? <HiEye /> : <HiEyeOff />}
+          <Menus.Button
+            icon={status ? <HiEyeOff /> : <HiEye />}
             onClick={handleToggleStatus}
-          /> */}
+          />
           <Modal.Open opens="edit">
             <Menus.Button icon={<HiPencil />} />
           </Modal.Open>

@@ -91,7 +91,12 @@ function PropertiesRow({
     image,
     order,
   });
-
+const handleToggleStatus = () => {
+  console.log("Toggling status for:", _id, "Current status:", status);
+  const formData = new FormData();
+  formData.append("status", !status); // string "true"/"false"
+  updateProperty({ id: _id, formData });
+};
   const expandDescription = () => {
     setShow((prev) => !prev);
   };
@@ -238,10 +243,10 @@ function PropertiesRow({
 
       <Modal>
         <Menus.Menu>
-          {/* <Menus.Button
-            icon={status ? <HiEye /> : <HiEyeOff />}
+          <Menus.Button
+            icon={status ? <HiEyeOff /> : <HiEye />}
             onClick={handleToggleStatus}
-          /> */}
+          />
           <Modal.Open opens="edit">
             <Menus.Button icon={<HiPencil />} />
           </Modal.Open>

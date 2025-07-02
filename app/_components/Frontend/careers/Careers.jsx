@@ -6,7 +6,7 @@ import Careerjoin from './parts/Careerjoin';
 const Careers = () => {
   return (
     <div className="bg-[#282927]">
-      <Hero />
+      {/* <Hero /> */}
       <CareersSection />
       <Careerjoin/>
     </div>

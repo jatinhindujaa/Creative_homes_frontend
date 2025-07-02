@@ -11,9 +11,18 @@ import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import { useDeleteListProperty } from "../useListproperty";
 
 function ListpropertyRow({
-  Listproperty: { _id, name, phone, email, category, message },
+  Listproperty: {
+    _id,
+    name,
+    phone,
+    email,
+    propertyAddress,
+    listingtype,
+    propertytype,
+  },
 }) {
-  const { mutate: deleteListproperty, isPending: isDeleting } = useDeleteListProperty();
+  const { mutate: deleteListproperty, isPending: isDeleting } =
+    useDeleteListProperty();
   const [show, setShow] = useState(false);
 
   //   const [descContent, setDescContent] = useState(description);
@@ -54,7 +63,7 @@ function ListpropertyRow({
 
   if (isDeleting) return <Spinner />;
 
-  const convertedStatus = status ? "active" : "inactive";
+  // const convertedStatus = status ? "active" : "inactive";
 
   const statusColors = {
     active: "success",
@@ -71,8 +80,9 @@ function ListpropertyRow({
       <div className="text-sm">{phone}</div>
 
       <div className="text-sm">{email}</div>
-      <div className="text-sm">{category}</div>
-      <div className="text-sm">{message}</div>
+      <div className="text-sm">{listingtype}</div>
+      <div className="text-sm">{propertyAddress}</div>
+      <div className="text-sm">{propertytype}</div>
 
       {/* <div className="text-sm ">
         {show

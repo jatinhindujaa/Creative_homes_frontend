@@ -66,8 +66,8 @@ const Hero = () => {
       const router = useRouter();
   
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center bg-black">
-      <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
+    <div className="relative h-screen flex flex-col items-center justify-center bg-[#282927]">
+      {/* <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
       <div className="max-md:hidden">
         <div className="bg-custom-gradient w-full h-full absolute top-0 left-0 z-10"></div>
         <Image
@@ -77,7 +77,7 @@ const Hero = () => {
           objectPosition="center"
           priority
         />
-      </div>
+      </div> */}
       <div className="md:hidden">
         <Image
           src={sm_banner.src}
@@ -89,11 +89,11 @@ const Hero = () => {
       </div>
       {/* Title */}
       <div className="relative z-10 flex sm:w-[77%] w-[100%] flex-col items-center justify-center text-white text-center px-4 gap-4">
-        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] font-normal uppercase">
+        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[3.5rem] font-normal uppercase">
           contact US
         </h1>
         {/* Description */}
-        <h1 className="text-base sm:text-lg md:text-xl font-normal max-w-[80%] mx-auto">
+        <h1 className="text-base sm:text-lg md:text-lg font-normal max-w-[80%] mx-auto">
           Need expert advice? Whether you’re exploring new investment options or
           seeking advice on the best property deals, our experienced team is
           here to help you with all your property needs.
