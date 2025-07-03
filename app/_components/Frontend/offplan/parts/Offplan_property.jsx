@@ -516,7 +516,7 @@ const PropertyCard = ({ el }) => {
   const router = useRouter()
   const {
     _id,
-  location,
+    address,
     name,
     price,
     developer,
@@ -573,7 +573,7 @@ const PropertyCard = ({ el }) => {
               fill="white"
             />
           </svg>
-          <span>{location}</span>
+          <span>{address}</span>
         </span>
         <span className="text-[1rem] flex justify-between w-full">
           <span>Developer: {developer}</span>

@@ -124,8 +124,6 @@ const handleToggleStatus = () => {
     formData.append("agent", editData.agent);
     formData.append("area", editData.area);
     formData.append("order", editData.order || "");
-       console.log("Mobile Multiple Images:", editData.mobilemultipleImages);
-    console.log(" Multiple Images:", editData);
     (editData.features || []).forEach((f) => formData.append("features[]", f));
 
     (editData.amenities || []).forEach((a) =>
@@ -147,6 +145,10 @@ const handleToggleStatus = () => {
     if (editData.newQrImage) {
       formData.append("image", editData.newQrImage); // single file
     }
+    if (editData.newFeaturedImage) {
+      formData.append("featuredImage", editData.newFeaturedImage);
+    }
+
 
     // For multiple files:
     if (editData.newImages && editData.newImages.length > 0) {

@@ -5,9 +5,12 @@ import Row from "../../ui/Row.jsx";
 import Heading from "../../ui/Heading";
 import OffplanTable from "./parts/OffplanTable";
 import AppLayout from "../navbarAdmin/AppLayout";
+import ProtectedRoute from "../login/parts/ProtectedRoute";
 
 export default function Offplan() {
   return (
+    <ProtectedRoute>
+
     <OffplanProvider>
       <AppLayout>
         <Row type="horizontal">
@@ -17,5 +20,7 @@ export default function Offplan() {
         <OffplanTable />
       </AppLayout>
     </OffplanProvider>
+    </ProtectedRoute>
+
   );
 }

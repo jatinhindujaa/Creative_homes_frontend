@@ -5,9 +5,12 @@ import NewsTable from "./parts/NewsTable.jsx";
 import AppLayout from "../navbarAdmin/AppLayout";
 import NewsTableOperations from "./parts/NewsTableOperations.jsx";
 import Heading from "../../ui/Heading.jsx";
+import ProtectedRoute from "../login/parts/ProtectedRoute.jsx";
 
 export default function News() {
   return (
+    <ProtectedRoute>
+
     <NewsProvider>
       <AppLayout>
         <Row type="horizontal">
@@ -17,5 +20,7 @@ export default function News() {
         <NewsTable />
       </AppLayout>
     </NewsProvider>
+    </ProtectedRoute>
+
   );
 }

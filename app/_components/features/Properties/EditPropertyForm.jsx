@@ -14,6 +14,8 @@ const EditPropertyForm = ({
   onConfirm,
   onCloseModal,
 }) => {
+
+  console.log("ed",editData)
   const propertytypeOptions = [
     { value: "apartment", label: "Apartment" },
     { value: "penthouse", label: "Penthouse" },
@@ -57,6 +59,11 @@ const EditPropertyForm = ({
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
   );
+  const [featuredImage, setFeaturedImage] = useState(
+    editData.featuredImage || null
+  );
+  const [newFeaturedImage, setNewFeaturedImage] = useState(null);
+
   const [mobilemultipleImages, setmobilemultipleImages] = useState(
     editData.mobilemultipleImages || []
   );
@@ -128,6 +135,7 @@ const EditPropertyForm = ({
       furnishingtype,
       offeringtype,
       propertycategory,
+      featuredImage, // Add this
     }));
   }, [
     tags,
@@ -141,8 +149,10 @@ const EditPropertyForm = ({
     furnishingtype,
     offeringtype,
     propertycategory,
+    featuredImage,
     setEditData,
   ]);
+
 console.log("mobilemultipleImages", mobilemultipleImages);
 console.log("propertyImages", propertyImages);
 
@@ -469,6 +479,32 @@ const handleSubmit = (e) => {
             }}
           />
         </div>
+        <div className="w-[50%]">
+          <label className="text-sm font-medium text-gray-700">
+            Featured Image
+          </label>
+          {editData.featuredImage && !newFeaturedImage && (
+            <img
+              src={editData.featuredImage}
+              alt="Featured"
+              className="w-32 h-32 object-cover rounded-md mb-2"
+            />
+          )}
+          <FileInput
+            id="featuredImage"
+            accept="image/*"
+            type="file"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                setNewFeaturedImage(file);
+                setFeaturedImage(file);
+                setEditData((prev) => ({ ...prev, newFeaturedImage: file }));
+              }
+            }}
+          />
+        </div>
+
         <div>
           <label className="text-sm font-medium text-gray-700">Amenities</label>
           <TagInput tags={amenities} setTags={setAmenities} />

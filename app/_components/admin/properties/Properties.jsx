@@ -5,9 +5,12 @@ import Row from "../../ui/Row.jsx";
 import Heading from "../../ui/Heading.jsx";
 import PropertiesTable from "./parts/PropertiesTable";
 import AppLayout from "../navbarAdmin/AppLayout";
+import ProtectedRoute from "../login/parts/ProtectedRoute";
 
 export default function Properties() {
   return (
+    <ProtectedRoute>
+
     <PropertiesProvider>
       <AppLayout>
         <Row type="horizontal">
@@ -17,5 +20,7 @@ export default function Properties() {
         <PropertiesTable />
       </AppLayout>
     </PropertiesProvider>
+    </ProtectedRoute>
+
   );
 }
