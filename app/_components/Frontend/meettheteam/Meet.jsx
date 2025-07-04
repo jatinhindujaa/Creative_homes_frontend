@@ -7,6 +7,7 @@ import InterestSection from './parts/GotQues'
 import FAQSection from './parts/Faq\'s'
 import MortgageCalculator from '../mortgage/parts/Mortgage'
 import TeamSectionMobile from './parts/teamMembersMobile'
+import ExploreDubai from './parts/TopArea'
 
 const Meet = () => {
   const faqs = [
@@ -55,8 +56,9 @@ const Meet = () => {
   ];
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
+      <ExploreDubai/>
         <TeamSection />
         <TeamSectionMobile/>
         <MarqueeSection />
