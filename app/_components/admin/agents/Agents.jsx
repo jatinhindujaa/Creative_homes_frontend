@@ -9,7 +9,7 @@ import ProtectedRoute from "../login/parts/ProtectedRoute";
 
 export default function Agents() {
   return (
-    <ProtectedRoute>
+<ProtectedRoute>
       <AgentsProvider>
         <AppLayout>
           <Row type="horizontal">
@@ -19,6 +19,6 @@ export default function Agents() {
           <AgentsTable />
         </AppLayout>
       </AgentsProvider>
-    </ProtectedRoute>
+      </ProtectedRoute>
   );
 }

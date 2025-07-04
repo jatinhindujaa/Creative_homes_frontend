@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://creativehomes.ae
+
+# Sitemaps
+Sitemap: https://creativehomes.ae/sitemap.xml
