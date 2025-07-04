@@ -4,6 +4,7 @@ import Dubai from './parts/Dubai'
 import MarqueeSection from '../meettheteam/parts/marque'
 import Popular from '../news/parts/Popular'
 import InterestSection from '../meettheteam/parts/GotQues'
+import ExploreDubai from './parts/TopArea'
 
 const Guides = () => {
   const locations = [
@@ -17,8 +18,9 @@ const Guides = () => {
   ];
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <div className="bg-[#282927] flex flex-col items-center pt-10">
+         <ExploreDubai/>
         <Dubai />
         <MarqueeSection />
         <InterestSection />
