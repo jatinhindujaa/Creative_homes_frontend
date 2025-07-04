@@ -255,39 +255,7 @@ const Property = () => {
   const [beds, setBeds] = useState('');
   const [baths, setBaths] = useState('');
  const [showPriceModal, setShowPriceModal] = useState(false);
-  // const filteredProperties = data?.filter((property) => {
-  //   const offeringMatch = offeringType
-  //     ? property.offeringtype?.some(
-  //         (type) => type.toLowerCase() === offeringType.toLowerCase()
-  //       )
-  //     : true;
 
-  //   const propertyTypeMatch = propertyType
-  //     ? property.propertytype?.some(
-  //         (type) => type.toLowerCase() === propertyType.toLowerCase()
-  //       )
-  //     : true;
-
-  //   const searchMatch = searchQuery
-  //     ? property.name.toLowerCase().includes(searchQuery.toLowerCase())
-  //     : true;
-
-  //   const minPriceMatch = minPrice ? property.price >= minPrice : true;
-  //   const maxPriceMatch = maxPrice ? property.price <= maxPrice : true;
-
-  //   const bedMatch = beds ? property.bed === beds : true;
-  //   const bathMatch = baths ? property.shower === baths : true;
-
-  //   return (
-  //     offeringMatch &&
-  //     propertyTypeMatch &&
-  //     searchMatch &&
-  //     minPriceMatch &&
-  //     maxPriceMatch &&
-  //     bedMatch &&
-  //     bathMatch
-  //   );
-  // });
   
   const filteredDatas = data?.filter((el, i) => el.status === false);
   

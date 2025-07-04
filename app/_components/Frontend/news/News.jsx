@@ -3,6 +3,7 @@ import NewsCards from './parts/NewsCards'
 import Hero from './parts/Hero';
 import MarqueeSection from '../meettheteam/parts/marque';
 import Popular from './parts/Popular';
+import ExploreDubai from './parts/TopArea';
 
 const News = () => {
   const locations = [
@@ -16,8 +17,9 @@ const News = () => {
   ];
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
+              <ExploreDubai/>
         <NewsCards />
         <MarqueeSection />
         <Popular locations={locations}/>

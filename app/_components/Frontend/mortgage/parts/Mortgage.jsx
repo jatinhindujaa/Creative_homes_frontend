@@ -44,17 +44,17 @@ const MortgageCalculator = () => {
   const COLORS = ["#D4AF37", "#806517"];
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="text-center">
-        <h1 className="text-[#fff] lg:text-[2.5rem] text-[1.5rem]">
+    <div className="flex flex-col items-center w-full md:mt-10">
+      <div className="text-center md:mt-0 mt-10">
+        <h1 className="text-[#fff] lg:text-[2.5rem] text-[1.8rem]">
           Helping You Find The
         </h1>
-        <span className="leading-10 lg:text-[2.5rem] text-[1.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+        <span className="leading-10 lg:text-[2.5rem] text-[1.8rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           Right Mortgage
         </span>
       </div>
 
-      <div className="lg:w-[80%] w-[90%] bg-[#202120] flex flex-col items-center my-10 rounded-xl">
+      <div className="lg:w-[80%] w-[90%] bg-[#202120] flex flex-col items-center mb-10 mt-5 rounded-xl">
         <div className="text-white px-6 py-3 rounded-lg w-full flex flex-col md:flex-row">
           <div className="w-full md:w-[50%]">
             <div className="w-full mb-4">

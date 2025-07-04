@@ -6,6 +6,7 @@ import InterestSection from '../meettheteam/parts/GotQues';
 import MarqueeSection from '../meettheteam/parts/marque';
 import News from '../home/parts/News';
 import PropertyCard from '../property/parts/PropertyCard';
+import ExploreDubai from './parts/TopArea';
 
 const Mortgage = () => {
   const faqs = [
@@ -48,8 +49,9 @@ const Mortgage = () => {
 
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
+        <ExploreDubai/>
         <MortgageCalculator />
         <FAQSection faqs ={faqs}/>
         <InterestSection />
