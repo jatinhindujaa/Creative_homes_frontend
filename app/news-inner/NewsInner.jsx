@@ -5,6 +5,7 @@ import FAQSection from '../_components/Frontend/meettheteam/parts/Faq\'s'
 import { useParams } from 'next/navigation';
 import { useNewsById } from '../_components/admin/news/useNews';
 import Hero from './parts/Hero';
+import ImageBox from '../_components/Frontend/guides/parts/ImageBox';
 
 const NewsInner = () => {
   const { _id } = useParams();
@@ -57,7 +58,8 @@ const NewsInner = () => {
   return (
     <>
       <Hero data={data} />
-      <div className="bg-[#282927]">
+      {/* <ImageBox title={data} /> */}
+      <div className="bg-[#282927] flex justify-center flex-col items-center">
         <DubaiInvestmentSection data={data} />
         <FAQSection faqs={faqs} />
       </div>

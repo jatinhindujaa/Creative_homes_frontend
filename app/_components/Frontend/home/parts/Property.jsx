@@ -234,10 +234,10 @@ const Property = () => {
             </div>
           </div>
           <div className="h-[30%] w-full flex flex-col justify-start items-center space-y-6 -top-12 relative">
-            <span className="text-[1.2rem] leading-[2.3rem]">
+            <span className="text-[1.2rem] leading-[2.3rem] text-center font-extralight">
               Get the right valuation for your property
             </span>
-            <Button text="Submit Property" className="px-3 py-1 font-light" />
+            <Button text="Submit Property" className="px-3 py-1 font-semibold" />
           </div>
         </div>
 

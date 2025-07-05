@@ -13,21 +13,21 @@ const Mortgage_calculator = () => {
     <div className="w-[80%] mx-auto md:mt-[100px] mt-[10px] flex flex-col lg:flex-row lg:space-x-4 xs:bg-[#202120] lg:bg-[transparent] rounded-2xl xs:p-[10px] lg:p-[0]">
       <div className="w-full lg:w-[45%] flex flex-col bg-[#202120] rounded-[10px] p-6 space-y-4 text-center lg:text-left">
         <div>
-          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[3.2rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold tracking-wider">
+          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[2rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold tracking-wider">
             MORTGAGE
           </h2>
-          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium leading-[1.rem] tracking-wider text-white">
+          <h2 className="text-[1.5rem] sm:text-[2.5rem] font-medium tracking-wider text-white">
             CALCULATOR
           </h2>
         </div>
 
-        <p className="text-[1rem] sm:text-[1.4rem] leading-[1.8rem] sm:leading-[2rem] pt-1 sm:pt-1 text-white font-extralight">
+        <p className="text-[1rem] sm:text-[1.4rem] pt-1 sm:pt-1 text-white font-extralight">
           Our user-friendly mortgage calculator helps you estimate your monthly
           mortgage payments quickly and accurately. Whether you're a first-time
           homebuyer or looking to refinance, this tool provides valuable
           insights into your home financing options.
         </p>
-        <p className="text-[1rem] sm:text-[1.4rem] leading-[1.8rem] sm:leading-[2rem] text-white font-extralight">
+        <p className="text-[1rem] sm:text-[1.4rem]  text-white font-extralight">
           Get a clear picture of the long-term financial commitment. See how
           much goes towards principal, interest, fees, and insurance. Plan Your
           Home Financing with Confidence
@@ -36,13 +36,13 @@ const Mortgage_calculator = () => {
           <a href="/mortgage-calculator">
             <HoverButton
               text="Mortgage Calculator"
-              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 tracking-wider font-extralight"
+              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[1.5rem] px-5 py-2 tracking-wider font-extralight"
             />
           </a>
           <a href="/contact-us">
             <Button
               text="Speak To The Team"
-              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 tracking-wider font-extralight"
+              className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[1.5rem] px-5 py-2 tracking-wider font-extralight"
             />
           </a>
         </div>
@@ -95,13 +95,13 @@ const Mortgage_calculator = () => {
         <a href="/mortgage-calculator">
           <HoverButton
             text="Mortgage Calculator"
-            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] text-black bg-white leading-[1.5rem] px-5 py-2 font-normal tracking-wider"
           />
         </a>
         <a href="/contact-us">
           <Button
             text="Speak To The Team"
-            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.4rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
+            className="w-full sm:w-fit text-[1.1rem] sm:text-[1.5rem] leading-[2.4rem] px-5 py-2 font-normal tracking-wider"
           />
         </a>
       </div>

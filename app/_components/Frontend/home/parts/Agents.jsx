@@ -743,7 +743,7 @@ const Agents = () => {
                 width={250}
                 height={400}
               />
-              <div className="flex flex-col justify-center items-center text-[1.6rem] leading-[2.2rem] pt-1">
+              <div className="flex flex-col justify-center items-center text-[1.6rem] leading-[2.2rem] pt-3">
                 <span className="text-[1.4rem]">{agent.name}</span>
                 <span className="text-[1rem] leading-6">
                   {agent.designation}

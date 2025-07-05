@@ -19,9 +19,9 @@ const router = useRouter();
     <div className="hidden md:flex flex-col items-center relative cursor-pointer">
       <div className="flex justify-center space-x-4 text-[2.5rem] pt-[70px] font-medium">
         <span>FEATURED </span>
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
+        {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           PROPERTIES
-        </span>
+        </span> */}
       </div>
       <div className="flex w-[80%] mx-auto pt-[50px]">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
