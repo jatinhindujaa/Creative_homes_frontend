@@ -32,14 +32,14 @@ const boxData = [
 const Dubai = () => {
     
   return (
-    <div className='text-center w-full md:mt-10 mt-10'>
+    <div className='text-center w-full md:my-10 mt-10'>
       <span className="text-[#fff] max-md:text-[1.5rem] text-[2.5rem] text-center">
         Dubai Property {""}
         <span className="leading-10 max-md:text-[1.5rem] text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           Investment Guide
         </span>
       </span>
-      <div className={`min-h-screen p-6 pt-0`}>
+      <div className={`min-h-screen md:pt-6 pt-0`}>
         <div className='flex flex-col items-center justify-center'>
           {boxData.map((box, index) => (
             <Box

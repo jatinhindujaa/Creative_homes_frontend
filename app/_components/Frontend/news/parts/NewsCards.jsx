@@ -394,7 +394,7 @@ const NewsCards = () => {
   //   },
   // ];
   const filteredDatas = data?.filter((el, i) => el.status === true);
-  const cardsPerPage = 8;
+  const cardsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 const router = useRouter()
   const totalPages = Math.ceil(filteredDatas?.length / cardsPerPage);
@@ -419,11 +419,11 @@ const router = useRouter()
   };
 
   return (
-    <div className="text-white p-6 md:p-10 flex flex-col items-center gap-6">
+    <div className="text-white p-6 md:p-0 flex flex-col items-center gap-1 w-[80%]">
       {currentCards?.map((d, index) => (
         <div
           key={index}
-          className="flex flex-col sm:flex-row p-3 md:p-10 items-center gap-6 w-full"
+          className="flex flex-col sm:flex-row p-3 md:p-10 md:px-0 items-center gap-6 w-full"
         >
           {/* Image Section */}
           <div className="w-full sm:w-1/3 relative mb-4 sm:mb-0">
@@ -437,11 +437,15 @@ const router = useRouter()
           </div>
 
           {/* Text Content */}
-          <div className="w-full sm:w-2/3">
+          <div className="w-full sm:w-2/3 md:mb-[12px]">
             <h2 className="text-[1.8rem] sm:text-[2.5rem] font-bold mb-2">
               {d.title}
             </h2>
-            <div className="flex flex-row w-full justify-between">
+            <div
+              className="text-[1rem] font-light leading-[1.6rem] line-clamp-3"
+              dangerouslySetInnerHTML={{ __html: d.description }}
+            />
+            <div className="flex flex-row w-full justify-between pt-4">
               <p className="text-gray-400 text-md mb-2">{d.date}</p>
               <div className="flex items-center text-gray-400">
                 <span className="mr-1">👁️</span> {d.view}

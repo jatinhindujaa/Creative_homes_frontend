@@ -124,13 +124,15 @@ if (isAgentLoading) {
           {data.name}
         </h2>
         <h2 className="text-2xl md:text2xl ">AED {data.price}</h2>
-        <div className="flex flex-row gap-4">
-          {data.features.slice(0, 3).map((d, i) => (
-            <span key={i} className="text-[1rem]">
-              {d}{" "}
-            </span>
+        <div className="flex flex-row gap-2">
+          {data.features.slice(0, 3).map((d, i, arr) => (
+            <div key={i} className="flex items-center gap-2 text-[1rem]">
+              <span>{d}</span>
+              {i < arr.length - 1 && <span>|</span>}
+            </div>
           ))}
         </div>
+
         {/* <p className="text-xl font-semibold mt-1">{data.title}</p> */}
         <p className="text-gray-400 text-lg mt-1">📍 {data.dealType}</p>
 
@@ -183,7 +185,7 @@ if (isAgentLoading) {
           </div>
         </div> */}
         {agents && (
-          <div className="flex gap-6 md:gap-32 mt-4 items-center flex-wrap cursor-pointer">
+          <div className="flex gap-6 md:gap-[2rem] mt-4 items-center flex-wrap cursor-pointer">
             <div
               className="flex flex-row items-center gap-2"
               onClick={() => router.push(`/meet-the-team/${agents._id}`)}

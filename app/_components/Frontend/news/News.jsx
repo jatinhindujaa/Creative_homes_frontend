@@ -3,7 +3,7 @@ import NewsCards from './parts/NewsCards'
 import Hero from './parts/Hero';
 import MarqueeSection from '../meettheteam/parts/marque';
 import Popular from './parts/Popular';
-import ExploreDubai from './parts/TopArea';
+import TopArea from './parts/TopArea';
 
 const News = () => {
   const locations = [
@@ -15,14 +15,19 @@ const News = () => {
     "Emirate Hills",
     "Downtown Dubai",
   ];
+  const title ="Real estate insights"
+  const description=`Explore the best properties, reliable agents, and expert advice all in
+        one spot. Whether you're searching for your perfect home or making a
+        savvy investment, we’re here to help you confidently navigate the real
+        estate market.`
   return (
     <>
       {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
-              <ExploreDubai/>
+        <TopArea title={title} description={description} />
         <NewsCards />
         <MarqueeSection />
-        <Popular locations={locations}/>
+        <Popular locations={locations} />
       </div>
     </>
   );

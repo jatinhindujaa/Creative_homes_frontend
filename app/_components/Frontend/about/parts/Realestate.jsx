@@ -4,7 +4,7 @@ import Link from "next/link";
 import image from "../assets/s.png"
 export default function RealEstateSection() {
   return (
-    <section className=" text-white w-full py-12 px-6 md:px-20 flex flex-col md:flex-row items-center justify-between gap-10">
+    <section className=" text-white w-[80%] py-12 px-6 md:px-0 flex flex-col md:flex-row items-center justify-between gap-10">
       {/* Left Image */}
       <div className="w-full md:w-1/2 relative h-[300px] md:h-[500px]">
         <Image

@@ -7,6 +7,7 @@ import MarqueeSection from '../meettheteam/parts/marque';
 import News from '../home/parts/News';
 import PropertyCard from '../property/parts/PropertyCard';
 import ExploreDubai from './parts/TopArea';
+import TopArea from '../news/parts/TopArea';
 
 const Mortgage = () => {
   const faqs = [
@@ -46,12 +47,16 @@ const Mortgage = () => {
         " Yes, with competitive prices and strong ROI, many consider now a favorable time to invest.",
     },
   ];
-
+const title = "Mortgage Calculator";
+const description = `Our mortgage calculator factors in key costs like homeowners association
+        fees and private mortgage insurance (PMI), without the burden of
+        property taxes. Get a complete view of your total monthly payment today.`;
   return (
     <>
       {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
-        <ExploreDubai/>
+        {/* <ExploreDubai/> */}
+        <TopArea title={title} description={description} />
         <MortgageCalculator />
         <FAQSection faqs ={faqs}/>
         <InterestSection />

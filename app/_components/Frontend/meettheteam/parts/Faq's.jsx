@@ -178,7 +178,7 @@ const FAQSection = ({ faqs }) => {
   };
 
   return (
-    <div className="px-4 py-8 md:py-10">
+    <div className="pb-10 pt-5 w-full">
       {/* FAQ Title */}
       <div className="text-center py-5">
         <span className="text-center leading-10 text-[2rem] sm:text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
@@ -187,7 +187,7 @@ const FAQSection = ({ faqs }) => {
       </div>
 
       {/* FAQ List */}
-      <div className="max-w-[71rem] mx-auto space-y-4">
+      <div className="md:w-[80%] mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div key={index} className="relative flex flex-col items-center">
             {/* Outer Shadow for Glow Effect */}

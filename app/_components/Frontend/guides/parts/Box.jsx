@@ -31,7 +31,7 @@ const Box = ({ title, imgSrc, altText, box }) => {
   const router = useRouter();
   return (
     <div
-      className="relative w-[90%] shadow-md hover:shadow-xl transition-all cursor-pointer"
+      className="relative w-[80%] shadow-md hover:shadow-xl transition-all cursor-pointer"
       onClick={() => router.push(`/guides/${altText}`)}
     >
       <div className="relative w-full h-48">

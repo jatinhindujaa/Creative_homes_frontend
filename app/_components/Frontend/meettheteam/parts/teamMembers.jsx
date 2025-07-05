@@ -775,12 +775,12 @@ const TeamSection = () => {
             placeholder="Enter Agent Name"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="px-4 py-2 rounded-md w-[400px] text-black placeholder-black"
+            className="px-4 py-2 rounded-md w-[630px] text-black placeholder-black"
           />
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="px-4 py-2 rounded-md"
+            className="px-4 py-2 rounded-md w-[250px]"
           >
             <option value="">Type</option>
             <option value="off plan">Off Plan</option>
@@ -789,7 +789,7 @@ const TeamSection = () => {
           <select
             value={selectedLanguage}
             onChange={(e) => setSelectedLanguage(e.target.value)}
-            className="px-4 py-2 rounded-md"
+            className="px-4 py-2 rounded-md w-[250px]"
           >
             <option value="">Language</option>
             <option value="English">English</option>
@@ -810,9 +810,9 @@ const TeamSection = () => {
         </div>
       </div>
 
-      <h2 className="text-4xl font-bold text-white text-center mb-12">
+      {/* <h2 className="text-4xl font-bold text-white text-center mb-12">
         Meet Our Team
-      </h2>
+      </h2> */}
 
       <div className="flex justify-center">
         <div className="flex gap-6 items-center">
@@ -825,7 +825,7 @@ const TeamSection = () => {
                 return (
                   <div
                     key={member.name}
-                    className="relative w-[120px] h-[220px] md:w-[150px] md:h-[280px] lg:w-[230px] lg:h-[300px] rounded-2xl overflow-hidden group"
+                    className="relative w-[120px] h-[220px] md:w-[150px] md:h-[280px] lg:w-[211px] lg:h-[300px] rounded-2xl overflow-hidden group"
                     onClick={() => router.push(`/meet-the-team/${member._id}`)}
                   >
                     <Image

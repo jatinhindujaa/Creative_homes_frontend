@@ -2,7 +2,7 @@
 
 export default function WhyUsSection() {
   return (
-    <section className=" text-white text-center py-16 px-4 md:px-20">
+    <section className=" text-white text-center py-16 px-4 md:px-0 w-[80%]">
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-semibold mb-4">
         WHY{" "}
@@ -12,7 +12,7 @@ export default function WhyUsSection() {
       </h2>
 
       {/* Description */}
-      <p className="max-w-3xl mx-auto text-gray-300 text-sm md:text-base leading-relaxed mb-12">
+      <p className=" mx-auto text-gray-300 text-sm md:text-base leading-relaxed mb-12">
         At Creative Homes Real Estate, we make buying, selling, and investing in
         property easy and stress-free. We work with trusted developers to offer
         top-quality homes and great investment deals. Our team listens to your

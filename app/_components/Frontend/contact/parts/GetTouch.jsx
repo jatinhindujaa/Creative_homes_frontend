@@ -13,7 +13,7 @@ const GetTouch = () => {
           With Us !
         </span>
       </p>
-      <div className="py-12 max-md:py-0">
+      <div className="py-12 pt-5 max-md:py-0 md:w-[80%]">
         <div className="flex max-md:flex-col max-md:gap-8 items-center justify-evenly border-[#8e7b4f] py-8">
           {/* Phone Section */}
           <div className="flex flex-col items-center text-center">

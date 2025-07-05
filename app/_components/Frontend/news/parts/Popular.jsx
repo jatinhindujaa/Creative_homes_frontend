@@ -46,7 +46,7 @@ import React from "react";
 
 const Popular = ({ locations }) => {
   return (
-    <div className="flex gap-2 flex-col p-6 md:p-10 mb-16 w-[90%] md:w-full rounded-[30px]">
+    <div className="flex gap-2 flex-col p-6 md:p-0 mb-16 w-[90%] md:w-[80%] rounded-[30px]">
       <div className="flex justify-center">
         <span className="text-[#fff] text-[2rem] sm:text-[2.5rem] text-center">
           <span className="leading-10 text-[2rem] sm:text-[2.5rem] text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">

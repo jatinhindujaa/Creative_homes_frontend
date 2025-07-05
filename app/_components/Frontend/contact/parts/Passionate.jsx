@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const Passionate = () => {
   return (
-    <div className="bg-[#282927] flex max-lg:flex-col py-12 justify-center items-center ">
-      <div className="max-lg:w-[100%] max-lg:justify-center w-[57%] text-center justify-start flex">
-        <div className="w-[80%] ">
+    <div className="bg-[#282927] flex max-lg:flex-col py-12 justify-center items-center md:w-[80%]">
+      <div className="max-lg:w-[100%] max-lg:justify-center w-[67%] text-center justify-start flex">
+        <div className="w-[85%] ">
           <h1 className="text-[#fff] max-md:text-[1.2rem] text-[2.5rem] ">
             We are Passionate
           </h1>

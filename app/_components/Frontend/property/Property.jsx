@@ -175,6 +175,7 @@ import { PropertyCard } from './parts/PropertyCard';
 import { useProperties } from '../../admin/properties/useProperties';
 import { useSearchParams } from 'next/navigation';
 import Spinner from '../../ui/Spinner';
+import TopArea from '../news/parts/TopArea';
 
 const faqs = [
   {
@@ -304,15 +305,21 @@ const handlePriceSubmit = () => {
       </div>
     );
   }
-
+ const title = "Property";
+ const description = ` Our property specialists cover Dubai’s key communities, offering a range
+        of services including Residential & Commercial Sales and Leasing,
+        Off-Plan Investments, Property Management, and more. Whether you're
+        looking to invest, buy, sell, or rent, our dedicated specialists are
+        here to guide you through every step of the process.`;
   return (
-    <>
+    <div className="bg-[#282927] gap-2 flex items-center flex-col">
       {/* <Hero /> */}
-      <div className="pt-20">
+      <TopArea title={title} description={description} />
+      <div className="pt-14">
         <div className=" bg-black bg-opacity-10 p-6 rounded-lg">
           <div className="flex flex-wrap gap-4 justify-center">
             <select
-              className="p-1 h-[35px] rounded-l-2xl border border-gray-300 text-black"
+              className="p-1 h-[35px] rounded-l-2xl border border-gray-300 text-black w-[100px]"
               value={offeringType}
               onChange={(e) => setOfferingType(e.target.value)}
             >
@@ -325,7 +332,7 @@ const handlePriceSubmit = () => {
             <input
               type="text"
               placeholder="Search Property Name"
-              className="p-1 h-[35px]  border border-gray-300 text-black placeholder-black"
+              className="p-1 h-[35px]  border border-gray-300 text-black placeholder-black w-[350px]"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -352,7 +359,7 @@ const handlePriceSubmit = () => {
             </select>
             <div className="relative bg-white ">
               <button
-                className="p-1 h-[35px]  border border-gray-300 text-black"
+                className="p-1 h-[35px]  border border-gray-300 text-black w-[200px]"
                 onClick={() => setShowPriceModal(!showPriceModal)}
               >
                 Price Range
@@ -370,7 +377,7 @@ const handlePriceSubmit = () => {
                     <input
                       type="number"
                       placeholder="Max Price"
-                      className="p-2  border border-gray-300 text-black"
+                      className="p-2  border border-gray-300 text-black "
                       value={maxPrice}
                       onChange={(e) => setMaxPrice(e.target.value)}
                     />
@@ -397,7 +404,7 @@ const handlePriceSubmit = () => {
               <option value="5">5</option>
             </select>
             <select
-              className="p-1 h-[35px] rounded-r-2xl border border-gray-300 text-black"
+              className="p-1 h-[35px] rounded-r-2xl border border-gray-300 text-black w-[100px]"
               value={baths}
               onChange={(e) => setBaths(e.target.value)}
             >
@@ -409,8 +416,7 @@ const handlePriceSubmit = () => {
           </div>
         </div>
       </div>
-
-      <div className="pb-20">
+      <div className="pb-10 w-[80%]">
         {filteredProperties?.length === 0 ? (
           <div className="text-center text-white">
             <h2 className="text-2xl font-semibold">No properties found</h2>
@@ -424,15 +430,15 @@ const handlePriceSubmit = () => {
           ))
         )}
       </div>
+      <MarqueeSection />
 
       <div className="bg-[#282927] gap-2 flex items-center flex-col py-10">
         <FAQSection faqs={faqs} />
         <Popular locations={locations} />
-        <MarqueeSection />
         <InterestSection />
         <News />
       </div>
-    </>
+    </div>
   );
 }
 

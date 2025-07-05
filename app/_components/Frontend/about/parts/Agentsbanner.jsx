@@ -8,7 +8,7 @@ import yogesh from "../assets/5.png";
 const Agentsbanner = () => {
   return (
     <div className="w-full flex items-center justify-center py-10">
-      <div className="w-full md:w-[95%] relative h-[300px] md:h-[500px] rounded-lg overflow-hidden">
+      <div className="w-full md:w-[80%] relative h-[300px] md:h-[500px] rounded-lg overflow-hidden">
         {/* Background image */}
         <Image
           src={background}

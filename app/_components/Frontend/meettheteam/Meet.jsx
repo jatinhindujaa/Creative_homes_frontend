@@ -8,6 +8,7 @@ import FAQSection from './parts/Faq\'s'
 import MortgageCalculator from '../mortgage/parts/Mortgage'
 import TeamSectionMobile from './parts/teamMembersMobile'
 import ExploreDubai from './parts/TopArea'
+import TopArea from '../news/parts/TopArea'
 
 const Meet = () => {
   const faqs = [
@@ -54,11 +55,18 @@ const Meet = () => {
         "With competitive pricing and high rental yields, now is a great time to invest in Dubai’s real estate market.",
     },
   ];
+  const title = "Meet Our team";
+  const description = ` Our property specialists cover Dubai’s key communities, offering a range
+        of services including Residential & Commercial Sales and Leasing,
+        Off-Plan Investments, Property Management, and more. Whether you're
+        looking to invest, buy, sell, or rent, our dedicated specialists are
+        here to guide you through every step of the process.`;
   return (
     <>
       {/* <Hero /> */}
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
-      <ExploreDubai/>
+                 <TopArea title={title} description={description} />
+        
         <TeamSection />
         <TeamSectionMobile/>
         <MarqueeSection />

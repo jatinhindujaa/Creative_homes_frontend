@@ -31,12 +31,12 @@ const Why = () => {
         </span>
       </div>
 
-      <div className="max-lg:hidden relative py-12 flex justify-center overflow-hidden">
+      <div className="max-lg:hidden relative py-12 flex justify-center overflow-hidden md:w-[80%]">
         <div className="relative flex gap-3 flex-wrap justify-center">
           {benefits.map((text, index) => (
             <div
               key={index}
-              className={`flex flex-col items-center ${staggerOffsets[index]} w-[130px] md:w-[180px] lg:w-[200px]`}
+              className={`flex flex-col items-center ${staggerOffsets[index]} w-[130px] md:w-[180px] lg:w-[182px]`}
             >
               {/* Card container with overflow-hidden to keep rounded corners clean */}
               <div className="relative group w-full h-[200px] md:h-[300px] lg:h-[400px] overflow-hidden rounded-[30px]">

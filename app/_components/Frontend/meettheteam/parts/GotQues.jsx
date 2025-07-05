@@ -111,7 +111,7 @@ const InterestSection = () => {
 
   return (
     <div
-      className="w-[94%] bg-cover bg-center flex justify-center items-center rounded-2xl my-16"
+      className="w-[80%] bg-cover bg-center flex justify-center items-center rounded-2xl my-10"
       style={{ backgroundImage: `url('/bg.png')` }}
     >
       {/* Dark Overlay */}

@@ -384,7 +384,7 @@ const GotQues = () => {
           Questions?
         </span>
       </p>
-      <div className="flex flex-row justify-evenly items-center gap-2 max-md:py-4 py-8">
+      <div className="flex flex-row justify-evenly items-center gap-2 max-md:py-4 py-10 md:w-[80%]">
         <div className="max-md:hidden h-[67vh] w-[40%] relative">
           <Image
             src={form.src}

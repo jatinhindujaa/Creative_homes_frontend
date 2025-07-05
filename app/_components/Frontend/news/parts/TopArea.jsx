@@ -1,17 +1,14 @@
-export default function ExploreDubai() {
+export default function TopArea({ description, title }) {
   return (
     <section
-      className="rounded-2xl shadow-2xl p-6 md:p-10 mx-auto md:max-w-[79rem] mt-28 md:mt-28 max-w-[22rem]"
+      className="rounded-2xl shadow-2xl p-6 md:p-10 md:pt-6 mx-auto md:max-w-[73rem] mt-28 md:mt-40 max-w-[22rem] gap-3"
       style={{ boxShadow: "0 0 5px 1px aliceblue" }}
     >
-      <h2 className="text-3xl md:text-4xl font-normal text-white mb-4">
-        Real estate insights
-      </h2>
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold text-[3rem]">
+       {title}
+      </span>
       <p className="text-white text-lg leading-relaxed font-extralight">
-        Explore the best properties, reliable agents, and expert advice all in
-        one spot. Whether you're searching for your perfect home or making a
-        savvy investment, we’re here to help you confidently navigate the real
-        estate market.
+        {description}
       </p>
     </section>
   );

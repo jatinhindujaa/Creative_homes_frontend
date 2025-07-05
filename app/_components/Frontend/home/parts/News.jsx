@@ -184,11 +184,15 @@ const News = () => {
     //         </div>
     //       ))}
     //     </div>
-    <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-8 text-white py-10">
+    <div className="w-[80%] mx-auto flex flex-col lg:flex-row gap-8 text-white py-10">
       {filteredDatas?.slice(0, 3).map((item, i) => (
-        <div key={i} className="flex flex-col w-full lg:w-[33.33%] space-y-4">
+        <div
+          key={i}
+          className="flex flex-col w-full lg:w-[33.33%] space-y-4 cursor-pointer"
+          onClick={() => router.push(`/news/${item._id}`)}
+        >
           {/* Image */}
-          <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[560px] w-full">
+          <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[480px] w-full">
             <Image
               src={item.multipleImages[0]}
               alt={item.title}

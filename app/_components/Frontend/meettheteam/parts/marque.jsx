@@ -16,7 +16,7 @@ const locations = [
 
 const MarqueeSection = () => {
   return (
-    <div className="bg-[#202120] flex gap-2 flex-col p-10 w-[94%] rounded-[30px] md:mb-10">
+    <div className="bg-[#202120] flex gap-2 flex-col p-10 w-[80%] rounded-[30px] md:mb-0">
       <div className="flex justify-center">
         <span className="text-[#fff] text-[1.5rem] lg:text-[2.5rem] text-center">
           Explore{" "}

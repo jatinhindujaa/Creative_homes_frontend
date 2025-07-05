@@ -1,7 +1,7 @@
 export default function ExploreDubai() {
   return (
     <section
-      className="rounded-2xl shadow-2xl p-6 md:p-10 mx-auto md:max-w-[73rem] mt-28 md:mt-28 sm:max-w-[23rem] xs:max-w-[20rem] max-w-[18rem]"
+      className="rounded-2xl shadow-2xl p-6 md:p-10 mx-auto md:max-w-[71rem] mt-28 md:mt-28 sm:max-w-[23rem] xs:max-w-[20rem] max-w-[18rem]"
       style={{ boxShadow: "0 0 5px 1px aliceblue" }}
     >
       <h2 className="text-3xl md:text-4xl font-normal text-white mb-4">
