@@ -190,7 +190,7 @@ const Property = () => {
         <span>PROPERTY</span>
       </div>
 
-      <div className="w-[90%] mx-auto space-x-20 sm:flex hidden max-w-[1200px]">
+      <div className="w-[80%] mx-auto space-x-20 sm:flex hidden max-w-[1200px]">
         <div
           className="h-[750px] w-[33.33%] flex items-end"
           onClick={() => handleNavigate("apartment")}

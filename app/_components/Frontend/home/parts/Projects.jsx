@@ -48,7 +48,7 @@ const Projects = () => {
         <span className="leading-12">PROJECTS</span>
       </div>
 
-      <div className="w-[90%] mx-auto flex flex-col lg:flex-row flex-wrap justify-center">
+      <div className="w-[80%] mx-auto flex flex-col lg:flex-row flex-wrap justify-center">
         {projectList.map((project, index) => (
           <div
             key={index}

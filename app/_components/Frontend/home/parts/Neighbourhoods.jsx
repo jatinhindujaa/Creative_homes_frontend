@@ -530,7 +530,7 @@ const leftPositions = [20, 45, 68, 80];
         </span>
       </div>
 
-      <div className="flex w-[90%] h-[400px] mx-auto space-x-4 relative">
+      <div className="flex w-[80%] h-[400px] mx-auto space-x-4 relative">
         {sortedAreas.map((item, index) => {
           const defaultWidth = getDefaultWidth(index);
 

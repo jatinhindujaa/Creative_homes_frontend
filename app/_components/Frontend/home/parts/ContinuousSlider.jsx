@@ -179,8 +179,8 @@ const DeveloperLogos = () => {
     <div className="md:pt-28  text-center items-center relative cursor-pointer pt-12">
       <div className="bg-[#202120] md:block hidden text-white p-6 rounded-lg border border-[#FCD15B] w-[80%] sm:w-[70%] md:w-[60%] left-[50%] transform -translate-x-1/2 text-center absolute -top-[4.5rem]">
         <p className="text-[1.2rem] sm:text-[1.5rem] tracking-wider">
-          <span className="text-[#FCD15B]">AWARDED</span> TOP AGENT:
-          <span className="text-[#A97C50]">EXCELLENCE</span> AT TOWN SQUARE
+          <span className="text-[#FCD15B]">AWARDED</span> TOP AGENT : {""}
+          <span className="text-[#A97C50]">EXCELLENCE</span> AT TOWN SQUARE {""}
           <span className="text-[#FCD15B]">DUBAI</span>
         </p>
         <div className="flex items-center justify-center mt-2 space-x-2">

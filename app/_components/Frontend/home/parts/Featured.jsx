@@ -23,7 +23,7 @@ const router = useRouter();
           PROPERTIES
         </span>
       </div>
-      <div className="flex w-[90%] mx-auto pt-[50px]">
+      <div className="flex w-[80%] mx-auto pt-[50px]">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           <div
             className="relative h-[30%] w-full "

@@ -134,7 +134,7 @@ import CountUp from "react-countup";
 
 const Info = () => {
   return (
-    <div className="relative z-[1] mx-auto md:mt-[100px] mt-[30px] min-h-[500px] w-[90%] bg-[url('/work_with_us.jpg')] bg-cover bg-top bg-no-repeat bg-fixed py-[111px] pb-[114px] rounded-[18px] max-w-[1200px]">
+    <div className="relative z-[1] mx-auto md:mt-[100px] mt-[30px] min-h-[500px] w-[80%] bg-[url('/work_with_us.jpg')] bg-cover bg-top bg-no-repeat bg-fixed py-[111px] pb-[114px] rounded-[18px] max-w-[1200px]">
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div className="text-white text-[1.9rem] leading-[2.4rem] space-y-2 relative z-10 flex flex-col items-center justify-evenly h-full">
           <span className="text-[1.5rem] sm:text-[2.5rem] leading-[3rem] sm:leading-[4.3rem] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold uppercase text-center">

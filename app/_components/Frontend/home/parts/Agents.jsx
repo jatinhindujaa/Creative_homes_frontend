@@ -728,7 +728,7 @@ const Agents = () => {
       </div>
 
       {/* Slider */}
-      <div className="w-[90%] mx-auto relative lg:block hidden max-w-[1200px]">
+      <div className="w-[80%] mx-auto relative lg:block hidden max-w-[1200px]">
         <Slider {...settings} ref={sliderRef}>
           {(groupedAgents[activeTab] || []).map((agent) => (
             <div
