@@ -67,7 +67,8 @@ const Offplan_property = () => {
   const totalPages = Math.ceil(data?.length / propertyPerPage);
 
   const startIndex = (currentPage - 1) * propertyPerPage;
-  const currentProperties = data?.slice(
+  const filteredDatas = data?.filter((el, i) => el.status === false);
+  const currentProperties = filteredDatas?.slice(
     startIndex,
     startIndex + propertyPerPage
   );
