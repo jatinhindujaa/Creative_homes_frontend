@@ -13,7 +13,7 @@ import React from "react";
 import TopArea from "../news/parts/TopArea";
 
 const Privacypolicy = () => {
-   const title = "Pricacy Policies";
+   const title = "Privacy Policies";
    const description = ` Our property specialists cover Dubai’s key communities, offering a range
         of services including Residential & Commercial Sales and Leasing,
         Off-Plan Investments, Property Management, and more. Whether you're

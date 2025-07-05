@@ -701,8 +701,8 @@ const Agents = () => {
   };
 
   return (
-    <div className="flex flex-col md:gap-[50px] gap-[10px]">
-      <div className="w-[90%] mx-auto flex flex-col justify-center items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold md:mt-[100px] mt-[30px] max-w-[1200px]">
+    <div className="flex flex-col md:gap-[30px] gap-[10px]">
+      <div className="w-[90%] mx-auto flex flex-col justify-center pt-[20px] items-center lg:text-[2.5rem] text-[1.5rem] leading-[4.3rem] font-semibold md:mt-[100px] mt-[30px] max-w-[1200px]">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold leading-1">
           AGENTS
         </span>

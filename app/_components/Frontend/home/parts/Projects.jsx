@@ -68,7 +68,7 @@ const Projects = () => {
                 className="bg-black bg-opacity-30 absolute inset-0 transition-opacity duration-300 hover:opacity-0"
                 style={{ borderRadius: project.radius }}
               ></div>
-              <div className="text-white text-[1.5rem] md:text-[1.9rem] leading-[2.4rem] space-y-2 z-10 flex flex-col justify-center items-center">
+              <div className="text-center text-white text-[1.5rem] md:text-[1.9rem] leading-[2.4rem] space-y-2 z-10 flex flex-col justify-center items-center">
                 <span className="font-light">{project.title}</span>
                 <Button
                   text="VIEW PROJECT"

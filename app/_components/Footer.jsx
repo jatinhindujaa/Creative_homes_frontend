@@ -357,7 +357,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col">
           <span className="text-[1rem] leading-6">
-            © All Right Reserved By Creative Homes Real Estate, 2024
+            © All Right Reserved By Creative Homes Real Estate, 2025
           </span>
         </div>
       </div>
