@@ -10,9 +10,7 @@ import Spinner from "@/app/_components/ui/Spinner";
 import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import Image from "next/image";
 
-function WhatsapRow({
-  Whatsap: { _id, name, phone, email, category, message },
-}) {
+function WhatsapRow({ Whatsap: { _id, phone, createdAt, type, type1 } }) {
   // const { mutate: deleteWhatsap, isPending: isDeleting } = useDeleteWhatsap();
   const [show, setShow] = useState(false);
 
@@ -65,14 +63,13 @@ function WhatsapRow({
   return (
     <Table.Row>
       <div className="flex flex-col gap-1 text-sm ">
-        <span className="font-medium">{name}</span>
+        <span className="font-medium">{_id}</span>
       </div>
 
       <div className="text-sm">{phone}</div>
 
-      <div className="text-sm">{email}</div>
-      <div className="text-sm">{category}</div>
-      <div className="text-sm">{message}</div>
+      <div className="text-sm">{type || type1}</div>
+      <div className="text-sm">{createdAt}</div>
 
       {/* <div className="text-sm ">
         {show

@@ -289,7 +289,7 @@
 //       email: formData.email,
 //       phone: formData.phone,
 //       message: formData.message,
-//       brousherid: _id,
+//       propertyid: _id,
 //     };
 
 //     createNewBrousher(payload);
@@ -395,7 +395,7 @@ import { useParams } from "next/navigation";
 import { useOffplanById } from "../../admin/offplan/useOffplan";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useCreateBrousher } from "../../admin/inquiries/useInquiry";
+import { useCreateBrousher } from "../../admin/Brousher/useBrousher";
 
 const Brousher = () => {
   const { _id } = useParams();
@@ -426,7 +426,7 @@ const Brousher = () => {
       email: formData.email,
       phone: formData.phone,
       message: formData.message,
-      brousherid: _id,
+      propertyid: data.name,
     };
 
     createNewBrousher(payload, {

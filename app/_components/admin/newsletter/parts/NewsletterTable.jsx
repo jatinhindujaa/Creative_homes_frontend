@@ -1,19 +1,19 @@
 import Menus from "@/app/_components/ui/Menus";
 import Table from "@/app/_components/ui/Table";
-import { useWhatsapContext } from "./WhatsapContext";
-import WhatsapRow from "./WhatsapRow.jsx";
+import { useNewsletterContext } from "./NewsletterContext";
+import NewsletterRow from "./NewsletterRow.jsx";
+import { useNewsletter } from "../useNewsletter.js";
 import Spinner from "@/app/_components/ui/Spinner.jsx";
 import Empty from "@/app/_components/ui/Empty.jsx";
-import { useWhtsap } from "../useWhatsap";
 
-function WhatsapTable() {
-  const { filter, sort } = useWhatsapContext();
-  const { data, isLoading, error } = useWhtsap();
+function NewsletterTable() {
+  const { filter, sort } = useNewsletterContext();
+  const { data, isLoading, error } = useNewsletter();
 
   if (isLoading) return <Spinner />;
-  if (error) return <div>Error loading Whatsap: {error.message}</div>;
+  if (error) return <div>Error loading Newsletter: {error.message}</div>;
 
-  const sortedWhatsap = [...data].sort((a, b) => {
+  const sortedNewsletter = [...data].sort((a, b) => {
     if (sort === "startDate-desc")
       return new Date(b.startDate) - new Date(a.startDate);
     if (sort === "startDate-asc")
@@ -23,10 +23,10 @@ function WhatsapTable() {
     return 0;
   });
 
-  let filteredWhatsap = sortedWhatsap;
+  let filteredNewsletter = sortedNewsletter;
 
   if (filter !== "All") {
-    filteredWhatsap = sortedWhatsap.filter((el) => {
+    filteredNewsletter = sortedNewsletter.filter((el) => {
       if (filter.toLowerCase() === "active") {
         return el.status === true;
       } else if (filter.toLowerCase() === "inactive") {
@@ -36,29 +36,29 @@ function WhatsapTable() {
     });
   }
 
-  if (!data.length) return <Empty resourceName="Whatsap" />;
+  if (!data.length) return <Empty resourceName="Property" />;
   return (
     <Menus>
       <Table columns="grid-cols-4">
         <Table.Header>
-          <div>_id</div>
-          <div>Phone</div>
-          <div>Type</div>
-          <div>createdAt</div>
+          <div>id</div>
+          <div>email</div>
+          <div>created </div>
+          <div>Status</div>
         </Table.Header>
 
         <Table.Body
-          data={filteredWhatsap}
-          render={(Whatsap, index) => (
-            <WhatsapRow key={Whatsap.id || index} Whatsap={Whatsap} />
+          data={filteredNewsletter}
+          render={(property, index) => (
+            <NewsletterRow key={property._id || index} newsletter={property} />
           )}
         />
         <Table.Footer>
-          {/* <Pagination count={WhatsapData.length} /> */}
+          {/* <Pagination count={propertiesData.length} /> */}
         </Table.Footer>
       </Table>
     </Menus>
   );
 }
 
-export default WhatsapTable;
+export default NewsletterTable;

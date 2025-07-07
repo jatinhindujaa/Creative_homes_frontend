@@ -1,19 +1,19 @@
 import Menus from "@/app/_components/ui/Menus";
 import Table from "@/app/_components/ui/Table";
-import { useWhatsapContext } from "./WhatsapContext";
-import WhatsapRow from "./WhatsapRow.jsx";
+import { useBrousherContext } from "./BrousherContext";
+import BrousherRow from "./BrousherRow.jsx";
+import { useBrousher } from "../useBrousher.js";
 import Spinner from "@/app/_components/ui/Spinner.jsx";
 import Empty from "@/app/_components/ui/Empty.jsx";
-import { useWhtsap } from "../useWhatsap";
 
-function WhatsapTable() {
-  const { filter, sort } = useWhatsapContext();
-  const { data, isLoading, error } = useWhtsap();
+function BrousherTable() {
+  const { filter, sort } = useBrousherContext();
+  const { data, isLoading, error } = useBrousher();
 
   if (isLoading) return <Spinner />;
-  if (error) return <div>Error loading Whatsap: {error.message}</div>;
+  if (error) return <div>Error loading Brousher: {error.message}</div>;
 
-  const sortedWhatsap = [...data].sort((a, b) => {
+  const sortedBrousher = [...data].sort((a, b) => {
     if (sort === "startDate-desc")
       return new Date(b.startDate) - new Date(a.startDate);
     if (sort === "startDate-asc")
@@ -23,10 +23,10 @@ function WhatsapTable() {
     return 0;
   });
 
-  let filteredWhatsap = sortedWhatsap;
+  let filteredBrousher = sortedBrousher;
 
   if (filter !== "All") {
-    filteredWhatsap = sortedWhatsap.filter((el) => {
+    filteredBrousher = sortedBrousher.filter((el) => {
       if (filter.toLowerCase() === "active") {
         return el.status === true;
       } else if (filter.toLowerCase() === "inactive") {
@@ -36,29 +36,30 @@ function WhatsapTable() {
     });
   }
 
-  if (!data.length) return <Empty resourceName="Whatsap" />;
+  if (!data.length) return <Empty resourceName="Property" />;
   return (
     <Menus>
-      <Table columns="grid-cols-4">
+      <Table columns="grid-cols-5">
         <Table.Header>
-          <div>_id</div>
-          <div>Phone</div>
-          <div>Type</div>
-          <div>createdAt</div>
+          <div>email</div>
+          <div>name </div>
+          <div>phone</div>
+          <div>propertyName</div>
+          <div>message</div>
         </Table.Header>
 
         <Table.Body
-          data={filteredWhatsap}
-          render={(Whatsap, index) => (
-            <WhatsapRow key={Whatsap.id || index} Whatsap={Whatsap} />
+          data={filteredBrousher}
+          render={(property, index) => (
+            <BrousherRow key={property._id || index} brousher={property} />
           )}
         />
         <Table.Footer>
-          {/* <Pagination count={WhatsapData.length} /> */}
+          {/* <Pagination count={propertiesData.length} /> */}
         </Table.Footer>
       </Table>
     </Menus>
   );
 }
 
-export default WhatsapTable;
+export default BrousherTable;
