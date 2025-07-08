@@ -176,6 +176,7 @@ import { useProperties } from '../../admin/properties/useProperties';
 import { useSearchParams } from 'next/navigation';
 import Spinner from '../../ui/Spinner';
 import TopArea from '../news/parts/TopArea';
+import Button from '../../ui/Button';
 
 const faqs = [
   {
@@ -242,6 +243,8 @@ const locations = [
 ];
 
 const Property = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+    const propertyPerPage = 9;
   const searchParams = useSearchParams();
   const offeringtypeFilter = searchParams.get("offeringtype");
   const propertytypeFilter = searchParams.get("propertytype");
@@ -256,11 +259,33 @@ const Property = () => {
   const [beds, setBeds] = useState('');
   const [baths, setBaths] = useState('');
  const [showPriceModal, setShowPriceModal] = useState(false);
+const totalPages = Math.ceil(data?.length / propertyPerPage);
+
+const startIndex = (currentPage - 1) * propertyPerPage;
+const filteredDatass = data?.filter((el, i) => el.status === false);
+const currentProperties = filteredDatass?.slice(
+  startIndex,
+  startIndex + propertyPerPage
+);
+
+const handleNext = () => {
+  if (currentPage < totalPages) {
+    setCurrentPage((prev) => prev + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
+
+const handlePrev = () => {
+  if (currentPage > 1) {
+    setCurrentPage((prev) => prev - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+};
 
   
   const filteredDatas = data?.filter((el, i) => el.status === false);
   
-  const filteredProperties = filteredDatas?.filter((property) => {
+  const filteredProperties = currentProperties?.filter((property) => {
     const offeringMatch = offeringType
       ? property.offeringtype?.some(
           (type) => type.toLowerCase() === offeringType.toLowerCase()
@@ -429,6 +454,29 @@ const handlePriceSubmit = () => {
             <PropertyCard key={i} data={property} />
           ))
         )}
+      </div>
+      <div className="flex justify-between mt-8 gap-4 items-center">
+        <Button
+          onClick={handlePrev}
+          text="Previous"
+          className={`px-4 text-[1rem] py-1 text-white ${
+            currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={currentPage === 1}
+        />
+
+        <span className="text-white">
+          Page {currentPage} of {totalPages}
+        </span>
+
+        <Button
+          onClick={handleNext}
+          text="Next"
+          className={`px-5 text-[1rem] py-[0.15rem] text-white ${
+            currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={currentPage === totalPages}
+        />
       </div>
       <MarqueeSection />
 

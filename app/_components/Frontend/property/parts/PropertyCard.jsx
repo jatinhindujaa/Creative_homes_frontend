@@ -205,7 +205,7 @@ if (isAgentLoading) {
             </div>
 
             <div className="flex flex-row items-center gap-2">
-              <a href={`tel:${agents.phoneNo}`}>
+              <a href={`tel:${agents?.phoneNo}`}>
                 <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
                   <IoCallOutline size={20} /> Call
                 </button>

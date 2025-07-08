@@ -198,6 +198,8 @@ const navData = [
   { id: 4, name: "Offplan Properties", link: "/admin/offplan" },
   { id: 5, name: "List Property", link: "/admin/listproperty" },
   { id: 6, name: "Areas", link: "/admin/area" },
+  { id: 7, name: "Careers", link: "/admin/careers" },
+  { id: 8, name: "Openings", link: "/admin/openings" },
 ];
 
 function NavbarAdminVerticle() {

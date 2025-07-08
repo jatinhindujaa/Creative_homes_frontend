@@ -197,7 +197,7 @@ export default function PropertyGallery({ data }) {
   const remainingCount = images.length - 3;
 
   return (
-    <div className="text-white p-6 md:p-10 rounded-xl">
+    <div className="text-white p-6 md:p-10 md:px-0 rounded-xl w-[80%]">
       <div className="flex flex-col md:flex-row gap-6 mt-[80px]">
         {/* Left: Main Image */}
         <div

@@ -64,7 +64,7 @@ const features = [
   },
 ];
   return (
-    <div className=" text-white p-6 md:p-10 md:py-2 rounded-xl flex flex-col gap-[1.5rem] sm:w-[100%]">
+    <div className=" text-white p-6 md:p-10 md:py-2 md:px-0 rounded-xl flex flex-col gap-[1.5rem] sm:w-[100%]">
       {/* <section className="text-white pt-4">
         <h2 className="text-3xl font-semibold mb-8">
           <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">

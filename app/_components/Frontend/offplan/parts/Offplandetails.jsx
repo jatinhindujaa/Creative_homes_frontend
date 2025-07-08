@@ -6,7 +6,7 @@ import { IoCallOutline } from "react-icons/io5";
 
 export default function OffplanDetail({ data }) {
   return (
-    <div className="flex flex-col md:flex-row gap-6 justify-between text-white p-6 md:p-10 rounded-xl">
+    <div className="flex flex-col md:flex-row gap-6 justify-between text-white p-6 md:p-10 md:px-0 rounded-xl">
       {/* Left Column */}
       <div className="w-full md:w-[100%] flex flex-col gap-4">
         <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">

@@ -723,7 +723,7 @@ const TeamSection = () => {
   // Custom swap logic
   if (sortedData.length > 0) {
     const index1 = sortedData.findIndex((item) => item.order === 1);
-    const index4 = sortedData.findIndex((item) => item.order === 4);
+    const index4 = sortedData.findIndex((item) => item.order === 3);
     if (index1 !== -1 && index4 !== -1) {
       [sortedData[index1], sortedData[index4]] = [
         sortedData[index4],

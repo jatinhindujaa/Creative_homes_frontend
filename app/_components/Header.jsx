@@ -32,7 +32,7 @@ const navLinks = [
       { itemName: "Contact Us", link: "/contact-us" },
       { itemName: "Privacy Policy", link: "/privacy-policy" },
       { itemName: "About us", link: "/about" },
-      { itemName: "Testimonials", link: "/about" },
+      { itemName: "Careers", link: "/careers" },
     ],
   },
 ];
