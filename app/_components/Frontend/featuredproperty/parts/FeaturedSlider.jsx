@@ -45,7 +45,7 @@ if (isLoading) return <Spinner />;
           {""} INSIGHTS
         </span>
       </div>
-      <div className="max-w-7xl w-[100%] relative my-10">
+      <div className="max-w-7xl md:w-[80%] relative my-10">
         <Slider {...settings} ref={sliderRef}>
           {data.slice(0,4).map((logo, i) => (
             <div key={i} className="px-3">

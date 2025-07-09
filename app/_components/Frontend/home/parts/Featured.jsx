@@ -16,14 +16,16 @@ const Featured = () => {
 const router = useRouter();
 
   return (
-    <div className="hidden md:flex flex-col items-center relative cursor-pointer">
+    <div className="hidden md:flex flex-col items-center relative cursor-pointer md:w-[100%]">
       <div className="flex justify-center space-x-4 text-[2.5rem] pt-[70px] font-medium">
-        <span>FEATURED </span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold text-[3rem]">
+          FEATURED{" "}
+        </span>
         {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           PROPERTIES
         </span> */}
       </div>
-      <div className="flex w-[80%] mx-auto pt-[50px]">
+      <div className="flex w-[80%] mx-auto md:pt-[20px]">
         <div className="flex flex-col w-[33.33%] p-2 space-y-4">
           <div
             className="relative h-[30%] w-full "
@@ -95,7 +97,7 @@ const router = useRouter();
           </div>
           <Button
             text="VIEW ALL"
-            className="px-4 w-fit py-1 text-[0.9rem]"
+            className="px-4 w-fit py-1 text-[0.9rem] text-white"
             onClick={() => router.push("/property")}
           />
         </div>

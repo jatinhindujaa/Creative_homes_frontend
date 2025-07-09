@@ -97,7 +97,7 @@ if (isLoading) return <Spinner />;
           {""} AGENTS
         </span>
       </div>
-      <div className="flex flex-row  bg-[#202120] w-[95%] rounded-xl my-10">
+      <div className="flex flex-row  bg-[#202120] w-[80%] rounded-xl my-10">
         {/* <div className="text-[2.5rem] font-light text-white transition-all duration-500 ease-in-out z-10 w-[25%] flex flex-col items-center text-center space-y-2">
           <span>
             {images[hoverIndex !== null ? hoverIndex : lastActiveIndex].title}
