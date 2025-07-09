@@ -13,7 +13,7 @@ const PropertyInner = () => {
     const { _id } = useParams();
       const { data, isLoading, error } = usePropertyById(_id);
   return (
-    <div className="bg-[#282927]">
+    <div className="bg-[#282927] ">
       <PropertyGallery data={data}/>
       <PropertyDetail data={data}/>
       <PropertyExtras data={data}/>
