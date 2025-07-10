@@ -15,6 +15,8 @@ const EditNewsForm = ({
   setEditData,
   onConfirm,
   onCloseModal,
+  aboutContent,
+  setAboutContent
 }) => {
   const [description, setDescription] = useState(editData.description || "");
   const [propertyImages, setPropertyImages] = useState(
@@ -27,11 +29,11 @@ const EditNewsForm = ({
   const [newImages, setNewImages] = useState([]);
   const [mobilenewImages, setmobileNewImages] = useState([]);
 
- useEffect(() => {
-   setDescription(editData.description || "");
-   setPropertyImages(editData.multipleImages || []);
-   setmobilemultipleImages(editData.mobilemultipleImages || []);
- }, [editData]);
+  useEffect(() => {
+    setDescription(editData.description || "");
+    setPropertyImages(editData.multipleImages || []);
+    setmobilemultipleImages(editData.mobilemultipleImages || []);
+  }, [editData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,38 +45,32 @@ const EditNewsForm = ({
     onConfirm(editData);
   };
 
-  // Handle mobile image selection
-  // Handle mobile image selection
   const handleMobileImageChange = (e) => {
     const files = Array.from(e.target.files); // Convert the file list to an array
     console.log("Selected mobile images:", files); // Check if files are selected correctly
     setmobilemultipleImages(files); // Update state with selected files
 
-    // Also update editData to reflect the new images
     setEditData((prev) => ({
       ...prev,
       mobilemultipleImages: files,
     }));
   };
-  // Handle removal of mobile image
-  // Handle removal of mobile image
+
   const handleRemoveMobileImage = (index) => {
     const updatedImages = mobilemultipleImages.filter(
       (_, idx) => idx !== index
-    ); // Remove image at the given index
-    setmobilemultipleImages(updatedImages); // Update state with the remaining images
+    );
+    setmobilemultipleImages(updatedImages);
 
-    // Update editData with the new image array
     setEditData((prev) => ({
       ...prev,
       mobilemultipleImages: updatedImages,
     }));
   };
 
-   useEffect(() => {
-     // Ensure the state is initialized correctly with existing images
-     setmobilemultipleImages(editData.mobilemultipleImages || []);
-   }, [editData]);
+  useEffect(() => {
+    setmobilemultipleImages(editData.mobilemultipleImages || []);
+  }, [editData]);
   return (
     <form
       onSubmit={handleSubmit}

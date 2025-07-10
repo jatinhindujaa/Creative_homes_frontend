@@ -29,7 +29,7 @@ export const updateNews = async ({ id, formData }) => {
       },
     }
   );
-  return response.data;
+  return response.data.data;
 };
 
 export const deleteNews = async (id) => {

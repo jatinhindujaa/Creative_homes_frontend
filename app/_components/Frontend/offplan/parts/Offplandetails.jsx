@@ -12,11 +12,13 @@ export default function OffplanDetail({ data }) {
         <h1 className="text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
           AED {data?.price}
         </h1>
-        <p className="text-gray-400 text-md">
-          📍 The Sundials, Jumeirah Golf Estates, Dubai
-        </p>
-
-        <div className="text-gray-300 mt-4 text-sm leading-relaxed space-y-3">
+        <p className="text-gray-400 text-md">📍 {data?.address}</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data?.description,
+          }}
+        />
+        {/* <div className="text-gray-300 mt-4 text-sm leading-relaxed space-y-3">
           <p>
             Creative Homes is proud to present to market this stunning 6 Villa
             in the most desirable community and new tower F in Jumeirah Golf
@@ -45,11 +47,10 @@ export default function OffplanDetail({ data }) {
             properties we maintain at the haus & haus website. Our specialist
             brokers will be happy to answer any industry related query you have.
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* Right Column */}
-      
     </div>
   );
 }

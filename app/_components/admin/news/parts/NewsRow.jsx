@@ -60,7 +60,7 @@ function NewsRow({
 
   const handleConfirmEdit = () => {
     const formData = new FormData();
-    formData.append("name", editData.title);
+    formData.append("title", editData.title);
     formData.append("date", editData.date);
     formData.append("description", aboutContent);
     formData.append("status", editData.status);
