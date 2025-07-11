@@ -31,4 +31,12 @@ export const unblockCareers = async (id) => {
   return response.data;
 };
 
-t
+export const createData = async (data) => {
+  const response = await axios.post(`${ApiUrl}/careers/create`, data, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+  return response.data;
+};
