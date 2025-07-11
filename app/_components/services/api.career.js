@@ -31,12 +31,33 @@ export const unblockCareers = async (id) => {
   return response.data;
 };
 
+// export const createData = async (data) => {
+//   const response = await axios.post(`${ApiUrl}/careers/create`, data, {
+//     withCredentials: true,
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+//   return response.data;
+// };
+
 export const createData = async (data) => {
+  console.log("Sending career application data:", data);
+  
+  // Log FormData contents for debugging
+  if (data instanceof FormData) {
+    console.log("FormData contents:");
+    for (let [key, value] of data.entries()) {
+      console.log(`${key}:`, value);
+    }
+  }
+
   const response = await axios.post(`${ApiUrl}/careers/create`, data, {
     withCredentials: true,
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
+    // DON'T set Content-Type manually - let axios handle it for FormData
+    // This allows axios to set the correct boundary for multipart/form-data
   });
+  
+  console.log("API Response:", response.data);
   return response.data;
 };

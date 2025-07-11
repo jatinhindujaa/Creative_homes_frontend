@@ -24,7 +24,7 @@ export default function TopArea({ description, title }) {
       <img
         src="/Vector.png"
         alt="Icon"
-        className="absolute -top-[40px] -left-[39px] w-60 h-60"
+        className="absolute -top-[24px] -left-[24px] w-[9rem] h-[9rem]"
       />
 
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold text-[3rem]">

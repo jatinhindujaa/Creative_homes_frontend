@@ -648,7 +648,7 @@ const Careerjoin = () => {
   };
 
   const closeJobModal = () => setJobModalOpen(false);
-
+  
   // Modified to accept job parameter for application
   const openFormModal = (job = null) => {
     if (job) {
@@ -656,7 +656,7 @@ const Careerjoin = () => {
     }
     setFormModalOpen(true);
   };
-
+  
   const closeFormModal = () => {
     setFormModalOpen(false);
     // Reset form data when closing

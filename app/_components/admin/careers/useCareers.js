@@ -23,23 +23,39 @@ export const useCareers = () => {
 //   return { data, isLoading, error };
 // };
 
+// export const useCreateCareers = () => {
+//   const queryClient = useQueryClient();
+//   const { mutate: createNewCareers, isPending: isCreating } = useMutation({
+//     mutationFn: createData,
+//     onSuccess: () => {
+//       queryClient.invalidateQueries(["Careers"]);
+//       toast.success("Careers Created successfully!");
+//     },
+//     onError: (error) => {
+//       console.error("Failed to create Careers:", error);
+//       toast.error("Failed to create Careers. Please try again.");
+//     },
+//   });
+
+//   return { createNewCareers, isCreating };
+// };
 export const useCreateCareers = () => {
   const queryClient = useQueryClient();
   const { mutate: createNewCareers, isPending: isCreating } = useMutation({
     mutationFn: createData,
     onSuccess: () => {
       queryClient.invalidateQueries(["Careers"]);
-      toast.success("Careers Created successfully!");
+      toast.success("Career application submitted successfully!");
     },
     onError: (error) => {
-      console.error("Failed to create Careers:", error);
-      toast.error("Failed to create Careers. Please try again.");
+      console.error("Failed to create career application:", error);
+      console.error("Error details:", error.response?.data);
+      toast.error("Failed to submit application. Please try again.");
     },
   });
 
   return { createNewCareers, isCreating };
 };
-
 
 export const useDeleteCareers = () => {
   const queryClient = useQueryClient();
