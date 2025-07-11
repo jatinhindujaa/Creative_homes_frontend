@@ -69,6 +69,7 @@ const EditOffplanForm = ({
       order,
       maplink,
       agent: selectedAgent,
+      area: selectedArea,
       shortDescription,
       description,
       floorPlanCategories,
@@ -92,6 +93,7 @@ const EditOffplanForm = ({
     order,
     maplink,
     selectedAgent,
+    selectedArea,
     shortDescription,
     description,
     floorPlanCategories,
@@ -133,7 +135,13 @@ const handleRemoveMobileImage = (index) => {
   }));
 };
   const handleRemoveExistingImage = (index) => {
-    setExistingMultipleImages((images) => images.filter((_, i) => i !== index));
+    const updatedImages = existingMultipleImages.filter((_, i) => i !== index);
+    setExistingMultipleImages(updatedImages);
+    // Update editData immediately
+    setEditData((prev) => ({
+      ...prev,
+      multipleImages: updatedImages,
+    }));
   };
 
   return (
@@ -319,9 +327,7 @@ const handleRemoveMobileImage = (index) => {
       </div>
       {/* Brochure Upload */}
       <div>
-        <label className="text-sm font-medium text-gray-700">
-          Qr Image
-        </label>
+        <label className="text-sm font-medium text-gray-700">Qr Image</label>
         {editData.image && !brochureFile && (
           <img
             src={editData.image}
@@ -331,11 +337,16 @@ const handleRemoveMobileImage = (index) => {
         )}
         <FileInput
           id="image"
-          accept="application/pdf"
+          accept="image/*" // Change from "pdf/*" to "image/*"
           type="file"
           onChange={(e) => {
             const file = e.target.files[0];
             setBrochureFile(file || null);
+            // Update editData immediately
+            setEditData((prev) => ({
+              ...prev,
+              image: file || prev.image,
+            }));
           }}
         />
       </div>
@@ -365,7 +376,7 @@ const handleRemoveMobileImage = (index) => {
       />
 
       {/* Existing Multiple Images */}
-      <div>
+      {/* <div>
         <label className="text-sm font-medium text-gray-700 mb-2 block">
           Existing Offplan Images
         </label>
@@ -389,7 +400,6 @@ const handleRemoveMobileImage = (index) => {
         </div>
       </div>
 
-      {/* Add New Multiple Images */}
       <div>
         <label className="text-sm font-medium text-gray-700 mt-4 block">
           Add New Offplan Images
@@ -398,12 +408,19 @@ const handleRemoveMobileImage = (index) => {
           id="multipleImages"
           accept="image/*"
           multiple
-          onChange={(e) => setNewMultipleImages(Array.from(e.target.files))}
+          onChange={(e) => {
+            const files = Array.from(e.target.files);
+            setNewMultipleImages(files);
+            setEditData((prev) => ({
+              ...prev,
+              newMultipleImages: files,
+            }));
+          }}
         />
-      </div>
+      </div> */}
 
       {/* Status */}
-      <div className="flex items-center gap-2">
+      {/* <div className="flex items-center gap-2">
         <input
           type="checkbox"
           id="status"
@@ -413,7 +430,7 @@ const handleRemoveMobileImage = (index) => {
         <label htmlFor="status" className="text-sm font-medium text-gray-700">
           Status (Active)
         </label>
-      </div>
+      </div> */}
 
       {/* Submit Buttons */}
       <div className="flex justify-end space-x-3">

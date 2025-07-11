@@ -552,11 +552,11 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
         </div>
 
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
-          <p>Propery images for Desktop will be: 1000 * 1000</p>
+          <p>Propery images for Desktop will be: 800 * 600</p>
           <p>File size should be less than 5mb.</p>
         </div>
 
-        <div>
+        {/* <div>
           <label className=" text-sm font-medium text-gray-700">
             Mobile Property Images
           </label>
@@ -571,7 +571,7 @@ if (data.propertycategory && Array.isArray(data.propertycategory)) {
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
           <p>Propery images for Mobile will be: 700 * 700</p>
           <p>File size should be less than 5mb.</p>
-        </div>
+        </div> */}
         <div className="flex justify-end space-x-3">
           <button
             type="button"

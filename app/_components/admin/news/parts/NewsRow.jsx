@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "@/app/_components/ui/Table";
 import Tag from "@/app/_components/ui/Tag";
 import Modal from "@/app/_components/ui/Modal";
@@ -43,6 +43,30 @@ function NewsRow({
     order
   });
   const [aboutContent, setAboutContent] = useState(description);
+   useEffect(() => {
+     console.log("NewsRow props changed, updating editData");
+     setEditData({
+       _id,
+       title,
+       date,
+       description,
+       multipleImages,
+       mobilemultipleImages,
+       status,
+       order,
+     });
+     setAboutContent(description);
+   }, [
+     _id,
+     title,
+     date,
+     description,
+     multipleImages,
+     mobilemultipleImages,
+     status,
+     order,
+   ]);
+
  const handleToggleStatus = () => {
    console.log("Toggling status for:", _id, "Current status:", status);
    const formData = new FormData();
@@ -59,6 +83,8 @@ function NewsRow({
   };
 
   const handleConfirmEdit = () => {
+    console.log("Submitting edit data:", editData);
+
     const formData = new FormData();
     formData.append("title", editData.title);
     formData.append("date", editData.date);
@@ -67,29 +93,91 @@ function NewsRow({
     formData.append("order", editData.order);
 
 
+//  if (editData.newImages && editData.newImages.length > 0) {
+//    editData.newImages.forEach((file) => {
+//      formData.append("multipleImages", file);
+//    });
+//  }
+//  if (
+//    editData.mobilemultipleImages &&
+//    editData.mobilemultipleImages.length > 0
+//  ) {
+//    editData.mobilemultipleImages.forEach((file) => {
+//      formData.append("mobilemultipleImages", file); // Correct field name
+//    });
+//  }
+ if (editData.multipleImages && editData.multipleImages.length > 0) {
+   editData.multipleImages.forEach((image) => {
+     // If it's a string (URL), it's an existing image
+     if (typeof image === "string") {
+       formData.append("existingImages", image);
+     }
+   });
+ }
+
+ // Handle new images to be uploaded
  if (editData.newImages && editData.newImages.length > 0) {
    editData.newImages.forEach((file) => {
      formData.append("multipleImages", file);
    });
  }
+
+ // Handle existing mobile images
  if (
    editData.mobilemultipleImages &&
    editData.mobilemultipleImages.length > 0
  ) {
-   editData.mobilemultipleImages.forEach((file) => {
-     formData.append("mobilemultipleImages", file); // Correct field name
+   editData.mobilemultipleImages.forEach((image) => {
+     if (typeof image === "string") {
+       formData.append("existingMobileImages", image);
+     } else {
+       formData.append("mobilemultipleImages", image);
+     }
+   });
+ }
+
+ // Handle new mobile images
+ if (editData.mobilenewImages && editData.mobilenewImages.length > 0) {
+   editData.mobilenewImages.forEach((file) => {
+     formData.append("mobilemultipleImages", file);
    });
  }
 
     updateNews(
       { id: _id, formData },
+      // {
+      //   onSuccess: (response) => {
+      //     setEditData(response.data); // update state with new data (including new image URLs)
+      //     toast.success("Property updated successfully");
+      //   },
+      //   onError: (error) => {
+      //     toast.error("Failed to update property");
+      //     console.error(error);
+      //   },
+      // }
       {
         onSuccess: (response) => {
-          setEditData(response.data); // Update with the new data
-          toast.success("Property updated successfully");
+          console.log("Update successful, response:", response);
+
+          // Update editData with the server response
+          const updatedData = {
+            _id: response.data._id,
+            title: response.data.title,
+            date: response.data.date,
+            description: response.data.description,
+            multipleImages: response.data.multipleImages,
+            mobilemultipleImages: response.data.mobilemultipleImages,
+            status: response.data.status,
+            order: response.data.order,
+          };
+
+          setEditData(updatedData);
+          setAboutContent(response.data.description);
+
+          toast.success("News updated successfully");
         },
         onError: (error) => {
-          toast.error("Failed to update property");
+          toast.error("Failed to update news");
           console.error(error);
         },
       }

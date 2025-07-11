@@ -8,8 +8,8 @@ import {
   fetchOffplanById,
   removeMultiImageFromOffplan,
 } from "../../services/api.offplan.js";
-
 import toast from "react-hot-toast";
+
 
 export const useOffplan = () => {
   const { data, isLoading, error } = useQuery({
@@ -105,7 +105,6 @@ export const useDeleteMultiImageFromOffplan = () => {
     },
     onError: (error) => {
       console.error("Failed to delete Offplan multi image:", error);
-      toast.error("Failed to delete Offplan multi image. Please try again.");
     },
   });
 };

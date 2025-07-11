@@ -9,18 +9,22 @@ import { useAgents } from "../../admin/agents/useAgents";
 import TiptapEditor from "../../admin/news/Tiptapeditor";
 import { useCreateOffplan } from "../../admin/offplan/useOffplan";
 import { FloorPlanCategoriesInput } from "./FloorPlanCategoriesInput";
+import { useAreas } from "../../admin/area/useArea";
 
 
 const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
   const { register, handleSubmit, reset, formState } = useForm({
     defaultValues: {},
   });
-  const [tags, setTags] = useState([]);
+    const { errors } = formState;
+  const [views, setViews] = useState([])
   const [amenities, setAmenities] = useState([]);
-  const { errors } = formState;
   const { createOffplanp, isCreating } = useCreateOffplan();
   const { data: agents = [], isLoading: loadingAgents } = useAgents();
+  const { data: areas = [], isLoading: loadingAreas } = useAreas();
+
   const [selectedAgent, setSelectedAgent] = useState("");
+  const [area, setArea] = useState("")
   const [content, setContent] = useState("");
   const [floorPlanCategories, setFloorPlanCategories] = useState([]);
 
@@ -37,14 +41,15 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
 
     formData.append("name", data.name);
 
-    tags.forEach((views) => {
-      formData.append("views[]", views);
+    views.forEach((view) => {
+      formData.append("views[]", view);
     });
     amenities.forEach((amenity) => {
       formData.append("amenities[]", amenity);
     });
 
     formData.append("price", data.price);
+    formData.append("area", area);
     formData.append("agent", selectedAgent);
     formData.append("firstpay", data.firstpay);
     formData.append("underpay", data.underpay);
@@ -75,9 +80,10 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
       onSuccess: () => {
         reset();
         setFloorPlanCategories([]);
-        setTags([]);
+        setViews([]);
         setAmenities([]);
         setSelectedAgent("");
+        setArea("");
         setContent("");
         onCloseModal?.();
       },
@@ -177,7 +183,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
         {/* Views Input - simple tags for example */}
         <div>
           <label className="text-sm font-medium text-gray-700">Views</label>
-          <TagInput tags={tags} setTags={setTags} />
+          <TagInput tags={views} setTags={setViews} />
           {errors.views && (
             <p className="text-red-500 text-sm">{errors.views.message}</p>
           )}
@@ -203,21 +209,38 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
               ))}
             </select>
           </div>
-
           <div className="w-1/2">
             <label className="text-sm font-medium text-gray-700">
-              Qr Image
+              Select Area
             </label>
-            <FileInput
-              id="image"
-              accept="pdf/*"
-              type="file"
-              multiple
-              {...register("image", { required: "This field is required" })}
-            />
+            <select
+              className="w-full border px-3 py-2 rounded-md"
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
+              required
+            >
+              <option value="">-- Select Area --</option>
+              {areas.map((area) => (
+                <option key={area._id} value={area._id}>
+                  {area.name}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
-
+        <div className="w-1/2">
+          <label className="text-sm font-medium text-gray-700">Qr Image</label>
+          <FileInput
+            id="image"
+            accept="pdf/*"
+            type="file"
+            multiple
+            {...register("image", { required: "This field is required" })}
+          />
+          {errors.image && (
+            <p className="text-red-500 text-sm">{errors.image.message}</p>
+          )}
+        </div>
         <div className="gap-2 flex flex-row">
           <div className="w-[33%]">
             <label className=" text-sm font-medium text-gray-700">
@@ -329,16 +352,14 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
             accept="image/*"
             type="file"
             multiple
-            {...register("multipleImages", {
-              required: "This field is required",
-            })}
+            {...register("multipleImages")}
           />
         </div>
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
-          <p>Propery images for Desktop will be: 1000 * 1000</p>
+          <p>Propery images for Desktop will be: 800 * 600</p>
           <p>File size should be less than 5mb.</p>
         </div>
-        <div>
+        {/* <div>
           <label className=" text-sm font-medium text-gray-700">
             Mobile Property Images
           </label>
@@ -353,7 +374,7 @@ const CreateOffplanForm = ({ onCloseModal, resourceName }) => {
         <div className="text-red-600 text-[0.8rem] mb-[20px]">
           <p>Propery images for Mobile will be: 700 * 700</p>
           <p>File size should be less than 5mb.</p>
-        </div>
+        </div> */}
         {/* Submit buttons */}
         <div className="flex justify-end space-x-3">
           <button

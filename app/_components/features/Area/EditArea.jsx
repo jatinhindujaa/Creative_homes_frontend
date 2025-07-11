@@ -13,7 +13,8 @@ const EditPropertyForm = ({
   onConfirm,
   onCloseModal,
 }) => {
-  const [newQrImage, setNewQrImage] = useState(null);
+  console.log("edit", editData);
+
   const [propertyImages, setPropertyImages] = useState(
     editData.multipleImages || []
   );

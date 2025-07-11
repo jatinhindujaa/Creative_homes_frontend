@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useDeleteAreas, useUpdateAreas } from "../useArea";
 import EditAreaForm from "@/app/_components/features/Area/EditArea";
 import toast from "react-hot-toast";
+import EditPropertyForm from "@/app/_components/features/Area/EditArea";
 // import EditAreaForm from "@/app/_components/features/Area/EditAreaForm";
 
 function AreaRow({
@@ -151,7 +152,7 @@ if (editData.mobilemultipleImages && editData.mobilemultipleImages.length > 0) {
         </Modal.Window>
 
         <Modal.Window name="edit">
-          <EditAreaForm
+          <EditPropertyForm
             id={_id}
             resourceName="Area"
             editData={editData}

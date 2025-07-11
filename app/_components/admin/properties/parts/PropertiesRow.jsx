@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "@/app/_components/ui/Table";
 import Tag from "@/app/_components/ui/Tag";
 import Modal from "@/app/_components/ui/Modal";
@@ -53,15 +53,15 @@ function PropertiesRow({
   //   const [descContent, setDescContent] = useState(description);
 
   // 1) Convert string to array if needed:
-  let parsedFeatures = features;
-  try {
-    // If `features` is a string like '["2 Floors","Nice View"]', parse it
-    if (typeof features === "string") {
-      parsedFeatures = JSON.parse(features);
-    }
-  } catch (err) {
-    parsedFeatures = [];
-  }
+  // let parsedFeatures = features;
+  // try {
+  //   // If `features` is a string like '["2 Floors","Nice View"]', parse it
+  //   if (typeof features === "string") {
+  //     parsedFeatures = JSON.parse(features);
+  //   }
+  // } catch (err) {
+  //   parsedFeatures = [];
+  // }
 
   const [editData, setEditData] = useState({
     name,
@@ -91,6 +91,66 @@ function PropertiesRow({
     image,
     order,
   });
+   const [aboutContent, setAboutContent] = useState(description);
+     useEffect(() => {
+       console.log("NewsRow props changed, updating editData");
+       setEditData({
+         name,
+         features,
+         amenities,
+         price,
+         type,
+         bed,
+         shower,
+         propertytype,
+         furnishingtype,
+         offeringtype,
+         propertycategory,
+         bua,
+         area,
+         plot,
+         reference,
+         zone,
+         dld,
+         shortDescription,
+         description,
+         dealType,
+         agent,
+         status,
+         multipleImages,
+         mobilemultipleImages,
+         image,
+         order,
+       });
+       setAboutContent(description);
+     }, [
+       name,
+       features,
+       amenities,
+       price,
+       type,
+       bed,
+       shower,
+       propertytype,
+       furnishingtype,
+       offeringtype,
+       propertycategory,
+       bua,
+       area,
+       plot,
+       reference,
+       zone,
+       dld,
+       shortDescription,
+       description,
+       dealType,
+       agent,
+       status,
+       multipleImages,
+       mobilemultipleImages,
+       image,
+       order,
+     ]);
 const handleToggleStatus = () => {
   console.log("Toggling status for:", _id, "Current status:", status);
   const formData = new FormData();

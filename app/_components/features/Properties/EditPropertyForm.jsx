@@ -571,7 +571,7 @@ const handleSubmit = (e) => {
             }}
           />
         </div>
-        <div>
+        {/* <div>
           <label className="text-sm font-medium text-gray-700 mb-2 block">
             Existing Mobile Property Images
           </label>
@@ -605,7 +605,7 @@ const handleSubmit = (e) => {
             multiple
             onChange={handleMobileImageChange} // Trigger the handler when files are selected
           />
-        </div>
+        </div> */}
 
         <div className="flex justify-end space-x-3">
           <button

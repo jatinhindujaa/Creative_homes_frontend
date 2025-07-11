@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "@/app/_components/ui/Table";
 import Tag from "@/app/_components/ui/Tag";
 import Modal from "@/app/_components/ui/Modal";
@@ -20,6 +20,8 @@ function OffplanRow({
     name,
     features,
     amenities,
+    views,
+    area,
     price,
     type,
     bed,
@@ -50,23 +52,13 @@ function OffplanRow({
   const { mutate: deleteOffplan, isPending: isDeleting } = useDeleteOffplan();
   const [show, setShow] = useState(false);
 
-  //   const [descContent, setDescContent] = useState(description);
-
-  // 1) Convert string to array if needed:
-  let parsedFeatures = features;
-  try {
-    // If `features` is a string like '["2 Floors","Nice View"]', parse it
-    if (typeof features === "string") {
-      parsedFeatures = JSON.parse(features);
-    }
-  } catch (err) {
-    parsedFeatures = [];
-  }
 
   const [editData, setEditData] = useState({
     name,
     features,
     amenities,
+    views,
+    area,
     price,
     type,
     bed,
@@ -91,7 +83,70 @@ function OffplanRow({
     developer,
     address,
   });
-
+ const [aboutContent, setAboutContent] = useState(description);
+     useEffect(() => {
+       console.log("NewsRow props changed, updating editData");
+       setEditData({
+         name,
+         features,
+         amenities,
+         views,
+         area,
+         price,
+         type,
+         bed,
+         shower,
+         bua,
+         plot,
+         reference,
+         zone,
+         dld,
+         shortDescription,
+         description,
+         agent,
+         status,
+         multipleImages,
+         image,
+         maplink,
+         order,
+         firstpay,
+         underpay,
+         handoverpay,
+         handoverin,
+         developer,
+         address,
+       });
+       setAboutContent(description);
+     }, [
+       name,
+       features,
+       amenities,
+       views,
+       area,
+       price,
+       type,
+       bed,
+       shower,
+       bua,
+       plot,
+       reference,
+       zone,
+       dld,
+       shortDescription,
+       description,
+       agent,
+       status,
+       multipleImages,
+       image,
+       maplink,
+       order,
+       firstpay,
+       underpay,
+       handoverpay,
+       handoverin,
+       developer,
+       address,
+     ]);
   const expandDescription = () => {
     setShow((prev) => !prev);
   };
@@ -126,6 +181,7 @@ function OffplanRow({
     formData.append("shortDescription", editData.shortDescription);
     formData.append("description", editData.description);
     formData.append("agent", editData.agent);
+    formData.append("area", editData.area);
     formData.append("maplink", editData.maplink);
     formData.append("order", editData.order);
     formData.append("firstpay", editData.firstpay);
@@ -140,23 +196,76 @@ function OffplanRow({
     (editData.amenities || []).forEach((a) =>
       formData.append("amenities[]", a)
     );
+    (editData.views || []).forEach((a) =>
+      formData.append("views[]", a)
+    );
 
+ (editData.floorPlanCategories || []).forEach((cat) =>
+   formData.append("floorPlanCategories[]", JSON.stringify(cat))
+ );
     // 🔁 Append all selected offplan images (replaces old)
-    if (
-      editData.multipleImages instanceof FileList ||
-      Array.isArray(editData.multipleImages)
-    ) {
-      Array.from(editData.multipleImages).forEach((img) =>
-        formData.append("multipleImages", img)
-      );
+    // if (
+    //   editData.multipleImages instanceof FileList ||
+    //   Array.isArray(editData.multipleImages)
+    // ) {
+    //   Array.from(editData.multipleImages).forEach((img) =>
+    //     formData.append("multipleImages", img)
+    //   );
+    // }
+
+    // if (editData.newQrImage) {
+    //   formData.append("image", editData.newQrImage); // single file
+    // }
+    if (editData.multipleImages && editData.multipleImages.length > 0) {
+      editData.multipleImages.forEach((img) => {
+        if (typeof img === "string") {
+          // This is an existing image URL
+          formData.append("existingImages[]", img);
+        } else if (img instanceof File) {
+          // This is a new image file
+          formData.append("newImages[]", img);
+        }
+      });
     }
 
-    // ✅ Append QR image only if changed
-    if (editData.newQrImage instanceof File) {
-      formData.append("image", editData.newQrImage);
+    // Handle new multiple images
+    // if (editData.newMultipleImages && editData.newMultipleImages.length > 0) {
+    //   editData.newMultipleImages.forEach((img) => {
+    //     formData.append("multipleImages", img);
+    //   });
+    // }
+
+    // // Handle mobile images
+    // if (
+    //   editData.mobilemultipleImages &&
+    //   editData.mobilemultipleImages.length > 0
+    // ) {
+    //   editData.mobilemultipleImages.forEach((img) => {
+    //     formData.append("mobilemultipleImages", img);
+    //   });
+    // }
+
+    // Handle QR image
+    if (editData.image && editData.image instanceof File) {
+      formData.append("image", editData.image);
     }
 
-    updateOffplan({ id: _id, formData });
+     console.log("FormData contents:");
+     for (let [key, value] of formData.entries()) {
+       console.log(`${key}:`, value);
+     }
+    updateOffplan(
+      { id: _id, formData },
+      {
+        onSuccess: (response) => {
+          setEditData(response.message);
+          toast.success("Property updated successfully");
+        },
+        onError: (error) => {
+          console.error(error);
+        },
+      }
+    );
   };
 
   if (isUpdatingOffplan) return <Spinner />;
