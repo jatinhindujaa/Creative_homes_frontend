@@ -6,12 +6,8 @@ import MarqueeSection from "../meettheteam/parts/marque";
 import TopArea from "../news/parts/TopArea";
 
 const OffPlan = () => {
-   const title = "Off Plan Properties";
-   const description = ` Our property specialists cover Dubai’s key communities, offering a range
-        of services including Residential & Commercial Sales and Leasing,
-        Off-Plan Investments, Property Management, and more. Whether you're
-        looking to invest, buy, sell, or rent, our dedicated specialists are
-        here to guide you through every step of the process.`;
+   const title = "Best Off-Plan Properties for Sale in Dubai";
+   const description = `Explore exclusive off-plan investment opportunities across Dubai's most promising and iconic communities. Secure your future asset in upcoming developments with high capital appreciation potential. Our dedicated specialists provide expert guidance through the entire off-plan buying process, from selection to handover.`;
   return (
     <div className="bg-[#282927] gap-2 flex items-center flex-col">
     <TopArea title={title} description={description} />

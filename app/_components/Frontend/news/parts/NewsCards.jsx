@@ -419,7 +419,7 @@ const router = useRouter()
   };
 
   return (
-    <div className="text-white p-6 md:p-0 flex flex-col items-center gap-1 w-[80%]">
+    <div className="text-white p-6 md:p-0 flex flex-col items-center gap-1 md:w-[80%] w-[96%]">
       {currentCards?.map((d, index) => (
         <div
           key={index}

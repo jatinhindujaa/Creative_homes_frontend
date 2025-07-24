@@ -3,16 +3,16 @@
 // import { useOffplanById } from '../../admin/offplan/useOffplan';
 // import { useParams } from 'next/navigation';
 
-// const Brousher = () => {
+// const Brochure = () => {
 //       const { _id } = useParams();
 //       const { data, isLoading, error } = useOffplanById(_id);
 //       console.log("data", data);
 //   return (
-//     <div>Brousher</div>
+//     <div>Brochure</div>
 //   )
 // }
 
-// export default Brousher
+// export default Brochure
 
 
 
@@ -21,7 +21,7 @@
 // import { useParams } from "next/navigation";
 // import { useOffplanById } from "../../admin/offplan/useOffplan";
 
-// const Brousher = () => {
+// const Brochure = () => {
 //         const { _id } = useParams();
 //         const { data, isLoading, error } = useOffplanById(_id);
 //         console.log("data", data);
@@ -120,7 +120,7 @@
 //   );
 // };
 
-// export default Brousher;
+// export default Brochure;
 
 
 
@@ -131,7 +131,7 @@
 // import PhoneInput from "react-phone-input-2";
 // import "react-phone-input-2/lib/style.css";
 
-// const Brousher = () => {
+// const Brochure = () => {
 //   const { _id } = useParams();
 //   const { data, isLoading, error } = useOffplanById(_id);
 
@@ -246,7 +246,7 @@
 //   );
 // };
 
-// export default Brousher;
+// export default Brochure;
 
 
 
@@ -259,12 +259,12 @@
 // import { useOffplanById } from "../../admin/offplan/useOffplan";
 // import PhoneInput from "react-phone-input-2";
 // import "react-phone-input-2/lib/style.css";
-// import { useCreateBrousher } from "../../admin/inquiries/useInquiry";
+// import { useCreateBrochure } from "../../admin/inquiries/useInquiry";
 
-// const Brousher = () => {
+// const Brochure = () => {
 //   const { _id } = useParams();
 //   const { data, isLoading, error } = useOffplanById(_id);
-//   const { createNewBrousher, isCreating } = useCreateBrousher();
+//   const { createNewBrochure, isCreating } = useCreateBrochure();
 
 //   const [showModal, setShowModal] = useState(false);
 //   const [formData, setFormData] = useState({
@@ -292,7 +292,7 @@
 //       propertyid: _id,
 //     };
 
-//     createNewBrousher(payload);
+//     createNewBrochure(payload);
 //     setShowModal(false);
 //   };
 
@@ -385,7 +385,7 @@
 //   );
 // };
 
-// export default Brousher;
+// export default Brochure;
 
 
 
@@ -395,12 +395,12 @@ import { useParams } from "next/navigation";
 import { useOffplanById } from "../../admin/offplan/useOffplan";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useCreateBrousher } from "../../admin/Brousher/useBrousher";
+import { useCreateBrochure } from "../../admin/Brochure/useBrochure";
 
-const Brousher = () => {
+const Brochure = () => {
   const { _id } = useParams();
   const { data, isLoading, error } = useOffplanById(_id);
-  const { createNewBrousher, isCreating } = useCreateBrousher();
+  const { createNewBrochure, isCreating } = useCreateBrochure();
 
   const [showModal, setShowModal] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -429,7 +429,7 @@ const Brousher = () => {
       propertyid: data.name,
     };
 
-    createNewBrousher(payload, {
+    createNewBrochure(payload, {
       onSuccess: () => {
         setShowModal(false);
         setShowSuccess(true);
@@ -548,4 +548,4 @@ const Brousher = () => {
   );
 };
 
-export default Brousher;
+export default Brochure;

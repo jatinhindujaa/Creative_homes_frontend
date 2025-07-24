@@ -1,19 +1,19 @@
 import Menus from "@/app/_components/ui/Menus";
 import Table from "@/app/_components/ui/Table";
-import { useBrousherContext } from "./BrousherContext";
-import BrousherRow from "./BrousherRow.jsx";
-import { useBrousher } from "../useBrousher.js";
+import { useBrochureContext } from "./BrochureContext";
+import BrochureRow from "./BrochureRow.jsx";
+import { useBrochure } from "../useBrochure.js";
 import Spinner from "@/app/_components/ui/Spinner.jsx";
 import Empty from "@/app/_components/ui/Empty.jsx";
 
-function BrousherTable() {
-  const { filter, sort } = useBrousherContext();
-  const { data, isLoading, error } = useBrousher();
+function BrochureTable() {
+  const { filter, sort } = useBrochureContext();
+  const { data, isLoading, error } = useBrochure();
 
   if (isLoading) return <Spinner />;
-  if (error) return <div>Error loading Brousher: {error.message}</div>;
+  if (error) return <div>Error loading Brochure: {error.message}</div>;
 
-  const sortedBrousher = [...data].sort((a, b) => {
+  const sortedBrochure = [...data].sort((a, b) => {
     if (sort === "startDate-desc")
       return new Date(b.startDate) - new Date(a.startDate);
     if (sort === "startDate-asc")
@@ -23,10 +23,10 @@ function BrousherTable() {
     return 0;
   });
 
-  let filteredBrousher = sortedBrousher;
+  let filteredBrochure = sortedBrochure;
 
   if (filter !== "All") {
-    filteredBrousher = sortedBrousher.filter((el) => {
+    filteredBrochure = sortedBrochure.filter((el) => {
       if (filter.toLowerCase() === "active") {
         return el.status === true;
       } else if (filter.toLowerCase() === "inactive") {
@@ -49,9 +49,9 @@ function BrousherTable() {
         </Table.Header>
 
         <Table.Body
-          data={filteredBrousher}
+          data={filteredBrochure}
           render={(property, index) => (
-            <BrousherRow key={property._id || index} brousher={property} />
+            <BrochureRow key={property._id || index} brochure={property} />
           )}
         />
         <Table.Footer>
@@ -62,4 +62,4 @@ function BrousherTable() {
   );
 }
 
-export default BrousherTable;
+export default BrochureTable;

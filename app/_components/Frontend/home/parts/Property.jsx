@@ -204,7 +204,7 @@ const Property = () => {
               objectPosition="center"
               className="rounded-t-[300px] rounded-b-[20px]"
             />
-            <div className="absolute h-[80%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-all duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
+            <div className="absolute h-[76%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-all duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 Apartments
               </span>
@@ -226,7 +226,7 @@ const Property = () => {
                 objectPosition="center"
                 className="rounded-t-[300px] rounded-b-[20px]"
               />
-              <div className="absolute h-[80%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
+              <div className="absolute h-[76%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
                 <span className="text-white text-[1.4rem] leading-[2.4rem]">
                   Mansions/villas/Penthouses
                 </span>
@@ -254,7 +254,7 @@ const Property = () => {
               objectPosition="center"
               className="rounded-t-[300px] rounded-b-[20px]"
             />
-            <div className="absolute h-[80%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
+            <div className="absolute h-[76%] inset-0 flex flex-col justify-center items-center bg-black bg-opacity-30 opacity-100 hover:opacity-0 transition-opacity duration-300 delay-150 rounded-t-[300px] rounded-b-[20px]">
               <span className="text-white text-[1.4rem] leading-[2.4rem]">
                 Townhouses
               </span>

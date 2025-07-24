@@ -173,6 +173,9 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; // Import Slick CSS
+import "slick-carousel/slick/slick-theme.css";
 
 export default function PropertyGallery({ data }) {
   const images = data?.multipleImages || [];
@@ -195,10 +198,35 @@ export default function PropertyGallery({ data }) {
   };
 
   const remainingCount = images.length - 3;
-
+const slickSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  arrows: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
   return (
-    <div className="text-white p-6 md:p-10 md:px-0 rounded-xl w-[80%]">
-      <div className="flex flex-col md:flex-row gap-6 mt-[80px]">
+    <div className="text-white p-6 md:p-10 md:px-0 rounded-xl md:w-[80%] w-[100%]">
+      <div className="md:hidden block md:pt-0 pt-[90px]">
+        <Slider {...slickSettings}>
+          {data?.multipleImages?.map((img, i) => (
+            <div
+              key={i}
+              className="relative h-[300px] rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => openViewer(i)}
+            >
+              <Image
+                src={img || null}
+                alt={`Slide ${i + 1}`}
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+      <div className="md:flex hidden flex-col md:flex-row gap-6 mt-[80px]">
         {/* Left: Main Image */}
         <div
           className="relative w-full md:w-2/3 h-[600px] rounded-lg overflow-hidden mb-6 md:mb-0 cursor-pointer"

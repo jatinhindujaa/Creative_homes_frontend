@@ -47,10 +47,8 @@ const Mortgage = () => {
         " Yes, with competitive prices and strong ROI, many consider now a favorable time to invest.",
     },
   ];
-const title = "Mortgage Calculator";
-const description = `Our mortgage calculator factors in key costs like homeowners association
-        fees and private mortgage insurance (PMI), without the burden of
-        property taxes. Get a complete view of your total monthly payment today.`;
+const title = "Dubai Mortgage Calculator";
+const description = `Plan your property investment in Dubai confidently using our intuitive mortgage calculator. Get instant estimates for your monthly repayments, understand interest rates, and find answers to frequently asked questions about securing a mortgage in the UAE. Take the first step towards owning your dream property.`;
   return (
     <>
       {/* <Hero /> */}

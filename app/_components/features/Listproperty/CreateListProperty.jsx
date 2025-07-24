@@ -163,7 +163,7 @@ export default function ValuationForm() {
   };
 
   return (
-    <div className="bg-[#333] flex justify-end flex-col h-screen">
+    <div className="bg-[#282927] flex justify-end flex-col h-[83vh]">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="bg-[#272727] p-8 pt-10 rounded-lg shadow-lg max-w-md mx-auto ">
         <div className="flex justify-center text-[2rem] font-medium">

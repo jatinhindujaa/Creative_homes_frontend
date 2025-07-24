@@ -6,12 +6,13 @@ import Menus from "@/app/_components/ui/Menus";
 import { HiTrash, HiPencil } from "react-icons/hi2";
 import Spinner from "@/app/_components/ui/Spinner";
 import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
+import { useDeleteCareers } from "../useCareers";
 
 function CareersRow({
   Careers: { _id, name, phone, email, category, message },
 }) {
-  const { mutate: updateCareers, isPending: isUpdatingCareers } =
-    useUpdateCareers();
+  // const { mutate: updateCareers, isPending: isUpdatingCareers } =
+  //   useUpdateCareers();
   const { mutate: deleteCareers, isPending: isDeleting } = useDeleteCareers();
   const [show, setShow] = useState(false);
 
@@ -51,7 +52,7 @@ function CareersRow({
   //   updateCareers({ id: _id, formData });
   // };
 
-  if (isUpdatingCareers) return <Spinner />;
+  if (isDeleting) return <Spinner />;
 
   const convertedStatus = status ? "active" : "inactive";
 

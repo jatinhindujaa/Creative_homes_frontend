@@ -15,11 +15,8 @@ const News = () => {
     "Emirate Hills",
     "Downtown Dubai",
   ];
-  const title ="Real estate insights"
-  const description=`Explore the best properties, reliable agents, and expert advice all in
-        one spot. Whether you're searching for your perfect home or making a
-        savvy investment, we’re here to help you confidently navigate the real
-        estate market.`
+  const title = "Latest Dubai Real Estate News & Market Insights";
+  const description = `Stay informed and ahead of the curve with our curated collection of the freshest news, expert analysis, and market trends impacting Dubai's property sector. Our insights empower investors, buyers, and sellers with the knowledge needed to make strategic decisions and capitalize on emerging opportunities.`;
   return (
     <>
       {/* <Hero /> */}

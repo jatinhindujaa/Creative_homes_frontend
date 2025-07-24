@@ -18,12 +18,8 @@ const Guides = () => {
     "Downtown Dubai",
   ];
 
-   const title = "Why Invest In Dubai?";
-   const description = `Dubai offers a highly rewarding real estate market—if approached wisely.
-        Whether you're a first-time buyer or a seasoned investor, investing in
-        Dubai can provide strong returns, financial security, and growth
-        opportunities. Our guide will help you make informed decisions, maximize
-        profits, and minimize risks.`;
+   const title = "Why Invest In Dubai";
+   const description = ` Unlock the secrets of the Dubai property market with our comprehensive, expert-crafted guides. Whether you're looking to buy, sell, rent, or invest in off-plan properties, our resources provide invaluable information, practical tips, and deep dives into market specifics to ensure your success.`;
   return (
     <>
       {/* <Hero /> */}

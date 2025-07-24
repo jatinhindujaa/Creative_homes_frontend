@@ -8,6 +8,7 @@ import FeaturedSlider from './parts/FeaturedSlider';
 import Featured from '../home/parts/Featured';
 import MobileFeatured from '../home/parts/MobileFeatured';
 import TopArea from '../news/parts/TopArea';
+import MobileNeighbourhoods from './parts/MobileNeighbour';
 
 const FeatureProperty = () => {
   const locations = [
@@ -19,12 +20,8 @@ const FeatureProperty = () => {
     "Emirate Hills",
     "Downtown Dubai",
   ];
-    const title = "Featured Properties";
-    const description = ` Our property specialists cover Dubai’s key communities, offering a range
-        of services including Residential & Commercial Sales and Leasing,
-        Off-Plan Investments, Property Management, and more. Whether you're
-        looking to invest, buy, sell, or rent, our dedicated specialists are
-        here to guide you through every step of the process.`;
+    const title = "Featured Properties & Expert Insights in Dubai Real Estate";
+    const description = `Explore Creative Homes exclusive collection of handpicked properties, showcasing the finest luxury villas, modern apartments, and unique investment opportunities across Dubai. Alongside our premium listings, meet our top agents and gain valuable market insights from our latest articles and guides, empowering you to confidently navigate your real estate journey.`;
   return (
     <>
       {/* <Hero /> */}

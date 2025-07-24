@@ -7,7 +7,7 @@ import {
   fetchInquiryById,
   updateImage,
   updateBanner,
-  createBrousher,
+  createBrochure,
   createWhtsap,
   fetchWhtsap,
 } from "../../services/api.Inquiry.js";
@@ -59,10 +59,10 @@ export const useCreateInquiry = () => {
 
   return { createNewInquiry, isCreating };
 };
-export const useCreateBrousher= () => {
+export const useCreateBrochure= () => {
   const queryClient = useQueryClient();
-  const { mutate: createNewBrousher, isPending: isCreating } = useMutation({
-    mutationFn: createBrousher,
+  const { mutate: createNewBrochure, isPending: isCreating } = useMutation({
+    mutationFn: createBrochure,
     onSuccess: () => {
       queryClient.invalidateQueries(["Inquiry"]);
       toast.success("Inquiry Created successfully!");
@@ -73,7 +73,7 @@ export const useCreateBrousher= () => {
     },
   });
 
-  return { createNewBrousher, isCreating };
+  return { createNewBrochure, isCreating };
 };
 
 export const useCreatewhatsap = () => {

@@ -8,13 +8,9 @@ import TopArea from '../news/parts/TopArea';
 
 const About = () => {
 
-  const title = "About Us";
-  const description = `Creative Homes Real Estate is a leading real estate agency in Dubai,
-          specializing in identifying prime properties that cater to diverse
-          real estate needs. With extensive experience, global exposure, and
-          industry expertise, we have become the preferred choice for
-          enterprises, investors, and home-buyers seeking the right space at the
-          right price.`;
+  const title =
+    "About Creative Homes Real Estate: Your Best Dubai Real Estate Agency";
+  const description = ` Discover Creative Homes Real Estate, a leading agency in Dubai dedicated to providing unparalleled expertise in property buying, selling, leasing, and investment advisory. With extensive experience, global exposure, and a steadfast client-centric approach, we ensure a seamless and delightful journey in finding your ideal property or maximizing your investment in Dubai's dynamic market.`;
 
   
   return (

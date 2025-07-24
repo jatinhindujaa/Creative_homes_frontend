@@ -15,7 +15,7 @@ export const fetchWhtsap = async () => {
   return response.data.message; // Adjust based on actual API structure
 };
 
-export const fetchBrousher = async () => {
+export const fetchBrochure = async () => {
   const response = await axios.get(`${ApiUrl}/contact/get-all-whatsapp`, {
     withCredentials: true,
   });
@@ -30,8 +30,8 @@ export const createInquiry = async (formData) => {
   });
   return response.data;
 };
-export const createBrousher = async (formData) => {
-  const response = await axios.post(`${ApiUrl}/contact/brousher`, formData, {
+export const createBrochure = async (formData) => {
+  const response = await axios.post(`${ApiUrl}/contact/brochure`, formData, {
     withCredentials: true,
     headers: {
       "Content-Type": "application/json",

@@ -340,7 +340,7 @@ const handlePriceSubmit = () => {
     <div className="bg-[#282927] gap-2 flex items-center flex-col">
       {/* <Hero /> */}
       <TopArea title={title} description={description} />
-      <div className="pt-14">
+      {/* <div className="pt-14">
         <div className=" bg-black bg-opacity-10 p-6 rounded-lg">
           <div className="flex flex-wrap gap-4 justify-center">
             <select
@@ -440,7 +440,109 @@ const handlePriceSubmit = () => {
             </select>
           </div>
         </div>
+      </div> */}
+      <div className="pt-14">
+        <div className="bg-black bg-opacity-10 p-6 rounded-lg">
+          <div className="flex flex-wrap gap-4 justify-center md:flex-row flex-col">
+            <select
+              className="p-1 h-[35px] rounded-l-2xl border border-gray-300 text-black w-[100%] md:w-[100px]"
+              value={offeringType}
+              onChange={(e) => setOfferingType(e.target.value)}
+            >
+              <option value="">Type</option>
+              <option value="sale">Sale</option>
+              <option value="buy">Buy</option>
+              <option value="rent">Rent</option>
+              <option value="offplan">Offplan</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Search Property Name"
+              className="p-1 h-[35px] border border-gray-300 text-black placeholder-black w-[100%] md:w-[350px]"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <select
+              className="p-1 h-[35px] border border-gray-300 text-black w-[100%] md:w-auto"
+              value={propertyType}
+              onChange={(e) => setPropertyType(e.target.value)}
+            >
+              <option value="">Property Type</option>
+              <option value="apartment">Apartment</option>
+              <option value="penthouse">Penthouse</option>
+              <option value="compound">Compound</option>
+              <option value="villa">Villa</option>
+              <option value="duplex">Duplex</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="fullfloor">Full Floor</option>
+              <option value="halffloor">Half Floor</option>
+              <option value="wholebuilding">Whole Building</option>
+              <option value="bulkrentunit">Bulk Rent Unit</option>
+              <option value="bungalow">Bungalow</option>
+              <option value="hotelandhotelapartment">
+                Hotel & Hotel Apratment
+              </option>
+            </select>
+            <div className="relative bg-white w-[100%] md:w-auto">
+              <button
+                className="p-1 h-[35px] border border-gray-300 text-black w-full md:w-[200px]"
+                onClick={() => setShowPriceModal(!showPriceModal)}
+              >
+                Price Range
+              </button>
+              {showPriceModal && (
+                <div className="absolute top-full left-0 mt-2 w-full md:w-64 p-4 bg-white border rounded-lg shadow-lg z-10">
+                  <div className="flex flex-col gap-2">
+                    <input
+                      type="number"
+                      placeholder="Min Price"
+                      className="p-2 border border-gray-300 text-black"
+                      value={minPrice}
+                      onChange={(e) => setMinPrice(e.target.value)}
+                    />
+                    <input
+                      type="number"
+                      placeholder="Max Price"
+                      className="p-2 border border-gray-300 text-black"
+                      value={maxPrice}
+                      onChange={(e) => setMaxPrice(e.target.value)}
+                    />
+                    <button
+                      className="mt-2 p-2 bg-blue-500 text-white"
+                      onClick={handlePriceSubmit}
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            <select
+              className="p-1 h-[35px] border border-gray-300 text-black px-3 w-[100%] md:w-auto"
+              value={beds}
+              onChange={(e) => setBeds(e.target.value)}
+            >
+              <option value="">Beds</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <select
+              className="p-1 h-[35px] rounded-r-2xl border border-gray-300 text-black w-[100%] md:w-[100px]"
+              value={baths}
+              onChange={(e) => setBaths(e.target.value)}
+            >
+              <option value="">Bath</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+        </div>
       </div>
+
       <div className="pb-10 w-[80%]">
         {filteredProperties?.length === 0 ? (
           <div className="text-center text-white">

@@ -142,7 +142,7 @@
 //     try {
 //       setLoading(true);
 //       const res = await fetch(
-//         "https://creativehomes.ae/api/v1/contact/whatsp",
+//         "http://localhost:7000/api/v1/contact/whatsp",
 //         {
 //           method: "POST",
 //           headers: {
@@ -309,7 +309,7 @@ const WhatsAppIcon = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("https://creativehomes.ae/api/v1/whtsap/create", {
+      const res = await fetch("http://localhost:7000/api/v1/whtsap/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

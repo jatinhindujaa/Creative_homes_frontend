@@ -100,16 +100,16 @@ const OffplanInner = () => {
   return (
     <div className="bg-[#282927] flex items-center flex-col">
       <OffplanGallery data={data} />
-      <div className="flex flex-row w-[80%] justify-between">
-        <div className="w-[66%]">
+      <div className="flex md:flex-row flex-col md:w-[80%] w-[100%] justify-between">
+        <div className="md:w-[66%] w-[100%]">
           <OffplanDetail data={data} />
           <OffplanExtras data={data} />
         </div>
 
         {/* Right Column (Fixed) */}
-        <div className="w-full md:w-[30%] flex flex-col gap-6 sticky top-6">
+        <div className="w-full md:w-[30%] flex flex-col gap-6 sticky top-6 items-center">
           {/* Agent Card */}
-          <div className="border rounded-xl p-5 flex flex-col gap-4">
+          <div className="border md:w-[100%] w-[90%] rounded-xl p-5 flex flex-col gap-4">
             <div className="text-white rounded-xl flex flex-col gap-4">
               <h3 className="text-lg font-semibold text-gray-400">
                 Starting Price
@@ -118,7 +118,7 @@ const OffplanInner = () => {
                 AED {data?.price}
               </h1>
 
-              <div className="flex gap-4 mt-2">
+              <div className="flex md:gap-8 gap-[3rem] mt-2">
                 <a href={`tel:${"+971585611099"}`} className="w-[25%]">
                   <button className="border border-gray-400 text-white px-5 py-2 rounded-full flex items-center gap-2 hover:bg-gray-700">
                     <IoCallOutline size={20} /> Call
@@ -137,17 +137,17 @@ const OffplanInner = () => {
               </div>
               <button
                 className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition"
-                onClick={() => router.push(`/brousher/${data._id}`)}
+                onClick={() => router.push(`/brochure/${data._id}`)}
               >
-                Brousher Download
+                Brochure Download
               </button>
             </div>
           </div>
 
           {/* Mortgage Card */}
-          <div className="border rounded-xl p-5 text-center flex flex-col items-center gap-3">
-            <p className="text-sm text-gray-400">Need A Mortgage?</p>
-            <h4 className="text-md font-medium">
+          <div className="border md:w-[100%] w-[90%]  rounded-xl p-5 text-center flex flex-col items-center gap-3">
+            <p className="text-sm text-white">Need A Mortgage?</p>
+            <h4 className="text-md font-medium text-white">
               Estimated Mortgage is <br />{" "}
               <span className="text-white">AED {data?.price}</span>
             </h4>
@@ -158,10 +158,9 @@ const OffplanInner = () => {
         </div>
       </div>
 
-        <InterestSection />
-        <MarqueeSection />
-      <div className="bg-[#282927] gap-2 flex items-center flex-col">
-      </div>
+      <InterestSection />
+      <MarqueeSection />
+      <div className="bg-[#282927] gap-2 flex items-center flex-col"></div>
     </div>
   );
 };
@@ -251,9 +250,9 @@ export default OffplanInner;
 //               </div>
 //               <button
 //                 className="bg-white text-black px-6 py-2 rounded-full text-sm font-semibold hover:bg-gray-300 transition"
-//                 onClick={() => router.push(`/brousher/${data._id}`)}
+//                 onClick={() => router.push(`/brochure/${data._id}`)}
 //               >
-//                 Brousher Download
+//                 Brochure Download
 //               </button>
 //             </div>
 //           </div>

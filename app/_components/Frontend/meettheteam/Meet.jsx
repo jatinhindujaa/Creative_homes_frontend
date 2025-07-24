@@ -55,12 +55,8 @@ const Meet = () => {
         "With competitive pricing and high rental yields, now is a great time to invest in Dubai’s real estate market.",
     },
   ];
-  const title = "Meet Our team";
-  const description = ` Our property specialists cover Dubai’s key communities, offering a range
-        of services including Residential & Commercial Sales and Leasing,
-        Off-Plan Investments, Property Management, and more. Whether you're
-        looking to invest, buy, sell, or rent, our dedicated specialists are
-        here to guide you through every step of the process.`;
+  const title = "Meet the Creative Homes Real Estate Experts in Dubai";
+  const description = `Behind every successful property journey is a dedicated team. Our RERA-certified property specialists bring unparalleled local market knowledge, years of experience, and a passion for client success. Get to know the professionals committed to delivering exceptional service and guiding you through Dubai's vibrant real estate landscape.`;
   return (
     <>
       {/* <Hero /> */}

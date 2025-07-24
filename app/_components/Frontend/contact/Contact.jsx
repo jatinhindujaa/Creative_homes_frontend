@@ -8,10 +8,8 @@ import Map from "./parts/Map";
 import TopArea from "../news/parts/TopArea";
 
 const Contact = () => {
-  const title = "Contact US";
-  const description = `Need expert advice? Whether you’re exploring new investment options or
-          seeking advice on the best property deals, our experienced team is
-          here to help you with all your property needs.`;
+  const title = "Contact Creative Homes: Your Trusted Dubai Real Estate Agency";
+  const description = `Ready to discuss your property needs in Dubai? Reach out to our friendly and knowledgeable real estate team for personalized advice, property inquiries, or any assistance you require. We are committed to providing prompt support and helping you achieve your real estate goals.`;
   return (
     <>
       {/* <Hero /> */}

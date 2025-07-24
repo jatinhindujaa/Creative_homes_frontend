@@ -1,11 +1,11 @@
 import TableOperations from "@/app/_components/ui/TableOperations";
-import { useBrousherContext } from "./BrousherContext";
+import { useBrochureContext } from "./BrochureContext";
 import SortBy from "@/app/_components/ui/SortBy.jsx";
 import Filter from "@/app/_components/ui/Filter";
 import Modal from "@/app/_components/ui/Modal";
 
-function BrousherTableOperations() {
-  const { filter, setFilter, sort, setSort } = useBrousherContext();
+function BrochureTableOperations() {
+  const { filter, setFilter, sort, setSort } = useBrochureContext();
   return (
     <TableOperations>
       <Filter
@@ -32,15 +32,15 @@ function BrousherTableOperations() {
       <Modal>
         {/* <Modal.Open opens="newsletter-form">
           <button className="font-outfit bg-blue-950 text-white p-2 font-light text-[1rem] leading-[1.5rem] border-[1.5px] border-white hover:bg-blue-900  rounded-[41px]">
-            Add Brousher
+            Add Brochure
           </button>
         </Modal.Open> */}
         {/* <Modal.Window name="newsletter-form">
-          <CreateBrousherForm resourceName="Brousher" />
+          <CreateBrochureForm resourceName="Brochure" />
         </Modal.Window> */}
       </Modal>
     </TableOperations>
   );
 }
 
-export default BrousherTableOperations;
+export default BrochureTableOperations;

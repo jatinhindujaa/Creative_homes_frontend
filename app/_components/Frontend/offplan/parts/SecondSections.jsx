@@ -100,7 +100,7 @@ const features = [
             {plans.map((plan, i) => (
               <div
                 key={i}
-                className="border border-white rounded-md px-6 py-6 text-center w-[32%]"
+                className="border border-white rounded-md px-6 py-6 text-center md:w-[32%] w-[100%]"
               >
                 <p className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
                   {plan.percent}
@@ -112,11 +112,11 @@ const features = [
         </section>
       )}
 
-      <div className="flex gap-[26px] items-center px-6">
+      <div className="flex gap-[26px] items-center px-6 md:flex-row flex-col">
         {features.map((feature, i) => (
           <div
             key={i}
-            className="pl-[6px] flex items-center gap-2 text-xl font-semibold text-white w-[32%]"
+            className="pl-[6px] flex items-center gap-2 text-xl font-semibold text-white md:w-[32%] w-[100%]"
           >
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center ${feature.bgColor}`}
@@ -181,6 +181,32 @@ const features = [
           ))}
         </div>
       </div>
+       <div>
+              <h2 className="text-2xl font-semibold">
+                <span className="text-[#f1c376]">Regulatory</span> Information
+              </h2>
+              <div className="flex flex-row gap-10 mt-4 items-center">
+                {/* <div className="flex flex-col gap-2 text-sm">
+                  <p>
+                    <span className="text-gray-400">Reference:</span>{" "}
+                    {data?.reference}
+                  </p>
+                  <p>
+                    <span className="text-gray-400">DLD Permit Number:</span>{" "}
+                    {data?.dld}
+                  </p>
+                </div> */}
+                <div className="flex">
+                  <Image
+                    src={data?.image || null}
+                    alt="QR"
+                    className="object-cover rounded-md"
+                    width={150}
+                    height={200}
+                  />
+                </div>
+              </div>
+            </div>
       <div className="px-0 py-4">
         <h2 className="text-4xl font-semibold mb-8">Floor plans</h2>
 

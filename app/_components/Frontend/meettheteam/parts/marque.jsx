@@ -1,3 +1,5 @@
+"use client"
+import { useAreas } from "@/app/_components/admin/area/useArea";
 import React from "react";
 
 const locations = [
@@ -15,8 +17,10 @@ const locations = [
 ];
 
 const MarqueeSection = () => {
+    const { data: areas, isLoading } = useAreas();
+    console.log("areas", areas);
   return (
-    <div className="bg-[#202120] flex gap-2 flex-col p-10 w-[80%] rounded-[30px] md:mb-0">
+    <div className="bg-[#202120] flex gap-2 flex-col md:p-10 p-[1.5rem] w-[80%] rounded-[30px]">
       <div className="flex justify-center">
         <span className="text-[#fff] text-[1.5rem] lg:text-[2.5rem] text-center">
           Explore{" "}
@@ -30,12 +34,12 @@ const MarqueeSection = () => {
         <div className="marquee-container group">
           <div className="marquee group-hover:[animation-play-state:paused]">
             {/* Duplicate items for smooth infinite loop */}
-            {[...locations, ...locations].map((location, index) => (
+            {areas?.map((location, index) => (
               <div
                 key={index}
                 className="whitespace-nowrap mx-2 px-4 py-2 border border-white rounded-full text-white cursor-pointer hover:bg-white hover:text-black "
               >
-                {location}
+                {location.name}
               </div>
             ))}
           </div>

@@ -12,7 +12,7 @@ export async function generateMetadata() {
     // keywords:
     //   "SDMH, Jaipur hospital, best hospital in Rajasthan, multispeciality healthcare",
     alternates: {
-      canonical: "https://creativehomes.ae/about",
+      canonical: "http://localhost:7000/about",
     },
   };
 }

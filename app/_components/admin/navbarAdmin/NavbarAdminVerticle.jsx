@@ -74,7 +74,7 @@
 //     isParent: true,
 //     child: [
 //       { id: 6, name: "WhatsApp Inquiry", link: "/admin/whtsap" },
-//       { id: 7, name: "Broushers", link: "/admin/broushers" },
+//       { id: 7, name: "Brochures", link: "/admin/brochures" },
 //       { id: 8, name: "Contact", link: "/admin/inquiries" },
 //       { id: 9, name: "Newsletter", link: "/admin/newsletter" },
 //     ],
@@ -190,7 +190,7 @@ const navData = [
     isParent: true,
     child: [
       { id: 6, name: "WhatsApp Inquiry", link: "/admin/whtsap" },
-      { id: 7, name: "Broushers", link: "/admin/brousher" },
+      { id: 7, name: "Brochures", link: "/admin/brochure" },
       { id: 8, name: "Contact", link: "/admin/inquiries" },
       { id: 9, name: "Newsletter", link: "/admin/newsletter" },
     ],

@@ -261,6 +261,7 @@ import MarqueeSection from "./marque";
 import { usePropertyByAgentId } from "@/app/_components/admin/properties/useProperties";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoCallOutline } from "react-icons/io5";
+import TopArea from "../../news/parts/TopArea";
 const AgentsInner = () => {
   const { _id } = useParams();
   const { data: agents, isLoading: isAgentLoading } = useAgentById(_id);
@@ -276,16 +277,13 @@ const AgentsInner = () => {
     "Emirate Hills",
     "Downtown Dubai",
   ];
-
+const title = "Meet Our Expert Dubai Real Estate Agents";
+const description = `Discover the dedicated team of experienced real estate specialists at Creative Homes. Our agents bring extensive local market knowledge and a client-first approach to guide you seamlessly through buying, selling, renting, or investing in Dubai properties. Learn more about the professionals committed to your success in finding the perfect property.`;
   return (
-    <div className="mx-auto">
-      <div
-        className="h-48 w-full bg-cover bg-center relative sm:h-[14rem] sm:block hidden"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80')",
-        }}
-      >
+    <div className="bg-[#282927] gap-2 flex items-center flex-col">
+      <TopArea title={title} description={description} />
+
+      <div className="h-48 w-full bg-cover bg-center relative sm:h-[9rem] sm:block hidden">
         <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-16 sm:left-[14%] sm:-bottom-12 w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white">
           <img
             src={agents?.image}
@@ -381,11 +379,9 @@ const AgentsInner = () => {
         </div>
       </div>
 
-      <div className="pt-20 pb-12 bg-[#282927] flex flex-col items-center">
         <MarqueeSection />
         <InterestSection />
         <Popular locations={locations} />
-      </div>
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import toast from "react-hot-toast";
-import { createBrousher, fetchBrousher } from "../../services/api.brousher";
+import { createBrochure, fetchBrochure } from "../../services/api.brochure";
 
-export const useCreateBrousher = () => {
+export const useCreateBrochure = () => {
   const queryClient = useQueryClient();
-  const { mutate: createNewBrousher, isPending: isCreating } = useMutation({
-    mutationFn: createBrousher,
+  const { mutate: createNewBrochure, isPending: isCreating } = useMutation({
+    mutationFn: createBrochure,
     onSuccess: () => {
-      queryClient.invalidateQueries(["Brousher"]);
+      queryClient.invalidateQueries(["Brochure"]);
       toast.success("News Created successfully!");
     },
     onError: (error) => {
@@ -17,13 +17,13 @@ export const useCreateBrousher = () => {
     },
   });
 
-  return { createNewBrousher, isCreating };
+  return { createNewBrochure, isCreating };
 };
 
-export const useBrousher = () => {
+export const useBrochure = () => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["Brousher"],
-    queryFn: fetchBrousher,
+    queryKey: ["Brochure"],
+    queryFn: fetchBrochure,
     staleTime: 5 * 60 * 1000,
   });
   return { data, isLoading, error };

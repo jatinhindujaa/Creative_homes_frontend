@@ -13,12 +13,8 @@ import React from "react";
 import TopArea from "../news/parts/TopArea";
 
 const Privacypolicy = () => {
-   const title = "Privacy Policies";
-   const description = ` Our property specialists cover Dubai’s key communities, offering a range
-        of services including Residential & Commercial Sales and Leasing,
-        Off-Plan Investments, Property Management, and more. Whether you're
-        looking to invest, buy, sell, or rent, our dedicated specialists are
-        here to guide you through every step of the process.`;
+   const title = "Privacy Policy | Creative Homes Real Estate";
+   const description = ` At Creative Homes, your privacy is paramount. This policy outlines how we collect, use, and protect your personal information when you interact with our website and services, ensuring transparency and security in all your real estate dealings with us.`;
   return (
       <div className="bg-[#282927] gap-2 flex items-center flex-col">
         <TopArea title={title} description={description} />

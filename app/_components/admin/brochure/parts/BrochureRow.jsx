@@ -11,8 +11,8 @@ import ConfirmDelete from "@/app/_components/ui/ConfirmDelete";
 import Image from "next/image";
 import toast from "react-hot-toast";
 
-function BrousherRow({
-  brousher: { _id, email, name, phone, message, propertyid },
+function BrochureRow({
+  brochure: { _id, email, name, phone, message, propertyid },
 }) {
   const [show, setShow] = useState(false);
 
@@ -22,16 +22,16 @@ function BrousherRow({
 
   // for propery listing [Implement in Admin ]
   // const handleToggleStatus = () => {
-  //   updateBrousher({ id: _id, data: { status: !status } });
+  //   updateBrochure({ id: _id, data: { status: !status } });
   // };
   const handleToggleStatus = () => {
     console.log("Toggling status for:", _id, "Current status:", status);
     const formData = new FormData();
     formData.append("status", !status); // string "true"/"false"
-    updateBrousher({ id: _id, formData });
+    updateBrochure({ id: _id, formData });
   };
   const handleDelete = () => {
-    deleteBrousher(_id);
+    deleteBrochure(_id);
   };
 
   const convertedStatus = !status ? "active" : "inactive";
@@ -56,4 +56,4 @@ function BrousherRow({
   );
 }
 
-export default BrousherRow;
+export default BrochureRow;

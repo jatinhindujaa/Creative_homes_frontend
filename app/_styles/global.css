@@ -97,6 +97,7 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  height: 28px;
 }
 
 

@@ -1,19 +1,19 @@
 import React, { createContext, useContext, useState } from "react";
 
 // Create the context
-const BrousherContext = createContext();
+const BrochureContext = createContext();
 
 // Create the provider component
-export const BrousherProvider = ({ children }) => {
+export const BrochureProvider = ({ children }) => {
   const [filter, setFilter] = useState("All");
   const [sort, setSort] = useState("startDate-desc");
 
   return (
-    <BrousherContext.Provider value={{ filter, setFilter, sort, setSort }}>
+    <BrochureContext.Provider value={{ filter, setFilter, sort, setSort }}>
       {children}
-    </BrousherContext.Provider>
+    </BrochureContext.Provider>
   );
 };
 
 // Custom hook for consuming the context
-export const useBrousherContext = () => useContext(BrousherContext);
+export const useBrochureContext = () => useContext(BrochureContext);
