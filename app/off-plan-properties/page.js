@@ -10,7 +10,7 @@ export async function generateMetadata() {
     // keywords:
     //   "SDMH, Jaipur hospital, best hospital in Rajasthan, multispeciality healthcare",
     alternates: {
-      canonical: "http://localhost:7000/off-plan-properties",
+      canonical: "https://creativehomes.ae/off-plan-properties",
     },
   };
 }

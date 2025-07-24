@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: http://localhost:7000
+Host: https://creativehomes.ae
 
 # Sitemaps
-Sitemap: http://localhost:7000/sitemap.xml
+Sitemap: https://creativehomes.ae/sitemap.xml
