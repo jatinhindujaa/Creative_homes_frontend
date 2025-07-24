@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import toast from "react-hot-toast";
-import { createBrochure, fetchBrochure } from "../../services/api.brochure";
+import { createBrochure, fetchBrochure } from "../../services/api.brousher";
 
 export const useCreateBrochure = () => {
   const queryClient = useQueryClient();
