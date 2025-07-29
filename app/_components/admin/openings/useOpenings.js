@@ -35,7 +35,7 @@ export const useCreateOpenings = () => {
     mutationFn: createOpenings,
     onSuccess: () => {
       queryClient.invalidateQueries(["Openings"]);
-      toast.success("Openings Created successfully!");
+      // toast.success("Openings Created successfully!");
     },
     onError: (error) => {
       console.error("Failed to create Openings:", error);

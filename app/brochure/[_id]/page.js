@@ -1,4 +1,4 @@
-import Brochure from "@/app/_components/admin/brochure/Brochure";
+import Brochure from "@/app/_components/Frontend/brousher/Brousher";
 
 export default function Page() {
   return <Brochure />;

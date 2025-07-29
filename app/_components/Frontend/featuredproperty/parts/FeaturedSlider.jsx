@@ -84,7 +84,6 @@ if (isLoading) return <Spinner />;
           </div>
         </div>
 
-        {/* Right Arrow */}
         <div className="absolute bottom-[90%] -right-9 flex gap-2">
           <div
             className="border-2 border-white rounded-full flex justify-center items-center p-0.5 cursor-pointer hover:bg-transparent"

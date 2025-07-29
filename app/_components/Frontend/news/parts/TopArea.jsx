@@ -24,13 +24,13 @@ export default function TopArea({ description, title }) {
       <img
         src="/Vector.png"
         alt="Icon"
-        className="absolute -top-[24px] -left-[24px] w-[9rem] h-[9rem]"
+        className="absolute -top-[35px] -left-[35px] w-[9rem] h-[9rem]"
       />
 
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold md:text-[3rem] text-[2rem]">
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold md:text-[2rem] text-[2rem]">
         {title}
       </span>
-      <p className="text-white md:text-lg text-[1rem] leading-relaxed font-extralight">
+      <p className="text-white md:text-[1rem] text-[1rem] leading-relaxed font-extralight">
         {description}
       </p>
     </section>

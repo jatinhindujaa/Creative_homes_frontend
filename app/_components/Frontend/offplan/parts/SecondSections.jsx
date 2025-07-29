@@ -45,13 +45,13 @@ export default function OffplanExtras({data}) {
   };
 const features = [
   {
-    icon: one,
+    icon: two,
     text: "No commission",
     // bgColor: "bg-blue-500",
     checkColor: "bg-green-500",
   },
   {
-    icon: two,
+    icon: one,
     text: "Direct sales",
     // bgColor: "bg-blue-500",
     checkColor: "bg-green-500",
