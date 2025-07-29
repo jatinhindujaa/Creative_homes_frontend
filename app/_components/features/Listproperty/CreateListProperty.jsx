@@ -166,16 +166,16 @@ export default function ValuationForm() {
     <div className="bg-[#282927] flex justify-end flex-col md:h-[90vh] h-[96vh]">
       <Toaster position="top-center" reverseOrder={false} />
       <div className="bg-[#272727] p-8 pt-10 rounded-lg shadow-lg max-w-md mx-auto ">
-        <div className="flex justify-center text-[2rem] font-medium">
+        <div className="flex justify-center text-[2rem] font-medium md:mb-[23px]">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-bronze to-gold">
             List Your Property
           </span>
         </div>
-        <p className="text-center text-sm mb-6 text-white">
+        {/* <p className="text-center text-sm mb-6 text-white">
           Looking to sell or rent your property in Dubai? Please complete the
           form below, and we will contact you promptly to facilitate the
           process.
-        </p>
+        </p> */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <input
             type="text"
