@@ -31,11 +31,9 @@ const Homelist = () => {
       <TopArea title={title} description={description} />
       <ValuationForm />
       <News />
-      <div className="bg-[#282927] gap-2 flex items-center flex-col py-10">
       <MarqueeSection />
         <Popular locations={locations} />
         <InterestSection />
-      </div>
     </div>
   );
 }
